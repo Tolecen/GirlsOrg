@@ -7,12 +7,26 @@
 //
 
 #import "GSAppDelegate.h"
+#import "GSViewController.h"
 
 @implementation GSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+    GSViewController *A = [[GSViewController alloc] init];
+    A.view.backgroundColor = [UIColor redColor];
+    GSViewController *B = [[GSViewController alloc] init];
+    B.view.backgroundColor = [UIColor grayColor];
+    
+    tabBarController.viewControllers = @[A,B];
+    
+    self.window.rootViewController = tabBarController;
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
