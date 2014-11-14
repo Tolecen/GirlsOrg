@@ -22,13 +22,6 @@
 		064530EC1A1626630041844B /* NSObject+MTLComparisonAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 064530DB1A1626630041844B /* NSObject+MTLComparisonAdditions.m */; };
 		064530ED1A1626630041844B /* NSValueTransformer+MTLInversionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 064530DD1A1626630041844B /* NSValueTransformer+MTLInversionAdditions.m */; };
 		064530EE1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 064530DF1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.m */; };
-		064531181A1630D10041844B /* AKTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 0645310B1A1630D10041844B /* AKTab.m */; };
-		064531191A1630D10041844B /* AKTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0645310D1A1630D10041844B /* AKTabBar.m */; };
-		0645311A1A1630D10041844B /* AKTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0645310F1A1630D10041844B /* AKTabBarController.m */; };
-		0645311B1A1630D10041844B /* AKTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 064531111A1630D10041844B /* AKTabBarView.m */; };
-		0645311C1A1630D10041844B /* UINavigationController+AKTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 064531131A1630D10041844B /* UINavigationController+AKTabBarController.m */; };
-		0645311D1A1630D10041844B /* UISplitViewController+AKTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 064531151A1630D10041844B /* UISplitViewController+AKTabBarController.m */; };
-		0645311E1A1630D10041844B /* UIViewController+AKTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 064531171A1630D10041844B /* UIViewController+AKTabBarController.m */; };
 		06B704B21A12540000082D9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B704B11A12540000082D9C /* Foundation.framework */; };
 		06B704B41A12540000082D9C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B704B31A12540000082D9C /* CoreGraphics.framework */; };
 		06B704B61A12540000082D9C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B704B51A12540000082D9C /* UIKit.framework */; };
@@ -122,20 +115,6 @@
 		064530DD1A1626630041844B /* NSValueTransformer+MTLInversionAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+MTLInversionAdditions.m"; sourceTree = "<group>"; };
 		064530DE1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+MTLPredefinedTransformerAdditions.h"; sourceTree = "<group>"; };
 		064530DF1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+MTLPredefinedTransformerAdditions.m"; sourceTree = "<group>"; };
-		0645310A1A1630D10041844B /* AKTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTab.h; sourceTree = "<group>"; };
-		0645310B1A1630D10041844B /* AKTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTab.m; sourceTree = "<group>"; };
-		0645310C1A1630D10041844B /* AKTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTabBar.h; sourceTree = "<group>"; };
-		0645310D1A1630D10041844B /* AKTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTabBar.m; sourceTree = "<group>"; };
-		0645310E1A1630D10041844B /* AKTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTabBarController.h; sourceTree = "<group>"; };
-		0645310F1A1630D10041844B /* AKTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTabBarController.m; sourceTree = "<group>"; };
-		064531101A1630D10041844B /* AKTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTabBarView.h; sourceTree = "<group>"; };
-		064531111A1630D10041844B /* AKTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTabBarView.m; sourceTree = "<group>"; };
-		064531121A1630D10041844B /* UINavigationController+AKTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AKTabBarController.h"; sourceTree = "<group>"; };
-		064531131A1630D10041844B /* UINavigationController+AKTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AKTabBarController.m"; sourceTree = "<group>"; };
-		064531141A1630D10041844B /* UISplitViewController+AKTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+AKTabBarController.h"; sourceTree = "<group>"; };
-		064531151A1630D10041844B /* UISplitViewController+AKTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+AKTabBarController.m"; sourceTree = "<group>"; };
-		064531161A1630D10041844B /* UIViewController+AKTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AKTabBarController.h"; sourceTree = "<group>"; };
-		064531171A1630D10041844B /* UIViewController+AKTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AKTabBarController.m"; sourceTree = "<group>"; };
 		06B704AE1A12540000082D9C /* GirlsOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GirlsOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B704B11A12540000082D9C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		06B704B31A12540000082D9C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -326,30 +305,8 @@
 		064530F21A1627A70041844B /* Utilitys */ = {
 			isa = PBXGroup;
 			children = (
-				064531091A1630D10041844B /* AKTabBarController */,
 			);
 			path = Utilitys;
-			sourceTree = "<group>";
-		};
-		064531091A1630D10041844B /* AKTabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				0645310A1A1630D10041844B /* AKTab.h */,
-				0645310B1A1630D10041844B /* AKTab.m */,
-				0645310C1A1630D10041844B /* AKTabBar.h */,
-				0645310D1A1630D10041844B /* AKTabBar.m */,
-				0645310E1A1630D10041844B /* AKTabBarController.h */,
-				0645310F1A1630D10041844B /* AKTabBarController.m */,
-				064531101A1630D10041844B /* AKTabBarView.h */,
-				064531111A1630D10041844B /* AKTabBarView.m */,
-				064531121A1630D10041844B /* UINavigationController+AKTabBarController.h */,
-				064531131A1630D10041844B /* UINavigationController+AKTabBarController.m */,
-				064531141A1630D10041844B /* UISplitViewController+AKTabBarController.h */,
-				064531151A1630D10041844B /* UISplitViewController+AKTabBarController.m */,
-				064531161A1630D10041844B /* UIViewController+AKTabBarController.h */,
-				064531171A1630D10041844B /* UIViewController+AKTabBarController.m */,
-			);
-			path = AKTabBarController;
 			sourceTree = "<group>";
 		};
 		06B704A51A1253FF00082D9C = {
@@ -668,14 +625,12 @@
 			files = (
 				064530ED1A1626630041844B /* NSValueTransformer+MTLInversionAdditions.m in Sources */,
 				064530E11A1626630041844B /* EXTScope.m in Sources */,
-				0645311C1A1630D10041844B /* UINavigationController+AKTabBarController.m in Sources */,
 				064530EA1A1626630041844B /* NSDictionary+MTLManipulationAdditions.m in Sources */,
 				06B705AF1A126A9A00082D9C /* AFHTTPRequestOperation.m in Sources */,
 				064530E01A1626630041844B /* EXTRuntimeExtensions.m in Sources */,
 				064530E71A1626630041844B /* MTLReflection.m in Sources */,
 				06B705BE1A126A9A00082D9C /* NSString+MagicalDataImport.m in Sources */,
 				064530E41A1626630041844B /* MTLManagedObjectAdapter.m in Sources */,
-				064531181A1630D10041844B /* AKTab.m in Sources */,
 				06B705C81A126A9A00082D9C /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				06B704C21A12540000082D9C /* GSAppDelegate.m in Sources */,
 				064530EE1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */,
@@ -698,9 +653,7 @@
 				06B705B11A126A9A00082D9C /* AFHTTPSessionManager.m in Sources */,
 				064530E81A1626630041844B /* MTLValueTransformer.m in Sources */,
 				06B705B81A126A9A00082D9C /* MagicalImportFunctions.m in Sources */,
-				064531191A1630D10041844B /* AKTabBar.m in Sources */,
 				06B705C51A126A9A00082D9C /* NSManagedObjectContext+MagicalRecord.m in Sources */,
-				0645311A1A1630D10041844B /* AKTabBarController.m in Sources */,
 				06B705C61A126A9A00082D9C /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				06B705B51A126A9A00082D9C /* AFURLRequestSerialization.m in Sources */,
 				06B705B71A126A9A00082D9C /* AFURLSessionManager.m in Sources */,
@@ -712,16 +665,13 @@
 				06B705CC1A126A9A00082D9C /* MagicalRecord+ErrorHandling.m in Sources */,
 				06B705C11A126A9A00082D9C /* NSManagedObject+MagicalFinders.m in Sources */,
 				06B705CB1A126A9A00082D9C /* MagicalRecord+Actions.m in Sources */,
-				0645311E1A1630D10041844B /* UIViewController+AKTabBarController.m in Sources */,
 				06B705C01A126A9A00082D9C /* NSManagedObject+MagicalDataImport.m in Sources */,
 				064530E31A1626630041844B /* MTLJSONAdapter.m in Sources */,
 				06B704BE1A12540000082D9C /* main.m in Sources */,
-				0645311D1A1630D10041844B /* UISplitViewController+AKTabBarController.m in Sources */,
 				064530EB1A1626630041844B /* NSError+MTLModelException.m in Sources */,
 				06B705CF1A126A9A00082D9C /* MagicalRecord+Setup.m in Sources */,
 				06B705BB1A126A9A00082D9C /* NSNumber+MagicalDataImport.m in Sources */,
 				06B705D11A126A9A00082D9C /* MagicalRecord.m in Sources */,
-				0645311B1A1630D10041844B /* AKTabBarView.m in Sources */,
 				06B705D01A126A9A00082D9C /* MagicalRecord+ShorthandSupport.m in Sources */,
 				06B705CA1A126A9A00082D9C /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				064530E61A1626630041844B /* MTLModel.m in Sources */,
