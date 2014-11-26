@@ -70,6 +70,11 @@
 		06B705CF1A126A9A00082D9C /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B705A61A126A9A00082D9C /* MagicalRecord+Setup.m */; };
 		06B705D01A126A9A00082D9C /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B705A81A126A9A00082D9C /* MagicalRecord+ShorthandSupport.m */; };
 		06B705D11A126A9A00082D9C /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B705AA1A126A9A00082D9C /* MagicalRecord.m */; };
+		06BB3B851A262DE700ABE520 /* GSDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BB3B7B1A262DE700ABE520 /* GSDataProvider.m */; };
+		06BB3B861A262DE700ABE520 /* GSArrayDataSource+DataConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BB3B7E1A262DE700ABE520 /* GSArrayDataSource+DataConsumer.m */; };
+		06BB3B871A262DE700ABE520 /* GSArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BB3B801A262DE700ABE520 /* GSArrayDataSource.m */; };
+		06BB3B881A262DE700ABE520 /* GSCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BB3B821A262DE700ABE520 /* GSCollectionViewDataSource.m */; };
+		06BB3B891A262DE700ABE520 /* GSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BB3B841A262DE700ABE520 /* GSTableViewDataSource.m */; };
 		7A1290841A257DB40091B6E9 /* GSLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1290831A257DB40091B6E9 /* GSLaunchScreen.xib */; };
 		7A1290921A257DE20091B6E9 /* GSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290871A257DE20091B6E9 /* GSTab.m */; };
 		7A1290931A257DE20091B6E9 /* GSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290891A257DE20091B6E9 /* GSTabBar.m */; };
@@ -215,6 +220,16 @@
 		06B705AC1A126A9A00082D9C /* MagicalRecordLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordLogging.h; sourceTree = "<group>"; };
 		06B705AD1A126A9A00082D9C /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		06B705AE1A126A9A00082D9C /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
+		06BB3B7A1A262DE700ABE520 /* GSDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSDataProvider.h; sourceTree = "<group>"; };
+		06BB3B7B1A262DE700ABE520 /* GSDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSDataProvider.m; sourceTree = "<group>"; };
+		06BB3B7D1A262DE700ABE520 /* GSArrayDataSource+DataConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GSArrayDataSource+DataConsumer.h"; sourceTree = "<group>"; };
+		06BB3B7E1A262DE700ABE520 /* GSArrayDataSource+DataConsumer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GSArrayDataSource+DataConsumer.m"; sourceTree = "<group>"; };
+		06BB3B7F1A262DE700ABE520 /* GSArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSArrayDataSource.h; sourceTree = "<group>"; };
+		06BB3B801A262DE700ABE520 /* GSArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSArrayDataSource.m; sourceTree = "<group>"; };
+		06BB3B811A262DE700ABE520 /* GSCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCollectionViewDataSource.h; sourceTree = "<group>"; };
+		06BB3B821A262DE700ABE520 /* GSCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCollectionViewDataSource.m; sourceTree = "<group>"; };
+		06BB3B831A262DE700ABE520 /* GSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTableViewDataSource.h; sourceTree = "<group>"; };
+		06BB3B841A262DE700ABE520 /* GSTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTableViewDataSource.m; sourceTree = "<group>"; };
 		7A1290831A257DB40091B6E9 /* GSLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSLaunchScreen.xib; sourceTree = "<group>"; };
 		7A1290861A257DE20091B6E9 /* GSTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTab.h; sourceTree = "<group>"; };
 		7A1290871A257DE20091B6E9 /* GSTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTab.m; sourceTree = "<group>"; };
@@ -322,13 +337,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		064530F21A1627A70041844B /* Utilitys */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilitys;
-			sourceTree = "<group>";
-		};
 		06B704A51A1253FF00082D9C = {
 			isa = PBXGroup;
 			children = (
@@ -362,7 +370,7 @@
 		06B704B71A12540000082D9C /* GirlsOrg */ = {
 			isa = PBXGroup;
 			children = (
-				064530F21A1627A70041844B /* Utilitys */,
+				06BB3B781A262DE700ABE520 /* System */,
 				064530EF1A1627730041844B /* Controllers */,
 				064530F01A1627730041844B /* Models */,
 				064530F11A1627730041844B /* Views */,
@@ -547,6 +555,39 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		06BB3B781A262DE700ABE520 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				06BB3B791A262DE700ABE520 /* DataProvider */,
+				06BB3B7C1A262DE700ABE520 /* DataSource */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		06BB3B791A262DE700ABE520 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				06BB3B7A1A262DE700ABE520 /* GSDataProvider.h */,
+				06BB3B7B1A262DE700ABE520 /* GSDataProvider.m */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		06BB3B7C1A262DE700ABE520 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				06BB3B7D1A262DE700ABE520 /* GSArrayDataSource+DataConsumer.h */,
+				06BB3B7E1A262DE700ABE520 /* GSArrayDataSource+DataConsumer.m */,
+				06BB3B7F1A262DE700ABE520 /* GSArrayDataSource.h */,
+				06BB3B801A262DE700ABE520 /* GSArrayDataSource.m */,
+				06BB3B811A262DE700ABE520 /* GSCollectionViewDataSource.h */,
+				06BB3B821A262DE700ABE520 /* GSCollectionViewDataSource.m */,
+				06BB3B831A262DE700ABE520 /* GSTableViewDataSource.h */,
+				06BB3B841A262DE700ABE520 /* GSTableViewDataSource.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		7A1290851A257DE20091B6E9 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				064530ED1A1626630041844B /* NSValueTransformer+MTLInversionAdditions.m in Sources */,
+				06BB3B881A262DE700ABE520 /* GSCollectionViewDataSource.m in Sources */,
 				064530E11A1626630041844B /* EXTScope.m in Sources */,
 				064530EA1A1626630041844B /* NSDictionary+MTLManipulationAdditions.m in Sources */,
 				06B705AF1A126A9A00082D9C /* AFHTTPRequestOperation.m in Sources */,
@@ -677,6 +719,7 @@
 				7A1290921A257DE20091B6E9 /* GSTab.m in Sources */,
 				7A1290961A257DE20091B6E9 /* UINavigationController+GSTarBarController.m in Sources */,
 				06B704C21A12540000082D9C /* GSAppDelegate.m in Sources */,
+				06BB3B861A262DE700ABE520 /* GSArrayDataSource+DataConsumer.m in Sources */,
 				064530EE1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */,
 				06B705B01A126A9A00082D9C /* AFHTTPRequestOperationManager.m in Sources */,
 				06B705B21A126A9A00082D9C /* AFNetworkReachabilityManager.m in Sources */,
@@ -694,6 +737,7 @@
 				06B705C21A126A9A00082D9C /* NSManagedObject+MagicalRecord.m in Sources */,
 				06B705BA1A126A9A00082D9C /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				06B705B31A126A9A00082D9C /* AFSecurityPolicy.m in Sources */,
+				06BB3B891A262DE700ABE520 /* GSTableViewDataSource.m in Sources */,
 				06B705B11A126A9A00082D9C /* AFHTTPSessionManager.m in Sources */,
 				064530E81A1626630041844B /* MTLValueTransformer.m in Sources */,
 				06B705B81A126A9A00082D9C /* MagicalImportFunctions.m in Sources */,
@@ -705,6 +749,7 @@
 				7A1290941A257DE20091B6E9 /* GSTabBarController.m in Sources */,
 				06B705C71A126A9A00082D9C /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				064530E91A1626630041844B /* NSArray+MTLManipulationAdditions.m in Sources */,
+				06BB3B851A262DE700ABE520 /* GSDataProvider.m in Sources */,
 				064530EC1A1626630041844B /* NSObject+MTLComparisonAdditions.m in Sources */,
 				06B704C81A12540000082D9C /* GSViewController.m in Sources */,
 				06B705BD1A126A9A00082D9C /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
@@ -713,6 +758,7 @@
 				06B705C11A126A9A00082D9C /* NSManagedObject+MagicalFinders.m in Sources */,
 				06B705CB1A126A9A00082D9C /* MagicalRecord+Actions.m in Sources */,
 				06B705C01A126A9A00082D9C /* NSManagedObject+MagicalDataImport.m in Sources */,
+				06BB3B871A262DE700ABE520 /* GSArrayDataSource.m in Sources */,
 				064530E31A1626630041844B /* MTLJSONAdapter.m in Sources */,
 				06B704BE1A12540000082D9C /* main.m in Sources */,
 				064530EB1A1626630041844B /* NSError+MTLModelException.m in Sources */,
