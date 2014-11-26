@@ -8,6 +8,9 @@
 
 #import "GSAppDelegate.h"
 #import "GSViewController.h"
+#import "GSTabBarController.h"
+
+static const NSUInteger kTabBarDefaultHeight = 50.f;
 
 @implementation GSAppDelegate
 
@@ -15,15 +18,16 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    GSTabBarController *tabBarController = [[GSTabBarController alloc] initWithTabBarHeight:kTabBarDefaultHeight];
+    tabBarController.minimumHeightToDisplayTitle = 40.f;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[GSViewController alloc] init]];
+    navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     
-    GSViewController *A = [[GSViewController alloc] init];
-    A.view.backgroundColor = [UIColor redColor];
-    GSViewController *B = [[GSViewController alloc] init];
-    B.view.backgroundColor = [UIColor grayColor];
-    
-    tabBarController.viewControllers = @[A,B];
-    
+    [tabBarController setViewControllers:[NSMutableArray arrayWithObjects:
+                                          navigationController,
+                                          [[GSViewController alloc] init],
+                                          [[GSViewController alloc] init],
+                                          [[GSViewController alloc] init],nil]];
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];

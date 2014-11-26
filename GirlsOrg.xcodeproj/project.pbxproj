@@ -70,6 +70,13 @@
 		06B705CF1A126A9A00082D9C /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B705A61A126A9A00082D9C /* MagicalRecord+Setup.m */; };
 		06B705D01A126A9A00082D9C /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B705A81A126A9A00082D9C /* MagicalRecord+ShorthandSupport.m */; };
 		06B705D11A126A9A00082D9C /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B705AA1A126A9A00082D9C /* MagicalRecord.m */; };
+		7A1290841A257DB40091B6E9 /* GSLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1290831A257DB40091B6E9 /* GSLaunchScreen.xib */; };
+		7A1290921A257DE20091B6E9 /* GSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290871A257DE20091B6E9 /* GSTab.m */; };
+		7A1290931A257DE20091B6E9 /* GSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290891A257DE20091B6E9 /* GSTabBar.m */; };
+		7A1290941A257DE20091B6E9 /* GSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A12908B1A257DE20091B6E9 /* GSTabBarController.m */; };
+		7A1290951A257DE20091B6E9 /* GSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A12908D1A257DE20091B6E9 /* GSTabBarView.m */; };
+		7A1290961A257DE20091B6E9 /* UINavigationController+GSTarBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A12908F1A257DE20091B6E9 /* UINavigationController+GSTarBarController.m */; };
+		7A1290971A257DE20091B6E9 /* UIViewController+GSTarBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290911A257DE20091B6E9 /* UIViewController+GSTarBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +215,19 @@
 		06B705AC1A126A9A00082D9C /* MagicalRecordLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordLogging.h; sourceTree = "<group>"; };
 		06B705AD1A126A9A00082D9C /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		06B705AE1A126A9A00082D9C /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
+		7A1290831A257DB40091B6E9 /* GSLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSLaunchScreen.xib; sourceTree = "<group>"; };
+		7A1290861A257DE20091B6E9 /* GSTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTab.h; sourceTree = "<group>"; };
+		7A1290871A257DE20091B6E9 /* GSTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTab.m; sourceTree = "<group>"; };
+		7A1290881A257DE20091B6E9 /* GSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTabBar.h; sourceTree = "<group>"; };
+		7A1290891A257DE20091B6E9 /* GSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTabBar.m; sourceTree = "<group>"; };
+		7A12908A1A257DE20091B6E9 /* GSTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTabBarController.h; sourceTree = "<group>"; };
+		7A12908B1A257DE20091B6E9 /* GSTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTabBarController.m; sourceTree = "<group>"; };
+		7A12908C1A257DE20091B6E9 /* GSTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTabBarView.h; sourceTree = "<group>"; };
+		7A12908D1A257DE20091B6E9 /* GSTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTabBarView.m; sourceTree = "<group>"; };
+		7A12908E1A257DE20091B6E9 /* UINavigationController+GSTarBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+GSTarBarController.h"; sourceTree = "<group>"; };
+		7A12908F1A257DE20091B6E9 /* UINavigationController+GSTarBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+GSTarBarController.m"; sourceTree = "<group>"; };
+		7A1290901A257DE20091B6E9 /* UIViewController+GSTarBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GSTarBarController.h"; sourceTree = "<group>"; };
+		7A1290911A257DE20091B6E9 /* UIViewController+GSTarBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GSTarBarController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +371,7 @@
 				06B704C11A12540000082D9C /* GSAppDelegate.m */,
 				06B704C61A12540000082D9C /* GSViewController.h */,
 				06B704C71A12540000082D9C /* GSViewController.m */,
+				7A1290831A257DB40091B6E9 /* GSLaunchScreen.xib */,
 				06B704C91A12540000082D9C /* Images.xcassets */,
 				06B704B81A12540000082D9C /* Supporting Files */,
 			);
@@ -389,6 +410,7 @@
 		06B7055C1A126A9A00082D9C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				7A1290851A257DE20091B6E9 /* TabBarController */,
 				064530BE1A1626630041844B /* Mantle */,
 				06B7055D1A126A9A00082D9C /* AFNetworking */,
 				06B705711A126A9A00082D9C /* MagicalRecord */,
@@ -525,6 +547,25 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		7A1290851A257DE20091B6E9 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				7A1290861A257DE20091B6E9 /* GSTab.h */,
+				7A1290871A257DE20091B6E9 /* GSTab.m */,
+				7A1290881A257DE20091B6E9 /* GSTabBar.h */,
+				7A1290891A257DE20091B6E9 /* GSTabBar.m */,
+				7A12908A1A257DE20091B6E9 /* GSTabBarController.h */,
+				7A12908B1A257DE20091B6E9 /* GSTabBarController.m */,
+				7A12908C1A257DE20091B6E9 /* GSTabBarView.h */,
+				7A12908D1A257DE20091B6E9 /* GSTabBarView.m */,
+				7A12908E1A257DE20091B6E9 /* UINavigationController+GSTarBarController.h */,
+				7A12908F1A257DE20091B6E9 /* UINavigationController+GSTarBarController.m */,
+				7A1290901A257DE20091B6E9 /* UIViewController+GSTarBarController.h */,
+				7A1290911A257DE20091B6E9 /* UIViewController+GSTarBarController.m */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -602,6 +643,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A1290841A257DB40091B6E9 /* GSLaunchScreen.xib in Resources */,
 				06B704CA1A12540000082D9C /* Images.xcassets in Resources */,
 				06B704BC1A12540000082D9C /* InfoPlist.strings in Resources */,
 				064530E21A1626630041844B /* Info.plist in Resources */,
@@ -632,6 +674,8 @@
 				06B705BE1A126A9A00082D9C /* NSString+MagicalDataImport.m in Sources */,
 				064530E41A1626630041844B /* MTLManagedObjectAdapter.m in Sources */,
 				06B705C81A126A9A00082D9C /* NSManagedObjectModel+MagicalRecord.m in Sources */,
+				7A1290921A257DE20091B6E9 /* GSTab.m in Sources */,
+				7A1290961A257DE20091B6E9 /* UINavigationController+GSTarBarController.m in Sources */,
 				06B704C21A12540000082D9C /* GSAppDelegate.m in Sources */,
 				064530EE1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */,
 				06B705B01A126A9A00082D9C /* AFHTTPRequestOperationManager.m in Sources */,
@@ -655,14 +699,17 @@
 				06B705B81A126A9A00082D9C /* MagicalImportFunctions.m in Sources */,
 				06B705C51A126A9A00082D9C /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				06B705C61A126A9A00082D9C /* NSManagedObjectContext+MagicalSaves.m in Sources */,
+				7A1290971A257DE20091B6E9 /* UIViewController+GSTarBarController.m in Sources */,
 				06B705B51A126A9A00082D9C /* AFURLRequestSerialization.m in Sources */,
 				06B705B71A126A9A00082D9C /* AFURLSessionManager.m in Sources */,
+				7A1290941A257DE20091B6E9 /* GSTabBarController.m in Sources */,
 				06B705C71A126A9A00082D9C /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				064530E91A1626630041844B /* NSArray+MTLManipulationAdditions.m in Sources */,
 				064530EC1A1626630041844B /* NSObject+MTLComparisonAdditions.m in Sources */,
 				06B704C81A12540000082D9C /* GSViewController.m in Sources */,
 				06B705BD1A126A9A00082D9C /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				06B705CC1A126A9A00082D9C /* MagicalRecord+ErrorHandling.m in Sources */,
+				7A1290951A257DE20091B6E9 /* GSTabBarView.m in Sources */,
 				06B705C11A126A9A00082D9C /* NSManagedObject+MagicalFinders.m in Sources */,
 				06B705CB1A126A9A00082D9C /* MagicalRecord+Actions.m in Sources */,
 				06B705C01A126A9A00082D9C /* NSManagedObject+MagicalDataImport.m in Sources */,
@@ -671,6 +718,7 @@
 				064530EB1A1626630041844B /* NSError+MTLModelException.m in Sources */,
 				06B705CF1A126A9A00082D9C /* MagicalRecord+Setup.m in Sources */,
 				06B705BB1A126A9A00082D9C /* NSNumber+MagicalDataImport.m in Sources */,
+				7A1290931A257DE20091B6E9 /* GSTabBar.m in Sources */,
 				06B705D11A126A9A00082D9C /* MagicalRecord.m in Sources */,
 				06B705D01A126A9A00082D9C /* MagicalRecord+ShorthandSupport.m in Sources */,
 				06B705CA1A126A9A00082D9C /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,

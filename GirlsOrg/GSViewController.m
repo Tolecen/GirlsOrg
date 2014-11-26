@@ -7,6 +7,7 @@
 //
 
 #import "GSViewController.h"
+#import "UIViewController+GSTarBarController.h"
 
 @interface GSViewController ()
 
@@ -14,9 +15,14 @@
 
 @implementation GSViewController
 
+- (NSString *)tabImageName {
+    return @"home_tab_icon_2";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:(arc4random()%255 / 255.f) green:(arc4random()%255 / 255.f) blue:(arc4random()%255 / 255.f) alpha:1];
 }
 
 - (void)didReceiveMemoryWarning
