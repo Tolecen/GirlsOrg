@@ -70,7 +70,7 @@ static const float kPushAnimationDuration = 0.35;
 - (void)loadView
 {
     [super loadView];
-    
+
     // Creating and adding the tab bar view
     tabBarView = [[GSTabBarView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     self.view = tabBarView;
@@ -294,6 +294,10 @@ static const float kPushAnimationDuration = 0.35;
     if (index == ([[tabBar tabs] count] - 1)) {
         //TODO:....
         NSLog(@"点击的响应");
+        GSTab *tab = [tabBar tabs][index];
+        if ([tab.tabImageWithName isEqualToString:@"home_tab_icon_5"]) {
+            tab.tabImageWithName = @"home_tab_icon_4";
+        }
     } else {
         UIViewController *vc = [self.viewControllers objectAtIndex:index];
         
@@ -311,8 +315,14 @@ static const float kPushAnimationDuration = 0.35;
 }
 
 - (void)tabDidRecognizerLongPress:(GSTab *)GSTab {
-    //TODO:....
     NSLog(@"长按的响应");
+    if ([GSTab.tabImageWithName isEqualToString:@"home_tab_icon_4"]) {
+        //TODO:show
+        GSTab.tabImageWithName = @"home_tab_icon_5";
+    } else {
+        //TODO:hide
+        GSTab.tabImageWithName = @"home_tab_icon_4";
+    }
 }
 
 #pragma mark - Rotation Events
