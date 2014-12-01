@@ -11,6 +11,7 @@
 		063871BC1A28CDE60011285C /* GSSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 063871BB1A28CDE60011285C /* GSSearchVC.m */; };
 		063871BF1A28CDF10011285C /* GSProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 063871BE1A28CDF10011285C /* GSProfileVC.m */; };
 		063871CB1A28D2C40011285C /* GSPublishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 063871CA1A28D2C40011285C /* GSPublishVC.m */; };
+		063A082C1A2CC4F1005A4682 /* UIColor+utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 063A082B1A2CC4F1005A4682 /* UIColor+utility.m */; };
 		064530E01A1626630041844B /* EXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 064530C21A1626630041844B /* EXTRuntimeExtensions.m */; };
 		064530E11A1626630041844B /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 064530C41A1626630041844B /* EXTScope.m */; };
 		064530E21A1626630041844B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 064530C61A1626630041844B /* Info.plist */; };
@@ -114,6 +115,8 @@
 		063871BE1A28CDF10011285C /* GSProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSProfileVC.m; sourceTree = "<group>"; };
 		063871C91A28D2C40011285C /* GSPublishVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPublishVC.h; sourceTree = "<group>"; };
 		063871CA1A28D2C40011285C /* GSPublishVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPublishVC.m; sourceTree = "<group>"; };
+		063A082A1A2CC4F1005A4682 /* UIColor+utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+utility.h"; sourceTree = "<group>"; };
+		063A082B1A2CC4F1005A4682 /* UIColor+utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+utility.m"; sourceTree = "<group>"; };
 		064530C01A1626630041844B /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTKeyPathCoding.h; sourceTree = "<group>"; };
 		064530C11A1626630041844B /* EXTRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTRuntimeExtensions.h; sourceTree = "<group>"; };
 		064530C21A1626630041844B /* EXTRuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTRuntimeExtensions.m; sourceTree = "<group>"; };
@@ -670,6 +673,8 @@
 			children = (
 				7AD40FD21A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.h */,
 				7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */,
+				063A082A1A2CC4F1005A4682 /* UIColor+utility.h */,
+				063A082B1A2CC4F1005A4682 /* UIColor+utility.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -842,6 +847,7 @@
 				06B705C11A126A9A00082D9C /* NSManagedObject+MagicalFinders.m in Sources */,
 				06B705CB1A126A9A00082D9C /* MagicalRecord+Actions.m in Sources */,
 				06B705C01A126A9A00082D9C /* NSManagedObject+MagicalDataImport.m in Sources */,
+				063A082C1A2CC4F1005A4682 /* UIColor+utility.m in Sources */,
 				063871B91A28CDDB0011285C /* GSHomeVC.m in Sources */,
 				06BB3B871A262DE700ABE520 /* GSArrayDataSource.m in Sources */,
 				064530E31A1626630041844B /* MTLJSONAdapter.m in Sources */,
