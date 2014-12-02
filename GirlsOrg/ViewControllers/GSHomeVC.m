@@ -29,7 +29,7 @@
     NSMutableArray *menus = [NSMutableArray array];
     for (int i = 0; i < 2; i++) {
         GSMenu *menu = [[GSMenu alloc] init];
-        menu.title = (i == 0) ? @"关注" : @"订阅";
+        menu.title = (i == 0) ? @"精选" : @"关注";
         [menus addObject:menu];
     }
     
