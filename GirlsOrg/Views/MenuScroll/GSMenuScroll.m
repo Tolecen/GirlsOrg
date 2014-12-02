@@ -179,11 +179,11 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds) / self.menus.count, kGSMenuScrollDefaultHeight);
 //    btn.frame = CGRectMake(0, 0, btnSize.width, kGSMenuButtonDefaultHeight);
-    btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.f];
+    btn.titleLabel.font = [UIFont systemFontOfSize:16.f];
     btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [btn setTitle:menu.title forState:UIControlStateNormal];
 //    [btn setBackgroundImage:[UIImage imageNamed:@"表格_按下"] forState:UIControlStateHighlighted];
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:RGBCOLOR(50, 50, 50, 1) forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(menuButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     return btn;
 }
