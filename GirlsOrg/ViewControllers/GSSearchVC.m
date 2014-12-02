@@ -21,29 +21,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"广场";
     GSMenuScroll *menuScroll = [[GSMenuScroll alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 40)];
     menuScroll.delegate = self;
     [self.view addSubview:menuScroll];
     
     NSMutableArray *menus = [NSMutableArray array];
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
         GSMenu *menu = [[GSMenu alloc] init];
         switch (i) {
             case 0:
                 menu.title = @"话题";
                 break;
             case 1:
-                menu.title = @"附近";
+                menu.title = @"达人";
                 break;
             case 2:
-                menu.title = @"品牌";
-                break;
-            case 3:
                 menu.title = @"标签";
                 break;
-            case 4:
-                menu.title = @"专题";
-                break;
+//            case 3:
+//                menu.title = @"标签";
+//                break;
+//            case 4:
+//                menu.title = @"专题";
+//                break;
             default:
                 break;
         }

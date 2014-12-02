@@ -175,7 +175,7 @@ static const float kTopMargin = 0.0;
     } else if (self.selected) {
         CGContextSaveGState(ctx);
         {
-            [[UIColor blackColor] set];
+            [RGBCOLOR(255, 128, 255, 1) set];
             CGContextFillRect(ctx, rect);
         }
         CGContextRestoreGState(ctx);

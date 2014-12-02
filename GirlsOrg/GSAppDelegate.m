@@ -21,7 +21,7 @@ static const NSUInteger kTabBarDefaultHeight = 50.f;
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
-    [[UINavigationBar appearance] setBarTintColor:RGBCOLOR(255, 128, 255, 1)];
+    [[UINavigationBar appearance] setBarTintColor:RGBCOLOR(248, 41, 248, 1)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
     GSTabBarController *tabBarController = [[GSTabBarController alloc] initWithTabBarHeight:kTabBarDefaultHeight];

@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.navigationItem.title = @"女人帮";
     GSMenuScroll *menuScroll = [[GSMenuScroll alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 40)];
     menuScroll.delegate = self;
     [self.view addSubview:menuScroll];

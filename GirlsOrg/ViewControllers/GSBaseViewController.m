@@ -22,7 +22,18 @@
         self.modalPresentationCapturesStatusBarAppearance = NO;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                                      NSFontAttributeName:[UIFont boldSystemFontOfSize:20]
+                                                                      }];
     self.view.backgroundColor = RGBCOLOR(243, 243, 243, 1);
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (IOS7){
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

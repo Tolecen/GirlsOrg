@@ -67,7 +67,7 @@ static int kInterTabMargin = 0;
 
 - (void)drawRect:(CGRect)rect {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    [RGBCOLOR(255, 128, 255, 1) set];
+    [RGBCOLOR(248, 41, 248, 1) set];
     CGContextFillRect(ctx, rect);
     for (GSTab *tab in _tabs)
         CGContextFillRect(ctx, CGRectMake(tab.frame.origin.x - kInterTabMargin, 0, kInterTabMargin, rect.size.height));
