@@ -8,6 +8,7 @@
 
 #import "GSTabBarController.h"
 #import "UIViewController+GSTarBarController.h"
+#import "GSBaseViewController.h"
 
 typedef NS_ENUM(NSInteger, GSShowHideFrom) {
     GSShowHideFromLeft,
@@ -34,7 +35,7 @@ static const float kPushAnimationDuration = 0.35;
 }
 
 // Current active view controller
-@property (nonatomic, strong) UIViewController *selectedViewController;
+@property (nonatomic, strong) UINavigationController *selectedViewController;
 
 - (void)loadTabs;
 - (void)showTabBar:(GSShowHideFrom)showHideFrom animated:(BOOL)animated;
@@ -260,7 +261,7 @@ static const float kPushAnimationDuration = 0.35;
     [self setSelectedViewController:[viewControllers objectAtIndex:0]];
 }
 
-- (void)setSelectedViewController:(UIViewController *)selectedViewController
+- (void)setSelectedViewController:(UINavigationController *)selectedViewController
 {
     UIViewController *previousSelectedViewController = selectedViewController;
     if (_selectedViewController != selectedViewController)
@@ -294,12 +295,14 @@ static const float kPushAnimationDuration = 0.35;
     if (index == ([[tabBar tabs] count] - 1)) {
         //TODO:....
         NSLog(@"点击的响应");
+        GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
+        [baseV openCamera];
         GSTab *tab = [tabBar tabs][index];
         if ([tab.tabImageWithName isEqualToString:@"home_tab_icon_5"]) {
             tab.tabImageWithName = @"home_tab_icon_4";
         }
     } else {
-        UIViewController *vc = [self.viewControllers objectAtIndex:index];
+        UINavigationController *vc = [self.viewControllers objectAtIndex:index];
         
         if (self.selectedViewController == vc)
         {
@@ -313,6 +316,8 @@ static const float kPushAnimationDuration = 0.35;
         }
     }
 }
+
+
 
 - (void)tabDidRecognizerLongPress:(GSTab *)GSTab {
     NSLog(@"长按的响应");

@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+GSTarBarController.h"
-
-@interface GSBaseViewController : UIViewController
+#import "GSTabBar.h"
+#import "DBCameraViewController.h"
+#import "DBCameraContainerViewController.h"
+@interface GSBaseViewController : UIViewController<GSTabDelegate ,GSTabBarDelegate,DBCameraViewControllerDelegate>
 
 - (CGFloat)acceptNavigationHeight;
+-(void)openCamera;
 
 @end

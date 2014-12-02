@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 people. All rights reserved.
 //
 
-#define kGSMenuScrollDefaultHeight      40.f
+#define kGSMenuScrollDefaultHeight      30.f
 #define kGSMenuManagerBtnDefaultWidth   40.f
 #define kGSMenuButtonDefaultHeight      30.f
 #define kGSMenuLeftShadowPadding        0.f//2.f
