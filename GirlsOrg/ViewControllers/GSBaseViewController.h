@@ -11,4 +11,6 @@
 
 @interface GSBaseViewController : UIViewController
 
+- (CGFloat)acceptNavigationHeight;
+
 @end

@@ -16,19 +16,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UINavigationBar appearance] setBarTintColor:RGBCOLOR(255, 128, 255, 1)];
+    if (IOS7) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+        self.modalPresentationCapturesStatusBarAppearance = NO;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     self.view.backgroundColor = RGBCOLOR(243, 243, 243, 1);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.navigationController.viewControllers.count > 1 && ([UIDevice currentDevice].systemName.floatValue >= 7.0)) {
+    if (self.navigationController.viewControllers.count > 1 && IOS7) {
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (CGFloat)acceptNavigationHeight {
+    if (IOS7) {
+        return [UIApplication sharedApplication].statusBarFrame.size.height + 44;
+    } else {
+        return 44;
+    }
 }
 
 @end

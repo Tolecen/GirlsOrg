@@ -21,19 +21,21 @@ static const NSUInteger kTabBarDefaultHeight = 50.f;
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
+    [[UINavigationBar appearance] setBarTintColor:RGBCOLOR(255, 128, 255, 1)];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
     GSTabBarController *tabBarController = [[GSTabBarController alloc] initWithTabBarHeight:kTabBarDefaultHeight];
     tabBarController.minimumHeightToDisplayTitle = 40.f;
-    
+    GSHomeVC *homeVC = [[GSHomeVC alloc] init];
+    UINavigationController *homeNavi = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    UINavigationController *searchNavi = [[UINavigationController alloc] initWithRootViewController:[[GSSearchVC alloc] init]];
+    UINavigationController *profileNavi = [[UINavigationController alloc] initWithRootViewController:[[GSProfileVC alloc] init]];
     [tabBarController setViewControllers:[NSMutableArray arrayWithObjects:
-                                          [[GSHomeVC alloc] init],
-                                          [[GSSearchVC alloc] init],
-                                          [[GSProfileVC alloc] init],
+                                          homeNavi,
+                                          searchNavi,
+                                          profileNavi,
                                           [[GSPublishVC alloc] init],nil]];
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
-
-    self.window.rootViewController = navigationController;
-    
+    self.window.rootViewController = tabBarController;    
     [self.window makeKeyAndVisible];
     return YES;
 }

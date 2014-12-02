@@ -9,16 +9,15 @@
 #define kGSMenuScrollDefaultHeight      40.f
 #define kGSMenuManagerBtnDefaultWidth   40.f
 #define kGSMenuButtonDefaultHeight      30.f
-#define kGSMenuLeftShadowPadding        2.f
-#define kGSMenuButtonPaddingX           30.f
-#define kGSMenuButtonStarX              10.f
+#define kGSMenuLeftShadowPadding        0.f//2.f
+#define kGSMenuButtonPaddingX           0.f//30.f
+#define kGSMenuButtonStarX              0.f//10.f
 #define kGSMenuButtonBaseTag            100
 
 #import "GSMenuScroll.h"
 #import "GSScrollView.h"
 #import "UIScrollView+visiableCenterScroll.h"
 #import "GSIndicatorView.h"
-#import "GSMenu.h"
 
 @interface GSMenuScroll()<UIScrollViewDelegate>
 
@@ -82,10 +81,11 @@
 #pragma mark -- Life Cycle
 
 - (void)configDefault {
+    self.backgroundColor = [UIColor whiteColor];
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.showLeftShadow = YES;
-    self.showRightShadow = YES;
-    self.showManagerButton = YES;
+    self.showLeftShadow = NO;
+    self.showRightShadow = NO;
+    self.showManagerButton = NO;
     self.shouldUniformizeMenus = YES;
     self.selectedItemIndex = 0;
 }
@@ -148,9 +148,6 @@
 #pragma mark -- Action
 
 - (void)menuButtonSelected:(UIButton *)sender {
-    if (sender.tag - kGSMenuButtonBaseTag == self.selectedItemIndex) {
-        return;
-    }
     [self.menuButtons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (obj == sender) {
             sender.selected = YES;
@@ -175,18 +172,18 @@
 #pragma mark -- Private
 
 - (UIButton *)buttonWithMenu:(GSMenu *)menu {
-    CGSize btnSize = [menu.title boundingRectWithSize:CGSizeMake(MAXFLOAT, CGRectGetHeight(self.bounds) - 10)
-                                              options:NSStringDrawingUsesLineFragmentOrigin
-                                           attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:16.f]}
-                                              context:nil].size;
+//    CGSize btnSize = [menu.title boundingRectWithSize:CGSizeMake(MAXFLOAT, CGRectGetHeight(self.bounds) - 10)
+//                                              options:NSStringDrawingUsesLineFragmentOrigin
+//                                           attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:16.f]}
+//                                              context:nil].size;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, btnSize.width, kGSMenuButtonDefaultHeight);
+    btn.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds) / self.menus.count, kGSMenuScrollDefaultHeight);
+//    btn.frame = CGRectMake(0, 0, btnSize.width, kGSMenuButtonDefaultHeight);
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.f];
     btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [btn setTitle:menu.title forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+//    [btn setBackgroundImage:[UIImage imageNamed:@"表格_按下"] forState:UIControlStateHighlighted];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(menuButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     return btn;
 }
@@ -243,58 +240,80 @@
         [self.menuButtons removeAllObjects];
     }
     
-    CGFloat __block totalWidth = 10;
-    CGFloat __block totalButtonWidth = 0;
-    CGFloat __block contentWidth = 10;
-    [self.menus enumerateObjectsUsingBlock:^(GSMenu *menu, NSUInteger idx, BOOL *stop) {
-        UIButton *menuButton = [self buttonWithMenu:menu];
-        menuButton.tag = (NSInteger)(kGSMenuButtonBaseTag + idx);
-        CGRect menuButtonFrame = menuButton.frame;
-        if (idx > 0) {
-            totalWidth += kGSMenuButtonPaddingX + menuButtonFrame.size.width;
-        } else {
-            totalWidth = kGSMenuButtonStarX;
-        }
-        totalButtonWidth += menuButtonFrame.size.width;
-    }];
+//    CGFloat __block totalWidth = 10;
+//    CGFloat __block totalButtonWidth = 0;
+//    CGFloat __block contentWidth = 10;
+//    [self.menus enumerateObjectsUsingBlock:^(GSMenu *menu, NSUInteger idx, BOOL *stop) {
+//        UIButton *menuButton = [self buttonWithMenu:menu];
+//        menuButton.tag = (NSInteger)(kGSMenuButtonBaseTag + idx);
+//        CGRect menuButtonFrame = menuButton.frame;
+//        if (idx > 0) {
+//            totalWidth += kGSMenuButtonPaddingX + menuButtonFrame.size.width;
+//        } else {
+//            totalWidth = kGSMenuButtonStarX;
+//        }
+//        totalButtonWidth += menuButtonFrame.size.width;
+//    }];
+//    
+//    [self.menus enumerateObjectsUsingBlock:^(GSMenu *menu, NSUInteger idx, BOOL *stop) {
+//        UIButton *menuButton = [self buttonWithMenu:menu];
+//        menuButton.tag = (NSInteger)(kGSMenuButtonBaseTag + idx);
+//        CGRect menuButtonFrame = menuButton.frame;
+//        CGFloat buttonX = 0;
+//        if (self.shouldUniformizeMenus && totalWidth < CGRectGetWidth(self.scrollView.bounds)) {
+//            CGFloat newPadding = (CGRectGetWidth(self.scrollView.bounds) - totalButtonWidth) / (self.menus.count + 1);
+//            if (idx > 0) {
+//                buttonX = newPadding + CGRectGetMaxX(((UIButton *)(self.menuButtons[idx - 1])).frame);
+//            } else {
+//                buttonX = newPadding;
+//            }
+//        }
+//        else {
+//            if (idx > 0) {
+//                buttonX = kGSMenuButtonPaddingX + CGRectGetMaxX(((UIButton *)(self.menuButtons[idx - 1])).frame);
+//            } else {
+//                buttonX = kGSMenuButtonStarX;
+//            }
+//        }
+//        
+//        menuButtonFrame.origin = CGPointMake(buttonX, CGRectGetMidY(self.bounds) - (CGRectGetHeight(menuButtonFrame) / 2.0));
+//        menuButton.frame = menuButtonFrame;
+//        [self.scrollView addSubview:menuButton];
+//        [self.menuButtons addObject:menuButton];
+//        
+//        if (idx == self.menus.count - 1) {
+//            contentWidth += CGRectGetMaxX(menuButtonFrame);
+//        }
+//        
+//        if (self.selectedItemIndex == idx) {
+//            menuButton.selected = YES;
+//            _indicatorView.alpha = 1.;
+//            [self setupIndicatorFrame:menuButtonFrame animated:NO callDelegate:NO];
+//        }
+//    }];
+//    [self.scrollView setContentSize:CGSizeMake(contentWidth, CGRectGetHeight(self.scrollView.frame))];
     
     [self.menus enumerateObjectsUsingBlock:^(GSMenu *menu, NSUInteger idx, BOOL *stop) {
         UIButton *menuButton = [self buttonWithMenu:menu];
         menuButton.tag = (NSInteger)(kGSMenuButtonBaseTag + idx);
         CGRect menuButtonFrame = menuButton.frame;
         CGFloat buttonX = 0;
-        if (self.shouldUniformizeMenus && totalWidth < CGRectGetWidth(self.scrollView.bounds)) {
-            CGFloat newPadding = (CGRectGetWidth(self.scrollView.bounds) - totalButtonWidth) / (self.menus.count + 1);
-            if (idx > 0) {
-                buttonX = newPadding + CGRectGetMaxX(((UIButton *)(self.menuButtons[idx - 1])).frame);
-            } else {
-                buttonX = newPadding;
-            }
+        if (idx > 0) {
+            buttonX = CGRectGetMaxX(((UIButton *)(self.menuButtons[idx - 1])).frame);
         }
-        else {
-            if (idx > 0) {
-                buttonX = kGSMenuButtonPaddingX + CGRectGetMaxX(((UIButton *)(self.menuButtons[idx - 1])).frame);
-            } else {
-                buttonX = kGSMenuButtonStarX;
-            }
-        }
-        
         menuButtonFrame.origin = CGPointMake(buttonX, CGRectGetMidY(self.bounds) - (CGRectGetHeight(menuButtonFrame) / 2.0));
         menuButton.frame = menuButtonFrame;
         [self.scrollView addSubview:menuButton];
         [self.menuButtons addObject:menuButton];
-        
-        if (idx == self.menus.count - 1) {
-            contentWidth += CGRectGetMaxX(menuButtonFrame);
-        }
-        
+
         if (self.selectedItemIndex == idx) {
             menuButton.selected = YES;
             _indicatorView.alpha = 1.;
             [self setupIndicatorFrame:menuButtonFrame animated:NO callDelegate:NO];
         }
     }];
-    [self.scrollView setContentSize:CGSizeMake(contentWidth, CGRectGetHeight(self.scrollView.frame))];
+    [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.scrollView.frame))];
+
     [self setSelectedIndex:self.selectedItemIndex animated:NO calledDelegate:YES];
 }
 

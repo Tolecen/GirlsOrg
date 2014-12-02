@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GSMenu.h"
 
 @class GSMenuScroll;
 @protocol FSMenuScrollDelegate <NSObject>
 
+@required
 - (void)menuScrollDidSelected:(GSMenuScroll *)menuScroll menuIndex:(NSUInteger)selectIndex;
 
+@optional
 - (void)menuScrollDidManagerSelected:(GSMenuScroll *)menuScroll;
 
 @end
