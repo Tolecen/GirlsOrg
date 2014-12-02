@@ -293,8 +293,6 @@ static const float kPushAnimationDuration = 0.35;
 - (void)tabBar:(GSTabBar *)AKTabBarDelegate didSelectTabAtIndex:(NSInteger)index
 {
     if (index == ([[tabBar tabs] count] - 1)) {
-        //TODO:....
-        NSLog(@"点击的响应");
         GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
         [baseV openCamera];
         GSTab *tab = [tabBar tabs][index];
@@ -303,7 +301,6 @@ static const float kPushAnimationDuration = 0.35;
         }
     } else {
         UINavigationController *vc = [self.viewControllers objectAtIndex:index];
-        
         if (self.selectedViewController == vc)
         {
             if ([vc isKindOfClass:[UINavigationController class]])

@@ -7,8 +7,10 @@
 //
 
 #import "GSBaseViewController.h"
+#import "DBCameraViewController.h"
+#import "DBCameraContainerViewController.h"
 
-@interface GSBaseViewController ()<UIGestureRecognizerDelegate>
+@interface GSBaseViewController ()<DBCameraViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @end
 
@@ -28,33 +30,22 @@
     self.view.backgroundColor = RGBCOLOR(243, 243, 243, 1);
 }
 
--(void)tabBar:(GSTabBar *)AKTabBarDelegate didSelectTabAtIndex:(NSInteger)index
-{
-        
-}
-
--(void)tabDidRecognizerLongPress:(GSTab *)GSTab
-{
-    
-}
-
-- (void) openCamera
-{
+- (void)openCamera {
     DBCameraContainerViewController *cameraContainer = [[DBCameraContainerViewController alloc] initWithDelegate:self];
     [cameraContainer setFullScreenMode];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:cameraContainer];
     [nav setNavigationBarHidden:YES];
-    [self presentViewController:nav animated:YES completion:nil];
+
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
-- (void) dismissCamera:(id)cameraViewController{
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)dismissCamera:(id)cameraViewController {
+    [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
     [cameraViewController restoreFullScreenMode];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (IOS7){
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
