@@ -40,6 +40,15 @@
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
+- (void) camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata
+{
+//    DetailViewController *detail = [[DetailViewController alloc] init];
+//    [detail setDetailImage:image];
+//    [self.navigationController pushViewController:detail animated:NO];
+    [cameraViewController restoreFullScreenMode];
+    [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)dismissCamera:(id)cameraViewController {
     [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
     [cameraViewController restoreFullScreenMode];
