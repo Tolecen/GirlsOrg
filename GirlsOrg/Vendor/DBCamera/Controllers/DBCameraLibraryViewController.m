@@ -199,7 +199,7 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
 - (void) setNavigationTitleAtIndex:(NSUInteger)index
 {
     [_titleLabel setText:[_items[index][@"groupTitle"] uppercaseString]];
-    [_pageLabel setText:[NSString stringWithFormat:DBCameraLocalizedStrings(@"pagecontrol.text"), index + 1, _items.count ]];
+    [_pageLabel setText:[NSString stringWithFormat:DBCameraLocalizedStrings(@"pagecontrol.text"), _items.count, index + 1 ]];
 }
 
 - (NSInteger) indexForSelectedItem
@@ -263,7 +263,7 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
         _titleLabel = [[UILabel alloc] initWithFrame:(CGRect){ CGRectGetMaxX(closeButton.frame), 0, CGRectGetWidth(self.view.bounds) - (CGRectGetWidth(closeButton.bounds) * 2), CGRectGetHeight(_topContainerBar.bounds) }];
         [_titleLabel setBackgroundColor:[UIColor clearColor]];
         [_titleLabel setTextColor:self.tintColor];
-        [_titleLabel setFont:[UIFont systemFontOfSize:12]];
+        [_titleLabel setFont:[UIFont systemFontOfSize:17]];
         [_titleLabel setTextAlignment:NSTextAlignmentCenter];
         [_topContainerBar addSubview:_titleLabel];
     }
