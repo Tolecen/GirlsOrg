@@ -53,11 +53,11 @@ static const CGSize kFilterCellSize = { 75, 90 };
     if (self) {
         // Custom initialization
         _cropArray = @[ @320, @213, @240, @192, @180 ];
-        _filtersList = @[ @"normal", @"1977", @"amaro", @"grey", @"hudson", @"mayfair", @"nashville", @"valencia" ];
+        _filtersList = @[ @"normal", @"1977", @"amaro", @"grey", @"hudson", @"mayfair", @"nashville", @"valencia",@"02",@"06",@"17",@"aqua",@"crossprocess",@"purple-green",@"yellow-red" ];
         _filterMapping = @{ @0:[[GPUImageFilter alloc] init], @1:[[GPUImageToneCurveFilter alloc] initWithACV:@"1977"],
                             @2:[[GPUImageToneCurveFilter alloc] initWithACV:@"amaro"], @3:[[GPUImageGrayscaleFilter alloc] init],
                             @4:[[GPUImageToneCurveFilter alloc] initWithACV:@"Hudson"], @5:[[GPUImageToneCurveFilter alloc] initWithACV:@"mayfair"],
-                            @6:[[GPUImageToneCurveFilter alloc] initWithACV:@"Nashville"], @7:[[GPUImageToneCurveFilter alloc] initWithACV:@"Valencia"] };
+                            @6:[[GPUImageToneCurveFilter alloc] initWithACV:@"Nashville"], @7:[[GPUImageToneCurveFilter alloc] initWithACV:@"Valencia"], @8:[[GPUImageToneCurveFilter alloc] initWithACV:@"02"],@9:[[GPUImageToneCurveFilter alloc] initWithACV:@"06"],@10:[[GPUImageToneCurveFilter alloc] initWithACV:@"17"],@11:[[GPUImageToneCurveFilter alloc] initWithACV:@"aqua"],@12:[[GPUImageToneCurveFilter alloc] initWithACV:@"crossprocess"],@13:[[GPUImageToneCurveFilter alloc] initWithACV:@"purple-green"],@14:[[GPUImageToneCurveFilter alloc] initWithACV:@"yellow-red"] };
         
         _selectedFilterIndex = 0;
         

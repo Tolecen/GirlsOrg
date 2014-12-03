@@ -93,6 +93,13 @@
 		7AD40FD01A2C601E002BB3CD /* GSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FCF1A2C601E002BB3CD /* GSScrollView.m */; };
 		7AD40FD41A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */; };
 		7AD40FD81A2C60F3002BB3CD /* GSMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD71A2C60F3002BB3CD /* GSMenu.m */; };
+		97D175881A2F5C7100355AEE /* 02.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175811A2F5C7100355AEE /* 02.acv */; };
+		97D175891A2F5C7100355AEE /* 06.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175821A2F5C7100355AEE /* 06.acv */; };
+		97D1758A1A2F5C7100355AEE /* 17.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175831A2F5C7100355AEE /* 17.acv */; };
+		97D1758B1A2F5C7100355AEE /* aqua.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175841A2F5C7100355AEE /* aqua.acv */; };
+		97D1758C1A2F5C7100355AEE /* crossprocess.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175851A2F5C7100355AEE /* crossprocess.acv */; };
+		97D1758D1A2F5C7100355AEE /* purple-green.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175861A2F5C7100355AEE /* purple-green.acv */; };
+		97D1758E1A2F5C7100355AEE /* yellow-red.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175871A2F5C7100355AEE /* yellow-red.acv */; };
 		97F407B71A2E0C2E0002A07D /* UIImage+Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F407771A2E0C2E0002A07D /* UIImage+Asset.m */; };
 		97F407B81A2E0C2E0002A07D /* UIImage+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F407791A2E0C2E0002A07D /* UIImage+Crop.m */; };
 		97F407B91A2E0C2E0002A07D /* UIImage+TintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F4077B1A2E0C2E0002A07D /* UIImage+TintColor.m */; };
@@ -482,6 +489,13 @@
 		97D1757E1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DBCamera.strings"; sourceTree = "<group>"; };
 		97D1757F1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		97D175801A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		97D175811A2F5C7100355AEE /* 02.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = 02.acv; sourceTree = "<group>"; };
+		97D175821A2F5C7100355AEE /* 06.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = 06.acv; sourceTree = "<group>"; };
+		97D175831A2F5C7100355AEE /* 17.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = 17.acv; sourceTree = "<group>"; };
+		97D175841A2F5C7100355AEE /* aqua.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = aqua.acv; sourceTree = "<group>"; };
+		97D175851A2F5C7100355AEE /* crossprocess.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = crossprocess.acv; sourceTree = "<group>"; };
+		97D175861A2F5C7100355AEE /* purple-green.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "purple-green.acv"; sourceTree = "<group>"; };
+		97D175871A2F5C7100355AEE /* yellow-red.acv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "yellow-red.acv"; sourceTree = "<group>"; };
 		97F407751A2E0C2E0002A07D /* DBCameraBaseCropViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBCameraBaseCropViewController+Private.h"; sourceTree = "<group>"; };
 		97F407761A2E0C2E0002A07D /* UIImage+Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Asset.h"; sourceTree = "<group>"; };
 		97F407771A2E0C2E0002A07D /* UIImage+Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Asset.m"; sourceTree = "<group>"; };
@@ -1357,6 +1371,13 @@
 				97F4078F1A2E0C2E0002A07D /* mayfair.acv */,
 				97F407901A2E0C2E0002A07D /* Nashville.acv */,
 				97F407911A2E0C2E0002A07D /* Valencia.acv */,
+				97D175811A2F5C7100355AEE /* 02.acv */,
+				97D175821A2F5C7100355AEE /* 06.acv */,
+				97D175831A2F5C7100355AEE /* 17.acv */,
+				97D175841A2F5C7100355AEE /* aqua.acv */,
+				97D175851A2F5C7100355AEE /* crossprocess.acv */,
+				97D175861A2F5C7100355AEE /* purple-green.acv */,
+				97D175871A2F5C7100355AEE /* yellow-red.acv */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -1888,18 +1909,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D1758B1A2F5C7100355AEE /* aqua.acv in Resources */,
 				7A1290841A257DB40091B6E9 /* GSLaunchScreen.xib in Resources */,
 				97F407C61A2E0C2E0002A07D /* Valencia.acv in Resources */,
+				97D1758D1A2F5C7100355AEE /* purple-green.acv in Resources */,
 				97F407C31A2E0C2E0002A07D /* Hudson.acv in Resources */,
 				97F407C71A2E0C2E0002A07D /* DBCamera.strings in Resources */,
+				97D175891A2F5C7100355AEE /* 06.acv in Resources */,
 				97F407CE1A2E0C2E0002A07D /* DBCameraImages.xcassets in Resources */,
 				97F409331A2E0ECA0002A07D /* lookup_soft_elegance_2.png in Resources */,
+				97D175881A2F5C7100355AEE /* 02.acv in Resources */,
 				97F409321A2E0ECA0002A07D /* lookup_soft_elegance_1.png in Resources */,
 				97F407C51A2E0C2E0002A07D /* Nashville.acv in Resources */,
+				97D1758C1A2F5C7100355AEE /* crossprocess.acv in Resources */,
+				97D1758A1A2F5C7100355AEE /* 17.acv in Resources */,
 				06B704CA1A12540000082D9C /* Images.xcassets in Resources */,
 				97F409301A2E0ECA0002A07D /* lookup_amatorka.png in Resources */,
 				06B704BC1A12540000082D9C /* InfoPlist.strings in Resources */,
 				97F407C41A2E0C2E0002A07D /* mayfair.acv in Resources */,
+				97D1758E1A2F5C7100355AEE /* yellow-red.acv in Resources */,
 				97F4092F1A2E0ECA0002A07D /* lookup.png in Resources */,
 				97F407C11A2E0C2E0002A07D /* 1977.acv in Resources */,
 				064530E21A1626630041844B /* Info.plist in Resources */,
