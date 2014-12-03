@@ -13,22 +13,22 @@
 
 - (void) setFullScreenMode
 {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+//#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
     self.wasStatusBarHidden = [UIApplication sharedApplication].statusBarHidden;
-    self.wasFullScreenLayout = self.wantsFullScreenLayout;
+//    self.wasFullScreenLayout = self.wantsFullScreenLayout;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    [self setWantsFullScreenLayout:YES];
-#elif __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
+//    [self setWantsFullScreenLayout:YES];
+//#elif __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
-#endif
+//#endif
 }
 
 - (void) restoreFullScreenMode
 {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+//#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
     [[UIApplication sharedApplication] setStatusBarHidden:self.wasStatusBarHidden withAnimation:UIStatusBarAnimationSlide];
-    [self setWantsFullScreenLayout:self.wasFullScreenLayout];
-#endif
+//    [self setWantsFullScreenLayout:self.wasFullScreenLayout];
+//#endif
 }
 
 - (BOOL)wasStatusBarHidden

@@ -31,6 +31,7 @@
 }
 
 - (void)openCamera {
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     DBCameraContainerViewController *cameraContainer = [[DBCameraContainerViewController alloc] initWithDelegate:self];
     [cameraContainer setFullScreenMode];
     
@@ -50,6 +51,11 @@
 }
 
 - (void)dismissCamera:(id)cameraViewController {
+//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+//    if (IOS7){
+//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+//    }
+
     [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
     [cameraViewController restoreFullScreenMode];
 }
