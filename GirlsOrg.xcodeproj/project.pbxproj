@@ -479,6 +479,9 @@
 		7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+visiableCenterScroll.m"; sourceTree = "<group>"; };
 		7AD40FD61A2C60F3002BB3CD /* GSMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSMenu.h; sourceTree = "<group>"; };
 		7AD40FD71A2C60F3002BB3CD /* GSMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSMenu.m; sourceTree = "<group>"; };
+		97D1757E1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DBCamera.strings"; sourceTree = "<group>"; };
+		97D1757F1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		97D175801A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		97F407751A2E0C2E0002A07D /* DBCameraBaseCropViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBCameraBaseCropViewController+Private.h"; sourceTree = "<group>"; };
 		97F407761A2E0C2E0002A07D /* UIImage+Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Asset.h"; sourceTree = "<group>"; };
 		97F407771A2E0C2E0002A07D /* UIImage+Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Asset.m"; sourceTree = "<group>"; };
@@ -1867,6 +1870,7 @@
 				it,
 				pt,
 				tr,
+				"zh-Hans",
 			);
 			mainGroup = 06B704A51A1253FF00082D9C;
 			productRefGroup = 06B704AF1A12540000082D9C /* Products */;
@@ -2204,6 +2208,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				06B704BB1A12540000082D9C /* en */,
+				97D1757F1A2F507300355AEE /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -2212,6 +2217,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				06B704DA1A12540000082D9C /* en */,
+				97D175801A2F507300355AEE /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -2224,6 +2230,7 @@
 				97F407991A2E0C2E0002A07D /* it */,
 				97F4079A1A2E0C2E0002A07D /* pt */,
 				97F4079B1A2E0C2E0002A07D /* tr */,
+				97D1757E1A2F507300355AEE /* zh-Hans */,
 			);
 			name = DBCamera.strings;
 			sourceTree = "<group>";
