@@ -293,11 +293,16 @@ static const float kPushAnimationDuration = 0.35;
 - (void)tabBar:(GSTabBar *)AKTabBarDelegate didSelectTabAtIndex:(NSInteger)index
 {
     if (index == ([[tabBar tabs] count] - 1)) {
-        GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
-        [baseV openCamera];
+        
+        
         GSTab *tab = [tabBar tabs][index];
         if ([tab.tabImageWithName isEqualToString:@"home_tab_icon_5"]) {
             tab.tabImageWithName = @"home_tab_icon_4";
+        }
+        else
+        {
+            GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
+            [baseV openCamera];
         }
     } else {
         UINavigationController *vc = [self.viewControllers objectAtIndex:index];
