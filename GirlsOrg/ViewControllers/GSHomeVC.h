@@ -8,6 +8,8 @@
 
 #import "GSBaseViewController.h"
 
-@interface GSHomeVC : GSBaseViewController
-
+@interface GSHomeVC : GSBaseViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong) UIScrollView * backScrollV;
+@property (nonatomic, strong) UITableView * goodTableView;
+@property (nonatomic, strong) UITableView * focusTableView;
 @end

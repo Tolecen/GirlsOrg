@@ -17,12 +17,12 @@
 #import "GSMenuScroll.h"
 #import "GSScrollView.h"
 #import "UIScrollView+visiableCenterScroll.h"
-#import "GSIndicatorView.h"
+
 
 @interface GSMenuScroll()<UIScrollViewDelegate>
 
 @property (nonatomic, weak) GSScrollView *scrollView;
-@property (nonatomic, weak) GSIndicatorView *indicatorView;
+
 
 @property (nonatomic, weak) UIImageView *leftShadowImageV;
 @property (nonatomic, weak) UIImageView *rightShadowImageV;
