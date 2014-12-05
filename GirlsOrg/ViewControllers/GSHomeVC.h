@@ -12,4 +12,5 @@
 @property (nonatomic, strong) UIScrollView * backScrollV;
 @property (nonatomic, strong) UITableView * goodTableView;
 @property (nonatomic, strong) UITableView * focusTableView;
+@property (nonatomic, assign) BOOL topBtnTouched;
 @end

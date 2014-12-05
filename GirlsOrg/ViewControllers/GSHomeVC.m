@@ -11,6 +11,7 @@
 
 @interface GSHomeVC ()<FSMenuScrollDelegate>
 @property (nonatomic,strong) GSMenuScroll *menuScroll;
+
 @end
 
 @implementation GSHomeVC
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.topBtnTouched = NO;
     self.navigationItem.title = @"女人帮";
     self.menuScroll = [[GSMenuScroll alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 35)];
     self.menuScroll.delegate = self;
@@ -72,6 +74,8 @@
     _focusTableView.delegate = self;
     _focusTableView.dataSource = self;
 }
+
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -127,16 +131,29 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView == _backScrollV) {
-        self.menuScroll.indicatorView.frame = CGRectMake((self.view.frame.size.width/2*_backScrollV.contentOffset.x)/self.view.frame.size.width, self.menuScroll.indicatorView.frame.origin.y, self.menuScroll.indicatorView.frame.size.width, self.menuScroll.indicatorView.frame.size.height);
+        if (!self.topBtnTouched) {
+            self.menuScroll.indicatorView.frame = CGRectMake((self.view.frame.size.width/2*_backScrollV.contentOffset.x)/self.view.frame.size.width, self.menuScroll.indicatorView.frame.origin.y, self.menuScroll.indicatorView.frame.size.width, self.menuScroll.indicatorView.frame.size.height);
+        }
+        
+        if (_backScrollV.contentOffset.x==0) {
+            [self.menuScroll setSelectedIndex:0 animated:NO calledDelegate:NO];
+            self.topBtnTouched = NO;
+        }
+        else if(_backScrollV.contentOffset.x==self.view.frame.size.width){
+            [self.menuScroll setSelectedIndex:1 animated:NO calledDelegate:NO];
+            self.topBtnTouched = NO;
+        }
     }
 }
 
 - (void)menuScrollDidSelected:(GSMenuScroll *)menuScroll menuIndex:(NSUInteger)selectIndex {
     if (selectIndex==0) {
+        self.topBtnTouched = YES;
         [_backScrollV setContentOffset:CGPointMake(0, 0) animated:YES];
     }
     else
     {
+        self.topBtnTouched = YES;
         [_backScrollV setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
     }
 }
