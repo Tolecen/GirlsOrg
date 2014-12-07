@@ -195,12 +195,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:self.topicTableview]) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TopicReuseIdentifier];
-        cell.backgroundColor = [UIColor redColor];
+        cell.backgroundColor = [UIColor getRandomColor];
         cell.textLabel.text = @"tableview1";
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ActiveReuseIdentifier];
-        cell.backgroundColor = [UIColor redColor];
+        cell.backgroundColor = [UIColor getRandomColor];
         cell.textLabel.text = @"tableview2";
         return cell;
     }
