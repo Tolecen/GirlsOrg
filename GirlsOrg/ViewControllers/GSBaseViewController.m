@@ -63,6 +63,20 @@
     [cameraViewController restoreFullScreenMode];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+//    if (!self.firstTimeIn) {
+//        self.firstTimeIn = YES;
+//    }
+//    else
+//    {
+//        return;
+//    }
+//    if (self.view.frame.size.width==0) {
+//        return;
+//    }
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (IOS7){

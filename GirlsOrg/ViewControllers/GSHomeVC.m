@@ -82,7 +82,6 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    NSLog(@"viewWillLayoutSubviews");
     self.backScrollV.frame = self.view.bounds;
     self.backScrollV.contentSize = CGSizeMake(2 * CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     self.goodTableView.frame = self.view.bounds;
