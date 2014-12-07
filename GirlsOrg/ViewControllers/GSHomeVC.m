@@ -121,7 +121,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.backgroundColor = [UIColor redColor];
+        cell.backgroundColor = [UIColor getRandomColor];
         cell.textLabel.text = @"tableview1";
         return cell;
 
@@ -134,6 +134,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.backgroundColor = [UIColor getRandomColor];
         cell.textLabel.text = @"tableview2";
         return cell;
     }

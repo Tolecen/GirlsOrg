@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UITableView * topicTableview;
 @property (nonatomic, strong) UITableView * activeUserTableview;
 @property (nonatomic, strong) UITableView * tagTableview;
+@property (nonatomic, assign) BOOL topMenuTouched;
 @end
 
 @implementation GSSearchVC
@@ -26,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.topMenuTouched = NO;
 //    self.navigationItem.title = @"广场";
     UIView * bgv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame)-70, 44)];
     [bgv setBackgroundColor:[UIColor clearColor]];
@@ -227,8 +229,43 @@
 -(void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView == _backScrollV) {
+        if (!self.topMenuTouched) {
+            self.topMenu.indicatorView.frame = CGRectMake((self.view.frame.size.width/3*_backScrollV.contentOffset.x)/self.view.frame.size.width, self.topMenu.indicatorView.frame.origin.y, self.topMenu.indicatorView.frame.size.width, self.topMenu.indicatorView.frame.size.height);
+        }
+        if (_backScrollV.contentOffset.x==0) {
+            [self.topMenu setSelectedIndex:0 animated:NO calledDelegate:NO];
+            self.topMenuTouched = NO;
+        }
+        else if(_backScrollV.contentOffset.x==self.view.frame.size.width){
+            [self.topMenu setSelectedIndex:1 animated:NO calledDelegate:NO];
+            self.topMenuTouched = NO;
+        }
+        else if(_backScrollV.contentOffset.x==self.view.frame.size.width*2){
+            [self.topMenu setSelectedIndex:2 animated:NO calledDelegate:NO];
+            self.topMenuTouched = NO;
+        }
+    }
+}
+
 - (void)menuScrollDidSelected:(GSMenuScroll *)menuScroll menuIndex:(NSUInteger)selectIndex {
-    
+    if (selectIndex==0) {
+        self.topMenuTouched = YES;
+        [_backScrollV setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
+    else if(selectIndex==1)
+    {
+        self.topMenuTouched = YES;
+        [_backScrollV setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
+    }
+    else
+    {
+        self.topMenuTouched = YES;
+        [_backScrollV setContentOffset:CGPointMake(self.view.frame.size.width*2, 0) animated:YES];
+    }
 }
 -(void)toInvitePeoplePage
 {

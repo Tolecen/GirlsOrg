@@ -10,6 +10,7 @@
 #import "DBCameraViewController.h"
 #import "DBCameraContainerViewController.h"
 #import "GSTabBarController.h"
+
 @interface GSBaseViewController ()<DBCameraViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @end

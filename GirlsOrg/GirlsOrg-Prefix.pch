@@ -14,5 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #import "GSCommon.h"
+#import "UIColor+utility.h"
 
 #endif
