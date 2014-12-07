@@ -18,3 +18,5 @@
 "footerRefresh_title" = "Loading more...^_^";
 "footerreleaseToRefresh" = "Release to loading more";
 "footerpullToRefresh" = "Pull up to refresh";
+
+"squareSearchBarPlaceHolder" = "";
