@@ -24,58 +24,52 @@
     [super viewDidLoad];
     self.topBtnTouched = NO;
     self.navigationItem.title = @"女人帮";
-    self.menuScroll = [[GSMenuScroll alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 35)];
-    self.menuScroll.delegate = self;
-    [self.view addSubview:self.menuScroll];
-    
-    NSMutableArray *menus = [NSMutableArray array];
-    for (int i = 0; i < 2; i++) {
-        GSMenu *menu = [[GSMenu alloc] init];
-        menu.title = (i == 0) ? @"精选" : @"关注";
-        [menus addObject:menu];
-    }
-    
-    self.menuScroll.menus = menus.copy;
-    [self.menuScroll reloadData];
-    
+
     NSLog(@"selfHeight:%f",self.view.frame.size.height);
     
-    self.backScrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 35, self.view.frame.size.width, self.view.frame.size.height - 35-50-64)];
+    self.backScrollV = [[UIScrollView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_backScrollV];
+    
     _backScrollV.delegate = self;
     _backScrollV.showsHorizontalScrollIndicator = NO;
     _backScrollV.showsVerticalScrollIndicator = NO;
     _backScrollV.backgroundColor = [UIColor clearColor];
-    _backScrollV.contentSize = CGSizeMake(_backScrollV.frame.size.width*2, _backScrollV.frame.size.height);
     _backScrollV.pagingEnabled = YES;
     _backScrollV.bounces = NO;
     
-    self.goodTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-35-50-64)];
+    self.goodTableView = [[UITableView alloc]initWithFrame:CGRectZero];
     _goodTableView.backgroundView = nil;
     _goodTableView.scrollsToTop = YES;
     _goodTableView.backgroundColor = [UIColor clearColor];
-//    _goodTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    _goodTableView.rowHeight = 100;
-//    _goodTableView.contentInset = UIEdgeInsetsMake(0, 0, 59, 0);
     _goodTableView.showsVerticalScrollIndicator = NO;
     [_backScrollV addSubview:_goodTableView];
     _goodTableView.delegate = self;
     _goodTableView.dataSource = self;
     
-    self.focusTableView = [[UITableView alloc]initWithFrame:CGRectMake( self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height-35-50-64)];
+    self.focusTableView = [[UITableView alloc]initWithFrame:CGRectZero];
     _focusTableView.backgroundView = nil;
     _focusTableView.scrollsToTop = YES;
     _focusTableView.backgroundColor = [UIColor clearColor];
-//    _focusTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    _focusTableView.rowHeight = 100;
-    //    _goodTableView.contentInset = UIEdgeInsetsMake(0, 0, 59, 0);
     _focusTableView.showsVerticalScrollIndicator = NO;
     [_backScrollV addSubview:_focusTableView];
     _focusTableView.delegate = self;
     _focusTableView.dataSource = self;
 }
 
-
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    NSLog(@"viewWillLayoutSubviews");
+    self.backScrollV.frame = self.view.bounds;
+    self.backScrollV.contentSize = CGSizeMake(2 * CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    self.goodTableView.frame = self.view.bounds;
+    CGRect rect = self.view.bounds;
+    rect.origin.x = CGRectGetWidth(self.view.frame);
+    self.focusTableView.frame = rect;
+    self.goodTableView.contentOffset = CGPointMake(0, -64);
+    self.goodTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.focusTableView.contentOffset = CGPointMake(0, -64);
+    self.focusTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -111,6 +105,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.backgroundColor = [UIColor redColor];
         cell.textLabel.text = @"tableview1";
         return cell;
 
