@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIViewController+GSTarBarController.h"
 #import "GSTabBar.h"
-
+@class GSTabBarController;
 @interface GSBaseViewController : UIViewController
 
 - (CGFloat)acceptNavigationHeight;

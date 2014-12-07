@@ -8,7 +8,7 @@
 
 #import "GSHomeVC.h"
 #import "GSMenuScroll.h"
-
+#import "UINavigationItem+CustomItem.h"
 @interface GSHomeVC ()<FSMenuScrollDelegate>
 @property (nonatomic,strong) GSMenuScroll *menuScroll;
 
@@ -22,8 +22,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.topBtnTouched = NO;
-    self.navigationItem.title = @"女人帮";
+    
+    self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    [_titleView setBackgroundColor:[UIColor clearColor]];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, 100, 20)];
+    [_titleLabel setText:@"精选"];
+    [_titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [_titleLabel setTextColor:[UIColor whiteColor]];
+    [_titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_titleView addSubview:_titleLabel];
+    self.pageControl=[[UIPageControl alloc]initWithFrame:CGRectMake(40, 25, 20, 20)];
+    _pageControl.backgroundColor=[UIColor clearColor];
+    _pageControl.numberOfPages=2;
+    _pageControl.currentPage=0;
+    _pageControl.transform=CGAffineTransformScale(CGAffineTransformIdentity, 0.7, 0.7);
+    [_titleView addSubview:_pageControl];
+    [self.navigationItem setItemWithCustomView:_titleView itemType:center];
+//    self.topBtnTouched = NO;
+//    self.navigationItem.title = @"精选";
 
     NSLog(@"selfHeight:%f",self.view.frame.size.height);
     
@@ -126,20 +142,19 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView == _backScrollV) {
-        if (!self.topBtnTouched) {
-            self.menuScroll.indicatorView.frame = CGRectMake((self.view.frame.size.width/2*_backScrollV.contentOffset.x)/self.view.frame.size.width, self.menuScroll.indicatorView.frame.origin.y, self.menuScroll.indicatorView.frame.size.width, self.menuScroll.indicatorView.frame.size.height);
-        }
-        
         if (_backScrollV.contentOffset.x==0) {
             [self.menuScroll setSelectedIndex:0 animated:NO calledDelegate:NO];
-            self.topBtnTouched = NO;
+            [_titleLabel setText:@"精选"];
+            _pageControl.currentPage = 0;
         }
         else if(_backScrollV.contentOffset.x==self.view.frame.size.width){
             [self.menuScroll setSelectedIndex:1 animated:NO calledDelegate:NO];
-            self.topBtnTouched = NO;
+            [_titleLabel setText:@"关注"];
+            _pageControl.currentPage = 1;
         }
     }
 }
+
 
 - (void)menuScrollDidSelected:(GSMenuScroll *)menuScroll menuIndex:(NSUInteger)selectIndex {
     if (selectIndex==0) {

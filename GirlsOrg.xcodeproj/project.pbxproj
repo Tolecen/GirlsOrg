@@ -93,6 +93,9 @@
 		7AD40FD01A2C601E002BB3CD /* GSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FCF1A2C601E002BB3CD /* GSScrollView.m */; };
 		7AD40FD41A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */; };
 		7AD40FD81A2C60F3002BB3CD /* GSMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD71A2C60F3002BB3CD /* GSMenu.m */; };
+		97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25461A342C6700302A9A /* CustomBarItem.m */; };
+		97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */; };
+		97BC254D1A344F8900302A9A /* GSInvitePeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */; };
 		97D175881A2F5C7100355AEE /* 02.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175811A2F5C7100355AEE /* 02.acv */; };
 		97D175891A2F5C7100355AEE /* 06.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175821A2F5C7100355AEE /* 06.acv */; };
 		97D1758A1A2F5C7100355AEE /* 17.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175831A2F5C7100355AEE /* 17.acv */; };
@@ -486,6 +489,12 @@
 		7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+visiableCenterScroll.m"; sourceTree = "<group>"; };
 		7AD40FD61A2C60F3002BB3CD /* GSMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSMenu.h; sourceTree = "<group>"; };
 		7AD40FD71A2C60F3002BB3CD /* GSMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSMenu.m; sourceTree = "<group>"; };
+		97BC25451A342C6700302A9A /* CustomBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBarItem.h; sourceTree = "<group>"; };
+		97BC25461A342C6700302A9A /* CustomBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBarItem.m; sourceTree = "<group>"; };
+		97BC25471A342C6700302A9A /* UINavigationItem+CustomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomItem.h"; sourceTree = "<group>"; };
+		97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomItem.m"; sourceTree = "<group>"; };
+		97BC254B1A344F8900302A9A /* GSInvitePeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSInvitePeopleViewController.h; sourceTree = "<group>"; };
+		97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSInvitePeopleViewController.m; sourceTree = "<group>"; };
 		97D1757E1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DBCamera.strings"; sourceTree = "<group>"; };
 		97D1757F1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		97D175801A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -983,6 +992,8 @@
 				069D8C9E1A28561E00509CA1 /* GSBaseViewController.m */,
 				069D8CA01A28564F00509CA1 /* GSBaseTableViewController.h */,
 				069D8CA11A28564F00509CA1 /* GSBaseTableViewController.m */,
+				97BC254B1A344F8900302A9A /* GSInvitePeopleViewController.h */,
+				97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */,
 				063871B71A28CDDB0011285C /* GSHomeVC.h */,
 				063871B81A28CDDB0011285C /* GSHomeVC.m */,
 				063871BA1A28CDE60011285C /* GSSearchVC.h */,
@@ -1077,6 +1088,7 @@
 		06B7055C1A126A9A00082D9C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				97BC25441A342C6700302A9A /* CustomBarItem */,
 				97F407DB1A2E0ECA0002A07D /* GPUFramework */,
 				97F407731A2E0C2E0002A07D /* DBCamera */,
 				7A1290851A257DE20091B6E9 /* TabBarController */,
@@ -1309,6 +1321,17 @@
 				7AD40FD71A2C60F3002BB3CD /* GSMenu.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		97BC25441A342C6700302A9A /* CustomBarItem */ = {
+			isa = PBXGroup;
+			children = (
+				97BC25451A342C6700302A9A /* CustomBarItem.h */,
+				97BC25461A342C6700302A9A /* CustomBarItem.m */,
+				97BC25471A342C6700302A9A /* UINavigationItem+CustomItem.h */,
+				97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */,
+			);
+			path = CustomBarItem;
 			sourceTree = "<group>";
 		};
 		97F407731A2E0C2E0002A07D /* DBCamera */ = {
@@ -2053,6 +2076,7 @@
 				06B705C41A126A9A00082D9C /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				97F409361A2E0ECA0002A07D /* GPUImage3x3TextureSamplingFilter.m in Sources */,
 				97F4094B1A2E0ECA0002A07D /* GPUImageColorMatrixFilter.m in Sources */,
+				97BC254D1A344F8900302A9A /* GSInvitePeopleViewController.m in Sources */,
 				97F409AF1A2E0ECA0002A07D /* GPUImageSingleComponentGaussianBlurFilter.m in Sources */,
 				97F409531A2E0ECA0002A07D /* GPUImageDilationFilter.m in Sources */,
 				97F409BB1A2E0ECA0002A07D /* GPUImageSwirlFilter.m in Sources */,
@@ -2124,6 +2148,7 @@
 				97F409C11A2E0ECA0002A07D /* GPUImageThresholdSketchFilter.m in Sources */,
 				97F409AE1A2E0ECA0002A07D /* GPUImageShiTomasiFeatureDetectionFilter.m in Sources */,
 				97F409351A2E0ECA0002A07D /* GPUImage3x3ConvolutionFilter.m in Sources */,
+				97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */,
 				064530E91A1626630041844B /* NSArray+MTLManipulationAdditions.m in Sources */,
 				97F407BF1A2E0C2E0002A07D /* DBCameraSegueViewController.m in Sources */,
 				97F409A51A2E0ECA0002A07D /* GPUImageRGBDilationFilter.m in Sources */,
@@ -2199,6 +2224,7 @@
 				7A1290931A257DE20091B6E9 /* GSTabBar.m in Sources */,
 				97F409511A2E0ECA0002A07D /* GPUImageDarkenBlendFilter.m in Sources */,
 				97F409921A2E0ECA0002A07D /* GPUImageNonMaximumSuppressionFilter.m in Sources */,
+				97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */,
 				97F409841A2E0ECA0002A07D /* GPUImageLuminanceThresholdFilter.m in Sources */,
 				97F409431A2E0ECA0002A07D /* GPUImageCGAColorspaceFilter.m in Sources */,
 				97F409891A2E0ECA0002A07D /* GPUImageMissEtikateFilter.m in Sources */,

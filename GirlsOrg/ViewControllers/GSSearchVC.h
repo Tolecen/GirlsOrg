@@ -8,6 +8,6 @@
 
 #import "GSBaseViewController.h"
 
-@interface GSSearchVC : GSBaseViewController
+@interface GSSearchVC : GSBaseViewController<UISearchBarDelegate,UISearchDisplayDelegate>
 
 @end

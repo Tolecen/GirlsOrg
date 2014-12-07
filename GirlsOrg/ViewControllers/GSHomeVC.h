@@ -9,6 +9,9 @@
 #import "GSBaseViewController.h"
 
 @interface GSHomeVC : GSBaseViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong) UIView * titleView;
+@property (nonatomic, strong) UILabel * titleLabel;
+@property (nonatomic, strong) UIPageControl * pageControl;
 @property (nonatomic, strong) UIScrollView * backScrollV;
 @property (nonatomic, strong) UITableView * goodTableView;
 @property (nonatomic, strong) UITableView * focusTableView;

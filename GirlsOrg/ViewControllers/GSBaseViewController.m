@@ -9,7 +9,7 @@
 #import "GSBaseViewController.h"
 #import "DBCameraViewController.h"
 #import "DBCameraContainerViewController.h"
-
+#import "GSTabBarController.h"
 @interface GSBaseViewController ()<DBCameraViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @end
@@ -28,6 +28,8 @@
                                                                       NSFontAttributeName:[UIFont boldSystemFontOfSize:20]
                                                                       }];
     self.view.backgroundColor = RGBCOLOR(243, 243, 243, 1);
+//    self.hidesBottomBarWhenPushed = YES;
+    
 }
 
 - (void)openCamera {
@@ -71,6 +73,8 @@
     [super viewDidAppear:animated];
     if (self.navigationController.viewControllers.count > 1 && IOS7) {
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//        GSTabBarController * tabV = (GSTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+//        tabV
     }
 }
 
