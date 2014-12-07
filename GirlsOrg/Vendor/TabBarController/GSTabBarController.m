@@ -160,9 +160,9 @@ static const float kPushAnimationDuration = 0.35;
 #pragma - UINavigationControllerDelegate
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    prevViewControllers = [navigationController viewControllers];
-    if (prevViewControllers.count==1)
-        [self showTabBar:GSShowHideFromLeft animated:animated];
+//    prevViewControllers = [navigationController viewControllers];
+//    if (prevViewControllers.count==1)
+//        [self showTabBar:GSShowHideFromLeft animated:animated];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -170,6 +170,8 @@ static const float kPushAnimationDuration = 0.35;
     prevViewControllers = [navigationController viewControllers];
     if (prevViewControllers.count>1)
         [self hideTabBar:GSShowHideFromRight animated:animated];
+    else
+        [self showTabBar:GSShowHideFromLeft animated:animated];
 }
 
 - (void)showTabBar:(GSShowHideFrom)showHideFrom animated:(BOOL)animated

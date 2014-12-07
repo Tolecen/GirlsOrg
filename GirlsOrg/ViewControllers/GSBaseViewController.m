@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    firstIn = YES;
     if (IOS7) {
 //        self.edgesForExtendedLayout = UIRectEdgeNone;
 //        self.extendedLayoutIncludesOpaqueBars = NO;
@@ -65,6 +66,7 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    
 //    if (!self.firstTimeIn) {
 //        self.firstTimeIn = YES;
 //    }

@@ -11,7 +11,9 @@
 #import "GSTabBar.h"
 @class GSTabBarController;
 @interface GSBaseViewController : UIViewController
-
+{
+    BOOL firstIn;
+}
 - (CGFloat)acceptNavigationHeight;
 - (void)openCamera;
 

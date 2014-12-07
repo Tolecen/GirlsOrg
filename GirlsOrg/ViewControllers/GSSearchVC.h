@@ -9,5 +9,6 @@
 #import "GSBaseViewController.h"
 
 @interface GSSearchVC : GSBaseViewController<UISearchBarDelegate,UISearchDisplayDelegate>
-
+{
+}
 @end

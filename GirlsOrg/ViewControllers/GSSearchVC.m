@@ -64,6 +64,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    firstIn = YES;
     self.topMenuTouched = NO;
     UIView * bgv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame)-70, 44)];
     [bgv setBackgroundColor:[UIColor clearColor]];
@@ -155,6 +156,10 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewDidLayoutSubviews];
+    if (!firstIn) {
+        return;
+    }
+    firstIn = NO;
     NSLog(@"viewDidLayoutSubviews view %@",NSStringFromCGRect(self.view.frame));
     [self.topMenu setFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 35)];
     self.backScrollV.frame = self.view.bounds;
