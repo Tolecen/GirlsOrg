@@ -1,0 +1,19 @@
+/* 
+  CommonTitles.strings
+  GirlsOrg
+
+  Created by Tolecen on 14/12/7.
+  Copyright (c) 2014年 uzero. All rights reserved.
+*/
+"homePage_title1" = "精选";
+"homePage_title2" = "关注";
+
+"hearderRefresh_title" = "正在刷新...^_^";
+"releaseToRefresh" = "松开立即刷新";
+"pullToRefresh" = "下拉刷新";
+"headerLastUpdated" = "最后更新: ";
+"headerToday" = "今天";
+
+"footerRefresh_title" = "加载更多...^_^";
+"footerreleaseToRefresh" = "松开加载更多";
+"footerpullToRefresh" = "上拉刷新";

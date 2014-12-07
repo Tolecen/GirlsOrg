@@ -26,7 +26,7 @@
     self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     [_titleView setBackgroundColor:[UIColor clearColor]];
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, 100, 20)];
-    [_titleLabel setText:@"精选"];
+    [_titleLabel setText:CommonLocalizedStrings(@"homePage_title1")];
     [_titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
     [_titleLabel setTextColor:[UIColor whiteColor]];
     [_titleLabel setTextAlignment:NSTextAlignmentCenter];
@@ -59,8 +59,12 @@
     _goodTableView.backgroundColor = [UIColor clearColor];
     _goodTableView.showsVerticalScrollIndicator = NO;
     [_backScrollV addSubview:_goodTableView];
-    _goodTableView.delegate = self;
-    _goodTableView.dataSource = self;
+    
+    self.goodTableViewHelper = [[GSBrowserTableviewHelper alloc] initWithController:self Tableview:self.goodTableView];
+    
+    _goodTableView.delegate = self.goodTableViewHelper;
+    _goodTableView.dataSource = self.goodTableViewHelper;
+    self.goodTableViewHelper.tableViewType = TableViewTypeGood;
     
     self.focusTableView = [[UITableView alloc]initWithFrame:CGRectZero];
     _focusTableView.backgroundView = nil;
@@ -68,8 +72,12 @@
     _focusTableView.backgroundColor = [UIColor clearColor];
     _focusTableView.showsVerticalScrollIndicator = NO;
     [_backScrollV addSubview:_focusTableView];
-    _focusTableView.delegate = self;
-    _focusTableView.dataSource = self;
+    
+    self.focusTableViewHelper = [[GSBrowserTableviewHelper alloc] initWithController:self Tableview:self.focusTableView];
+    
+    _focusTableView.delegate = self.focusTableViewHelper;
+    _focusTableView.dataSource = self.focusTableViewHelper;
+    self.focusTableViewHelper.tableViewType = TableViewTypeFocus;
 }
 
 - (void)viewWillLayoutSubviews {
@@ -87,70 +95,17 @@
     self.focusTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([tableView isEqual:self.goodTableView]) {
-        return 80;
-    }
-    else
-    {
-        return 85;
-    }
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if ([tableView isEqual:self.goodTableView]) {
-        return 10;
-    }
-    else
-        return 15;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([tableView isEqual:self.goodTableView]) {
-        static NSString *cellIdentifier = @"goodCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.backgroundColor = [UIColor getRandomColor];
-        cell.textLabel.text = @"tableview1";
-        return cell;
-
-    }
-    else
-    {
-        static NSString *cellIdentifier = @"focusCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.backgroundColor = [UIColor getRandomColor];
-        cell.textLabel.text = @"tableview2";
-        return cell;
-    }
-}
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView == _backScrollV) {
         if (_backScrollV.contentOffset.x==0) {
             [self.menuScroll setSelectedIndex:0 animated:NO calledDelegate:NO];
-            [_titleLabel setText:@"精选"];
+            [_titleLabel setText:CommonLocalizedStrings(@"homePage_title1")];
             _pageControl.currentPage = 0;
         }
         else if(_backScrollV.contentOffset.x==self.view.frame.size.width){
             [self.menuScroll setSelectedIndex:1 animated:NO calledDelegate:NO];
-            [_titleLabel setText:@"关注"];
+            [_titleLabel setText:CommonLocalizedStrings(@"homePage_title2")];
             _pageControl.currentPage = 1;
         }
     }

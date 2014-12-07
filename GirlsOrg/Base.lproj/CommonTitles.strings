@@ -1,0 +1,20 @@
+/* 
+  CommonTitles.strings
+  GirlsOrg
+
+  Created by Tolecen on 14/12/7.
+  Copyright (c) 2014年 uzero. All rights reserved.
+*/
+
+"homePage_title1" = "Choosed";
+"homePage_title2" = "Focused";
+
+"hearderRefresh_title" = "Refreshing Now...^_^";
+"releaseToRefresh" = "Release to refresh";
+"pullToRefresh" = "Pull to refresh";
+"headerLastUpdated" = "Last updated: ";
+"headerToday" = "Today";
+
+"footerRefresh_title" = "Loading more...^_^";
+"footerreleaseToRefresh" = "Release to loading more";
+"footerpullToRefresh" = "Pull up to refresh";
