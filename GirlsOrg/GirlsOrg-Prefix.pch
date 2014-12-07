@@ -13,7 +13,12 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-#import "GSCommon.h"
-#import "UIColor+utility.h"
+    #import "GSCommon.h"
+    #import "UIColor+utility.h"
 
+#endif
+
+#ifndef CommonLocalizedStrings
+#define CommonLocalizedStrings(key) \
+NSLocalizedStringFromTable(key, @"CommonTitles", nil)
 #endif
