@@ -24,11 +24,13 @@
 
 - (void)setContentView:(UIView *)contentView
 {
+    NSLog(@"setContentView");
     if (_contentView != contentView)
     {
         [_contentView removeFromSuperview];
         _contentView = contentView;
         _contentView.frame = CGRectZero;
+        NSLog(@"setContentView contentView %@",NSStringFromCGRect(_contentView.frame));
         [self addSubview:_contentView];
         [self sendSubviewToBack:_contentView];
     }
@@ -45,6 +47,7 @@
     
     CGRect contentViewRect = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - ((!_isTabBarHidding) ? CGRectGetHeight(_tabBar.bounds) : 0));
     _contentView.frame = contentViewRect;
+    NSLog(@"layoutSubviews contentwill %@",NSStringFromCGRect(_contentView.frame));
     [_contentView setNeedsLayout];
 }
 

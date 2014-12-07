@@ -6,20 +6,57 @@
 //  Copyright (c) 2014 uzero. All rights reserved.
 //
 
+#define TopicReuseIdentifier    @"TopicReuseIdentifier"
+#define ActiveReuseIdentifier   @"ActiveReuseIdentifier"
+#define TagReuseIdentifier      @"TagReuseIdentifier"
+
 #import "GSSearchVC.h"
 #import "GSMenuScroll.h"
 #import "UINavigationItem+CustomItem.h"
 #import "GSInvitePeopleViewController.h"
-@interface GSSearchVC ()<FSMenuScrollDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic,strong)GSMenuScroll * topMenu;
-@property (nonatomic, strong) UIScrollView * backScrollV;
-@property (nonatomic, strong) UITableView * topicTableview;
-@property (nonatomic, strong) UITableView * activeUserTableview;
-@property (nonatomic, strong) UITableView * tagTableview;
+
+@interface GSSearchVC ()<FSMenuScrollDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, strong) GSMenuScroll * topMenu;
+@property (nonatomic, weak) UIScrollView * backScrollV;
+@property (nonatomic, weak) UITableView * topicTableview;
+@property (nonatomic, weak) UITableView * activeUserTableview;
+@property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, assign) BOOL topMenuTouched;
 @end
 
 @implementation GSSearchVC
+
+#pragma mark --Private
+
+- (UITableView *)createTableView {
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    tableView.backgroundView = nil;
+    tableView.scrollsToTop = YES;
+    tableView.backgroundColor = [UIColor clearColor];
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.rowHeight = 80;
+    return tableView;
+}
+
+- (UICollectionView *)createCollectionView {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumInteritemSpacing = 0.f;
+    layout.minimumLineSpacing = 0.f;
+    layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width - 20) / 3, 50);
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    collectionView.backgroundView = nil;
+    collectionView.scrollsToTop = YES;
+    collectionView.backgroundColor = [UIColor clearColor];
+    collectionView.showsVerticalScrollIndicator = NO;
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    return collectionView;
+}
+
+#pragma mark -- Life Cycle
 
 - (NSString *)tabImageName {
     return @"home_tab_icon_2";
@@ -28,7 +65,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.topMenuTouched = NO;
-//    self.navigationItem.title = @"广场";
     UIView * bgv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame)-70, 44)];
     [bgv setBackgroundColor:[UIColor clearColor]];
     
@@ -56,15 +92,16 @@
     [rightBtn addTarget:self action:@selector(toInvitePeoplePage) forControlEvents:UIControlEventTouchUpInside];
     
     [self.navigationItem setItemWithCustomView:rightBtnBgv itemType:right];
-
-//    CustomBarItem *rightItem = [CustomBarItem itemWithTitle:@"邀请/t" textColor:RGBCOLOR(255, 255, 255, 1) fontSize:15 itemType:right];//从右到左  第一个按钮
-//    //[rightItem1 setOffset:-20];//两个item都会移动
-//    [rightItem addTarget:self selector:@selector(invite) event:(UIControlEventTouchUpInside)];
-//    NSArray *barButtonItems = @[rightItem];
-//    [self.navigationItem addCustomBarItems:barButtonItems itemType:right];
     
-    self.backScrollV = [[UIScrollView alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:_backScrollV];
+    UIScrollView *backScrollV = [[UIScrollView alloc] initWithFrame:CGRectZero];
+    backScrollV.delegate = self;
+    backScrollV.showsHorizontalScrollIndicator = NO;
+    backScrollV.showsVerticalScrollIndicator = NO;
+    backScrollV.backgroundColor = [UIColor clearColor];
+    backScrollV.pagingEnabled = YES;
+    backScrollV.bounces = NO;
+    [self.view addSubview:backScrollV];
+    self.backScrollV = backScrollV;
     
      self.topMenu = [[GSMenuScroll alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 35)];
     _topMenu.delegate = self;
@@ -84,12 +121,6 @@
             case 2:
                 menu.title = @"标签";
                 break;
-//            case 3:
-//                menu.title = @"标签";
-//                break;
-//            case 4:
-//                menu.title = @"专题";
-//                break;
             default:
                 break;
         }
@@ -99,44 +130,32 @@
     _topMenu.menus = menus.copy;
     [_topMenu reloadData];
     
+    UITableView *topicTableView = [self createTableView];
+    [topicTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:TopicReuseIdentifier];
+    [self.backScrollV addSubview:topicTableView];
+    self.topicTableview = topicTableView;
     
+    UITableView *activeUserTableview = [self createTableView];
+    [activeUserTableview registerClass:[UITableViewCell class] forCellReuseIdentifier:ActiveReuseIdentifier];
+    [self.backScrollV addSubview:activeUserTableview];
+    self.activeUserTableview = activeUserTableview;
     
-    _backScrollV.delegate = self;
-    _backScrollV.showsHorizontalScrollIndicator = NO;
-    _backScrollV.showsVerticalScrollIndicator = NO;
-    _backScrollV.backgroundColor = [UIColor clearColor];
-    _backScrollV.pagingEnabled = YES;
-    _backScrollV.bounces = NO;
+    UICollectionView *collectionView = [self createCollectionView];
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:TagReuseIdentifier];
+    [self.backScrollV addSubview:collectionView];
+    self.collectionView = collectionView;
     
-    self.topicTableview = [[UITableView alloc]initWithFrame:CGRectZero];
-    _topicTableview.backgroundView = nil;
-    _topicTableview.scrollsToTop = YES;
-    _topicTableview.backgroundColor = [UIColor clearColor];
-    _topicTableview.showsVerticalScrollIndicator = NO;
-    [_backScrollV addSubview:_topicTableview];
-    _topicTableview.delegate = self;
-    _topicTableview.dataSource = self;
-    
-    self.activeUserTableview = [[UITableView alloc]initWithFrame:CGRectZero];
-    _activeUserTableview.backgroundView = nil;
-    _activeUserTableview.scrollsToTop = YES;
-    _activeUserTableview.backgroundColor = [UIColor clearColor];
-    _activeUserTableview.showsVerticalScrollIndicator = NO;
-    [_backScrollV addSubview:_activeUserTableview];
-    _activeUserTableview.delegate = self;
-    _activeUserTableview.dataSource = self;
-    
-    self.tagTableview = [[UITableView alloc]initWithFrame:CGRectZero];
-    _tagTableview.backgroundView = nil;
-    _tagTableview.scrollsToTop = YES;
-    _tagTableview.backgroundColor = [UIColor clearColor];
-    _tagTableview.showsVerticalScrollIndicator = NO;
-    [_backScrollV addSubview:_tagTableview];
-    _tagTableview.delegate = self;
-    _tagTableview.dataSource = self;
+    self.topicTableview.contentOffset = CGPointMake(0, -64-35);
+    self.topicTableview.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
+    self.activeUserTableview.contentOffset = CGPointMake(0, -64-35);
+    self.activeUserTableview.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
+    self.collectionView.contentOffset = CGPointMake(0, -64-35);
+    self.collectionView.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
 }
+
 - (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
+    [super viewDidLayoutSubviews];
+    NSLog(@"viewDidLayoutSubviews view %@",NSStringFromCGRect(self.view.frame));
     [self.topMenu setFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 35)];
     self.backScrollV.frame = self.view.bounds;
     self.backScrollV.contentSize = CGSizeMake(3 * CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
@@ -144,81 +163,45 @@
     CGRect rect = self.view.bounds;
     rect.origin.x = CGRectGetWidth(self.view.frame);
     CGRect rect2 = rect;
-    rect2.origin.x = CGRectGetWidth(self.view.frame)*2;
+    rect2.size.width = CGRectGetWidth(self.view.frame) - 20;
+    rect2.origin.x = CGRectGetWidth(self.view.frame)*2 + 10;
     self.activeUserTableview.frame = rect;
-    self.tagTableview.frame = rect2;
-    self.topicTableview.contentOffset = CGPointMake(0, -64-35);
-    self.topicTableview.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
-    self.activeUserTableview.contentOffset = CGPointMake(0, -64-35);
-    self.activeUserTableview.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
-    self.tagTableview.contentOffset = CGPointMake(0, -64-35);
-    self.tagTableview.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
-}
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+    self.collectionView.frame = rect2;
+ 
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([tableView isEqual:self.topicTableview]) {
-        return 80;
-    }
-    else if ([tableView isEqual:self.activeUserTableview]){
-        return 80;
-    }
-    else
-    {
-        return 85;
-    }
+#pragma mark -- UICollectionView
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TagReuseIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor getRandomColor];
+    return cell;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 50;
+}
+
+#pragma mark -- UITableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([tableView isEqual:self.topicTableview]) {
         return 10;
-    }
-    else if ([tableView isEqual:self.activeUserTableview]){
+    } else {
         return 15;
     }
-    else
-        return 15;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:self.topicTableview]) {
-        static NSString *cellIdentifier = @"topicCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TopicReuseIdentifier];
         cell.backgroundColor = [UIColor redColor];
         cell.textLabel.text = @"tableview1";
         return cell;
-        
-    }
-    else if ([tableView isEqual:self.activeUserTableview]){
-        static NSString *cellIdentifier = @"userCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ActiveReuseIdentifier];
         cell.backgroundColor = [UIColor redColor];
         cell.textLabel.text = @"tableview2";
-        return cell;
-    }
-    else
-    {
-        static NSString *cellIdentifier = @"tagCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.text = @"tableview3";
         return cell;
     }
 }
@@ -232,10 +215,15 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+//    if (self.view.frame.size.width==0) {
+//        return;
+//    }
     if (scrollView == _backScrollV) {
         if (!self.topMenuTouched) {
+            NSLog(@"width:%f",self.view.frame.size.width);
             self.topMenu.indicatorView.frame = CGRectMake((self.view.frame.size.width/3*_backScrollV.contentOffset.x)/self.view.frame.size.width, self.topMenu.indicatorView.frame.origin.y, self.topMenu.indicatorView.frame.size.width, self.topMenu.indicatorView.frame.size.height);
-        }
+        }            
+
         if (_backScrollV.contentOffset.x==0) {
             [self.topMenu setSelectedIndex:0 animated:NO calledDelegate:NO];
             self.topMenuTouched = NO;
