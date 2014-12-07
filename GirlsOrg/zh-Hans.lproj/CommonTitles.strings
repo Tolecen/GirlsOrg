@@ -17,3 +17,9 @@
 "footerRefresh_title" = "加载更多...^_^";
 "footerreleaseToRefresh" = "松开加载更多";
 "footerpullToRefresh" = "上拉刷新";
+
+"squareSearchBarPlaceHolder" = "搜索用户、标签";
+"square_menuTitle1" = "话题";
+"square_menuTitle2" = "达人";
+"square_menuTitle3" = "标签";
+"square_topRightTitle1" = "邀请";

@@ -19,4 +19,8 @@
 "footerreleaseToRefresh" = "Release to loading more";
 "footerpullToRefresh" = "Pull up to refresh";
 
-"squareSearchBarPlaceHolder" = "";
+"squareSearchBarPlaceHolder" = "Search users and tags";
+"square_menuTitle1" = "Topic";
+"square_menuTitle2" = "Active";
+"square_menuTitle3" = "Tags";
+"square_topRightTitle1" = "Invite";

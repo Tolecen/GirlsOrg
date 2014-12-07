@@ -70,7 +70,7 @@
     
     UISearchBar *search = [[UISearchBar alloc] initWithFrame:CGRectMake(5, 0, CGRectGetWidth(self.view.frame)-70-10, 44)];
     search.searchBarStyle = UISearchBarStyleMinimal;
-    search.placeholder = @"搜索标签、用户";
+    search.placeholder = CommonLocalizedStrings(@"squareSearchBarPlaceHolder");
     
     search.showsScopeBar = YES;
     UITextField *searchField = [search valueForKey:@"_searchField"];
@@ -85,7 +85,7 @@
     [rightBtnBgv setBackgroundColor:[UIColor clearColor]];
     UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn setFrame:CGRectMake(0, 0, 60, 44)];
-    [rightBtn setTitle:@"邀请" forState:UIControlStateNormal];
+    [rightBtn setTitle:CommonLocalizedStrings(@"square_topRightTitle1") forState:UIControlStateNormal];
     [rightBtn setTitleColor:RGBCOLOR(255, 255, 255, 1) forState:UIControlStateNormal];
     [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
     [rightBtnBgv addSubview:rightBtn];
@@ -113,13 +113,13 @@
         GSMenu *menu = [[GSMenu alloc] init];
         switch (i) {
             case 0:
-                menu.title = @"话题";
+                menu.title = CommonLocalizedStrings(@"square_menuTitle1");
                 break;
             case 1:
-                menu.title = @"达人";
+                menu.title = CommonLocalizedStrings(@"square_menuTitle2");
                 break;
             case 2:
-                menu.title = @"标签";
+                menu.title = CommonLocalizedStrings(@"square_menuTitle3");
                 break;
             default:
                 break;
