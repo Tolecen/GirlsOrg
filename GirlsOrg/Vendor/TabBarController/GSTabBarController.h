@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "GSTabBarView.h"
-
+typedef NS_ENUM(NSInteger, GSShowHideFrom) {
+    GSShowHideFromLeft,
+    GSShowHideFromRight
+};
 @interface GSTabBarController : UIViewController <GSTabDelegate ,GSTabBarDelegate, UINavigationControllerDelegate>
-
+{
+    @public
+    GSTabBar *tabBar;
+}
 // View Controllers handled by the tab bar controller.
 @property (nonatomic, strong) NSMutableArray *viewControllers;
 
@@ -55,5 +61,6 @@
 
 // Initialization with a specific height.
 - (id)initWithTabBarHeight:(NSUInteger)height;
-
+- (void)showTabBar:(GSShowHideFrom)showHideFrom animated:(BOOL)animated;
+- (void)hideTabBar:(GSShowHideFrom)showHideFrom animated:(BOOL)animated;
 @end

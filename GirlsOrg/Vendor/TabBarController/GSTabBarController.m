@@ -10,10 +10,7 @@
 #import "UIViewController+GSTarBarController.h"
 #import "GSBaseViewController.h"
 
-typedef NS_ENUM(NSInteger, GSShowHideFrom) {
-    GSShowHideFromLeft,
-    GSShowHideFromRight
-};
+
 
 // Default height of the tab bar
 static const int kDefaultTabBarHeight = 50;
@@ -25,7 +22,7 @@ static const float kPushAnimationDuration = 0.35;
     NSArray *prevViewControllers;
     BOOL visible;
     // Bottom tab bar view
-    GSTabBar *tabBar;
+    
     
     // Content view
     GSTabBarView *tabBarView;
@@ -38,8 +35,7 @@ static const float kPushAnimationDuration = 0.35;
 @property (nonatomic, strong) UINavigationController *selectedViewController;
 
 - (void)loadTabs;
-- (void)showTabBar:(GSShowHideFrom)showHideFrom animated:(BOOL)animated;
-- (void)hideTabBar:(GSShowHideFrom)showHideFrom animated:(BOOL)animated;
+
 
 @end
 
@@ -161,8 +157,8 @@ static const float kPushAnimationDuration = 0.35;
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
 //    prevViewControllers = [navigationController viewControllers];
-//    if (prevViewControllers.count==1)
-//        [self showTabBar:GSShowHideFromLeft animated:animated];
+//    if (prevViewControllers.count>1)
+//        [self hideTabBar:GSShowHideFromRight animated:animated];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated

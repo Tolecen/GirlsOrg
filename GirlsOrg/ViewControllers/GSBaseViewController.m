@@ -90,8 +90,11 @@
     [super viewDidAppear:animated];
     if (self.navigationController.viewControllers.count > 1 && IOS7) {
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
-//        GSTabBarController * tabV = (GSTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-//        tabV
+        GSTabBarController * tabV = (GSTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        if (!tabV->tabBar.hidden) {
+            [tabV hideTabBar:GSShowHideFromRight animated:YES];
+        }
+        
     }
 }
 
