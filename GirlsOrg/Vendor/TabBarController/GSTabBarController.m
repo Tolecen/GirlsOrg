@@ -16,7 +16,7 @@
 static const int kDefaultTabBarHeight = 50;
 
 // Default Push animation duration
-static const float kPushAnimationDuration = 0.35;
+static const float kPushAnimationDuration = 0.25;
 
 @interface GSTabBarController () {
     NSArray *prevViewControllers;

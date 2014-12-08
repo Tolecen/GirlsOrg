@@ -19,4 +19,12 @@
 
 #define EndTimer(msg)           NSTimeInterval stop = [NSDate timeIntervalSinceReferenceDate]; NSLog(@"%@", [NSString stringWithFormat:@"%@ Time = %f", msg, stop-start]);
 
+#define UseDevelopMode 0
+
+#define Channel @"1001"
+
+#define CurrentVersion [[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] substringToIndex:([[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] length]-5)]
+#define DeviceModel  [UIDevice currentDevice].model
+#define SystemVersion [UIDevice currentDevice].systemVersion
+
 #endif

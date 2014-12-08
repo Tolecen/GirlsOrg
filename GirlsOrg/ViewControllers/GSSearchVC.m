@@ -155,7 +155,7 @@
 }
 
 - (void)viewWillLayoutSubviews {
-    [super viewDidLayoutSubviews];
+    [super viewWillLayoutSubviews];
     if (!firstIn) {
         return;
     }

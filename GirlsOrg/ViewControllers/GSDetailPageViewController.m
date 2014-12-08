@@ -1,28 +1,25 @@
 //
-//  GSInvitePeopleViewController.m
+//  GSDetailPageViewController.m
 //  GirlsOrg
 //
-//  Created by Tolecen on 14/12/7.
+//  Created by Tolecen on 14/12/8.
 //  Copyright (c) 2014年 uzero. All rights reserved.
 //
 
-#import "GSInvitePeopleViewController.h"
+#import "GSDetailPageViewController.h"
 
-@interface GSInvitePeopleViewController ()
+@interface GSDetailPageViewController ()
 
 @end
 
-@implementation GSInvitePeopleViewController
+@implementation GSDetailPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = CommonLocalizedStrings(@"invitePage_title");
+    self.navigationItem.title = CommonLocalizedStrings(@"detailPage_title");
     // Do any additional setup after loading the view.
 }
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
 
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

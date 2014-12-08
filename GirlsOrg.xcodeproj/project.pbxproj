@@ -103,6 +103,13 @@
 		97431C2A1A346B7500F26B3E /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 97431C221A346B7500F26B3E /* UIView+MJExtension.m */; };
 		97431C2D1A3473F900F26B3E /* GSBrowserTableviewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 97431C2C1A3473F900F26B3E /* GSBrowserTableviewHelper.m */; };
 		97431C301A3479C000F26B3E /* CommonTitles.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97431C321A3479C000F26B3E /* CommonTitles.strings */; };
+		97525FBC1A35D9E600A6CA29 /* GSDetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FBB1A35D9E600A6CA29 /* GSDetailPageViewController.m */; };
+		97525FC81A35E6C600A6CA29 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FC11A35E6C600A6CA29 /* RNCryptor.m */; };
+		97525FC91A35E6C600A6CA29 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FC31A35E6C600A6CA29 /* RNCryptorEngine.m */; };
+		97525FCA1A35E6C600A6CA29 /* RNDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FC51A35E6C600A6CA29 /* RNDecryptor.m */; };
+		97525FCB1A35E6C600A6CA29 /* RNEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FC71A35E6C600A6CA29 /* RNEncryptor.m */; };
+		97525FCD1A35E6D000A6CA29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97525FCC1A35E6D000A6CA29 /* Security.framework */; };
+		97525FD21A35E85200A6CA29 /* GSNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */; };
 		97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25461A342C6700302A9A /* CustomBarItem.m */; };
 		97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */; };
 		97BC254D1A344F8900302A9A /* GSInvitePeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */; };
@@ -529,6 +536,21 @@
 		97431C3B1A3481E800F26B3E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		97431C3C1A3481E800F26B3E /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		97431C3D1A3481EA00F26B3E /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		97525FBA1A35D9E600A6CA29 /* GSDetailPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSDetailPageViewController.h; sourceTree = "<group>"; };
+		97525FBB1A35D9E600A6CA29 /* GSDetailPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSDetailPageViewController.m; sourceTree = "<group>"; };
+		97525FBE1A35E6C600A6CA29 /* RNCryptor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor+Private.h"; sourceTree = "<group>"; };
+		97525FBF1A35E6C600A6CA29 /* RNCryptor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-Prefix.pch"; sourceTree = "<group>"; };
+		97525FC01A35E6C600A6CA29 /* RNCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCryptor.h; sourceTree = "<group>"; };
+		97525FC11A35E6C600A6CA29 /* RNCryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCryptor.m; sourceTree = "<group>"; };
+		97525FC21A35E6C600A6CA29 /* RNCryptorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCryptorEngine.h; sourceTree = "<group>"; };
+		97525FC31A35E6C600A6CA29 /* RNCryptorEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCryptorEngine.m; sourceTree = "<group>"; };
+		97525FC41A35E6C600A6CA29 /* RNDecryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNDecryptor.h; sourceTree = "<group>"; };
+		97525FC51A35E6C600A6CA29 /* RNDecryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNDecryptor.m; sourceTree = "<group>"; };
+		97525FC61A35E6C600A6CA29 /* RNEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNEncryptor.h; sourceTree = "<group>"; };
+		97525FC71A35E6C600A6CA29 /* RNEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNEncryptor.m; sourceTree = "<group>"; };
+		97525FCC1A35E6D000A6CA29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		97525FD01A35E85200A6CA29 /* GSNetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNetWorkManager.h; sourceTree = "<group>"; };
+		97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNetWorkManager.m; sourceTree = "<group>"; };
 		97BC25451A342C6700302A9A /* CustomBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBarItem.h; sourceTree = "<group>"; };
 		97BC25461A342C6700302A9A /* CustomBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBarItem.m; sourceTree = "<group>"; };
 		97BC25471A342C6700302A9A /* UINavigationItem+CustomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomItem.h"; sourceTree = "<group>"; };
@@ -947,6 +969,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97525FCD1A35E6D000A6CA29 /* Security.framework in Frameworks */,
 				06B704B41A12540000082D9C /* CoreGraphics.framework in Frameworks */,
 				06B704B61A12540000082D9C /* UIKit.framework in Frameworks */,
 				06B704B21A12540000082D9C /* Foundation.framework in Frameworks */,
@@ -1036,6 +1059,8 @@
 				069D8CA11A28564F00509CA1 /* GSBaseTableViewController.m */,
 				97BC254B1A344F8900302A9A /* GSInvitePeopleViewController.h */,
 				97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */,
+				97525FBA1A35D9E600A6CA29 /* GSDetailPageViewController.h */,
+				97525FBB1A35D9E600A6CA29 /* GSDetailPageViewController.m */,
 				063871B71A28CDDB0011285C /* GSHomeVC.h */,
 				063871B81A28CDDB0011285C /* GSHomeVC.m */,
 				063871BA1A28CDE60011285C /* GSSearchVC.h */,
@@ -1070,6 +1095,7 @@
 		06B704B01A12540000082D9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				97525FCC1A35E6D000A6CA29 /* Security.framework */,
 				97F407D91A2E0CA70002A07D /* AVFoundation.framework */,
 				97F407D61A2E0C930002A07D /* QuartzCore.framework */,
 				97F407D41A2E0C8E0002A07D /* OpenGLES.framework */,
@@ -1131,6 +1157,7 @@
 		06B7055C1A126A9A00082D9C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				97525FBD1A35E6C600A6CA29 /* RNCryptor */,
 				97431C121A346B7500F26B3E /* MJRefresh */,
 				97BC25441A342C6700302A9A /* CustomBarItem */,
 				97F407DB1A2E0ECA0002A07D /* GPUFramework */,
@@ -1275,6 +1302,7 @@
 		06BB3B781A262DE700ABE520 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				97525FCF1A35E83300A6CA29 /* NetWork */,
 				063871B61A28B55D0011285C /* GSCommon.h */,
 				063871B21A28B2EF0011285C /* Utilities */,
 				06BB3B791A262DE700ABE520 /* DataProvider */,
@@ -1388,6 +1416,32 @@
 				97431C221A346B7500F26B3E /* UIView+MJExtension.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		97525FBD1A35E6C600A6CA29 /* RNCryptor */ = {
+			isa = PBXGroup;
+			children = (
+				97525FBE1A35E6C600A6CA29 /* RNCryptor+Private.h */,
+				97525FBF1A35E6C600A6CA29 /* RNCryptor-Prefix.pch */,
+				97525FC01A35E6C600A6CA29 /* RNCryptor.h */,
+				97525FC11A35E6C600A6CA29 /* RNCryptor.m */,
+				97525FC21A35E6C600A6CA29 /* RNCryptorEngine.h */,
+				97525FC31A35E6C600A6CA29 /* RNCryptorEngine.m */,
+				97525FC41A35E6C600A6CA29 /* RNDecryptor.h */,
+				97525FC51A35E6C600A6CA29 /* RNDecryptor.m */,
+				97525FC61A35E6C600A6CA29 /* RNEncryptor.h */,
+				97525FC71A35E6C600A6CA29 /* RNEncryptor.m */,
+			);
+			path = RNCryptor;
+			sourceTree = "<group>";
+		};
+		97525FCF1A35E83300A6CA29 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				97525FD01A35E85200A6CA29 /* GSNetWorkManager.h */,
+				97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 		97BC25441A342C6700302A9A /* CustomBarItem */ = {
@@ -2043,6 +2097,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97525FC91A35E6C600A6CA29 /* RNCryptorEngine.m in Sources */,
 				97F409941A2E0ECA0002A07D /* GPUImageOpacityFilter.m in Sources */,
 				7AD40FCC1A2C5FEF002BB3CD /* GSIndicatorView.m in Sources */,
 				064530ED1A1626630041844B /* NSValueTransformer+MTLInversionAdditions.m in Sources */,
@@ -2094,6 +2149,7 @@
 				97F409BE1A2E0ECA0002A07D /* GPUImageThreeInputFilter.m in Sources */,
 				97F409341A2E0ECA0002A07D /* GLProgram.m in Sources */,
 				063871BF1A28CDF10011285C /* GSProfileVC.m in Sources */,
+				97525FCB1A35E6C600A6CA29 /* RNEncryptor.m in Sources */,
 				97F4097B1A2E0ECA0002A07D /* GPUImageLaplacianFilter.m in Sources */,
 				97F409611A2E0ECA0002A07D /* GPUImageFramebuffer.m in Sources */,
 				97F409991A2E0ECA0002A07D /* GPUImagePerlinNoiseFilter.m in Sources */,
@@ -2133,6 +2189,7 @@
 				97F409AD1A2E0ECA0002A07D /* GPUImageSharpenFilter.m in Sources */,
 				97F409C71A2E0ECA0002A07D /* GPUImageTwoInputFilter.m in Sources */,
 				97F4094A1A2E0ECA0002A07D /* GPUImageColorInvertFilter.m in Sources */,
+				97525FD21A35E85200A6CA29 /* GSNetWorkManager.m in Sources */,
 				06B705CE1A126A9A00082D9C /* MagicalRecord+Options.m in Sources */,
 				97F409A41A2E0ECA0002A07D /* GPUImageRGBClosingFilter.m in Sources */,
 				97F407D31A2E0C2E0002A07D /* DBCameraView.m in Sources */,
@@ -2146,6 +2203,7 @@
 				97F409391A2E0ECA0002A07D /* GPUImageAlphaBlendFilter.m in Sources */,
 				97F409811A2E0ECA0002A07D /* GPUImageLookupFilter.m in Sources */,
 				06B705C41A126A9A00082D9C /* NSManagedObjectContext+MagicalObserving.m in Sources */,
+				97525FCA1A35E6C600A6CA29 /* RNDecryptor.m in Sources */,
 				97F409361A2E0ECA0002A07D /* GPUImage3x3TextureSamplingFilter.m in Sources */,
 				97F4094B1A2E0ECA0002A07D /* GPUImageColorMatrixFilter.m in Sources */,
 				97BC254D1A344F8900302A9A /* GSInvitePeopleViewController.m in Sources */,
@@ -2164,6 +2222,7 @@
 				97F409801A2E0ECA0002A07D /* GPUImageLocalBinaryPatternFilter.m in Sources */,
 				97F409881A2E0ECA0002A07D /* GPUImageMedianFilter.m in Sources */,
 				97F409871A2E0ECA0002A07D /* GPUImageMaskFilter.m in Sources */,
+				97525FBC1A35D9E600A6CA29 /* GSDetailPageViewController.m in Sources */,
 				06B705C91A126A9A00082D9C /* NSPersistentStore+MagicalRecord.m in Sources */,
 				97F407B91A2E0C2E0002A07D /* UIImage+TintColor.m in Sources */,
 				97F4093B1A2E0ECA0002A07D /* GPUImageAverageColor.m in Sources */,
@@ -2307,6 +2366,7 @@
 				97F409891A2E0ECA0002A07D /* GPUImageMissEtikateFilter.m in Sources */,
 				97F407C81A2E0C2E0002A07D /* DBCameraManager.m in Sources */,
 				06B705D11A126A9A00082D9C /* MagicalRecord.m in Sources */,
+				97525FC81A35E6C600A6CA29 /* RNCryptor.m in Sources */,
 				06B705D01A126A9A00082D9C /* MagicalRecord+ShorthandSupport.m in Sources */,
 				06B705CA1A126A9A00082D9C /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				97F409D41A2E0ECA0002A07D /* GPUImageMovieWriter.m in Sources */,

@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"个人中心";
+    self.navigationItem.title = CommonLocalizedStrings(@"personalCenter_title");
 }
 
 - (void)didReceiveMemoryWarning {

@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    firstIn = YES;
     self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     [_titleView setBackgroundColor:[UIColor clearColor]];
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, 100, 20)];
@@ -78,20 +78,34 @@
     _focusTableView.delegate = self.focusTableViewHelper;
     _focusTableView.dataSource = self.focusTableViewHelper;
     self.focusTableViewHelper.tableViewType = TableViewTypeFocus;
+    
+    self.goodTableView.contentOffset = CGPointMake(0, -64);
+    self.goodTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.focusTableView.contentOffset = CGPointMake(0, -64);
+    self.focusTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    
+    NSMutableDictionary * regDict = [GSNetWorkManager commonDict];
+    [regDict setObject:@"login" forKey:@"command"];
+    [regDict setObject:@"15652291050" forKey:@"loginName"];
+    [regDict setObject:@"111111" forKey:@"password"];
+    
+    [GSNetWorkManager requestNOEncryptWithParamaters:regDict];
+
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    if (!firstIn) {
+        return;
+    }
+    firstIn = NO;
     self.backScrollV.frame = self.view.bounds;
     self.backScrollV.contentSize = CGSizeMake(2 * CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     self.goodTableView.frame = self.view.bounds;
     CGRect rect = self.view.bounds;
     rect.origin.x = CGRectGetWidth(self.view.frame);
     self.focusTableView.frame = rect;
-    self.goodTableView.contentOffset = CGPointMake(0, -64);
-    self.goodTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-    self.focusTableView.contentOffset = CGPointMake(0, -64);
-    self.focusTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
