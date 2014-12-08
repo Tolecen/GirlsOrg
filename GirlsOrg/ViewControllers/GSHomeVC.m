@@ -84,12 +84,12 @@
     self.focusTableView.contentOffset = CGPointMake(0, -64);
     self.focusTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     
-    NSMutableDictionary * regDict = [GSNetWorkManager commonDict];
-    [regDict setObject:@"login" forKey:@"command"];
-    [regDict setObject:@"15652291050" forKey:@"loginName"];
-    [regDict setObject:@"111111" forKey:@"password"];
-    
-    [GSNetWorkManager requestNOEncryptWithParamaters:regDict];
+//    NSMutableDictionary * regDict = [GSNetWorkManager commonDict];
+//    [regDict setObject:@"login" forKey:@"command"];
+//    [regDict setObject:@"15652291050" forKey:@"loginName"];
+//    [regDict setObject:@"111111" forKey:@"password"];
+//    
+//    [GSNetWorkManager requestNOEncryptWithParamaters:regDict];
 
 }
 
