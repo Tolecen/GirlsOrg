@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GSMenu.h"
 #import "GSIndicatorView.h"
+#import "GSScrollView.h"
 @class GSMenuScroll;
 @protocol FSMenuScrollDelegate <NSObject>
 
@@ -21,6 +22,8 @@
 @end
 
 @interface GSMenuScroll : UIView
+
+@property (nonatomic, weak) GSScrollView *scrollView;
 
 @property (nonatomic, weak) GSIndicatorView *indicatorView;
 

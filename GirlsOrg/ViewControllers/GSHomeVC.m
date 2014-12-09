@@ -47,6 +47,7 @@
     [self.view addSubview:_backScrollV];
     
     _backScrollV.delegate = self;
+    _backScrollV.scrollsToTop = NO;
     _backScrollV.showsHorizontalScrollIndicator = NO;
     _backScrollV.showsVerticalScrollIndicator = NO;
     _backScrollV.backgroundColor = [UIColor clearColor];
@@ -68,7 +69,7 @@
     
     self.focusTableView = [[UITableView alloc]initWithFrame:CGRectZero];
     _focusTableView.backgroundView = nil;
-    _focusTableView.scrollsToTop = YES;
+    _focusTableView.scrollsToTop = NO;
     _focusTableView.backgroundColor = [UIColor clearColor];
     _focusTableView.showsVerticalScrollIndicator = NO;
     [_backScrollV addSubview:_focusTableView];
@@ -115,11 +116,15 @@
             [self.menuScroll setSelectedIndex:0 animated:NO calledDelegate:NO];
             [_titleLabel setText:CommonLocalizedStrings(@"homePage_title1")];
             _pageControl.currentPage = 0;
+            self.goodTableView.scrollsToTop = YES;
+            self.focusTableView.scrollsToTop = NO;
         }
         else if(_backScrollV.contentOffset.x==self.view.frame.size.width){
             [self.menuScroll setSelectedIndex:1 animated:NO calledDelegate:NO];
             [_titleLabel setText:CommonLocalizedStrings(@"homePage_title2")];
             _pageControl.currentPage = 1;
+            self.goodTableView.scrollsToTop = NO;
+            self.focusTableView.scrollsToTop = YES;
         }
     }
 }

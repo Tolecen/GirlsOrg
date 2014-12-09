@@ -32,7 +32,7 @@
 - (UITableView *)createTableView {
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero];
     tableView.backgroundView = nil;
-    tableView.scrollsToTop = YES;
+//    tableView.scrollsToTop = YES;
     tableView.backgroundColor = [UIColor clearColor];
     tableView.showsVerticalScrollIndicator = NO;
     tableView.delegate = self;
@@ -48,7 +48,7 @@
     layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width - 20) / 3, 50);
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.backgroundView = nil;
-    collectionView.scrollsToTop = YES;
+//    collectionView.scrollsToTop = YES;
     collectionView.backgroundColor = [UIColor clearColor];
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.delegate = self;
@@ -103,9 +103,11 @@
     backScrollV.bounces = NO;
     [self.view addSubview:backScrollV];
     self.backScrollV = backScrollV;
+    self.backScrollV.scrollsToTop = NO;
     
-     self.topMenu = [[GSMenuScroll alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 35)];
+    self.topMenu = [[GSMenuScroll alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 35)];
     _topMenu.delegate = self;
+    
     [self.view addSubview:_topMenu];
     _topMenu.backgroundColor = RGBCOLOR(240, 240, 240, 0.93);
     
@@ -130,21 +132,25 @@
     
     _topMenu.menus = menus.copy;
     [_topMenu reloadData];
+    self.topMenu.scrollView.scrollsToTop = NO;
     
     UITableView *topicTableView = [self createTableView];
     [topicTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:TopicReuseIdentifier];
     [self.backScrollV addSubview:topicTableView];
     self.topicTableview = topicTableView;
+    self.topicTableview.scrollsToTop = YES;
     
     UITableView *activeUserTableview = [self createTableView];
     [activeUserTableview registerClass:[UITableViewCell class] forCellReuseIdentifier:ActiveReuseIdentifier];
     [self.backScrollV addSubview:activeUserTableview];
     self.activeUserTableview = activeUserTableview;
+    self.activeUserTableview.scrollsToTop = NO;
     
     UICollectionView *collectionView = [self createCollectionView];
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:TagReuseIdentifier];
     [self.backScrollV addSubview:collectionView];
     self.collectionView = collectionView;
+    self.collectionView.scrollsToTop = NO;
     
     self.topicTableview.contentOffset = CGPointMake(0, -64-35);
     self.topicTableview.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
@@ -232,14 +238,23 @@
         if (_backScrollV.contentOffset.x==0) {
             [self.topMenu setSelectedIndex:0 animated:NO calledDelegate:NO];
             self.topMenuTouched = NO;
+            self.topicTableview.scrollsToTop = YES;
+            self.activeUserTableview.scrollsToTop = NO;
+            self.collectionView.scrollsToTop = NO;
         }
         else if(_backScrollV.contentOffset.x==self.view.frame.size.width){
             [self.topMenu setSelectedIndex:1 animated:NO calledDelegate:NO];
             self.topMenuTouched = NO;
+            self.topicTableview.scrollsToTop = NO;
+            self.activeUserTableview.scrollsToTop = YES;
+            self.collectionView.scrollsToTop = NO;
         }
         else if(_backScrollV.contentOffset.x==self.view.frame.size.width*2){
             [self.topMenu setSelectedIndex:2 animated:NO calledDelegate:NO];
             self.topMenuTouched = NO;
+            self.topicTableview.scrollsToTop = NO;
+            self.activeUserTableview.scrollsToTop = NO;
+            self.collectionView.scrollsToTop = YES;
         }
     }
 }
@@ -248,16 +263,25 @@
     if (selectIndex==0) {
         self.topMenuTouched = YES;
         [_backScrollV setContentOffset:CGPointMake(0, 0) animated:YES];
+        self.topicTableview.scrollsToTop = YES;
+        self.activeUserTableview.scrollsToTop = NO;
+        self.collectionView.scrollsToTop = NO;
     }
     else if(selectIndex==1)
     {
         self.topMenuTouched = YES;
         [_backScrollV setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
+        self.topicTableview.scrollsToTop = NO;
+        self.activeUserTableview.scrollsToTop = YES;
+        self.collectionView.scrollsToTop = NO;
     }
     else
     {
         self.topMenuTouched = YES;
         [_backScrollV setContentOffset:CGPointMake(self.view.frame.size.width*2, 0) animated:YES];
+        self.topicTableview.scrollsToTop = NO;
+        self.activeUserTableview.scrollsToTop = NO;
+        self.collectionView.scrollsToTop = YES;
     }
 }
 -(void)toInvitePeoplePage

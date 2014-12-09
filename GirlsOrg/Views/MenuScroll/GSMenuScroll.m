@@ -15,13 +15,13 @@
 #define kGSMenuButtonBaseTag            100
 
 #import "GSMenuScroll.h"
-#import "GSScrollView.h"
+//#import "GSScrollView.h"
 #import "UIScrollView+visiableCenterScroll.h"
 
 
 @interface GSMenuScroll()<UIScrollViewDelegate>
 
-@property (nonatomic, weak) GSScrollView *scrollView;
+
 
 
 @property (nonatomic, weak) UIImageView *leftShadowImageV;
