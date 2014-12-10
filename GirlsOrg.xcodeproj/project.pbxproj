@@ -88,6 +88,8 @@
 		7A1290951A257DE20091B6E9 /* GSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A12908D1A257DE20091B6E9 /* GSTabBarView.m */; };
 		7A1290961A257DE20091B6E9 /* UINavigationController+GSTarBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A12908F1A257DE20091B6E9 /* UINavigationController+GSTarBarController.m */; };
 		7A1290971A257DE20091B6E9 /* UIViewController+GSTarBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290911A257DE20091B6E9 /* UIViewController+GSTarBarController.m */; };
+		7A1AF7E81A381F5800B706A3 /* GSCameraLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1AF7E71A381F5800B706A3 /* GSCameraLibraryViewController.m */; };
+		7A1AF7EB1A382EC100B706A3 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1AF7EA1A382EC100B706A3 /* DXPopover.m */; };
 		7AD40FCC1A2C5FEF002BB3CD /* GSIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FC91A2C5FEF002BB3CD /* GSIndicatorView.m */; };
 		7AD40FCD1A2C5FEF002BB3CD /* GSMenuScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FCB1A2C5FEF002BB3CD /* GSMenuScroll.m */; };
 		7AD40FD01A2C601E002BB3CD /* GSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FCF1A2C601E002BB3CD /* GSScrollView.m */; };
@@ -496,6 +498,10 @@
 		7A12908F1A257DE20091B6E9 /* UINavigationController+GSTarBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+GSTarBarController.m"; sourceTree = "<group>"; };
 		7A1290901A257DE20091B6E9 /* UIViewController+GSTarBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GSTarBarController.h"; sourceTree = "<group>"; };
 		7A1290911A257DE20091B6E9 /* UIViewController+GSTarBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GSTarBarController.m"; sourceTree = "<group>"; };
+		7A1AF7E61A381F5800B706A3 /* GSCameraLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCameraLibraryViewController.h; sourceTree = "<group>"; };
+		7A1AF7E71A381F5800B706A3 /* GSCameraLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCameraLibraryViewController.m; sourceTree = "<group>"; };
+		7A1AF7E91A382EC100B706A3 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
+		7A1AF7EA1A382EC100B706A3 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
 		7AD40FC81A2C5FEF002BB3CD /* GSIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSIndicatorView.h; sourceTree = "<group>"; };
 		7AD40FC91A2C5FEF002BB3CD /* GSIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSIndicatorView.m; sourceTree = "<group>"; };
 		7AD40FCA1A2C5FEF002BB3CD /* GSMenuScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSMenuScroll.h; sourceTree = "<group>"; };
@@ -1496,12 +1502,16 @@
 				97F407821A2E0C2E0002A07D /* DBCameraCollectionViewController.m */,
 				97F407831A2E0C2E0002A07D /* DBCameraContainerViewController.h */,
 				97F407841A2E0C2E0002A07D /* DBCameraContainerViewController.m */,
-				97F407851A2E0C2E0002A07D /* DBCameraLibraryViewController.h */,
-				97F407861A2E0C2E0002A07D /* DBCameraLibraryViewController.m */,
 				97F407871A2E0C2E0002A07D /* DBCameraSegueViewController.h */,
 				97F407881A2E0C2E0002A07D /* DBCameraSegueViewController.m */,
 				97F407891A2E0C2E0002A07D /* DBCameraViewController.h */,
 				97F4078A1A2E0C2E0002A07D /* DBCameraViewController.m */,
+				97F407851A2E0C2E0002A07D /* DBCameraLibraryViewController.h */,
+				97F407861A2E0C2E0002A07D /* DBCameraLibraryViewController.m */,
+				7A1AF7E61A381F5800B706A3 /* GSCameraLibraryViewController.h */,
+				7A1AF7E71A381F5800B706A3 /* GSCameraLibraryViewController.m */,
+				7A1AF7E91A382EC100B706A3 /* DXPopover.h */,
+				7A1AF7EA1A382EC100B706A3 /* DXPopover.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2313,8 +2323,10 @@
 				97F407CC1A2E0C2E0002A07D /* DBCollectionViewFlowLayout.m in Sources */,
 				97F409B91A2E0ECA0002A07D /* GPUImageStretchDistortionFilter.m in Sources */,
 				063A082C1A2CC4F1005A4682 /* UIColor+utility.m in Sources */,
+				7A1AF7E81A381F5800B706A3 /* GSCameraLibraryViewController.m in Sources */,
 				97F409371A2E0ECA0002A07D /* GPUImageAdaptiveThresholdFilter.m in Sources */,
 				97F409AC1A2E0ECA0002A07D /* GPUImageSepiaFilter.m in Sources */,
+				7A1AF7EB1A382EC100B706A3 /* DXPopover.m in Sources */,
 				97F409B11A2E0ECA0002A07D /* GPUImageSmoothToonFilter.m in Sources */,
 				97F409551A2E0ECA0002A07D /* GPUimageDirectionalSobelEdgeDetectionFilter.m in Sources */,
 				97F409781A2E0ECA0002A07D /* GPUImageKuwaharaFilter.m in Sources */,

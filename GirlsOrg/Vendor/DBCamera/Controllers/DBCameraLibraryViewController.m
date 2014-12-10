@@ -88,7 +88,6 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
     
     [_pageViewController didMoveToParentViewController:self];
     [_pageViewController.view setFrame:(CGRect){ 0, CGRectGetMaxY(_topContainerBar.frame), CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - ( CGRectGetHeight(_topContainerBar.frame) + CGRectGetHeight(_bottomContainerBar.frame) ) }];
-
     [self.view addSubview:self.loading];
     [self.view setGestureRecognizers:_pageViewController.gestureRecognizers];
 	
@@ -275,7 +274,6 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
     if ( !_bottomContainerBar ) {
         _bottomContainerBar = [[UIView alloc] initWithFrame:(CGRect){ 0, CGRectGetHeight(self.view.bounds) - 30, CGRectGetWidth(self.view.bounds), 30 }];
         [_bottomContainerBar setBackgroundColor:RGBColor(0x000000, 1)];
-        
         _pageLabel = [[UILabel alloc] initWithFrame:_bottomContainerBar.bounds ];
         [_pageLabel setBackgroundColor:[UIColor clearColor]];
         [_pageLabel setTextColor:self.tintColor];

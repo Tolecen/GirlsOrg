@@ -13,6 +13,7 @@
 #import "DBCameraDelegate.h"
 #import "DBCameraSegueViewController.h"
 #import "DBCameraLibraryViewController.h"
+#import "GSCameraLibraryViewController.h"
 #import "DBLibraryManager.h"
 #import "DBMotionManager.h"
 
@@ -316,7 +317,8 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
             [self.view setAlpha:0];
             [self.view setTransform:CGAffineTransformMakeScale(.8, .8)];
         } completion:^(BOOL finished) {
-            DBCameraLibraryViewController *library = [[DBCameraLibraryViewController alloc] initWithDelegate:self.containerDelegate];
+//            DBCameraLibraryViewController *library = [[DBCameraLibraryViewController alloc] initWithDelegate:self.containerDelegate];
+            GSCameraLibraryViewController *library = [[GSCameraLibraryViewController alloc] initWithDelegate:self.containerDelegate];
             [library setTintColor:self.tintColor];
             [library setSelectedTintColor:self.selectedTintColor];
             [library setForceQuadCrop:_forceQuadCrop];
