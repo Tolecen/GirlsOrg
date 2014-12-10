@@ -17,11 +17,15 @@ typedef NS_ENUM(NSUInteger, DXPopoverMaskType) {
     DXPopoverMaskTypeNone,
 };
 
+@protocol DXPopoverDelegate <NSObject>
 
+-(void)dismissSelf;
+
+@end
 @interface DXPopover : UIView
 
 + (instancetype)popover;
-
+@property (nonatomic,assign) id <DXPopoverDelegate> delegate;
 /**
  *  If the popover is stay up or down the showPoint
  */

@@ -242,6 +242,9 @@
             self.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
         } completion:^(BOOL finished) {
             if (finished) {
+                if ([_delegate respondsToSelector:@selector(dismissSelf)]) {
+                    [_delegate dismissSelf];
+                }
                 [self.contentView removeFromSuperview];
                 [self.blackOverlay removeFromSuperview];
                 [self removeFromSuperview];

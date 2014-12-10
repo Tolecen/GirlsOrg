@@ -28,7 +28,7 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
 #define kGSItemIdentifier   @"kGSItemIdentifier"
 #define kGSCellIdentifier   @"kGSCellIdentifier"
 
-@interface GSCameraLibraryViewController () <DBCameraCollectionControllerDelegate , UITableViewDataSource, UITableViewDelegate> {
+@interface GSCameraLibraryViewController () <DBCameraCollectionControllerDelegate , UITableViewDataSource, UITableViewDelegate,DXPopoverDelegate> {
     UILabel *_titleLabel;
     NSMutableArray *_items;
     BOOL _isEnumeratingGroups;
@@ -39,6 +39,7 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
 @property (nonatomic, strong)   UIView *bottomContainerBar, *loading;
 @property (nonatomic, weak)     NSString *selectedItemID;
 @property (nonatomic, strong)   UITableView *tableView;
+@property (nonatomic, strong)   UIImageView *jianTouV;
 @property (nonatomic, strong)   DXPopover *popover;
 
 @end
@@ -82,6 +83,13 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeCameraLibrary:)];
         [_titleLabel addGestureRecognizer:tapGesture];
         [_bottomContainerBar addSubview:_titleLabel];
+        
+        self.jianTouV = [[UIImageView alloc] initWithFrame:CGRectMake(_titleLabel.frame.origin.x+_titleLabel.frame.size.width, 10, 0, 0)];
+        [self.jianTouV setImage:[UIImage imageNamed:@"lib_select_down"]];
+        [_bottomContainerBar addSubview:self.jianTouV];
+        self.jianTouV.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeCameraLibrary:)];
+        [_jianTouV addGestureRecognizer:tapGesture2];
     }
     return _bottomContainerBar;
 }
@@ -103,6 +111,7 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
 - (DXPopover *)popover {
     if (!_popover) {
         _popover = [DXPopover popover];
+        _popover.delegate = self;
         _popoverWidth = CGRectGetWidth(self.view.bounds) - 20;
         __weak __typeof(self) blockSelf = self;
         __weak NSMutableArray *blockItems = _items;
@@ -235,9 +244,22 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
         isEnumeratingGroupsBlock = NO;
     }];
 }
+-(void)dismissSelf
+{
+    [_jianTouV setImage:[UIImage imageNamed:@"lib_select_down"]];
+}
 
 - (void)setNavigationTitleAtIndex:(NSUInteger)index {
     [_titleLabel setText:[_items[index][@"groupTitle"] uppercaseString]];
+//    CGSize theSize = [[_items[index][@"groupTitle"] uppercaseString] sizeWithFont:[UIFont systemFontOfSize:17] constrainedToSize:CGSizeMake(200, 20)];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName:_titleLabel.font, NSParagraphStyleAttributeName:paragraphStyle.copy};
+    
+    CGSize labelSize = [[_items[index][@"groupTitle"] uppercaseString] boundingRectWithSize:CGSizeMake(200, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    [_titleLabel setFrame:CGRectMake((self.view.frame.size.width-labelSize.width)/2, 0, labelSize.width, _titleLabel.frame.size.height)];
+    [_jianTouV setFrame:CGRectMake(_titleLabel.frame.size.width+_titleLabel.frame.origin.x+5, 28, 15, 9)];
+    
 }
 
 - (NSInteger)indexForSelectedItem {
@@ -270,6 +292,7 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
 
 - (void)changeCameraLibrary:(UITapGestureRecognizer *)gesture {
     [self showPopover];
+    [_jianTouV setImage:[UIImage imageNamed:@"lib_select_up"]];
 }
 
 - (void)showPopover {
@@ -291,7 +314,7 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
         cell.detailTextLabel.textColor = RGBColor(0x8b8b8b, 1);
     }
     cell.textLabel.text = _items[indexPath.row][@"groupTitle"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",[_items[indexPath.row][@"groupAssets"] count]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[_items[indexPath.row][@"groupAssets"] count]];
     return cell;
 }
 
@@ -303,6 +326,7 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [_collectionViewController setCurrentIndex:indexPath.row];
     [self.popover dismiss];
+    [_jianTouV setImage:[UIImage imageNamed:@"lib_select_down"]];
 }
 
 #pragma mark -- DBCaremaSegueDelegate
