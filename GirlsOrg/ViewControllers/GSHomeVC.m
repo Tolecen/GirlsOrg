@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    firstIn = YES;
     self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     [_titleView setBackgroundColor:[UIColor clearColor]];
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, 100, 20)];
@@ -47,6 +47,7 @@
     [self.view addSubview:_backScrollV];
     
     _backScrollV.delegate = self;
+    _backScrollV.scrollsToTop = NO;
     _backScrollV.showsHorizontalScrollIndicator = NO;
     _backScrollV.showsVerticalScrollIndicator = NO;
     _backScrollV.backgroundColor = [UIColor clearColor];
@@ -68,7 +69,7 @@
     
     self.focusTableView = [[UITableView alloc]initWithFrame:CGRectZero];
     _focusTableView.backgroundView = nil;
-    _focusTableView.scrollsToTop = YES;
+    _focusTableView.scrollsToTop = NO;
     _focusTableView.backgroundColor = [UIColor clearColor];
     _focusTableView.showsVerticalScrollIndicator = NO;
     [_backScrollV addSubview:_focusTableView];
@@ -78,20 +79,34 @@
     _focusTableView.delegate = self.focusTableViewHelper;
     _focusTableView.dataSource = self.focusTableViewHelper;
     self.focusTableViewHelper.tableViewType = TableViewTypeFocus;
+    
+    self.goodTableView.contentOffset = CGPointMake(0, -64);
+    self.goodTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.focusTableView.contentOffset = CGPointMake(0, -64);
+    self.focusTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    
+//    NSMutableDictionary * regDict = [GSNetWorkManager commonDict];
+//    [regDict setObject:@"login" forKey:@"command"];
+//    [regDict setObject:@"15652291050" forKey:@"loginName"];
+//    [regDict setObject:@"111111" forKey:@"password"];
+//    
+//    [GSNetWorkManager requestNOEncryptWithParamaters:regDict];
+
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    if (!firstIn) {
+        return;
+    }
+    firstIn = NO;
     self.backScrollV.frame = self.view.bounds;
     self.backScrollV.contentSize = CGSizeMake(2 * CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     self.goodTableView.frame = self.view.bounds;
     CGRect rect = self.view.bounds;
     rect.origin.x = CGRectGetWidth(self.view.frame);
     self.focusTableView.frame = rect;
-    self.goodTableView.contentOffset = CGPointMake(0, -64);
-    self.goodTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-    self.focusTableView.contentOffset = CGPointMake(0, -64);
-    self.focusTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -101,11 +116,15 @@
             [self.menuScroll setSelectedIndex:0 animated:NO calledDelegate:NO];
             [_titleLabel setText:CommonLocalizedStrings(@"homePage_title1")];
             _pageControl.currentPage = 0;
+            self.goodTableView.scrollsToTop = YES;
+            self.focusTableView.scrollsToTop = NO;
         }
         else if(_backScrollV.contentOffset.x==self.view.frame.size.width){
             [self.menuScroll setSelectedIndex:1 animated:NO calledDelegate:NO];
             [_titleLabel setText:CommonLocalizedStrings(@"homePage_title2")];
             _pageControl.currentPage = 1;
+            self.goodTableView.scrollsToTop = NO;
+            self.focusTableView.scrollsToTop = YES;
         }
     }
 }

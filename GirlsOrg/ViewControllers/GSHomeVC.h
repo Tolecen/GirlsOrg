@@ -9,7 +9,11 @@
 #import "GSBaseViewController.h"
 #import "MJRefresh.h"
 #import "GSBrowserTableviewHelper.h"
+#import "GSNetWorkManager.h"
 @interface GSHomeVC : GSBaseViewController<UIScrollViewDelegate>
+{
+    
+}
 @property (nonatomic, strong) UIView * titleView;
 @property (nonatomic, strong) UILabel * titleLabel;
 @property (nonatomic, strong) UIPageControl * pageControl;

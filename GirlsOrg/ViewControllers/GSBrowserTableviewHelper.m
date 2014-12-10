@@ -7,7 +7,7 @@
 //
 
 #import "GSBrowserTableviewHelper.h"
-
+#import "GSDetailPageViewController.h"
 @implementation GSBrowserTableviewHelper
 -(id)initWithController:(UIViewController *)thexController Tableview:(UITableView *)theTable
 {
@@ -40,6 +40,13 @@
     cell.backgroundColor = [UIColor getRandomColor];
     cell.textLabel.text = [NSString stringWithFormat:@"TableView%d",self.tableViewType+1];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GSBaseViewController * detailV = [[GSDetailPageViewController alloc] init];
+    [detailV setHidesBottomBarWhenPushed:YES];
+    [self.theController.navigationController pushViewController:detailV animated:YES];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

@@ -66,7 +66,6 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
 //    if (!self.firstTimeIn) {
 //        self.firstTimeIn = YES;
 //    }
