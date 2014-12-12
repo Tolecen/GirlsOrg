@@ -45,7 +45,7 @@
     _profileTableView.dataSource = self;
     _profileTableView.delegate = self;
     
-    ELHeaderView *headerView = [[ELHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 220)backGroudImageURL:@"http://g.hiphotos.baidu.com/zhidao/pic/item/3ac79f3df8dcd100dcd191ae738b4710b8122feb.jpg" headerImageURL:@"http://www.qqw21.com/article/uploadpic/2012-9/2012911193026322.jpg" title:CommonLocalizedStrings(@"personalCenter_title") subTitle:@"Purchase what you want"];
+    ELHeaderView *headerView = [[ELHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 220)backGroudImageURL:@"http://m2.quanjing.com/2m/chineseview058/171-9835.jpg" headerImageURL:@"http://www.qqw21.com/article/uploadpic/2012-9/2012911193026322.jpg" title:CommonLocalizedStrings(@"personalCenter_title") subTitle:@"Purchase what you want"];
     headerView.viewController = self;
     headerView.scrollView = self.profileTableView;
     [self.view addSubview:headerView];

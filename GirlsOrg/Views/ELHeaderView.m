@@ -38,8 +38,10 @@
         
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0.6*frame.size.height, frame.size.width, frame.size.height*0.2)];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont boldSystemFontOfSize:22];
+        _titleLabel.font = [UIFont boldSystemFontOfSize:20];
         _titleLabel.text = title;
+        _titleLabel.shadowColor = [UIColor grayColor];
+        _titleLabel.shadowOffset = CGSizeMake(0, -1);
         
         _subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0.85*frame.size.height, frame.size.width, frame.size.height*0.1)];
         _subTitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -102,7 +104,7 @@
     self.backImageView.frame = CGRectMake(0, -0.5*self.frame.size.height+(1.5*self.frame.size.height-64)*(1-alpha), self.backImageView.frame.size.width, self.backImageView.frame.size.height);
     
     self.titleLabel.frame = CGRectMake(0, 0.6*self.frame.size.height+(titleDestinateOffset-0.6*self.frame.size.height)*(1-alpha)-5, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
-    self.titleLabel.font = [UIFont boldSystemFontOfSize:16+(alpha)*4];
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:20];
     
 }
 
