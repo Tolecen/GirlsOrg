@@ -30,7 +30,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        UIButton *publicText = [self buttonWithImage:@"public_text_icon" selector:@selector(publicTextAction:)];
+        
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeAction:)];
+        [self addGestureRecognizer:tap];
+        UIButton *publicText = [self buttonWithImage:@"camrea_btn" selector:@selector(publicTextAction:)];
         [self addSubview:publicText];
         self.publicText = publicText;
         
@@ -47,12 +50,14 @@
         tImage.image = [UIImage imageNamed:@"文字_"];
         [tImage sizeToFit];
         [self addSubview:tImage];
+        tImage.alpha = 0.9;
         self.publicTextImage = tImage;
         
         UIImageView *vImage = [[UIImageView alloc] initWithFrame:CGRectZero];
         vImage.image = [UIImage imageNamed:@"视频_"];
         [vImage sizeToFit];
         [self addSubview:vImage];
+        vImage.alpha = 0.9;
         self.publicVideoImage = vImage;
     }
     return self;
@@ -60,12 +65,12 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.publicText.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.height - 270, 90, 90);
+    self.publicText.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width-90*2-40)/2, [UIScreen mainScreen].bounds.size.height - 270, 90, 90);
     CGPoint tCenter = self.publicText.center;
     tCenter.y += 65;
     self.publicTextImage.center = tCenter;
     
-    self.publicVideo.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 110, [UIScreen mainScreen].bounds.size.height - 270, 90, 90);
+    self.publicVideo.frame = CGRectMake(self.publicText.frame.origin.x+90+40, [UIScreen mainScreen].bounds.size.height - 270, 90, 90);
     CGPoint vCenter = self.publicVideo.center;
     vCenter.y += 65;
     self.publicVideoImage.center = vCenter;
@@ -75,16 +80,22 @@
 
 - (void)publicTextAction:(UIButton *)sender {
     [self animationWithSender:sender];
-    self.dismissHandle();
+    self.dismissHandle(1);
 }
 
 - (void)publicVideoAction:(UIButton *)sender {
     [self animationWithSender:sender];
-    self.dismissHandle();
+    self.dismissHandle(2);
 }
 
 - (void)closeAction:(UIButton *)sender {
-    self.dismissHandle();
+    self.dismissHandle(0);
+}
+
+-(void)animationDo
+{
+    [self animationWithSender:self.publicText];
+    [self animationWithSender:self.publicVideo];
 }
 
 - (void)animationWithSender:(UIButton *)sender {

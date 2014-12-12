@@ -40,10 +40,10 @@ static const float kTopMargin = 0.0;
         self.backgroundColor = [UIColor clearColor];
         _titleIsHidden = NO;
         
-        UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(customTabAction:)];
-        longPressGesture.minimumPressDuration = .5f;
-        [self addGestureRecognizer:longPressGesture];
-        self.longPressGesture = longPressGesture;
+//        UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(customTabAction:)];
+//        longPressGesture.minimumPressDuration = .5f;
+//        [self addGestureRecognizer:longPressGesture];
+//        self.longPressGesture = longPressGesture;
     }
     return self;
 }

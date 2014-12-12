@@ -7,15 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FXBlurView.h"
 typedef NS_ENUM(NSUInteger, FSMaskType) {
     FSMaskTypeBlack,
     FSMaskTypeNone,
 };
 
+@protocol MaskViewButtonClickedDelegate <NSObject>
+
+-(void)blurMaskDidClickedBtnIndex:(NSInteger)index;
+
+@end
+
 @interface FSMaskControl : UIControl
 
 @property (nonatomic, assign) FSMaskType maskType;
+
+@property (nonatomic, assign) id <MaskViewButtonClickedDelegate> delegate;
 
 @property (nonatomic, assign) CGFloat animationIn;
 
@@ -31,6 +39,6 @@ typedef NS_ENUM(NSUInteger, FSMaskType) {
 
 - (void)showInTargetView;
 
-- (void)dismiss;
+- (void)dismissIndex:(NSInteger)index;
 
 @end

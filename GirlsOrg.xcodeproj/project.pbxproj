@@ -97,6 +97,7 @@
 		7AD40FD41A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */; };
 		7AD40FD81A2C60F3002BB3CD /* GSMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD71A2C60F3002BB3CD /* GSMenu.m */; };
 		7AE0F2831A3ACF5C00ECF4F0 /* GSPublicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0F2821A3ACF5C00ECF4F0 /* GSPublicView.m */; };
+		97345F361A3B13AF000A14D5 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97345F351A3B13AF000A14D5 /* FXBlurView.m */; };
 		97431C231A346B7500F26B3E /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97431C131A346B7500F26B3E /* MJRefresh.bundle */; };
 		97431C241A346B7500F26B3E /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97431C161A346B7500F26B3E /* MJRefreshBaseView.m */; };
 		97431C251A346B7500F26B3E /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 97431C181A346B7500F26B3E /* MJRefreshConst.m */; };
@@ -518,6 +519,8 @@
 		7AD40FD71A2C60F3002BB3CD /* GSMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSMenu.m; sourceTree = "<group>"; };
 		7AE0F2811A3ACF5C00ECF4F0 /* GSPublicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPublicView.h; sourceTree = "<group>"; };
 		7AE0F2821A3ACF5C00ECF4F0 /* GSPublicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPublicView.m; sourceTree = "<group>"; };
+		97345F341A3B13AF000A14D5 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		97345F351A3B13AF000A14D5 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		97431C131A346B7500F26B3E /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		97431C141A346B7500F26B3E /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		97431C151A346B7500F26B3E /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -1369,6 +1372,8 @@
 		7AD40FC61A2C5F75002BB3CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				97345F341A3B13AF000A14D5 /* FXBlurView.h */,
+				97345F351A3B13AF000A14D5 /* FXBlurView.m */,
 				7A1AF7F21A3848F400B706A3 /* FSMaskControl.h */,
 				7A1AF7F31A3848F400B706A3 /* FSMaskControl.m */,
 				7AE0F2811A3ACF5C00ECF4F0 /* GSPublicView.h */,
@@ -2362,6 +2367,7 @@
 				06B704BE1A12540000082D9C /* main.m in Sources */,
 				97F409821A2E0ECA0002A07D /* GPUImageLowPassFilter.m in Sources */,
 				97F409B01A2E0ECA0002A07D /* GPUImageSketchFilter.m in Sources */,
+				97345F361A3B13AF000A14D5 /* FXBlurView.m in Sources */,
 				97F4097F1A2E0ECA0002A07D /* GPUImageLineGenerator.m in Sources */,
 				97F409461A2E0ECA0002A07D /* GPUImageClosingFilter.m in Sources */,
 				069D8CA21A28564F00509CA1 /* GSBaseTableViewController.m in Sources */,

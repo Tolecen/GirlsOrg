@@ -7,11 +7,11 @@
 //
 
 #import "FSMaskControl.h"
-
+#import "GSPublicView.h"
 @interface FSMaskControl()
 
 @property (nonatomic, strong) UIView *containerView;
-
+@property (nonatomic, strong) FXBlurView * fBlurV;
 @end
 
 @implementation FSMaskControl
@@ -31,7 +31,7 @@
     self.animationOut = 0.3;
     self.alpha = 0.f;
     self.frame = [UIScreen mainScreen].bounds;
-    [self addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+//    [self addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setMaskType:(FSMaskType)maskType {
@@ -50,6 +50,14 @@
 }
 
 - (void)showInTargetView {
+    self.fBlurV = [[FXBlurView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIApplication sharedApplication].keyWindow.frame), CGRectGetHeight([UIApplication sharedApplication].keyWindow.frame)-50)];
+    //            self.fBlurV.backgroundColor = [UIColor lightGrayColor];
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self.fBlurV];
+    self.fBlurV.alpha = 0;
+    //            self.fBlurV setBackgroundColor:<#(UIColor *)#>
+    self.fBlurV.dynamic = NO;
+    self.fBlurV.blurRadius = 10;
     [self showInTargetView:[UIApplication sharedApplication].keyWindow];
 }
 
@@ -57,6 +65,9 @@
     [UIView animateWithDuration:.5f delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [targetView addSubview:self];
         self.alpha = 1.f;
+        self.fBlurV.alpha = 1.f;
+        GSPublicView * gv = (GSPublicView *)self.containerView;
+        [gv animationDo];
     } completion:^(BOOL finished) {
         if (finished) {
             if (self.didShowHandler) {
@@ -66,13 +77,21 @@
     }];
 }
 
-- (void)dismiss {
+- (void)dismissIndex:(NSInteger)index {
     if (self.superview) {
         [UIView animateWithDuration:self.animationOut delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
             self.alpha = 0.f;
+            self.fBlurV.alpha = 0.f;
         } completion:^(BOOL finished) {
             if (finished) {
                 [self removeFromSuperview];
+                [self.fBlurV removeFromSuperview];
+                if (index!=0) {
+                    if ([self.delegate respondsToSelector:@selector(blurMaskDidClickedBtnIndex:)]) {
+                        [self.delegate blurMaskDidClickedBtnIndex:index];
+                    }
+                }
+                
                 if (self.didDismissHandler) {
                     self.didDismissHandler();
                 }

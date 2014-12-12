@@ -10,6 +10,6 @@
 
 @interface GSPublicView : UIView
 
-@property (nonatomic, copy) void(^dismissHandle)(void);
-
+@property (nonatomic, copy) void(^dismissHandle)(NSInteger index);
+-(void)animationDo;
 @end

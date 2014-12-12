@@ -11,14 +11,14 @@
 #import "GSBaseViewController.h"
 #import "FSMaskControl.h"
 #import "GSPublicView.h"
-
+#import "FXBlurView.h"
 // Default height of the tab bar
 static const int kDefaultTabBarHeight = 50;
 
 // Default Push animation duration
 static const float kPushAnimationDuration = 0.25;
 
-@interface GSTabBarController () {
+@interface GSTabBarController ()<MaskViewButtonClickedDelegate> {
     NSArray *prevViewControllers;
     BOOL visible;
     // Bottom tab bar view
@@ -37,6 +37,8 @@ static const float kPushAnimationDuration = 0.25;
 @property (nonatomic, strong) FSMaskControl *maskControl;
 
 @property (nonatomic, strong) GSPublicView *publicView;
+
+@property (nonatomic,strong)FXBlurView * fBlurV;
 
 - (void)loadTabs;
 
@@ -62,8 +64,9 @@ static const float kPushAnimationDuration = 0.25;
     if (!_publicView) {
         _publicView = [[GSPublicView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         __weak __typeof(self) wSelf = self;
-        [_publicView setDismissHandle:^{
-            [wSelf.maskControl dismiss];
+        [_publicView setDismissHandle:^(NSInteger index) {
+            NSLog(@"theIndex:%d",index);
+            [wSelf.maskControl dismissIndex:index];
         }];
     }
     return _publicView;
@@ -305,8 +308,13 @@ static const float kPushAnimationDuration = 0.25;
         }
         else
         {
-            GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
-            [baseV openCamera];
+//            GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
+//            [baseV openCamera];
+
+            tab.tabImageWithName = nil;
+            [self.maskControl showInTargetView];
+            self.maskControl.delegate = self;
+
         }
     } else {
         UINavigationController *vc = [self.viewControllers objectAtIndex:index];
@@ -323,7 +331,18 @@ static const float kPushAnimationDuration = 0.25;
     }
 }
 
-
+-(void)blurMaskDidClickedBtnIndex:(NSInteger)index
+{
+    if (index==1) {
+        GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
+        [baseV openCamera];
+    }
+    else if (index==2){
+        GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
+        [baseV openCamera];
+        NSLog(@"222222");
+    }
+}
 
 - (void)tabDidRecognizerLongPress:(GSTab *)GSTab {
     GSTab.tabImageWithName = nil;
