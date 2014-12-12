@@ -9,8 +9,8 @@
 #import "GSTabBarController.h"
 #import "UIViewController+GSTarBarController.h"
 #import "GSBaseViewController.h"
-
-
+#import "FSMaskControl.h"
+#import "GSPublicView.h"
 
 // Default height of the tab bar
 static const int kDefaultTabBarHeight = 50;
@@ -34,12 +34,40 @@ static const float kPushAnimationDuration = 0.25;
 // Current active view controller
 @property (nonatomic, strong) UINavigationController *selectedViewController;
 
+@property (nonatomic, strong) FSMaskControl *maskControl;
+
+@property (nonatomic, strong) GSPublicView *publicView;
+
 - (void)loadTabs;
 
 
 @end
 
 @implementation GSTabBarController
+
+- (FSMaskControl *)maskControl {
+    if (!_maskControl) {
+        _maskControl = [[FSMaskControl alloc] initWithContainerView:self.publicView];
+        __block GSTabBar *_bTabBar = tabBar;
+        _maskControl.didDismissHandler = ^ {
+            [UIView animateWithDuration:.5f animations:^{
+                [_bTabBar.tabs.lastObject setTabImageWithName:@"home_tab_icon_4"];
+            }];
+        };
+    }
+    return _maskControl;
+}
+
+- (GSPublicView *)publicView {
+    if (!_publicView) {
+        _publicView = [[GSPublicView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        __weak __typeof(self) wSelf = self;
+        [_publicView setDismissHandle:^{
+            [wSelf.maskControl dismiss];
+        }];
+    }
+    return _publicView;
+}
 
 #pragma mark - Initialization
 
@@ -298,14 +326,8 @@ static const float kPushAnimationDuration = 0.25;
 
 
 - (void)tabDidRecognizerLongPress:(GSTab *)GSTab {
-    NSLog(@"长按的响应");
-    if ([GSTab.tabImageWithName isEqualToString:@"home_tab_icon_4"]) {
-        //TODO:show
-        GSTab.tabImageWithName = @"home_tab_icon_5";
-    } else {
-        //TODO:hide
-        GSTab.tabImageWithName = @"home_tab_icon_4";
-    }
+    GSTab.tabImageWithName = nil;
+    [self.maskControl showInTargetView];
 }
 
 #pragma mark - Rotation Events

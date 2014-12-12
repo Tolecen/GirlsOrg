@@ -90,11 +90,13 @@
 		7A1290971A257DE20091B6E9 /* UIViewController+GSTarBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290911A257DE20091B6E9 /* UIViewController+GSTarBarController.m */; };
 		7A1AF7E81A381F5800B706A3 /* GSCameraLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1AF7E71A381F5800B706A3 /* GSCameraLibraryViewController.m */; };
 		7A1AF7EB1A382EC100B706A3 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1AF7EA1A382EC100B706A3 /* DXPopover.m */; };
+		7A1AF7F41A3848F400B706A3 /* FSMaskControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1AF7F31A3848F400B706A3 /* FSMaskControl.m */; };
 		7AD40FCC1A2C5FEF002BB3CD /* GSIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FC91A2C5FEF002BB3CD /* GSIndicatorView.m */; };
 		7AD40FCD1A2C5FEF002BB3CD /* GSMenuScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FCB1A2C5FEF002BB3CD /* GSMenuScroll.m */; };
 		7AD40FD01A2C601E002BB3CD /* GSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FCF1A2C601E002BB3CD /* GSScrollView.m */; };
 		7AD40FD41A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */; };
 		7AD40FD81A2C60F3002BB3CD /* GSMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD71A2C60F3002BB3CD /* GSMenu.m */; };
+		7AE0F2831A3ACF5C00ECF4F0 /* GSPublicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0F2821A3ACF5C00ECF4F0 /* GSPublicView.m */; };
 		97431C231A346B7500F26B3E /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97431C131A346B7500F26B3E /* MJRefresh.bundle */; };
 		97431C241A346B7500F26B3E /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97431C161A346B7500F26B3E /* MJRefreshBaseView.m */; };
 		97431C251A346B7500F26B3E /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 97431C181A346B7500F26B3E /* MJRefreshConst.m */; };
@@ -502,6 +504,8 @@
 		7A1AF7E71A381F5800B706A3 /* GSCameraLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCameraLibraryViewController.m; sourceTree = "<group>"; };
 		7A1AF7E91A382EC100B706A3 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
 		7A1AF7EA1A382EC100B706A3 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
+		7A1AF7F21A3848F400B706A3 /* FSMaskControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMaskControl.h; sourceTree = "<group>"; };
+		7A1AF7F31A3848F400B706A3 /* FSMaskControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMaskControl.m; sourceTree = "<group>"; };
 		7AD40FC81A2C5FEF002BB3CD /* GSIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSIndicatorView.h; sourceTree = "<group>"; };
 		7AD40FC91A2C5FEF002BB3CD /* GSIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSIndicatorView.m; sourceTree = "<group>"; };
 		7AD40FCA1A2C5FEF002BB3CD /* GSMenuScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSMenuScroll.h; sourceTree = "<group>"; };
@@ -512,6 +516,8 @@
 		7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+visiableCenterScroll.m"; sourceTree = "<group>"; };
 		7AD40FD61A2C60F3002BB3CD /* GSMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSMenu.h; sourceTree = "<group>"; };
 		7AD40FD71A2C60F3002BB3CD /* GSMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSMenu.m; sourceTree = "<group>"; };
+		7AE0F2811A3ACF5C00ECF4F0 /* GSPublicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPublicView.h; sourceTree = "<group>"; };
+		7AE0F2821A3ACF5C00ECF4F0 /* GSPublicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPublicView.m; sourceTree = "<group>"; };
 		97431C131A346B7500F26B3E /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		97431C141A346B7500F26B3E /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		97431C151A346B7500F26B3E /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -1363,6 +1369,10 @@
 		7AD40FC61A2C5F75002BB3CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A1AF7F21A3848F400B706A3 /* FSMaskControl.h */,
+				7A1AF7F31A3848F400B706A3 /* FSMaskControl.m */,
+				7AE0F2811A3ACF5C00ECF4F0 /* GSPublicView.h */,
+				7AE0F2821A3ACF5C00ECF4F0 /* GSPublicView.m */,
 				7AD40FC71A2C5FEF002BB3CD /* MenuScroll */,
 			);
 			path = Views;
@@ -2236,6 +2246,7 @@
 				06B705C91A126A9A00082D9C /* NSPersistentStore+MagicalRecord.m in Sources */,
 				97F407B91A2E0C2E0002A07D /* UIImage+TintColor.m in Sources */,
 				97F4093B1A2E0ECA0002A07D /* GPUImageAverageColor.m in Sources */,
+				7A1AF7F41A3848F400B706A3 /* FSMaskControl.m in Sources */,
 				064530E51A1626630041844B /* MTLModel+NSCoding.m in Sources */,
 				97F409CF1A2E0ECA0002A07D /* GPUImageWeakPixelInclusionFilter.m in Sources */,
 				06B705BF1A126A9A00082D9C /* NSManagedObject+MagicalAggregation.m in Sources */,
@@ -2383,6 +2394,7 @@
 				06B705CA1A126A9A00082D9C /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				97F409D41A2E0ECA0002A07D /* GPUImageMovieWriter.m in Sources */,
 				97F4096B1A2E0ECA0002A07D /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
+				7AE0F2831A3ACF5C00ECF4F0 /* GSPublicView.m in Sources */,
 				97F4095D1A2E0ECA0002A07D /* GPUImageFASTCornerDetectionFilter.m in Sources */,
 				064530E61A1626630041844B /* MTLModel.m in Sources */,
 			);
