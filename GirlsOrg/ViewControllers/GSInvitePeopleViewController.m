@@ -18,6 +18,8 @@
     [super viewDidLoad];
     self.navigationItem.title = CommonLocalizedStrings(@"invitePage_title");
     // Do any additional setup after loading the view.
+    
+    [self addBackNavi];
 }
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];

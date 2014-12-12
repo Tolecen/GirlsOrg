@@ -65,7 +65,7 @@ static const float kPushAnimationDuration = 0.25;
         _publicView = [[GSPublicView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         __weak __typeof(self) wSelf = self;
         [_publicView setDismissHandle:^(NSInteger index) {
-            NSLog(@"theIndex:%d",index);
+            NSLog(@"theIndex:%ld",(long)index);
             [wSelf.maskControl dismissIndex:index];
         }];
     }

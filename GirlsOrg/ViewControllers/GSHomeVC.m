@@ -91,7 +91,7 @@
 //    [regDict setObject:@"111111" forKey:@"password"];
 //    
 //    [GSNetWorkManager requestNOEncryptWithParamaters:regDict];
-
+    [self addBackNavi];
 }
 
 - (void)viewWillLayoutSubviews {

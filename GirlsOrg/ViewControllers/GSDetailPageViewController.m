@@ -17,7 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = CommonLocalizedStrings(@"detailPage_title");
+//    [[UINavigationBar appearance] setBarTintColor:RGBCOLOR(250, 89, 172, 1)];
     // Do any additional setup after loading the view.
+    
+    [self addBackNavi];
 }
 
 - (void)didReceiveMemoryWarning {

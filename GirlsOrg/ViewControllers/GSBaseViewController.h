@@ -16,5 +16,5 @@
 }
 - (CGFloat)acceptNavigationHeight;
 - (void)openCamera;
-
+-(void)addBackNavi;
 @end

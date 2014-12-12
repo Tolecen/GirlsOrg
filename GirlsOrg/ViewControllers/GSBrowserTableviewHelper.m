@@ -44,7 +44,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GSBaseViewController * detailV = [[GSDetailPageViewController alloc] init];
+    GSDetailPageViewController * detailV = [[GSDetailPageViewController alloc] init];
     [detailV setHidesBottomBarWhenPushed:YES];
     [self.theController.navigationController pushViewController:detailV animated:YES];
 }

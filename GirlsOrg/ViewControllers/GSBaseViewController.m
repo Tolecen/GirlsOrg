@@ -10,7 +10,8 @@
 #import "DBCameraViewController.h"
 #import "DBCameraContainerViewController.h"
 #import "GSTabBarController.h"
-
+#import "FXBlurView.h"
+#import "UINavigationItem+CustomItem.h"
 @interface GSBaseViewController ()<DBCameraViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @end
@@ -26,14 +27,43 @@
 //        self.modalPresentationCapturesStatusBarAppearance = NO;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+//                [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:0];
+        NSArray *list=self.navigationController.navigationBar.subviews;
+        for (id obj in list) {
+            if ([obj isKindOfClass:[UIImageView class]]) {
+                UIImageView *imageView=(UIImageView *)obj;
+                imageView.hidden=YES;
+            }
+        }
+    }
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
                                                                       NSFontAttributeName:[UIFont boldSystemFontOfSize:20]
                                                                       }];
     self.view.backgroundColor = RGBCOLOR(243, 243, 243, 1);
 //    self.hidesBottomBarWhenPushed = YES;
+    if (self.navigationController.viewControllers.count>1) {
+        UIButton * bt = [UIButton buttonWithType:UIButtonTypeCustom];
+        [bt setFrame:CGRectMake(0, 0, 89, 44)];
+        [bt setBackgroundImage:[UIImage imageNamed:@"backButton"] forState:UIControlStateNormal];
+        [bt addTarget:self action:@selector(backSuper) forControlEvents:UIControlEventTouchUpInside];
+        [self.navigationItem setItemWithCustomView:bt itemType:left];
+    }
     
 }
-
+-(void)backSuper
+{
+    if ([self.navigationController respondsToSelector:@selector(popViewControllerAnimated:)]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+-(void)addBackNavi
+{
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 64)];
+    [view setBackgroundColor:RGBCOLOR(250, 89, 172, 1)];
+    [self.view addSubview:view];
+    view.alpha = 0.99;
+}
 - (void)openCamera {
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     DBCameraContainerViewController *cameraContainer = [[DBCameraContainerViewController alloc] initWithDelegate:self];

@@ -158,6 +158,8 @@
     self.activeUserTableview.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
     self.collectionView.contentOffset = CGPointMake(0, -64-35);
     self.collectionView.contentInset = UIEdgeInsetsMake(64+35, 0, 0, 0);
+    
+    [self addBackNavi];
 }
 
 - (void)viewWillLayoutSubviews {
