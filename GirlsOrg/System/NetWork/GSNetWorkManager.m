@@ -8,11 +8,11 @@
 
 #import "GSNetWorkManager.h"
 #ifndef UseDevelopMode
-#define BaseURL @"http://www.chongwushuo.com/cws-api/servlet?isEncrypt=0&isCompress=0"
+#define BaseURL @"http://app.zaofenxiang.com/api/base?isEncrypt=0"
 #define BaseQiNiuDownloadURL @"http://petalk.qiniudn.com/"
 #define QINIUDomain @"petalk"
 #else
-#define BaseURL @"http://182.92.163.115/cws-api/servlet?isEncrypt=0&isCompress=0"
+#define BaseURL @"http://app.zaofenxiang.com/api/base?isEncrypt=0"
 #define BaseQiNiuDownloadURL @"http://testpetalk.qiniudn.com/"
 #define QINIUDomain @"testpetalk"
 
@@ -46,7 +46,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 //    NSDictionary *parameters = @{@"foo": @"bar"};
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
     [manager POST:BaseURL parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

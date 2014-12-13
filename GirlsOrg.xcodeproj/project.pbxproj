@@ -124,6 +124,8 @@
 		97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25461A342C6700302A9A /* CustomBarItem.m */; };
 		97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */; };
 		97BC254D1A344F8900302A9A /* GSInvitePeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */; };
+		97C3B8D01A3C6B0E0077C983 /* InputText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C3B8CD1A3C6B0E0077C983 /* InputText.m */; };
+		97C3B8D11A3C6B0E0077C983 /* UIView+XD.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C3B8CF1A3C6B0E0077C983 /* UIView+XD.m */; };
 		97D175881A2F5C7100355AEE /* 02.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175811A2F5C7100355AEE /* 02.acv */; };
 		97D175891A2F5C7100355AEE /* 06.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175821A2F5C7100355AEE /* 06.acv */; };
 		97D1758A1A2F5C7100355AEE /* 17.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175831A2F5C7100355AEE /* 17.acv */; };
@@ -590,6 +592,10 @@
 		97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomItem.m"; sourceTree = "<group>"; };
 		97BC254B1A344F8900302A9A /* GSInvitePeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSInvitePeopleViewController.h; sourceTree = "<group>"; };
 		97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSInvitePeopleViewController.m; sourceTree = "<group>"; };
+		97C3B8CC1A3C6B0E0077C983 /* InputText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputText.h; sourceTree = "<group>"; };
+		97C3B8CD1A3C6B0E0077C983 /* InputText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputText.m; sourceTree = "<group>"; };
+		97C3B8CE1A3C6B0E0077C983 /* UIView+XD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XD.h"; sourceTree = "<group>"; };
+		97C3B8CF1A3C6B0E0077C983 /* UIView+XD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XD.m"; sourceTree = "<group>"; };
 		97D1757E1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DBCamera.strings"; sourceTree = "<group>"; };
 		97D1757F1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		97D175801A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -1192,6 +1198,7 @@
 		06B7055C1A126A9A00082D9C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				97C3B8CB1A3C6ADC0077C983 /* LoginTextField */,
 				97345F3A1A3B2E74000A14D5 /* DBImageView */,
 				97525FBD1A35E6C600A6CA29 /* RNCryptor */,
 				97431C121A346B7500F26B3E /* MJRefresh */,
@@ -1512,6 +1519,17 @@
 				97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */,
 			);
 			path = CustomBarItem;
+			sourceTree = "<group>";
+		};
+		97C3B8CB1A3C6ADC0077C983 /* LoginTextField */ = {
+			isa = PBXGroup;
+			children = (
+				97C3B8CC1A3C6B0E0077C983 /* InputText.h */,
+				97C3B8CD1A3C6B0E0077C983 /* InputText.m */,
+				97C3B8CE1A3C6B0E0077C983 /* UIView+XD.h */,
+				97C3B8CF1A3C6B0E0077C983 /* UIView+XD.m */,
+			);
+			path = LoginTextField;
 			sourceTree = "<group>";
 		};
 		97F407731A2E0C2E0002A07D /* DBCamera */ = {
@@ -2379,6 +2397,7 @@
 				97F407CA1A2E0C2E0002A07D /* DBCameraFilterCell.m in Sources */,
 				97F409C01A2E0ECA0002A07D /* GPUImageThresholdedNonMaximumSuppressionFilter.m in Sources */,
 				97345F391A3B2D7C000A14D5 /* ELHeaderView.m in Sources */,
+				97C3B8D01A3C6B0E0077C983 /* InputText.m in Sources */,
 				97F407CC1A2E0C2E0002A07D /* DBCollectionViewFlowLayout.m in Sources */,
 				97F409B91A2E0ECA0002A07D /* GPUImageStretchDistortionFilter.m in Sources */,
 				063A082C1A2CC4F1005A4682 /* UIColor+utility.m in Sources */,
@@ -2440,6 +2459,7 @@
 				06B705D11A126A9A00082D9C /* MagicalRecord.m in Sources */,
 				97345F461A3B2E74000A14D5 /* DBImageViewCache.m in Sources */,
 				97525FC81A35E6C600A6CA29 /* RNCryptor.m in Sources */,
+				97C3B8D11A3C6B0E0077C983 /* UIView+XD.m in Sources */,
 				06B705D01A126A9A00082D9C /* MagicalRecord+ShorthandSupport.m in Sources */,
 				06B705CA1A126A9A00082D9C /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				97F409D41A2E0ECA0002A07D /* GPUImageMovieWriter.m in Sources */,

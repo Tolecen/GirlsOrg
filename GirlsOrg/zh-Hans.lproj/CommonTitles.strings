@@ -31,3 +31,13 @@
 "personalCenter_title" = "个人中心";
 
 "login_page_title" = "登录";
+"login_account_pl" = "邮箱或手机号";
+"login_pwd_pl" = "账户密码";
+"login_newAccount" = "注册新账户>";
+"login_fogetPwd" = "忘记密码?";
+"login_mid" = "社交账号登录";
+"weibo" = "微博";
+"login_readAgreement" = "点此阅读用户协议";
+
+
+

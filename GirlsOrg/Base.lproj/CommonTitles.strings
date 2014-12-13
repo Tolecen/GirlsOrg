@@ -32,3 +32,11 @@
 "personalCenter_title" = "Personal Center";
 
 "login_page_title" = "Login";
+"login_account_pl" = "Email or Phone Number";
+"login_pwd_pl" = "Account Password";
+"login_newAccount" = "Register>";
+"login_fogetPwd" = "Password?";
+"login_mid" = "Log in by others";
+"weibo" = "Weibo";
+"login_readAgreement" = "Click to read user agreement";
+
