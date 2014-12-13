@@ -12,6 +12,7 @@
 
 @interface ELHeaderView()
 @property (nonatomic, strong) DBImageView *backImageView;
+@property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, strong) DBImageView *headerImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *subTitleLabel;
@@ -31,6 +32,11 @@
         _backImageView = [[DBImageView alloc] initWithFrame:CGRectMake(0, -0.5*frame.size.height, frame.size.width, frame.size.height*1.5)];
         
         [_backImageView setImageWithPath:backImageURL];
+        
+        /***没想好的maskview，勿删，Tolecen***/
+//        self.maskView = [[UIView alloc] initWithFrame:_backImageView.frame];
+//        self.maskView.alpha = 0;
+        
         _headerImageView = [[DBImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-0.125*frame.size.height, 0.25*frame.size.height, 0.25*frame.size.height, 0.25*frame.size.height)];
         [_headerImageView setImageWithPath:headerImageURL];
         _headerImageView.layer.cornerRadius = _headerImageView.frame.size.width/2;
@@ -52,6 +58,7 @@
         
         
         [self addSubview:_backImageView];
+//        [self addSubview:_maskView];
         [self addSubview:_headerImageView];
         [self addSubview:_titleLabel];
         [self addSubview:_subTitleLabel];
@@ -105,7 +112,11 @@
     
     self.titleLabel.frame = CGRectMake(0, 0.6*self.frame.size.height+(titleDestinateOffset-0.6*self.frame.size.height)*(1-alpha)-5, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
     self.titleLabel.font = [UIFont boldSystemFontOfSize:20];
-    
+//    
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
+//    self.maskView.alpha = 1-alpha;
 }
 
 
