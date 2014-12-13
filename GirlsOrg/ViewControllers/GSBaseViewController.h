@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIViewController+GSTarBarController.h"
 #import "GSTabBar.h"
+#import "UINavigationItem+CustomItem.h"
 @class GSTabBarController;
 @interface GSBaseViewController : UIViewController
 {

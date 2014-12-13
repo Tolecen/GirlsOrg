@@ -120,6 +120,7 @@
 		97525FCB1A35E6C600A6CA29 /* RNEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FC71A35E6C600A6CA29 /* RNEncryptor.m */; };
 		97525FCD1A35E6D000A6CA29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97525FCC1A35E6D000A6CA29 /* Security.framework */; };
 		97525FD21A35E85200A6CA29 /* GSNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */; };
+		9787D3171A3C24AA00F6F617 /* GSLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */; };
 		97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25461A342C6700302A9A /* CustomBarItem.m */; };
 		97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */; };
 		97BC254D1A344F8900302A9A /* GSInvitePeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */; };
@@ -581,6 +582,8 @@
 		97525FCC1A35E6D000A6CA29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		97525FD01A35E85200A6CA29 /* GSNetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNetWorkManager.h; sourceTree = "<group>"; };
 		97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNetWorkManager.m; sourceTree = "<group>"; };
+		9787D3151A3C24AA00F6F617 /* GSLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSLogInViewController.h; sourceTree = "<group>"; };
+		9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSLogInViewController.m; sourceTree = "<group>"; };
 		97BC25451A342C6700302A9A /* CustomBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBarItem.h; sourceTree = "<group>"; };
 		97BC25461A342C6700302A9A /* CustomBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBarItem.m; sourceTree = "<group>"; };
 		97BC25471A342C6700302A9A /* UINavigationItem+CustomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomItem.h"; sourceTree = "<group>"; };
@@ -1083,6 +1086,8 @@
 			children = (
 				069D8C9D1A28561E00509CA1 /* GSBaseViewController.h */,
 				069D8C9E1A28561E00509CA1 /* GSBaseViewController.m */,
+				9787D3151A3C24AA00F6F617 /* GSLogInViewController.h */,
+				9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */,
 				97431C2B1A3473F900F26B3E /* GSBrowserTableviewHelper.h */,
 				97431C2C1A3473F900F26B3E /* GSBrowserTableviewHelper.m */,
 				069D8CA01A28564F00509CA1 /* GSBaseTableViewController.h */,
@@ -2165,6 +2170,7 @@
 				064530E11A1626630041844B /* EXTScope.m in Sources */,
 				97F409B41A2E0ECA0002A07D /* GPUImageSoftLightBlendFilter.m in Sources */,
 				97431C251A346B7500F26B3E /* MJRefreshConst.m in Sources */,
+				9787D3171A3C24AA00F6F617 /* GSLogInViewController.m in Sources */,
 				97F409B21A2E0ECA0002A07D /* GPUImageSobelEdgeDetectionFilter.m in Sources */,
 				97F4093A1A2E0ECA0002A07D /* GPUImageAmatorkaFilter.m in Sources */,
 				064530EA1A1626630041844B /* NSDictionary+MTLManipulationAdditions.m in Sources */,

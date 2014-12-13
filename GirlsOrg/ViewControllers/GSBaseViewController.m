@@ -11,7 +11,6 @@
 #import "DBCameraContainerViewController.h"
 #import "GSTabBarController.h"
 #import "FXBlurView.h"
-#import "UINavigationItem+CustomItem.h"
 @interface GSBaseViewController ()<DBCameraViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @end
