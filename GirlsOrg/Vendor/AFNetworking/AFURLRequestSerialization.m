@@ -27,7 +27,7 @@
 #else
 #import <CoreServices/CoreServices.h>
 #endif
-
+#import "RNEncryptor.h"
 NSString * const AFURLRequestSerializationErrorDomain = @"com.alamofire.error.serialization.request";
 NSString * const AFNetworkingOperationFailingURLRequestErrorKey = @"com.alamofire.serialization.request.error.response";
 
@@ -193,7 +193,12 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
 + (instancetype)serializer {
     return [[self alloc] init];
 }
-
+- (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
+                               withParameters:(id)parameters Encrypt:(BOOL)encrypt
+                                        error:(NSError *__autoreleasing *)error
+{
+    return nil;
+}
 - (instancetype)init {
     self = [super init];
     if (!self) {
@@ -325,8 +330,12 @@ forHTTPHeaderField:(NSString *)field
             [mutableRequest setValue:[self valueForKeyPath:keyPath] forKey:keyPath];
         }
     }
-
-    mutableRequest = [[self requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];
+    BOOL encrypt = NO;
+    if ([URLString hasSuffix:@"isEncrypt=1"]) {
+        encrypt = YES;
+    }
+    
+    mutableRequest = [[self requestBySerializingRequest:mutableRequest  withParameters:parameters Encrypt:encrypt error:error] mutableCopy];
 
 	return mutableRequest;
 }
@@ -1196,7 +1205,7 @@ typedef enum {
 #pragma mark - AFURLRequestSerialization
 
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
-                               withParameters:(id)parameters
+                               withParameters:(id)parameters Encrypt:(BOOL)encrypt
                                         error:(NSError *__autoreleasing *)error
 {
     NSParameterAssert(request);
@@ -1217,8 +1226,19 @@ typedef enum {
         if (![mutableRequest valueForHTTPHeaderField:@"Content-Type"]) {
             [mutableRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         }
-
-        [mutableRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:parameters options:self.writingOptions error:error]];
+        if (encrypt) {
+            NSData * kk = [RNEncryptor encryptData:[NSJSONSerialization dataWithJSONObject:parameters options:self.writingOptions error:error] withSettings:kRNCryptorAES256Settings password:@"123456789" error:nil];
+            
+            
+            NSString* encryptedString = [[NSString alloc] initWithData:[kk base64EncodedDataWithOptions:0] encoding:NSUTF8StringEncoding];
+            //        NSLog(@"Sending message %@", encryptedString);
+            [mutableRequest setHTTPBody:[encryptedString dataUsingEncoding:NSUTF8StringEncoding]];
+        }
+        else
+        {
+            [mutableRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:parameters options:self.writingOptions error:error]];
+        }
+        
     }
 
     return mutableRequest;

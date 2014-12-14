@@ -12,5 +12,8 @@
 #import "GSCommon.h"
 @interface GSNetWorkManager : NSObject
 +(NSMutableDictionary *)commonDict;
-+(void)requestNOEncryptWithParamaters:(NSDictionary *)dict;
++(void)requestWithParamaters:(NSDictionary *)dict success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
++(void)requestWithEncryptParamaters:(NSDictionary *)dict success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 @end

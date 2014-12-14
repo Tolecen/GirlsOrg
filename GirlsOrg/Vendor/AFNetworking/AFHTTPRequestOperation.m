@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 #import "AFHTTPRequestOperation.h"
-
+#import "RNDecryptor.h"
 static dispatch_queue_t http_request_operation_processing_queue() {
     static dispatch_queue_t af_http_request_operation_processing_queue;
     static dispatch_once_t onceToken;
@@ -84,7 +84,18 @@ static dispatch_group_t http_request_operation_completion_group() {
     [self.lock lock];
     if (!_responseObject && [self isFinished] && !self.error) {
         NSError *error = nil;
-        self.responseObject = [self.responseSerializer responseObjectForResponse:self.response data:self.responseData error:&error];
+        if (self.shouldDecrypt) {
+            NSString * uu = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
+            NSData * ujh = [[NSData alloc] initWithBase64EncodedString:uu options:0];
+            NSData * jk = [RNDecryptor decryptData:ujh withPassword:@"123456789" error:nil];
+            self.responseObject = [self.responseSerializer responseObjectForResponse:self.response data:jk error:&error];
+        }
+//
+//        
+//        NSString * llo = [[NSString alloc] initWithData:jk encoding:NSUTF8StringEncoding];
+        else{
+            self.responseObject = [self.responseSerializer responseObjectForResponse:self.response data:self.responseData error:&error];
+        }
         if (error) {
             self.responseSerializationError = error;
         }

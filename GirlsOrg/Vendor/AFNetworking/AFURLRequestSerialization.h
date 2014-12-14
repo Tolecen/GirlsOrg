@@ -44,6 +44,9 @@
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(id)parameters
                                         error:(NSError * __autoreleasing *)error;
+- (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
+                               withParameters:(id)parameters Encrypt:(BOOL)encrypt
+                                        error:(NSError *__autoreleasing *)error;
 
 @end
 

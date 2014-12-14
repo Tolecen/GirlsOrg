@@ -91,7 +91,6 @@
 }
 
 #pragma mark -
-
 - (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request
                                                     success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
@@ -101,6 +100,24 @@
     operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
     operation.credential = self.credential;
     operation.securityPolicy = self.securityPolicy;
+//    operation.shouldDecrypt = decrypt;
+    
+    [operation setCompletionBlockWithSuccess:success failure:failure];
+    operation.completionQueue = self.completionQueue;
+    operation.completionGroup = self.completionGroup;
+    
+    return operation;
+}
+- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request
+                                                    Decrypt:(BOOL)decrypt success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = self.responseSerializer;
+    operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
+    operation.credential = self.credential;
+    operation.securityPolicy = self.securityPolicy;
+    operation.shouldDecrypt = decrypt;
 
     [operation setCompletionBlockWithSuccess:success failure:failure];
     operation.completionQueue = self.completionQueue;
@@ -147,10 +164,27 @@
                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"POST" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
-    AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request success:success failure:failure];
+    BOOL shouldDecrypt = NO;
+    if ([URLString hasSuffix:@"isEncrypt=1"]) {
+        shouldDecrypt = YES;
+    }
+    AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request Decrypt:shouldDecrypt success:success failure:failure];
 
     [self.operationQueue addOperation:operation];
 
+    return operation;
+}
+
+- (AFHTTPRequestOperation *)POST:(NSString *)URLString
+                      parameters:(id)parameters Encrypt:(BOOL)encrypt
+                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"POST" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
+    AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request success:success failure:failure];
+    
+    [self.operationQueue addOperation:operation];
+    
     return operation;
 }
 

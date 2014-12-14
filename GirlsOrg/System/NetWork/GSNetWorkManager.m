@@ -9,10 +9,12 @@
 #import "GSNetWorkManager.h"
 #ifndef UseDevelopMode
 #define BaseURL @"http://app.zaofenxiang.com/api/base?isEncrypt=0"
+#define BaseURLEncrypt @"http://app.zaofenxiang.com/api/base?isEncrypt=1"
 #define BaseQiNiuDownloadURL @"http://petalk.qiniudn.com/"
 #define QINIUDomain @"petalk"
 #else
 #define BaseURL @"http://app.zaofenxiang.com/api/base?isEncrypt=0"
+#define BaseURLEncrypt @"http://app.zaofenxiang.com/api/base?isEncrypt=1"
 #define BaseQiNiuDownloadURL @"http://testpetalk.qiniudn.com/"
 #define QINIUDomain @"testpetalk"
 
@@ -41,16 +43,36 @@
     return commonDict;
 }
 
-+(void)requestNOEncryptWithParamaters:(NSDictionary *)dict
++(void)requestWithParamaters:(NSDictionary *)dict success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *parameters = @{@"foo": @"bar"};
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.shouldEncryptWithAES = YES;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
     [manager POST:BaseURL parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        success(operation,responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        failure(operation,error);
     }];
 }
+
++(void)requestWithEncryptParamaters:(NSDictionary *)dict success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.shouldEncryptWithAES = YES;
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
+    [manager POST:BaseURLEncrypt parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        success(operation,responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        failure(operation,error);
+    }];
+}
+
 @end

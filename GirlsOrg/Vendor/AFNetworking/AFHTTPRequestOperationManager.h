@@ -89,6 +89,8 @@
  */
 @property (readonly, nonatomic, strong) NSURL *baseURL;
 
+@property (nonatomic, assign)BOOL shouldEncryptWithAES;
+
 /**
  Requests created with `requestWithMethod:URLString:parameters:` & `multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:` are constructed with a set of default headers using a parameter serialization specified by this property. By default, this is set to an instance of `AFHTTPRequestSerializer`, which serializes query string parameters for `GET`, `HEAD`, and `DELETE` requests, or otherwise URL-form-encodes HTTP message bodies.
  
@@ -190,7 +192,10 @@
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes two arguments:, the created request operation and the `NSError` object describing the network or parsing error that occurred.
  */
 - (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request
-                                                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                                     success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request
+                                                    Decrypt:(BOOL)decrypt success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 ///---------------------------
@@ -239,6 +244,10 @@
  */
 - (AFHTTPRequestOperation *)POST:(NSString *)URLString
                       parameters:(id)parameters
+                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (AFHTTPRequestOperation *)POST:(NSString *)URLString
+                      parameters:(id)parameters Encrypt:(BOOL)encrypt
                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 

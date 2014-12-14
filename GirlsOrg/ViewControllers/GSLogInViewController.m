@@ -13,7 +13,12 @@
 @property (nonatomic, weak)UILabel *emailTextName;
 @property (nonatomic, weak)UITextField *passwordText;
 @property (nonatomic, weak)UILabel *passwordTextName;
-@property (nonatomic, weak)UIButton *loginBtn;
+@property (nonatomic, strong)UIButton *loginBtn;
+@property (nonatomic, strong)UIButton *regBtn;
+@property (nonatomic, strong)UIButton * forgetBtn;
+@property (nonatomic, strong)UIView * midView;
+@property (nonatomic, strong)UIView * snsBg;
+@property (nonatomic, strong)UIButton * protcolBtn;
 @property (nonatomic, assign) BOOL chang;
 @end
 
@@ -57,7 +62,7 @@
     [self.view addSubview:passwordTextName];
     
     self.loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.loginBtn setFrame:CGRectMake(self.emailText.x, self.passwordText.y+45, self.emailText.width, 35)];
+    [self.loginBtn setFrame:CGRectMake(self.emailText.frame.origin.x, self.passwordText.frame.origin.y+45, self.emailText.frame.size.width, 35)];
     self.loginBtn.backgroundColor = RGBCOLOR(250, 89, 172, 1);
     [self.loginBtn setTitle:CommonLocalizedStrings(@"login_page_title") forState:UIControlStateNormal];
     [self.loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -65,44 +70,44 @@
     self.loginBtn.layer.masksToBounds = YES;
     [self.view addSubview:self.loginBtn];
     
-    UIButton * regBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [regBtn setBackgroundColor:[UIColor clearColor]];
-    [regBtn setTitle:CommonLocalizedStrings(@"login_newAccount") forState:UIControlStateNormal];
-    regBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [regBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [regBtn setTitleColor:[UIColor colorWithRed:0 green:0.6 blue:0.933 alpha:1] forState:UIControlStateNormal];
-    [regBtn setFrame:CGRectMake(self.loginBtn.x, self.loginBtn.y+35+10, 100, 20)];
-    [self.view addSubview:regBtn];
-    [regBtn addTarget:self action:@selector(regiterTest) forControlEvents:UIControlEventTouchUpInside];
+    self.regBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_regBtn setBackgroundColor:[UIColor clearColor]];
+    [_regBtn setTitle:CommonLocalizedStrings(@"login_newAccount") forState:UIControlStateNormal];
+    _regBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [_regBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [_regBtn setTitleColor:[UIColor colorWithRed:0 green:0.6 blue:0.933 alpha:1] forState:UIControlStateNormal];
+    [_regBtn setFrame:CGRectMake(self.loginBtn.x, self.loginBtn.y+35+10, 100, 20)];
+    [self.view addSubview:_regBtn];
+    [_regBtn addTarget:self action:@selector(regiterTest) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton * forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [forgetBtn setBackgroundColor:[UIColor clearColor]];
-    [forgetBtn setTitle:CommonLocalizedStrings(@"login_fogetPwd") forState:UIControlStateNormal];
-    forgetBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    [forgetBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [forgetBtn setFrame:CGRectMake(self.emailText.width+self.emailText.x-120, self.loginBtn.y+35+10, 120, 20)];
-    [self.view addSubview:forgetBtn];
+    self.forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_forgetBtn setBackgroundColor:[UIColor clearColor]];
+    [_forgetBtn setTitle:CommonLocalizedStrings(@"login_fogetPwd") forState:UIControlStateNormal];
+    _forgetBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [_forgetBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [_forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_forgetBtn setFrame:CGRectMake(self.emailText.width+self.emailText.x-120, self.loginBtn.y+35+10, 120, 20)];
+    [self.view addSubview:_forgetBtn];
     
-    UIView * midView = [[UIView alloc] initWithFrame:CGRectMake(self.emailText.x, forgetBtn.y+20+30, self.emailText.width, 20)];
-    [midView setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:midView];
+    self.midView = [[UIView alloc] initWithFrame:CGRectMake(self.emailText.x, _forgetBtn.y+20+30, self.emailText.width, 20)];
+    [_midView setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:_midView];
     
-    UIView * lineOne = [[UIView alloc] initWithFrame:CGRectMake(0, 10, (midView.width-120)/2, 1)];
+    UIView * lineOne = [[UIView alloc] initWithFrame:CGRectMake(0, 10, (_midView.width-120)/2, 1)];
     [lineOne setBackgroundColor:[UIColor lightGrayColor]];
-    [midView addSubview:lineOne];
+    [_midView addSubview:lineOne];
     
-    UILabel * desL = [[UILabel alloc] initWithFrame:CGRectMake((midView.width-120)/2, 0, 120, 20)];
-    [midView addSubview:desL];
+    UILabel * desL = [[UILabel alloc] initWithFrame:CGRectMake((_midView.width-120)/2, 0, 120, 20)];
+    [_midView addSubview:desL];
     [desL setBackgroundColor:[UIColor clearColor]];
     [desL setTextColor:[UIColor grayColor]];
     [desL setText:CommonLocalizedStrings(@"login_mid")];
     [desL setFont:[UIFont systemFontOfSize:14]];
     [desL setTextAlignment:NSTextAlignmentCenter];
     
-    UIView * lineTwo = [[UIView alloc] initWithFrame:CGRectMake(desL.width+desL.x, 10, (midView.width-120)/2, 1)];
+    UIView * lineTwo = [[UIView alloc] initWithFrame:CGRectMake(desL.width+desL.x, 10, (_midView.width-120)/2, 1)];
     [lineTwo setBackgroundColor:[UIColor lightGrayColor]];
-    [midView addSubview:lineTwo];
+    [_midView addSubview:lineTwo];
     
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     NSArray * allLanguages = [defaults objectForKey:@"AppleLanguages"];
@@ -115,14 +120,14 @@
     else
         chinese = NO;
     
-    UIView * snsBg = [[UIView alloc] initWithFrame:CGRectMake(midView.x, midView.y+40, midView.width, 45)];
-    [snsBg setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview:snsBg];
+    self.snsBg = [[UIView alloc] initWithFrame:CGRectMake(_midView.x, _midView.y+40, _midView.width, 45)];
+    [_snsBg setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:_snsBg];
     
     UIButton * sinaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [sinaBtn setFrame:CGRectMake(chinese?0:(45*2+17.3*2), 0, 45, 45)];
     [sinaBtn setBackgroundImage:[UIImage imageNamed:@"sns_sina"] forState:UIControlStateNormal];
-    [snsBg addSubview:sinaBtn];
+    [_snsBg addSubview:sinaBtn];
     
     UILabel * sinaL = [[UILabel alloc] initWithFrame:CGRectMake(sinaBtn.x, sinaBtn.y+50, 45, 20)];
     sinaL.backgroundColor = [UIColor clearColor];
@@ -130,12 +135,12 @@
     sinaL.textColor = [UIColor grayColor];
     sinaL.text = CommonLocalizedStrings(@"weibo");
     sinaL.font = [UIFont systemFontOfSize:12];
-    [snsBg addSubview:sinaL];
+    [_snsBg addSubview:sinaL];
     
     UIButton * qqBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [qqBtn setFrame:CGRectMake(chinese?(45+17.3):(45*3+17.3*3), 0, 45, 45)];
     [qqBtn setBackgroundImage:[UIImage imageNamed:@"sns_qq"] forState:UIControlStateNormal];
-    [snsBg addSubview:qqBtn];
+    [_snsBg addSubview:qqBtn];
     
     UILabel * qqL = [[UILabel alloc] initWithFrame:CGRectMake(qqBtn.x, qqBtn.y+50, 45, 20)];
     qqL.backgroundColor = [UIColor clearColor];
@@ -143,12 +148,12 @@
     qqL.textColor = [UIColor grayColor];
     qqL.text = @"QQ";
     qqL.font = [UIFont systemFontOfSize:12];
-    [snsBg addSubview:qqL];
+    [_snsBg addSubview:qqL];
     
     UIButton * fbBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [fbBtn setFrame:CGRectMake(chinese?(45*2+17.3*2):0, 0, 45, 45)];
     [fbBtn setBackgroundImage:[UIImage imageNamed:@"sns_facebook"] forState:UIControlStateNormal];
-    [snsBg addSubview:fbBtn];
+    [_snsBg addSubview:fbBtn];
     
     UILabel * fbL = [[UILabel alloc] initWithFrame:CGRectMake(fbBtn.x-10, fbBtn.y+50, 65, 20)];
     fbL.backgroundColor = [UIColor clearColor];
@@ -157,13 +162,13 @@
     fbL.text = @"Facebook";
 //    fbL.adjustsFontSizeToFitWidth = YES;
     fbL.font = [UIFont systemFontOfSize:12];
-    [snsBg addSubview:fbL];
+    [_snsBg addSubview:fbL];
     
     
     UIButton * twBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [twBtn setFrame:CGRectMake(chinese?(45*3+17.3*3):(45+17.3), 0, 45, 45)];
     [twBtn setBackgroundImage:[UIImage imageNamed:@"sns_twitter"] forState:UIControlStateNormal];
-    [snsBg addSubview:twBtn];
+    [_snsBg addSubview:twBtn];
     
     UILabel * twL = [[UILabel alloc] initWithFrame:CGRectMake(twBtn.x, twBtn.y+50, 45, 20)];
     twL.backgroundColor = [UIColor clearColor];
@@ -171,25 +176,43 @@
     twL.textColor = [UIColor grayColor];
     twL.text = @"Twitter";
     twL.font = [UIFont systemFontOfSize:12];
-    [snsBg addSubview:twL];
+    [_snsBg addSubview:twL];
     
-    UIButton * protcolBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [protcolBtn setFrame:CGRectMake((self.view.width-200)/2, self.view.height-40, 200, 40)];
-    [protcolBtn setBackgroundColor:[UIColor clearColor]];
-    [protcolBtn setTitle:CommonLocalizedStrings(@"login_readAgreement") forState:UIControlStateNormal];
-    [protcolBtn setTitleColor:[UIColor colorWithRed:0 green:0.6 blue:0.933 alpha:1] forState:UIControlStateNormal];
-    protcolBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [self.view addSubview:protcolBtn];
+    self.protcolBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_protcolBtn setFrame:CGRectMake((self.view.width-200)/2, self.view.height-40, 200, 40)];
+    [_protcolBtn setBackgroundColor:[UIColor clearColor]];
+    [_protcolBtn setTitle:CommonLocalizedStrings(@"login_readAgreement") forState:UIControlStateNormal];
+    [_protcolBtn setTitleColor:[UIColor colorWithRed:0 green:0.6 blue:0.933 alpha:1] forState:UIControlStateNormal];
+    _protcolBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [self.view addSubview:_protcolBtn];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    if (!firstIn) {
+        return;
+    }
+    firstIn = NO;
+    [self.loginBtn setFrame:CGRectMake(self.emailText.frame.origin.x, self.passwordText.frame.origin.y+45, self.emailText.frame.size.width, 35)];
+    [_regBtn setFrame:CGRectMake(self.loginBtn.x, self.loginBtn.y+35+10, 100, 20)];
+    [_forgetBtn setFrame:CGRectMake(self.emailText.width+self.emailText.x-120, self.loginBtn.y+35+10, 120, 20)];
+    [self.midView setFrame:CGRectMake(self.emailText.x, _forgetBtn.y+20+30, self.emailText.width, 20)];
+    [self.snsBg setFrame:CGRectMake(_midView.x, _midView.y+40, _midView.width, 45)];
+    [_protcolBtn setFrame:CGRectMake((self.view.width-200)/2, self.view.height-40, 200, 40)];
 }
 -(void)regiterTest
 {
     NSMutableDictionary* mDict = [GSNetWorkManager commonDict];
     [mDict setObject:@"member" forKey:@"service"];
-    [mDict setObject:@"signup" forKey:@"method"];
-    [mDict setObject:@"15652291114" forKey:@"username"];
+    [mDict setObject:@"signin" forKey:@"method"];
+    [mDict setObject:@"15652291050" forKey:@"username"];
     [mDict setObject:@"111111" forKey:@"password"];
-    [GSNetWorkManager requestNOEncryptWithParamaters:mDict];
+    [GSNetWorkManager requestWithParamaters:mDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 - (UILabel *)setupTextName:(NSString *)textName frame:(CGRect)frame
 {
@@ -264,6 +287,8 @@
 
 -(void)dismissLogin
 {
+    [self.emailText resignFirstResponder];
+    [self.passwordText resignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
