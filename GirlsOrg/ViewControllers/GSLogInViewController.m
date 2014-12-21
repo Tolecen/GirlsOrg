@@ -7,6 +7,7 @@
 //
 
 #import "GSLogInViewController.h"
+#import "GSSignUpViewController.h"
 #import "InputText.h"
 @interface GSLogInViewController ()<UITextFieldDelegate>
 @property (nonatomic, weak)UITextField *emailText;
@@ -78,7 +79,7 @@
     [_regBtn setTitleColor:[UIColor colorWithRed:0 green:0.6 blue:0.933 alpha:1] forState:UIControlStateNormal];
     [_regBtn setFrame:CGRectMake(self.loginBtn.x, self.loginBtn.y+35+10, 100, 20)];
     [self.view addSubview:_regBtn];
-    [_regBtn addTarget:self action:@selector(regiterTest) forControlEvents:UIControlEventTouchUpInside];
+    [_regBtn addTarget:self action:@selector(toSignUpPage) forControlEvents:UIControlEventTouchUpInside];
     
     self.forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_forgetBtn setBackgroundColor:[UIColor clearColor]];
@@ -213,6 +214,12 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
+}
+
+-(void)toSignUpPage
+{
+    GSSignUpViewController * signupV = [[GSSignUpViewController alloc] init];
+    [self.navigationController pushViewController:signupV animated:YES];
 }
 - (UILabel *)setupTextName:(NSString *)textName frame:(CGRect)frame
 {

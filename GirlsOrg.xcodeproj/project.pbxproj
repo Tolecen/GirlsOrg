@@ -120,6 +120,8 @@
 		97525FCB1A35E6C600A6CA29 /* RNEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FC71A35E6C600A6CA29 /* RNEncryptor.m */; };
 		97525FCD1A35E6D000A6CA29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97525FCC1A35E6D000A6CA29 /* Security.framework */; };
 		97525FD21A35E85200A6CA29 /* GSNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */; };
+		975638F21A46B98E00B0A703 /* GSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 975638F11A46B98E00B0A703 /* GSSignUpViewController.m */; };
+		975638F51A46CC1500B0A703 /* GSCompleteUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */; };
 		9787D3171A3C24AA00F6F617 /* GSLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */; };
 		97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25461A342C6700302A9A /* CustomBarItem.m */; };
 		97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */; };
@@ -584,6 +586,10 @@
 		97525FCC1A35E6D000A6CA29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		97525FD01A35E85200A6CA29 /* GSNetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNetWorkManager.h; sourceTree = "<group>"; };
 		97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNetWorkManager.m; sourceTree = "<group>"; };
+		975638F01A46B98E00B0A703 /* GSSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSignUpViewController.h; sourceTree = "<group>"; };
+		975638F11A46B98E00B0A703 /* GSSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSignUpViewController.m; sourceTree = "<group>"; };
+		975638F31A46CC1500B0A703 /* GSCompleteUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCompleteUserInfoViewController.h; sourceTree = "<group>"; };
+		975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCompleteUserInfoViewController.m; sourceTree = "<group>"; };
 		9787D3151A3C24AA00F6F617 /* GSLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSLogInViewController.h; sourceTree = "<group>"; };
 		9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSLogInViewController.m; sourceTree = "<group>"; };
 		97BC25451A342C6700302A9A /* CustomBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBarItem.h; sourceTree = "<group>"; };
@@ -1094,6 +1100,10 @@
 				069D8C9E1A28561E00509CA1 /* GSBaseViewController.m */,
 				9787D3151A3C24AA00F6F617 /* GSLogInViewController.h */,
 				9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */,
+				975638F01A46B98E00B0A703 /* GSSignUpViewController.h */,
+				975638F11A46B98E00B0A703 /* GSSignUpViewController.m */,
+				975638F31A46CC1500B0A703 /* GSCompleteUserInfoViewController.h */,
+				975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */,
 				97431C2B1A3473F900F26B3E /* GSBrowserTableviewHelper.h */,
 				97431C2C1A3473F900F26B3E /* GSBrowserTableviewHelper.m */,
 				069D8CA01A28564F00509CA1 /* GSBaseTableViewController.h */,
@@ -2344,6 +2354,7 @@
 				97F407C01A2E0C2E0002A07D /* DBCameraViewController.m in Sources */,
 				97F409901A2E0ECA0002A07D /* GPUImageMultiplyBlendFilter.m in Sources */,
 				97F409D61A2E0ECA0002A07D /* GPUImagePicture.m in Sources */,
+				975638F51A46CC1500B0A703 /* GSCompleteUserInfoViewController.m in Sources */,
 				97F409791A2E0ECA0002A07D /* GPUImageKuwaharaRadius3Filter.m in Sources */,
 				7A1290971A257DE20091B6E9 /* UIViewController+GSTarBarController.m in Sources */,
 				06B705B51A126A9A00082D9C /* AFURLRequestSerialization.m in Sources */,
@@ -2392,6 +2403,7 @@
 				06B705C01A126A9A00082D9C /* NSManagedObject+MagicalDataImport.m in Sources */,
 				97F409421A2E0ECA0002A07D /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
 				97F4096E1A2E0ECA0002A07D /* GPUImageHighPassFilter.m in Sources */,
+				975638F21A46B98E00B0A703 /* GSSignUpViewController.m in Sources */,
 				97F4099F1A2E0ECA0002A07D /* GPUImagePolkaDotFilter.m in Sources */,
 				97F409C81A2E0ECA0002A07D /* GPUImageTwoPassFilter.m in Sources */,
 				97F407CA1A2E0C2E0002A07D /* DBCameraFilterCell.m in Sources */,

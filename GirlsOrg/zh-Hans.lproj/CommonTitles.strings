@@ -39,5 +39,9 @@
 "weibo" = "微博";
 "login_readAgreement" = "点此阅读用户协议";
 
+"signup_page_title" = "注册新账户";
+"signup_getVerifyCode" = "发送验证码";
+"signup_signup" = "注册";
 
+"completeUserInfo_title" = "完善信息";
 

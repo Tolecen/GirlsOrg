@@ -20,6 +20,7 @@
  */
 
 - (UITextField *)setupWithIcon:(NSString *)icon textY:(CGFloat)textY centerX:(CGFloat)centerX point:(NSString *)point;
+- (UITextField *)setupShortWithIcon:(NSString *)icon textY:(CGFloat)textY centerX:(CGFloat)centerX point:(NSString *)point;
 @end
 
 // 版权属于原作者

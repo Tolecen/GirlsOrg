@@ -39,5 +39,9 @@
 "weibo" = "Weibo";
 "login_readAgreement" = "Click to read user agreement";
 
+"signup_page_title" = "Sign Up";
+"signup_getVerifyCode" = "Send Verify Code";
+"signup_signup" = "Sign Up";
 
+"completeUserInfo_title" = "Complete Profile";
 
