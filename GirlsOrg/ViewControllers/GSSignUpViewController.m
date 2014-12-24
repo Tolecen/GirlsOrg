@@ -36,7 +36,7 @@
     CGFloat emailY = 64+30;
     UITextField *emailText = [inputText setupWithIcon:nil textY:emailY centerX:centerX point:nil];
     emailText.keyboardType = UIKeyboardTypeEmailAddress;
-    [emailText setReturnKeyType:UIReturnKeyNext];
+    [emailText setReturnKeyType:UIReturnKeyDone];
     emailText.delegate = self;
     self.accountText = emailText;
     [emailText addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
@@ -153,11 +153,11 @@
 {
     if (textField == self.accountText){
         [self restoreTextName:self.accountTextName textField:self.accountText];
-        return [self.accountText becomeFirstResponder];
+        return [self.accountText resignFirstResponder];
     }
     else if (textField == self.verifyCodeText){
         [self restoreTextName:self.verifyCodeTextName textField:self.verifyCodeText];
-        return [self.verifyCodeText becomeFirstResponder];
+        return [self.verifyCodeText resignFirstResponder];
     }
     else {
         [self restoreTextName:self.passwordTextName textField:self.passwordText];

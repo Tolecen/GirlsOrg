@@ -44,4 +44,8 @@
 "signup_signup" = "注册";
 
 "completeUserInfo_title" = "完善信息";
+"completeUserInfo_nickName" = "美美的昵称";
+"completeUserInfo_birthday" = "选一下你的生日吧";
+"completeUserInfo_region" = "你在哪里呢";
+
 

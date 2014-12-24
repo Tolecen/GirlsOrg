@@ -9,7 +9,19 @@
 #ifndef GirlsOrg_GSCommon_h
 #define GirlsOrg_GSCommon_h
 
+#define UseDevelopMode 0
+
+#define Channel @"1001"
+
+#define CurrentVersion [[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] substringToIndex:([[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] length]-5)]
+#define DeviceModel  [UIDevice currentDevice].model
+#define SystemVersion [UIDevice currentDevice].systemVersion
+
 #define IOS7 [[[UIDevice currentDevice]systemVersion] floatValue] >= 7.0
+
+#define Inch3_5 [UIScreen mainScreen].bounds.size.height<500?YES:NO
+
+#define DefaultNaviHeight 64.0f
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -19,12 +31,6 @@
 
 #define EndTimer(msg)           NSTimeInterval stop = [NSDate timeIntervalSinceReferenceDate]; NSLog(@"%@", [NSString stringWithFormat:@"%@ Time = %f", msg, stop-start]);
 
-#define UseDevelopMode 0
 
-#define Channel @"1001"
-
-#define CurrentVersion [[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] substringToIndex:([[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] length]-5)]
-#define DeviceModel  [UIDevice currentDevice].model
-#define SystemVersion [UIDevice currentDevice].systemVersion
 
 #endif

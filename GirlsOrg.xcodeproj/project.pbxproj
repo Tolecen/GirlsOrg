@@ -126,6 +126,10 @@
 		97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25461A342C6700302A9A /* CustomBarItem.m */; };
 		97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */; };
 		97BC254D1A344F8900302A9A /* GSInvitePeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */; };
+		97BD87881A4A9B97000F2C4F /* city_china.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97BD87871A4A9B97000F2C4F /* city_china.plist */; };
+		97BD878C1A4A9BD3000F2C4F /* ZHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BD878B1A4A9BD3000F2C4F /* ZHPickView.m */; };
+		97BD878F1A4AB554000F2C4F /* TTImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BD878E1A4AB554000F2C4F /* TTImageHelper.m */; };
+		97BD87921A4AB5A1000F2C4F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BD87911A4AB5A1000F2C4F /* UIImage+Resize.m */; };
 		97C3B8D01A3C6B0E0077C983 /* InputText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C3B8CD1A3C6B0E0077C983 /* InputText.m */; };
 		97C3B8D11A3C6B0E0077C983 /* UIView+XD.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C3B8CF1A3C6B0E0077C983 /* UIView+XD.m */; };
 		97D175881A2F5C7100355AEE /* 02.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175811A2F5C7100355AEE /* 02.acv */; };
@@ -598,6 +602,13 @@
 		97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomItem.m"; sourceTree = "<group>"; };
 		97BC254B1A344F8900302A9A /* GSInvitePeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSInvitePeopleViewController.h; sourceTree = "<group>"; };
 		97BC254C1A344F8900302A9A /* GSInvitePeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSInvitePeopleViewController.m; sourceTree = "<group>"; };
+		97BD87871A4A9B97000F2C4F /* city_china.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city_china.plist; sourceTree = "<group>"; };
+		97BD878A1A4A9BD3000F2C4F /* ZHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPickView.h; sourceTree = "<group>"; };
+		97BD878B1A4A9BD3000F2C4F /* ZHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPickView.m; sourceTree = "<group>"; };
+		97BD878D1A4AB554000F2C4F /* TTImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTImageHelper.h; sourceTree = "<group>"; };
+		97BD878E1A4AB554000F2C4F /* TTImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTImageHelper.m; sourceTree = "<group>"; };
+		97BD87901A4AB5A1000F2C4F /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		97BD87911A4AB5A1000F2C4F /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		97C3B8CC1A3C6B0E0077C983 /* InputText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputText.h; sourceTree = "<group>"; };
 		97C3B8CD1A3C6B0E0077C983 /* InputText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputText.m; sourceTree = "<group>"; };
 		97C3B8CE1A3C6B0E0077C983 /* UIView+XD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XD.h"; sourceTree = "<group>"; };
@@ -1041,6 +1052,10 @@
 		063871B21A28B2EF0011285C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				97BD87901A4AB5A1000F2C4F /* UIImage+Resize.h */,
+				97BD87911A4AB5A1000F2C4F /* UIImage+Resize.m */,
+				97BD878D1A4AB554000F2C4F /* TTImageHelper.h */,
+				97BD878E1A4AB554000F2C4F /* TTImageHelper.m */,
 				7AD40FD11A2C6094002BB3CD /* Category */,
 			);
 			path = Utilities;
@@ -1161,6 +1176,7 @@
 		06B704B71A12540000082D9C /* GirlsOrg */ = {
 			isa = PBXGroup;
 			children = (
+				97BD87861A4A9B83000F2C4F /* Files */,
 				7AD40FD51A2C60E7002BB3CD /* Models */,
 				7AD40FC61A2C5F75002BB3CD /* Views */,
 				069D8C9C1A2855CF00509CA1 /* ViewControllers */,
@@ -1208,6 +1224,7 @@
 		06B7055C1A126A9A00082D9C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				97BD87891A4A9BD3000F2C4F /* PickView */,
 				97C3B8CB1A3C6ADC0077C983 /* LoginTextField */,
 				97345F3A1A3B2E74000A14D5 /* DBImageView */,
 				97525FBD1A35E6C600A6CA29 /* RNCryptor */,
@@ -1355,8 +1372,8 @@
 		06BB3B781A262DE700ABE520 /* System */ = {
 			isa = PBXGroup;
 			children = (
-				97525FCF1A35E83300A6CA29 /* NetWork */,
 				063871B61A28B55D0011285C /* GSCommon.h */,
+				97525FCF1A35E83300A6CA29 /* NetWork */,
 				063871B21A28B2EF0011285C /* Utilities */,
 				06BB3B791A262DE700ABE520 /* DataProvider */,
 				06BB3B7C1A262DE700ABE520 /* DataSource */,
@@ -1529,6 +1546,23 @@
 				97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */,
 			);
 			path = CustomBarItem;
+			sourceTree = "<group>";
+		};
+		97BD87861A4A9B83000F2C4F /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				97BD87871A4A9B97000F2C4F /* city_china.plist */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		97BD87891A4A9BD3000F2C4F /* PickView */ = {
+			isa = PBXGroup;
+			children = (
+				97BD878A1A4A9BD3000F2C4F /* ZHPickView.h */,
+				97BD878B1A4A9BD3000F2C4F /* ZHPickView.m */,
+			);
+			path = PickView;
 			sourceTree = "<group>";
 		};
 		97C3B8CB1A3C6ADC0077C983 /* LoginTextField */ = {
@@ -2165,6 +2199,7 @@
 				97F407C41A2E0C2E0002A07D /* mayfair.acv in Resources */,
 				97431C231A346B7500F26B3E /* MJRefresh.bundle in Resources */,
 				97D1758E1A2F5C7100355AEE /* yellow-red.acv in Resources */,
+				97BD87881A4A9B97000F2C4F /* city_china.plist in Resources */,
 				97F4092F1A2E0ECA0002A07D /* lookup.png in Resources */,
 				97F407C11A2E0C2E0002A07D /* 1977.acv in Resources */,
 				064530E21A1626630041844B /* Info.plist in Resources */,
@@ -2229,6 +2264,7 @@
 				97F409701A2E0ECA0002A07D /* GPUImageHistogramFilter.m in Sources */,
 				06B705C81A126A9A00082D9C /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				97F409C61A2E0ECA0002A07D /* GPUImageTwoInputCrossTextureSamplingFilter.m in Sources */,
+				97BD87921A4AB5A1000F2C4F /* UIImage+Resize.m in Sources */,
 				97F409D31A2E0ECA0002A07D /* GPUImageContext.m in Sources */,
 				7A1290921A257DE20091B6E9 /* GSTab.m in Sources */,
 				97F409771A2E0ECA0002A07D /* GPUImageJFAVoronoiFilter.m in Sources */,
@@ -2251,6 +2287,7 @@
 				97F409401A2E0ECA0002A07D /* GPUImageBuffer.m in Sources */,
 				97F409D71A2E0ECA0002A07D /* GPUImageView.m in Sources */,
 				97F409B51A2E0ECA0002A07D /* GPUImageSolidColorGenerator.m in Sources */,
+				97BD878C1A4A9BD3000F2C4F /* ZHPickView.m in Sources */,
 				06BB3B861A262DE700ABE520 /* GSArrayDataSource+DataConsumer.m in Sources */,
 				97F409471A2E0ECA0002A07D /* GPUImageColorBlendFilter.m in Sources */,
 				97F409851A2E0ECA0002A07D /* GPUImageLuminosity.m in Sources */,
@@ -2288,6 +2325,7 @@
 				97F407D31A2E0C2E0002A07D /* DBCameraView.m in Sources */,
 				97F409641A2E0ECA0002A07D /* GPUImageGaussianBlurFilter.m in Sources */,
 				97F4098B1A2E0ECA0002A07D /* GPUImageMosaicFilter.m in Sources */,
+				97BD878F1A4AB554000F2C4F /* TTImageHelper.m in Sources */,
 				06B705CD1A126A9A00082D9C /* MagicalRecord+iCloud.m in Sources */,
 				97F409B61A2E0ECA0002A07D /* GPUImageSourceOverBlendFilter.m in Sources */,
 				97F409C51A2E0ECA0002A07D /* GPUImageTransformFilter.m in Sources */,

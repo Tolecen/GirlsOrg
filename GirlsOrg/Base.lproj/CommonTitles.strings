@@ -45,4 +45,6 @@
 "signup_signup" = "Sign Up";
 
 "completeUserInfo_title" = "Complete Profile";
-
+"completeUserInfo_nickName" = "Pretty Nickname";
+"completeUserInfo_birthday" = "Select Your Birthday";
+"completeUserInfo_region" = "Select Your Region";

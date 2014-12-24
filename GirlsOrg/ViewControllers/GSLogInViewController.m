@@ -62,6 +62,7 @@
     self.passwordTextName = passwordTextName;
     [self.view addSubview:passwordTextName];
     
+    
     self.loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.loginBtn setFrame:CGRectMake(self.emailText.frame.origin.x, self.passwordText.frame.origin.y+45, self.emailText.frame.size.width, 35)];
     self.loginBtn.backgroundColor = RGBCOLOR(250, 89, 172, 1);
