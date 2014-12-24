@@ -50,14 +50,14 @@
         tImage.image = [UIImage imageNamed:@"文字_"];
         [tImage sizeToFit];
         [self addSubview:tImage];
-        tImage.alpha = 0.9;
+        tImage.alpha = 0.7;
         self.publicTextImage = tImage;
         
         UIImageView *vImage = [[UIImageView alloc] initWithFrame:CGRectZero];
         vImage.image = [UIImage imageNamed:@"视频_"];
         [vImage sizeToFit];
         [self addSubview:vImage];
-        vImage.alpha = 0.9;
+        vImage.alpha = 0.7;
         self.publicVideoImage = vImage;
     }
     return self;
