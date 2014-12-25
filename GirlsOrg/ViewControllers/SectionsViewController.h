@@ -2,10 +2,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SMS_SDK/CountryAndAreaCode.h"
-
+#import "GSBaseViewController.h"
 @protocol SecondViewControllerDelegate;
 
-@interface SectionsViewController : UIViewController
+@interface SectionsViewController : GSBaseViewController
 <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate>
 {
     UITableView *table;

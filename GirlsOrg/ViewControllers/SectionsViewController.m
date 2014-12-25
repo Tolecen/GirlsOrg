@@ -71,47 +71,48 @@
 
 - (void)viewDidLoad {
     //UIToolbar* myToolBar=[[UIToolbar alloc] initWithFrame:rect];
+    [super viewDidLoad];
+    self.navigationItem.title = CommonLocalizedStrings(@"signup_chooseCountry");
+    [self addBackNavi];
     
-    self.view.backgroundColor=[UIColor whiteColor];
-    
-    CGFloat statusBarHeight=0;
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0)
-    {
-        statusBarHeight=20;
-    }
-    //创建一个导航栏
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
-    
-    //创建一个导航栏集合
-    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
-    
-    //创建一个左边按钮
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
-                                                                   style:UIBarButtonItemStyleBordered
-                                                                  target:self
-                                                                  action:@selector(clickLeftButton)];
-    
-    //设置导航栏内容
-    [navigationItem setTitle:NSLocalizedString(@"countrychoose", nil)];
-    
-    //把导航栏集合添加入导航栏中，设置动画关闭
-    [navigationBar pushNavigationItem:navigationItem animated:NO];
-    
-    //把左右两个按钮添加入导航栏集合中
-    [navigationItem setLeftBarButtonItem:leftButton];
-    
-    //把导航栏添加到视图中
-    [self.view addSubview:navigationBar];
+//    CGFloat statusBarHeight=0;
+//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0)
+//    {
+//        statusBarHeight=20;
+//    }
+//    //创建一个导航栏
+//    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
+//    
+//    //创建一个导航栏集合
+//    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
+//    
+//    //创建一个左边按钮
+//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
+//                                                                   style:UIBarButtonItemStyleBordered
+//                                                                  target:self
+//                                                                  action:@selector(clickLeftButton)];
+//    
+//    //设置导航栏内容
+//    [navigationItem setTitle:NSLocalizedString(@"countrychoose", nil)];
+//    
+//    //把导航栏集合添加入导航栏中，设置动画关闭
+//    [navigationBar pushNavigationItem:navigationItem animated:NO];
+//    
+//    //把左右两个按钮添加入导航栏集合中
+//    [navigationItem setLeftBarButtonItem:leftButton];
+//    
+//    //把导航栏添加到视图中
+//    [self.view addSubview:navigationBar];
     
     //添加搜索框
     search=[[UISearchBar alloc] init];
     
-    search.frame=CGRectMake(0, 44+statusBarHeight, 320, 44);
+    search.frame=CGRectMake(0, DefaultNaviHeight, self.view.frame.size.width, 44);
     
     [self.view addSubview:search];
     
     //添加table
-    table=[[UITableView alloc] initWithFrame:CGRectMake(0, 88+statusBarHeight, 320, self.view.bounds.size.height-(88+statusBarHeight)) style:UITableViewStylePlain];
+    table=[[UITableView alloc] initWithFrame:CGRectMake(0, DefaultNaviHeight+44, self.view.frame.size.width, self.view.bounds.size.height-(DefaultNaviHeight+44)) style:UITableViewStylePlain];
     [self.view addSubview:table];
 
     table.dataSource=self;
@@ -243,7 +244,7 @@ sectionForSectionIndexTitle:(NSString *)title
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击了第%i组的 第%i列",indexPath.section,indexPath.row);
+    NSLog(@"点击了第%li组的 第%li列",(long)indexPath.section,(long)indexPath.row);
     
     NSUInteger section = [indexPath section];
     NSString *key = [keys objectAtIndex:section];
@@ -288,6 +289,7 @@ sectionForSectionIndexTitle:(NSString *)title
     //传递数据
     if ([self.delegate respondsToSelector:@selector(setSecondData:)]) {
         [self.delegate setSecondData:country];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

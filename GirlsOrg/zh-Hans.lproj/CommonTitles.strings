@@ -43,6 +43,20 @@
 "signup_fillVerifyCode" = "填写验证码";
 "signup_getVerifyCode" = "发送验证码";
 "signup_signup" = "注册";
+"signup_chooseCountry" = "选择国家";
+"signup_noPhoneNum" = "还没填写手机号呢";
+"signup_wrongPhoneNum" = "手机号格式不对哦";
+"signup_vNumFormatWrong" = "验证码是4位数哦";
+"signup_noVNum" = "请填写验证码";
+"signup_pwdFormatWrong" = "密码应该是4-16位";
+"signup_noPWD" = "要设置密码哦";
+"signup_resend" = "重新发送";
+"codesenderrormsg"="验证码发送失败 请稍后重试";
+"maxcodemsg"="请求验证码超上限 请稍后重试";
+"codetoooftenmsg"="请求发送短信验证过于频繁";
+"verifycodeerrormsg"="验证码无效 请重新获取验证码";
+"authing"="验证中...";
+"signingup"="注册中...";
 
 "completeUserInfo_title" = "完善信息";
 "completeUserInfo_nickName" = "美美的昵称";

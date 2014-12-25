@@ -122,6 +122,8 @@
 		97525FD21A35E85200A6CA29 /* GSNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */; };
 		975638F21A46B98E00B0A703 /* GSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 975638F11A46B98E00B0A703 /* GSSignUpViewController.m */; };
 		975638F51A46CC1500B0A703 /* GSCompleteUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */; };
+		97635A161A4C41B90089D0C3 /* GSAreaCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 97635A151A4C41B90089D0C3 /* GSAreaCode.m */; };
+		97635A181A4C46F00089D0C3 /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97635A171A4C46F00089D0C3 /* country.plist */; };
 		9771824F1A4BEC41000FEA70 /* IdentifyingString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771824E1A4BEC41000FEA70 /* IdentifyingString.m */; };
 		9771825B1A4BF8E4000FEA70 /* UIImage+KVNEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182531A4BF8E4000FEA70 /* UIImage+KVNEmpty.m */; };
 		9771825C1A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182551A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m */; };
@@ -608,6 +610,9 @@
 		975638F11A46B98E00B0A703 /* GSSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSignUpViewController.m; sourceTree = "<group>"; };
 		975638F31A46CC1500B0A703 /* GSCompleteUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCompleteUserInfoViewController.h; sourceTree = "<group>"; };
 		975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCompleteUserInfoViewController.m; sourceTree = "<group>"; };
+		97635A141A4C41B90089D0C3 /* GSAreaCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAreaCode.h; sourceTree = "<group>"; };
+		97635A151A4C41B90089D0C3 /* GSAreaCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAreaCode.m; sourceTree = "<group>"; };
+		97635A171A4C46F00089D0C3 /* country.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = country.plist; sourceTree = "<group>"; };
 		9771824D1A4BEC41000FEA70 /* IdentifyingString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifyingString.h; sourceTree = "<group>"; };
 		9771824E1A4BEC41000FEA70 /* IdentifyingString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentifyingString.m; sourceTree = "<group>"; };
 		977182521A4BF8E4000FEA70 /* UIImage+KVNEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNEmpty.h"; sourceTree = "<group>"; };
@@ -1095,6 +1100,8 @@
 			children = (
 				9771824D1A4BEC41000FEA70 /* IdentifyingString.h */,
 				9771824E1A4BEC41000FEA70 /* IdentifyingString.m */,
+				97635A141A4C41B90089D0C3 /* GSAreaCode.h */,
+				97635A151A4C41B90089D0C3 /* GSAreaCode.m */,
 				97BD87901A4AB5A1000F2C4F /* UIImage+Resize.h */,
 				97BD87911A4AB5A1000F2C4F /* UIImage+Resize.m */,
 				97BD878D1A4AB554000F2C4F /* TTImageHelper.h */,
@@ -1645,6 +1652,7 @@
 		97BD87861A4A9B83000F2C4F /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				97635A171A4C46F00089D0C3 /* country.plist */,
 				97BD87871A4A9B97000F2C4F /* city_china.plist */,
 			);
 			path = Files;
@@ -2281,6 +2289,7 @@
 				97431C301A3479C000F26B3E /* CommonTitles.strings in Resources */,
 				97D175891A2F5C7100355AEE /* 06.acv in Resources */,
 				97F407CE1A2E0C2E0002A07D /* DBCameraImages.xcassets in Resources */,
+				97635A181A4C46F00089D0C3 /* country.plist in Resources */,
 				97F409331A2E0ECA0002A07D /* lookup_soft_elegance_2.png in Resources */,
 				97D175881A2F5C7100355AEE /* 02.acv in Resources */,
 				97F409321A2E0ECA0002A07D /* lookup_soft_elegance_1.png in Resources */,
@@ -2519,6 +2528,7 @@
 				97F409351A2E0ECA0002A07D /* GPUImage3x3ConvolutionFilter.m in Sources */,
 				97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */,
 				064530E91A1626630041844B /* NSArray+MTLManipulationAdditions.m in Sources */,
+				97635A161A4C41B90089D0C3 /* GSAreaCode.m in Sources */,
 				97F407BF1A2E0C2E0002A07D /* DBCameraSegueViewController.m in Sources */,
 				97F409A51A2E0ECA0002A07D /* GPUImageRGBDilationFilter.m in Sources */,
 				9771825D1A4BF8E4000FEA70 /* KVNProgress.m in Sources */,

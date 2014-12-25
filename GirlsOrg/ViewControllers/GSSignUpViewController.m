@@ -11,10 +11,16 @@
 #import "InputText.h"
 #import "IdentifyingString.h"
 #import "KVNProgress.h"
-
+#import "GSAreaCode.h"
+#import "SMS_SDK/SMS_SDK.h"
+#import "SMS_SDK/CountryAndAreaCode.h"
+#import "SectionsViewController.h"
 #define NeedVerifyCode NO
 
-@interface GSSignUpViewController ()<UITextFieldDelegate>
+@interface GSSignUpViewController ()<UITextFieldDelegate,SecondViewControllerDelegate>
+{
+    int remainingTime;
+}
 @property (nonatomic, weak)UITextField *accountText;
 @property (nonatomic, weak)UILabel *accountTextName;
 @property (nonatomic, weak)UITextField *verifyCodeText;
@@ -26,6 +32,10 @@
 @property (nonatomic, strong)UIButton *signUpBtn;
 @property (nonatomic, strong)UIButton * protcolBtn;
 @property (nonatomic, assign) BOOL chang;
+@property (nonatomic, strong)NSString * countryCode;
+@property (nonatomic, strong)NSString * countryName;
+@property (nonatomic, strong)NSMutableArray * areaArray;
+@property (nonatomic,strong)NSTimer * checkT;
 @end
 
 @implementation GSSignUpViewController
@@ -35,6 +45,9 @@
     
     self.navigationItem.title = CommonLocalizedStrings(@"signup_page_title");
     [self addBackNavi];
+    
+    self.areaArray = [NSMutableArray array];
+    remainingTime = 60;
     
     InputText *inputText = [[InputText alloc] init];
     CGFloat centerX = self.view.frame.size.width * 0.5;
@@ -57,8 +70,10 @@
     self.countryBtn.layer.masksToBounds = YES;
     [self.countryBtn setTitleColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1] forState:UIControlStateNormal];
     self.countryBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
-    [self.countryBtn setTitle:@"▼+8888" forState:UIControlStateNormal];
+    [self.countryBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [self.countryBtn setTitle:@"▼+86" forState:UIControlStateNormal];
     [self.view addSubview:self.countryBtn];
+    [self.countryBtn addTarget:self action:@selector(toSelectCountryPage) forControlEvents:UIControlEventTouchUpInside];
     
     
     UILabel *emailTextName = [self setupTextName:CommonLocalizedStrings(@"login_account_pl") frame:emailText.frame];
@@ -87,6 +102,7 @@
     self.getVerifyCodeBtn.layer.cornerRadius = 5;
     self.getVerifyCodeBtn.layer.masksToBounds = YES;
     [self.view addSubview:self.getVerifyCodeBtn];
+    [self.getVerifyCodeBtn addTarget:self action:@selector(sendVerifyCode) forControlEvents:UIControlEventTouchUpInside];
     
     CGFloat passwordY = CGRectGetMaxY(verifyText.frame) + 30;
     UITextField *passwordText = [inputText setupWithIcon:nil textY:passwordY centerX:centerX point:nil];
@@ -118,11 +134,40 @@
     _protcolBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:_protcolBtn];
     
+    NSDictionary * areaDict = [GSAreaCode setTheLocalAreaCode];
+    self.countryCode = areaDict[@"countryCode"];
+    self.countryName = areaDict[@"countryName"];
+    
+    [SMS_SDK enableAppContactFriends:NO];
+    [SMS_SDK getZone:^(enum SMS_ResponseState state, NSArray *array) {
+        if (1==state)
+        {
+            NSLog(@"block 获取区号成功");
+            //区号数据
+            _areaArray=[NSMutableArray arrayWithArray:array];
+        }
+        else if (0==state)
+        {
+            NSLog(@"block 获取区号失败");
+        }
+        
+    }];
+    
+    [self.countryBtn setTitle:[NSString stringWithFormat:@"▼+%@",self.countryCode] forState:UIControlStateNormal];
     // Do any additional setup after loading the view.
 }
 -(void)toSelectCountryPage
 {
-    
+    SectionsViewController* country2=[[SectionsViewController alloc] init];
+    country2.delegate=self;
+    [country2 setAreaArray:_areaArray];
+    [self.navigationController pushViewController:country2 animated:YES];
+}
+-(void)setSecondData:(CountryAndAreaCode *)data
+{
+    self.countryCode = data.areaCode;
+    self.countryName = data.countryName;
+    [self.countryBtn setTitle:[NSString stringWithFormat:@"▼+%@",data.areaCode] forState:UIControlStateNormal];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -138,48 +183,157 @@
 //    [_protcolBtn setFrame:CGRectMake((self.view.width-200)/2, self.view.height-40, 200, 40)];
 }
 
--(void)signUpThisAccount
+-(void)sendVerifyCode
 {
-//    [self toCompleteUserInfoPage];
- 
     if (self.accountText.text.length>0) {
-        if (![IdentifyingString validateMobile:self.accountText.text]) {
-            [KVNProgress showErrorWithStatus:@"账号格式不太对哦"];
+        if (![self checkUniversalPhoneNum]) {
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
             return;
         }
     }
     else if(!self.accountText.text||self.accountText.text.length==0)
     {
-        [KVNProgress showErrorWithStatus:@"账号还没填呢"];
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
+        return;
+    }
+    [SMS_SDK getVerifyCodeByPhoneNumber:self.accountText.text AndZone:self.countryCode result:^(enum SMS_GetVerifyCodeResponseState state) {
+        if (1==state) {
+            NSLog(@"block 获取验证码成功");
+            remainingTime = 60;
+            self.getVerifyCodeBtn.backgroundColor = [UIColor lightGrayColor];
+            [self.getVerifyCodeBtn setTitle:[NSString stringWithFormat:@"%@(60s)",CommonLocalizedStrings(@"signup_resend")] forState:UIControlStateNormal];
+            self.checkT = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateWaitingTimer) userInfo:nil repeats:YES];
+            
+        }
+        else if(0==state)
+        {
+            NSLog(@"block 获取验证码失败");
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"codesenderrormsg")];
+            
+        }
+        else if (SMS_ResponseStateMaxVerifyCode==state)
+        {
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"maxcodemsg")];
+        }
+        else if(SMS_ResponseStateGetVerifyCodeTooOften==state)
+        {
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"codetoooftenmsg")];
+        }
+    }];
+}
+
+-(void)updateWaitingTimer
+{
+    remainingTime--;
+    [self.getVerifyCodeBtn setTitle:[NSString stringWithFormat:@"%@(%ds)",CommonLocalizedStrings(@"signup_resend"),remainingTime] forState:UIControlStateNormal];
+    [self.getVerifyCodeBtn setEnabled:NO];
+    if (remainingTime<=0) {
+        [self.getVerifyCodeBtn setTitle:CommonLocalizedStrings(@"signup_getVerifyCode") forState:UIControlStateNormal];
+        [self.getVerifyCodeBtn setEnabled:YES];
+        self.getVerifyCodeBtn.backgroundColor = RGBCOLOR(250, 89, 172, 0.8);
+        if (self.checkT != nil) {
+            if( [self.checkT isValid])
+            {
+                [self.checkT invalidate];
+            }
+            self.checkT = nil;
+        }
+    }
+}
+
+-(BOOL)authVeryCode
+{
+    __block BOOL resultB = NO;
+    [KVNProgress showWithStatus:CommonLocalizedStrings(@"authing")];
+    [SMS_SDK commitVerifyCode:self.verifyCodeText.text result:^(enum SMS_ResponseState state) {
+        if (1==state) {
+            NSLog(@"block 验证成功");
+//            NSString* str=[NSString stringWithFormat:NSLocalizedString(@"verifycoderightmsg", nil)];
+//            UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"verifycoderighttitle", nil) message:str delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil) otherButtonTitles:nil, nil];
+//            [alert show];
+//            _alert3=alert;
+            [KVNProgress dismiss];
+            resultB = YES;
+        }
+        else if(0==state)
+        {
+            NSLog(@"block 验证失败");
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"verifycodeerrormsg")];
+//            NSString* str=[NSString stringWithFormat:NSLocalizedString(@"verifycodeerrormsg", nil)];
+//            UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"verifycodeerrortitle", nil) message:str delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil)  otherButtonTitles:nil, nil];
+//            [alert show];
+            resultB = NO;
+        }
+    }];
+    return resultB;
+}
+
+-(void)signUpThisAccount
+{
+//    [self toCompleteUserInfoPage];
+ 
+    if (self.accountText.text.length>0) {
+        if (![self checkUniversalPhoneNum]) {
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
+            return;
+        }
+    }
+    else if(!self.accountText.text||self.accountText.text.length==0)
+    {
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
+        return;
+    }
+    
+
+    
+    if ((self.passwordText.text.length>0&&self.passwordText.text.length<6)||(self.passwordText.text.length>0&&self.passwordText.text.length>16)) {
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
+        return;
+    }
+    else if (!self.passwordText.text||self.passwordText.text.length==0){
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPWD")];
         return;
     }
     
     if (NeedVerifyCode) {
-        if (self.verifyCodeText.text.length>0&&self.verifyCodeText.text.length!=6) {
+        if (self.verifyCodeText.text.length>0&&self.verifyCodeText.text.length!=4) {
             //            if (![IdentifyingString validateMobile:textField.text]) {
-            [KVNProgress showErrorWithStatus:@"验证码是6位哦"];
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_vNumFormatWrong")];
             return;
             //            }
         }
         else if (!self.verifyCodeText.text||self.verifyCodeText.text.length==0)
         {
-            [KVNProgress showErrorWithStatus:@"验证码还没填呢"];
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noVNum")];
             return;
         }
+        else if (self.verifyCodeText.text.length==4){
+            if ([self authVeryCode]) {
+                [self regThisAccount];
+            }
+        }
     }
-    
-    if ((self.passwordText.text.length>0&&self.passwordText.text.length<6)||(self.passwordText.text.length>0&&self.passwordText.text.length>16)) {
-        [KVNProgress showErrorWithStatus:@"密码要6-16位哦"];
-        return;
+    else
+    {
+        [self regThisAccount];
     }
-    else if (!self.passwordText.text||self.passwordText.text.length==0){
-        [KVNProgress showErrorWithStatus:@"密码还没设置呢"];
-        return;
-    }
-    
-    
     
 
+}
+
+-(void)regThisAccount
+{
+    [KVNProgress showWithStatus:CommonLocalizedStrings(@"signingup")];
+    NSMutableDictionary * dict = [GSNetWorkManager commonDict];
+    [dict setObject:@"member" forKey:@"service"];
+    [dict setObject:@"signup" forKey:@"method"];
+    [dict setObject:self.accountText.text forKey:@"username"];
+    [dict setObject:self.passwordText.text forKey:@"password"];
+    [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [KVNProgress dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPWD")];
+    }];
 }
 
 - (UILabel *)setupTextName:(NSString *)textName frame:(CGRect)frame
@@ -211,25 +365,52 @@
     }
     return YES;
 }
+-(BOOL)checkUniversalPhoneNum
+{
+    int compareResult = 0;
+    for (int i=0; i<_areaArray.count; i++) {
+        NSDictionary* dict1=[_areaArray objectAtIndex:i];
+        NSString* code1=[dict1 valueForKey:@"zone"];
+        NSLog(@"areacode:%@",code1);
+        if ([code1 isEqualToString:self.countryCode]) {
+            compareResult=1;
+            NSString* rule1=[dict1 valueForKey:@"rule"];
+            NSLog(@"rule:%@",rule1);
+            NSPredicate* pred=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",rule1];
+            BOOL isMatch=[pred evaluateWithObject:self.accountText.text];
+            if (!isMatch) {
+                //手机号码不正确
+                
+                return NO;
+            }
+            break;
+        }
+    }
+    return YES;
+
+}
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField == self.accountText) {
         if (textField.text.length>0) {
-            if (![IdentifyingString validateMobile:textField.text]) {
-                [KVNProgress showErrorWithStatus:@"账号格式不太对哦"];
+            if (![self checkUniversalPhoneNum]) {
+                [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
             }
         }
     }
     else if (textField == self.verifyCodeText) {
-        if (textField.text.length>0&&textField.text.length!=6) {
+        if (textField.text.length>0&&textField.text.length!=4) {
 //            if (![IdentifyingString validateMobile:textField.text]) {
-                [KVNProgress showErrorWithStatus:@"验证码是6位哦"];
+                [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_vNumFormatWrong")];
 //            }
+        }
+        else if (textField.text.length==4){
+            [self authVeryCode];
         }
     }
     else if (textField == self.passwordText) {
         if ((textField.text.length>0&&textField.text.length<6)||(textField.text.length>0&&textField.text.length>16)) {
-            [KVNProgress showErrorWithStatus:@"密码要6-16位哦"];
+            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
         }
     }
 }

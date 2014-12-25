@@ -44,6 +44,20 @@
 "signup_fillVerifyCode" = "Verify Code";
 "signup_getVerifyCode" = "Send Verify Code";
 "signup_signup" = "Sign Up";
+"signup_chooseCountry" = "Choose Country";
+"signup_noPhoneNum" = "Please fill your phone number";
+"signup_wrongPhoneNum" = "Wrong phone number";
+"signup_vNumFormatWrong" = "Veriry code must 4 numbers";
+"signup_noVNum" = "Please fill verify code";
+"signup_pwdFormatWrong" = "Password should 4-16 characters";
+"signup_noPWD" = "Please fill a password";
+"signup_resend" = "Resend";
+"codesenderrormsg"="Failed to send verify code";
+"maxcodemsg"="Too many times to request verify code";
+"codetoooftenmsg"="Too often times to request verify code";
+"verifycodeerrormsg"="Invalid verify code, please resend";
+"authing"="Authing...";
+"signingup"="Signing Up...";
 
 "completeUserInfo_title" = "Complete Info";
 "completeUserInfo_nickName" = "Pretty Nickname";
