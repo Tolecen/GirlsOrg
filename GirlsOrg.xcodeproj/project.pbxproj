@@ -122,6 +122,20 @@
 		97525FD21A35E85200A6CA29 /* GSNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */; };
 		975638F21A46B98E00B0A703 /* GSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 975638F11A46B98E00B0A703 /* GSSignUpViewController.m */; };
 		975638F51A46CC1500B0A703 /* GSCompleteUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */; };
+		9771824F1A4BEC41000FEA70 /* IdentifyingString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771824E1A4BEC41000FEA70 /* IdentifyingString.m */; };
+		9771825B1A4BF8E4000FEA70 /* UIImage+KVNEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182531A4BF8E4000FEA70 /* UIImage+KVNEmpty.m */; };
+		9771825C1A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182551A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m */; };
+		9771825D1A4BF8E4000FEA70 /* KVNProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182581A4BF8E4000FEA70 /* KVNProgress.m */; };
+		9771825E1A4BF8E4000FEA70 /* KVNProgressConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771825A1A4BF8E4000FEA70 /* KVNProgressConfiguration.m */; };
+		977182601A4BFA44000FEA70 /* KVNProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9771825F1A4BFA44000FEA70 /* KVNProgressView.xib */; };
+		977182631A4C12C9000FEA70 /* SectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182621A4C12C9000FEA70 /* SectionsViewController.m */; };
+		977182661A4C16F8000FEA70 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977182651A4C16F8000FEA70 /* SMS_SDK.framework */; };
+		977182691A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182681A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.m */; };
+		9771826B1A4C1768000FEA70 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9771826A1A4C1768000FEA70 /* MessageUI.framework */; };
+		9771826E1A4C1771000FEA70 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9771826C1A4C1771000FEA70 /* AddressBook.framework */; };
+		9771826F1A4C1771000FEA70 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9771826D1A4C1771000FEA70 /* AddressBookUI.framework */; };
+		977182711A4C177C000FEA70 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 977182701A4C177C000FEA70 /* libz.dylib */; };
+		977182731A4C1786000FEA70 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 977182721A4C1786000FEA70 /* libicucore.dylib */; };
 		9787D3171A3C24AA00F6F617 /* GSLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */; };
 		97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25461A342C6700302A9A /* CustomBarItem.m */; };
 		97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BC25481A342C6700302A9A /* UINavigationItem+CustomItem.m */; };
@@ -594,6 +608,27 @@
 		975638F11A46B98E00B0A703 /* GSSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSignUpViewController.m; sourceTree = "<group>"; };
 		975638F31A46CC1500B0A703 /* GSCompleteUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCompleteUserInfoViewController.h; sourceTree = "<group>"; };
 		975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCompleteUserInfoViewController.m; sourceTree = "<group>"; };
+		9771824D1A4BEC41000FEA70 /* IdentifyingString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifyingString.h; sourceTree = "<group>"; };
+		9771824E1A4BEC41000FEA70 /* IdentifyingString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentifyingString.m; sourceTree = "<group>"; };
+		977182521A4BF8E4000FEA70 /* UIImage+KVNEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNEmpty.h"; sourceTree = "<group>"; };
+		977182531A4BF8E4000FEA70 /* UIImage+KVNEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNEmpty.m"; sourceTree = "<group>"; };
+		977182541A4BF8E4000FEA70 /* UIImage+KVNImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNImageEffects.h"; sourceTree = "<group>"; };
+		977182551A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNImageEffects.m"; sourceTree = "<group>"; };
+		977182571A4BF8E4000FEA70 /* KVNProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNProgress.h; sourceTree = "<group>"; };
+		977182581A4BF8E4000FEA70 /* KVNProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgress.m; sourceTree = "<group>"; };
+		977182591A4BF8E4000FEA70 /* KVNProgressConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNProgressConfiguration.h; sourceTree = "<group>"; };
+		9771825A1A4BF8E4000FEA70 /* KVNProgressConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgressConfiguration.m; sourceTree = "<group>"; };
+		9771825F1A4BFA44000FEA70 /* KVNProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KVNProgressView.xib; sourceTree = "<group>"; };
+		977182611A4C12C9000FEA70 /* SectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionsViewController.h; sourceTree = "<group>"; };
+		977182621A4C12C9000FEA70 /* SectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionsViewController.m; sourceTree = "<group>"; };
+		977182651A4C16F8000FEA70 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		977182671A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-DeepMutableCopy.h"; sourceTree = "<group>"; };
+		977182681A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-DeepMutableCopy.m"; sourceTree = "<group>"; };
+		9771826A1A4C1768000FEA70 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9771826C1A4C1771000FEA70 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		9771826D1A4C1771000FEA70 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		977182701A4C177C000FEA70 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		977182721A4C1786000FEA70 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		9787D3151A3C24AA00F6F617 /* GSLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSLogInViewController.h; sourceTree = "<group>"; };
 		9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSLogInViewController.m; sourceTree = "<group>"; };
 		97BC25451A342C6700302A9A /* CustomBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBarItem.h; sourceTree = "<group>"; };
@@ -1025,8 +1060,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977182731A4C1786000FEA70 /* libicucore.dylib in Frameworks */,
+				977182711A4C177C000FEA70 /* libz.dylib in Frameworks */,
+				9771826E1A4C1771000FEA70 /* AddressBook.framework in Frameworks */,
+				9771826F1A4C1771000FEA70 /* AddressBookUI.framework in Frameworks */,
+				9771826B1A4C1768000FEA70 /* MessageUI.framework in Frameworks */,
 				97525FCD1A35E6D000A6CA29 /* Security.framework in Frameworks */,
 				06B704B41A12540000082D9C /* CoreGraphics.framework in Frameworks */,
+				977182661A4C16F8000FEA70 /* SMS_SDK.framework in Frameworks */,
 				06B704B61A12540000082D9C /* UIKit.framework in Frameworks */,
 				06B704B21A12540000082D9C /* Foundation.framework in Frameworks */,
 			);
@@ -1052,6 +1093,8 @@
 		063871B21A28B2EF0011285C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9771824D1A4BEC41000FEA70 /* IdentifyingString.h */,
+				9771824E1A4BEC41000FEA70 /* IdentifyingString.m */,
 				97BD87901A4AB5A1000F2C4F /* UIImage+Resize.h */,
 				97BD87911A4AB5A1000F2C4F /* UIImage+Resize.m */,
 				97BD878D1A4AB554000F2C4F /* TTImageHelper.h */,
@@ -1115,6 +1158,8 @@
 				069D8C9E1A28561E00509CA1 /* GSBaseViewController.m */,
 				9787D3151A3C24AA00F6F617 /* GSLogInViewController.h */,
 				9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */,
+				977182611A4C12C9000FEA70 /* SectionsViewController.h */,
+				977182621A4C12C9000FEA70 /* SectionsViewController.m */,
 				975638F01A46B98E00B0A703 /* GSSignUpViewController.h */,
 				975638F11A46B98E00B0A703 /* GSSignUpViewController.m */,
 				975638F31A46CC1500B0A703 /* GSCompleteUserInfoViewController.h */,
@@ -1161,6 +1206,11 @@
 		06B704B01A12540000082D9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				977182721A4C1786000FEA70 /* libicucore.dylib */,
+				977182701A4C177C000FEA70 /* libz.dylib */,
+				9771826C1A4C1771000FEA70 /* AddressBook.framework */,
+				9771826D1A4C1771000FEA70 /* AddressBookUI.framework */,
+				9771826A1A4C1768000FEA70 /* MessageUI.framework */,
 				97525FCC1A35E6D000A6CA29 /* Security.framework */,
 				97F407D91A2E0CA70002A07D /* AVFoundation.framework */,
 				97F407D61A2E0C930002A07D /* QuartzCore.framework */,
@@ -1224,6 +1274,8 @@
 		06B7055C1A126A9A00082D9C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				977182641A4C16F8000FEA70 /* SMSVerify */,
+				977182501A4BF8E4000FEA70 /* KVNProgress */,
 				97BD87891A4A9BD3000F2C4F /* PickView */,
 				97C3B8CB1A3C6ADC0077C983 /* LoginTextField */,
 				97345F3A1A3B2E74000A14D5 /* DBImageView */,
@@ -1535,6 +1587,48 @@
 				97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		977182501A4BF8E4000FEA70 /* KVNProgress */ = {
+			isa = PBXGroup;
+			children = (
+				9771825F1A4BFA44000FEA70 /* KVNProgressView.xib */,
+				977182511A4BF8E4000FEA70 /* Categories */,
+				977182561A4BF8E4000FEA70 /* Classes */,
+			);
+			path = KVNProgress;
+			sourceTree = "<group>";
+		};
+		977182511A4BF8E4000FEA70 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				977182521A4BF8E4000FEA70 /* UIImage+KVNEmpty.h */,
+				977182531A4BF8E4000FEA70 /* UIImage+KVNEmpty.m */,
+				977182541A4BF8E4000FEA70 /* UIImage+KVNImageEffects.h */,
+				977182551A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		977182561A4BF8E4000FEA70 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				977182571A4BF8E4000FEA70 /* KVNProgress.h */,
+				977182581A4BF8E4000FEA70 /* KVNProgress.m */,
+				977182591A4BF8E4000FEA70 /* KVNProgressConfiguration.h */,
+				9771825A1A4BF8E4000FEA70 /* KVNProgressConfiguration.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		977182641A4C16F8000FEA70 /* SMSVerify */ = {
+			isa = PBXGroup;
+			children = (
+				977182671A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.h */,
+				977182681A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.m */,
+				977182651A4C16F8000FEA70 /* SMS_SDK.framework */,
+			);
+			path = SMSVerify;
 			sourceTree = "<group>";
 		};
 		97BC25441A342C6700302A9A /* CustomBarItem */ = {
@@ -2197,6 +2291,7 @@
 				97F409301A2E0ECA0002A07D /* lookup_amatorka.png in Resources */,
 				06B704BC1A12540000082D9C /* InfoPlist.strings in Resources */,
 				97F407C41A2E0C2E0002A07D /* mayfair.acv in Resources */,
+				977182601A4BFA44000FEA70 /* KVNProgressView.xib in Resources */,
 				97431C231A346B7500F26B3E /* MJRefresh.bundle in Resources */,
 				97D1758E1A2F5C7100355AEE /* yellow-red.acv in Resources */,
 				97BD87881A4A9B97000F2C4F /* city_china.plist in Resources */,
@@ -2297,10 +2392,12 @@
 				06B705B01A126A9A00082D9C /* AFHTTPRequestOperationManager.m in Sources */,
 				06B705B21A126A9A00082D9C /* AFNetworkReachabilityManager.m in Sources */,
 				97F4099A1A2E0ECA0002A07D /* GPUImagePinchDistortionFilter.m in Sources */,
+				977182631A4C12C9000FEA70 /* SectionsViewController.m in Sources */,
 				97F409651A2E0ECA0002A07D /* GPUImageGaussianBlurPositionFilter.m in Sources */,
 				97F4094C1A2E0ECA0002A07D /* GPUImageColorPackingFilter.m in Sources */,
 				97F4098E1A2E0ECA0002A07D /* GPUImageMovie.m in Sources */,
 				97F4093E1A2E0ECA0002A07D /* GPUImageBoxBlurFilter.m in Sources */,
+				9771825C1A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m in Sources */,
 				97F409541A2E0ECA0002A07D /* GPUImageDirectionalNonMaximumSuppressionFilter.m in Sources */,
 				97345F431A3B2E74000A14D5 /* DBImage.m in Sources */,
 				7AD40FD81A2C60F3002BB3CD /* GSMenu.m in Sources */,
@@ -2334,6 +2431,7 @@
 				97F409391A2E0ECA0002A07D /* GPUImageAlphaBlendFilter.m in Sources */,
 				97F409811A2E0ECA0002A07D /* GPUImageLookupFilter.m in Sources */,
 				06B705C41A126A9A00082D9C /* NSManagedObjectContext+MagicalObserving.m in Sources */,
+				9771825B1A4BF8E4000FEA70 /* UIImage+KVNEmpty.m in Sources */,
 				97525FCA1A35E6C600A6CA29 /* RNDecryptor.m in Sources */,
 				97F409361A2E0ECA0002A07D /* GPUImage3x3TextureSamplingFilter.m in Sources */,
 				97F4094B1A2E0ECA0002A07D /* GPUImageColorMatrixFilter.m in Sources */,
@@ -2372,6 +2470,7 @@
 				06B705BA1A126A9A00082D9C /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				97F409441A2E0ECA0002A07D /* GPUImageChromaKeyBlendFilter.m in Sources */,
 				06B705B31A126A9A00082D9C /* AFSecurityPolicy.m in Sources */,
+				9771825E1A4BF8E4000FEA70 /* KVNProgressConfiguration.m in Sources */,
 				97F4096F1A2E0ECA0002A07D /* GPUImageHistogramEqualizationFilter.m in Sources */,
 				97F409621A2E0ECA0002A07D /* GPUImageFramebufferCache.m in Sources */,
 				97F4094F1A2E0ECA0002A07D /* GPUImageCrosshairGenerator.m in Sources */,
@@ -2397,6 +2496,7 @@
 				7A1290971A257DE20091B6E9 /* UIViewController+GSTarBarController.m in Sources */,
 				06B705B51A126A9A00082D9C /* AFURLRequestSerialization.m in Sources */,
 				97F407BE1A2E0C2E0002A07D /* DBCameraLibraryViewController.m in Sources */,
+				977182691A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.m in Sources */,
 				06B705B71A126A9A00082D9C /* AFURLSessionManager.m in Sources */,
 				97F4097E1A2E0ECA0002A07D /* GPUImageLinearBurnBlendFilter.m in Sources */,
 				7A1290941A257DE20091B6E9 /* GSTabBarController.m in Sources */,
@@ -2421,6 +2521,7 @@
 				064530E91A1626630041844B /* NSArray+MTLManipulationAdditions.m in Sources */,
 				97F407BF1A2E0C2E0002A07D /* DBCameraSegueViewController.m in Sources */,
 				97F409A51A2E0ECA0002A07D /* GPUImageRGBDilationFilter.m in Sources */,
+				9771825D1A4BF8E4000FEA70 /* KVNProgress.m in Sources */,
 				97F409561A2E0ECA0002A07D /* GPUImageDissolveBlendFilter.m in Sources */,
 				97F409411A2E0ECA0002A07D /* GPUImageBulgeDistortionFilter.m in Sources */,
 				97F4095A1A2E0ECA0002A07D /* GPUImageExclusionBlendFilter.m in Sources */,
@@ -2439,6 +2540,7 @@
 				06B705CB1A126A9A00082D9C /* MagicalRecord+Actions.m in Sources */,
 				97345F451A3B2E74000A14D5 /* DBImageView.m in Sources */,
 				06B705C01A126A9A00082D9C /* NSManagedObject+MagicalDataImport.m in Sources */,
+				9771824F1A4BEC41000FEA70 /* IdentifyingString.m in Sources */,
 				97F409421A2E0ECA0002A07D /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
 				97F4096E1A2E0ECA0002A07D /* GPUImageHighPassFilter.m in Sources */,
 				975638F21A46B98E00B0A703 /* GSSignUpViewController.m in Sources */,
@@ -2672,6 +2774,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xinle Tao (CUVR22NJYL)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GirlsOrg/Vendor/SMSVerify",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GirlsOrg/GirlsOrg-Prefix.pch";
 				INFOPLIST_FILE = "GirlsOrg/GirlsOrg-Info.plist";
@@ -2688,6 +2794,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xinle Tao (CUVR22NJYL)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GirlsOrg/Vendor/SMSVerify",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GirlsOrg/GirlsOrg-Prefix.pch";
 				INFOPLIST_FILE = "GirlsOrg/GirlsOrg-Info.plist";

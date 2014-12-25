@@ -9,6 +9,11 @@
 #import "GSSignUpViewController.h"
 #import "GSCompleteUserInfoViewController.h"
 #import "InputText.h"
+#import "IdentifyingString.h"
+#import "KVNProgress.h"
+
+#define NeedVerifyCode NO
+
 @interface GSSignUpViewController ()<UITextFieldDelegate>
 @property (nonatomic, weak)UITextField *accountText;
 @property (nonatomic, weak)UILabel *accountTextName;
@@ -16,7 +21,7 @@
 @property (nonatomic, weak)UILabel *verifyCodeTextName;
 @property (nonatomic, weak)UITextField *passwordText;
 @property (nonatomic, weak)UILabel *passwordTextName;
-
+@property (nonatomic, strong)UIButton *countryBtn;
 @property (nonatomic, strong)UIButton *getVerifyCodeBtn;
 @property (nonatomic, strong)UIButton *signUpBtn;
 @property (nonatomic, strong)UIButton * protcolBtn;
@@ -35,26 +40,41 @@
     CGFloat centerX = self.view.frame.size.width * 0.5;
     CGFloat emailY = 64+30;
     UITextField *emailText = [inputText setupWithIcon:nil textY:emailY centerX:centerX point:nil];
-    emailText.keyboardType = UIKeyboardTypeEmailAddress;
+    [emailText setFrame:CGRectMake(emailText.x+70, emailText.y, emailText.width-70, emailText.height)];
+    emailText.keyboardType = UIKeyboardTypeNumberPad;
     [emailText setReturnKeyType:UIReturnKeyDone];
     emailText.delegate = self;
     self.accountText = emailText;
     [emailText addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:emailText];
     
+    self.countryBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.countryBtn setFrame:CGRectMake(emailText.x-70, emailText.y-5, 65, 30)];
+    [self.countryBtn setBackgroundColor:[UIColor clearColor]];
+    self.countryBtn.layer.cornerRadius = 4;
+    self.countryBtn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.countryBtn.layer.borderWidth = 1;
+    self.countryBtn.layer.masksToBounds = YES;
+    [self.countryBtn setTitleColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1] forState:UIControlStateNormal];
+    self.countryBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    [self.countryBtn setTitle:@"▼+8888" forState:UIControlStateNormal];
+    [self.view addSubview:self.countryBtn];
+    
+    
     UILabel *emailTextName = [self setupTextName:CommonLocalizedStrings(@"login_account_pl") frame:emailText.frame];
     self.accountTextName = emailTextName;
     [self.view addSubview:emailTextName];
     
     CGFloat verifyCodeY = CGRectGetMaxY(emailText.frame) + 30;
-    UITextField *verifyText = [inputText setupShortWithIcon:nil textY:verifyCodeY centerX:(centerX-(CGRectGetWidth(emailText.frame)-95)/2) point:nil];
+    UITextField *verifyText = [inputText setupShortWithIcon:nil textY:verifyCodeY centerX:(centerX-(232-95)/2) point:nil];
     [verifyText setReturnKeyType:UIReturnKeyDone];
+    verifyText.keyboardType = UIKeyboardTypeNumberPad;
     [verifyText setSecureTextEntry:NO];
     verifyText.delegate = self;
     self.verifyCodeText = verifyText;
     [verifyText addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:verifyText];
-    UILabel *verifyTextName = [self setupTextName:CommonLocalizedStrings(@"login_pwd_pl") frame:verifyText.frame];
+    UILabel *verifyTextName = [self setupTextName:CommonLocalizedStrings(@"signup_fillVerifyCode") frame:verifyText.frame];
     self.verifyCodeTextName = verifyTextName;
     [self.view addSubview:verifyTextName];
     
@@ -81,11 +101,11 @@
     [self.view addSubview:passwordTextName];
     
     self.signUpBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.signUpBtn setFrame:CGRectMake(self.accountText.frame.origin.x, self.passwordText.frame.origin.y+45, self.accountText.frame.size.width, 35)];
+    [self.signUpBtn setFrame:CGRectMake(self.passwordText.frame.origin.x, self.passwordText.frame.origin.y+45, self.passwordText.frame.size.width, 35)];
     self.signUpBtn.backgroundColor = RGBCOLOR(250, 89, 172, 1);
     [self.signUpBtn setTitle:CommonLocalizedStrings(@"signup_signup") forState:UIControlStateNormal];
     [self.signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.signUpBtn addTarget:self action:@selector(toCompleteUserInfoPage) forControlEvents:UIControlEventTouchUpInside];
+    [self.signUpBtn addTarget:self action:@selector(signUpThisAccount) forControlEvents:UIControlEventTouchUpInside];
     self.signUpBtn.layer.cornerRadius = 5;
     self.signUpBtn.layer.masksToBounds = YES;
     [self.view addSubview:self.signUpBtn];
@@ -100,7 +120,10 @@
     
     // Do any additional setup after loading the view.
 }
-
+-(void)toSelectCountryPage
+{
+    
+}
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
 //    if (!firstIn) {
@@ -117,7 +140,46 @@
 
 -(void)signUpThisAccount
 {
-    [self toCompleteUserInfoPage];
+//    [self toCompleteUserInfoPage];
+ 
+    if (self.accountText.text.length>0) {
+        if (![IdentifyingString validateMobile:self.accountText.text]) {
+            [KVNProgress showErrorWithStatus:@"账号格式不太对哦"];
+            return;
+        }
+    }
+    else if(!self.accountText.text||self.accountText.text.length==0)
+    {
+        [KVNProgress showErrorWithStatus:@"账号还没填呢"];
+        return;
+    }
+    
+    if (NeedVerifyCode) {
+        if (self.verifyCodeText.text.length>0&&self.verifyCodeText.text.length!=6) {
+            //            if (![IdentifyingString validateMobile:textField.text]) {
+            [KVNProgress showErrorWithStatus:@"验证码是6位哦"];
+            return;
+            //            }
+        }
+        else if (!self.verifyCodeText.text||self.verifyCodeText.text.length==0)
+        {
+            [KVNProgress showErrorWithStatus:@"验证码还没填呢"];
+            return;
+        }
+    }
+    
+    if ((self.passwordText.text.length>0&&self.passwordText.text.length<6)||(self.passwordText.text.length>0&&self.passwordText.text.length>16)) {
+        [KVNProgress showErrorWithStatus:@"密码要6-16位哦"];
+        return;
+    }
+    else if (!self.passwordText.text||self.passwordText.text.length==0){
+        [KVNProgress showErrorWithStatus:@"密码还没设置呢"];
+        return;
+    }
+    
+    
+    
+
 }
 
 - (UILabel *)setupTextName:(NSString *)textName frame:(CGRect)frame
@@ -148,6 +210,28 @@
         [self restoreTextName:self.verifyCodeTextName textField:self.verifyCodeText];
     }
     return YES;
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField == self.accountText) {
+        if (textField.text.length>0) {
+            if (![IdentifyingString validateMobile:textField.text]) {
+                [KVNProgress showErrorWithStatus:@"账号格式不太对哦"];
+            }
+        }
+    }
+    else if (textField == self.verifyCodeText) {
+        if (textField.text.length>0&&textField.text.length!=6) {
+//            if (![IdentifyingString validateMobile:textField.text]) {
+                [KVNProgress showErrorWithStatus:@"验证码是6位哦"];
+//            }
+        }
+    }
+    else if (textField == self.passwordText) {
+        if ((textField.text.length>0&&textField.text.length<6)||(textField.text.length>0&&textField.text.length>16)) {
+            [KVNProgress showErrorWithStatus:@"密码要6-16位哦"];
+        }
+    }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

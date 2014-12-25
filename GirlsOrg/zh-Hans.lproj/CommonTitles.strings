@@ -31,7 +31,7 @@
 "personalCenter_title" = "个人中心";
 
 "login_page_title" = "登录";
-"login_account_pl" = "邮箱或手机号";
+"login_account_pl" = "手机号";
 "login_pwd_pl" = "账户密码";
 "login_newAccount" = "注册新账户>";
 "login_fogetPwd" = "忘记密码?";
@@ -40,6 +40,7 @@
 "login_readAgreement" = "点此阅读用户协议";
 
 "signup_page_title" = "注册新账户";
+"signup_fillVerifyCode" = "填写验证码";
 "signup_getVerifyCode" = "发送验证码";
 "signup_signup" = "注册";
 
@@ -47,5 +48,6 @@
 "completeUserInfo_nickName" = "美美的昵称";
 "completeUserInfo_birthday" = "选一下你的生日吧";
 "completeUserInfo_region" = "你在哪里呢";
+"completeUserInfo_addavatar" = "点击\n添加头像";
 
 

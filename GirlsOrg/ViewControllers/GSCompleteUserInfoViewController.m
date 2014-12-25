@@ -17,6 +17,7 @@
 }
 @property (nonatomic,strong) UIView * contentBGV;
 @property (nonatomic,strong) DBImageView * avatarImageV;
+@property (nonatomic,strong) UILabel * avatarLabel;
 @property (nonatomic, weak)UITextField *nickText;
 @property (nonatomic, weak)UILabel *nickTextName;
 @property (nonatomic, weak)UITextField *birthText;
@@ -37,19 +38,31 @@
     theType = 1;
     self.navigationItem.title = CommonLocalizedStrings(@"completeUserInfo_title");
     
+    [self.navigationItem setItemWithCustomView:nil itemType:left];
     
     self.contentBGV = [[UIView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:self.contentBGV];
     self.contentBGV.backgroundColor = [UIColor clearColor];
     
     self.avatarImageV = [[DBImageView alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.view.frame)-100)/2, DefaultNaviHeight+40, 100, 100)];
-    self.avatarImageV.backgroundColor = [UIColor lightGrayColor];
+    self.avatarImageV.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
     self.avatarImageV.layer.cornerRadius = 50;
     self.avatarImageV.layer.masksToBounds = YES;
     [self.contentBGV addSubview:self.avatarImageV];
     
+    self.avatarLabel = [[UILabel alloc] initWithFrame:self.avatarImageV.frame];
+    self.avatarLabel.backgroundColor = [UIColor clearColor];
+    self.avatarLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    self.avatarLabel.numberOfLines = 0;
+    self.avatarLabel.textAlignment = NSTextAlignmentCenter;
+    [self.contentBGV addSubview:self.avatarLabel];
+    self.avatarLabel.textColor = [UIColor lightGrayColor];
+    self.avatarLabel.text = CommonLocalizedStrings(@"completeUserInfo_addavatar");
+    
     UITapGestureRecognizer * tapww = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClicked)];
     [self.avatarImageV addGestureRecognizer:tapww];
+    UITapGestureRecognizer * tapww2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClicked)];
+    [self.avatarLabel addGestureRecognizer:tapww2];
     
     
     InputText *inputText = [[InputText alloc] init];
@@ -165,17 +178,18 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSLog(@"%@",info);
+    self.avatarLabel.hidden = YES;
+    UIImage * tempImg = (UIImage *)[info objectForKey:@"UIImagePickerControllerEditedImage"];
+    self.avatarImg = [TTImageHelper compressImageDownToPhoneScreenSize:tempImg targetSizeX:200 targetSizeY:200];
+    [self.avatarImageV setImage:self.avatarImg];
     [picker dismissViewControllerAnimated:YES completion:^{
-        UIImage * tempImg = (UIImage *)[info objectForKey:@"UIImagePickerControllerEditedImage"];
-        self.avatarImg = [TTImageHelper compressImageDownToPhoneScreenSize:tempImg targetSizeX:200 targetSizeY:200];
-        [self.avatarImageV setImage:self.avatarImg];
-//        //    _headBtn.placeholderImage = _headIMG;
-//        [_headBtn setImage:_headIMG forState:UIControlStateNormal];
     }];
     
 }
 -(void)birthBtnClicked
 {
+    [self restoreTextName:self.nickTextName textField:self.nickText];
+    [self.nickText resignFirstResponder];
     [_pickview remove];
     theType = 1;
     _pickview=[[ZHPickView alloc] initDatePickWithDate:[NSDate date] datePickerMode:UIDatePickerModeDate isHaveNavControler:NO];
@@ -190,10 +204,19 @@
             
         }];
     }
+    else
+    {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.contentBGV setFrame:CGRectMake(0, -40, CGRectGetWidth(self.view.frame), self.contentBGV.frame.size.height)];
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
 
 }
 -(void)regionBtnClicked
 {
+    
     [_pickview remove];
     theType = 2;
     _pickview=[[ZHPickView alloc] initPickviewWithPlistName:@"city_china" isHaveNavControler:NO];
@@ -250,6 +273,14 @@
         if (Inch3_5) {
             [UIView animateWithDuration:0.3 animations:^{
                 [self.contentBGV setFrame:CGRectMake(0, -100, CGRectGetWidth(self.view.frame), self.contentBGV.frame.size.height)];
+            } completion:^(BOOL finished) {
+                
+            }];
+        }
+        else
+        {
+            [UIView animateWithDuration:0.3 animations:^{
+                [self.contentBGV setFrame:CGRectMake(0, -20, CGRectGetWidth(self.view.frame), self.contentBGV.frame.size.height)];
             } completion:^(BOOL finished) {
                 
             }];

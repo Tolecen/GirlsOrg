@@ -31,7 +31,7 @@
 "personalCenter_title" = "Personal Center";
 
 "login_page_title" = "Login";
-"login_account_pl" = "Email or Phone Number";
+"login_account_pl" = "Phone Number";
 "login_pwd_pl" = "Account Password";
 "login_newAccount" = "Register>";
 "login_fogetPwd" = "Password?";
@@ -40,12 +40,15 @@
 "login_readAgreement" = "Click to read user agreement";
 
 "signup_page_title" = "Sign Up";
+"signup_fillVerifyCode" = "Verify Code";
 "signup_getVerifyCode" = "Send Verify Code";
 "signup_signup" = "Sign Up";
 
-"completeUserInfo_title" = "Complete Profile";
+"completeUserInfo_title" = "Complete Info";
 "completeUserInfo_nickName" = "Pretty Nickname";
 "completeUserInfo_birthday" = "Select Your Birthday";
 "completeUserInfo_region" = "Select Your Region";
+"completeUserInfo_addavatar" = "Click\nAdd Photo";
+
 
 

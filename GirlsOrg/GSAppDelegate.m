@@ -12,7 +12,7 @@
 #import "GSProfileVC.h"
 #import "GSPublishVC.h"
 #import "GSTabBarController.h"
-
+#import <SMS_SDK/SMS_SDK.h>
 static const NSUInteger kTabBarDefaultHeight = 50.f;
 
 @implementation GSAppDelegate
@@ -23,6 +23,8 @@ static const NSUInteger kTabBarDefaultHeight = 50.f;
 
     [[UINavigationBar appearance] setBarTintColor:RGBCOLOR(250, 89, 172, 1)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [SMS_SDK registerApp:@"4e94befa71df" withSecret:@"085a86819aba85e8acc4492441c6ac74"];
 
     GSTabBarController *tabBarController = [[GSTabBarController alloc] initWithTabBarHeight:kTabBarDefaultHeight];
     tabBarController.minimumHeightToDisplayTitle = 40.f;
