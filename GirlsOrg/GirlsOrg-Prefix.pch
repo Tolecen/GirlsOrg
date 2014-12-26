@@ -16,6 +16,9 @@
     #import "GSCommon.h"
     #import "UIColor+utility.h"
     #import "GSNetWorkManager.h"
+    #import "CoreData+MagicalRecord.h"
+    #import "GSDBManager.h"
+    #import "GSSystem.h"
 #endif
 
 #ifndef CommonLocalizedStrings

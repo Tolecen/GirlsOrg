@@ -52,7 +52,14 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
     [manager POST:BaseURL parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
-        success(operation,responseObject);
+        if ([[responseObject objectForKey:@"error"] isEqualToString:@"200"]) {
+            success(operation,responseObject);
+        }
+        else
+        {
+            NSError * error = [NSError errorWithDomain:[responseObject objectForKey:@"error"] code:[[responseObject objectForKey:@"error"] integerValue]  userInfo:nil];
+            failure(operation,error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         failure(operation,error);
@@ -68,7 +75,15 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
     [manager POST:BaseURLEncrypt parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
-        success(operation,responseObject);
+        if ([[responseObject objectForKey:@"error"] isEqualToString:@"200"]) {
+            success(operation,responseObject);
+        }
+        else
+        {
+            NSError * error = [NSError errorWithDomain:[responseObject objectForKey:@"error"] code:[[responseObject objectForKey:@"error"] integerValue]  userInfo:nil];
+            failure(operation,error);
+        }
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         failure(operation,error);

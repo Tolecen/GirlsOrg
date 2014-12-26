@@ -15,6 +15,7 @@
 #import "SMS_SDK/SMS_SDK.h"
 #import "SMS_SDK/CountryAndAreaCode.h"
 #import "SectionsViewController.h"
+#import "SFHFKeychainUtils.h"
 #define NeedVerifyCode NO
 
 @interface GSSignUpViewController ()<UITextFieldDelegate,SecondViewControllerDelegate>
@@ -331,8 +332,17 @@
     [dict setObject:self.passwordText.text forKey:@"password"];
     [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [KVNProgress dismiss];
+        GSUserInfo * uInfo = [[GSUserInfo alloc] initWithUserInfo:responseObject[@"data"]];
+        [GSDBManager saveUserInfoWithUserInfo:uInfo];
+        [SFHFKeychainUtils storeUsername:SFHAccount andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"username"] forServiceName:SFHServiceName updateExisting:YES error:nil];
+        [SFHFKeychainUtils storeUsername:SFHToken andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"token"] forServiceName:SFHServiceName updateExisting:YES error:nil];
+        [GSSystem sharedSystem].token = [[responseObject objectForKey:@"data"] objectForKey:@"token"];
+        [GSSystem sharedSystem].userid = [[responseObject objectForKey:@"data"] objectForKey:@"id"];
+        [GSSystem sharedSystem].username = [[responseObject objectForKey:@"data"] objectForKey:@"username"];
+        [self toCompleteUserInfoPage];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPWD")];
+        NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(errorCode)];
     }];
 }
 

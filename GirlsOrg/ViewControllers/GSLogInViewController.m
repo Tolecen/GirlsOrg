@@ -9,6 +9,9 @@
 #import "GSLogInViewController.h"
 #import "GSSignUpViewController.h"
 #import "InputText.h"
+#import "KVNProgress.h"
+#import "GSUserInfo.h"
+#import "SFHFKeychainUtils.h"
 @interface GSLogInViewController ()<UITextFieldDelegate>
 @property (nonatomic, weak)UITextField *emailText;
 @property (nonatomic, weak)UILabel *emailTextName;
@@ -39,7 +42,7 @@
     CGFloat centerX = self.view.frame.size.width * 0.5;
     CGFloat emailY = 64+30;
     UITextField *emailText = [inputText setupWithIcon:nil textY:emailY centerX:centerX point:nil];
-    emailText.keyboardType = UIKeyboardTypeEmailAddress;
+    emailText.keyboardType = UIKeyboardTypeNumberPad;
     [emailText setReturnKeyType:UIReturnKeyNext];
     emailText.delegate = self;
     self.emailText = emailText;
@@ -71,6 +74,8 @@
     self.loginBtn.layer.cornerRadius = 5;
     self.loginBtn.layer.masksToBounds = YES;
     [self.view addSubview:self.loginBtn];
+    [self.loginBtn addTarget:self action:@selector(loginBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    
     
     self.regBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_regBtn setBackgroundColor:[UIColor clearColor]];
@@ -215,6 +220,44 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
+}
+
+-(void)loginBtnClicked
+{
+    if (!self.emailText||self.emailText.text.length==0) {
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
+        return;
+    }
+    if ((self.passwordText.text.length>0&&self.passwordText.text.length<6)||(self.passwordText.text.length>0&&self.passwordText.text.length>16)) {
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
+        return;
+    }
+    else if (!self.passwordText.text||self.passwordText.text.length==0){
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPWD")];
+        return;
+    }
+    
+    [self.emailText resignFirstResponder];
+    [self.passwordText resignFirstResponder];
+    [KVNProgress showWithStatus:CommonLocalizedStrings(@"loggingin")];
+    NSMutableDictionary * dict = [GSNetWorkManager commonDict];
+    [dict setObject:@"member" forKey:@"service"];
+    [dict setObject:@"login" forKey:@"method"];
+    [dict setObject:self.emailText.text forKey:@"username"];
+    [dict setObject:self.passwordText.text forKey:@"password"];
+    [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [KVNProgress dismiss];
+        GSUserInfo * uInfo = [[GSUserInfo alloc] initWithUserInfo:responseObject[@"data"]];
+        [GSDBManager saveUserInfoWithUserInfo:uInfo];
+        [SFHFKeychainUtils storeUsername:SFHAccount andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"username"] forServiceName:SFHServiceName updateExisting:YES error:nil];
+        [SFHFKeychainUtils storeUsername:SFHToken andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"token"] forServiceName:SFHServiceName updateExisting:YES error:nil];
+        [GSSystem sharedSystem].token = [[responseObject objectForKey:@"data"] objectForKey:@"token"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(errorCode)];
+    }];
+
+    
 }
 
 -(void)toSignUpPage

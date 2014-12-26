@@ -58,9 +58,15 @@
 "verifycodeerrormsg"="Invalid verify code, please resend";
 "authing"="Authing...";
 "signingup"="Signing Up...";
+"loggingin"="Logging In...";
 
 "completeUserInfo_title" = "Complete Info";
 "completeUserInfo_nickName" = "Pretty Nickname";
 "completeUserInfo_birthday" = "Select Your Birthday";
 "completeUserInfo_region" = "Select Your Region";
 "completeUserInfo_addavatar" = "Click\nAdd Photo";
+
+
+
+"407"="Wrong account";
+"408"="Wrong password";

@@ -122,6 +122,12 @@
 		97525FD21A35E85200A6CA29 /* GSNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */; };
 		975638F21A46B98E00B0A703 /* GSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 975638F11A46B98E00B0A703 /* GSSignUpViewController.m */; };
 		975638F51A46CC1500B0A703 /* GSCompleteUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */; };
+		975F9B4D1A4D0F8700B9BAB0 /* GSDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 975F9B4C1A4D0F8700B9BAB0 /* GSDBManager.m */; };
+		975F9B511A4D101600B9BAB0 /* DataInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 975F9B4F1A4D101600B9BAB0 /* DataInfoModel.xcdatamodeld */; };
+		975F9B541A4D149600B9BAB0 /* UserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 975F9B531A4D149600B9BAB0 /* UserEntity.m */; };
+		975F9B571A4D33E800B9BAB0 /* GSUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 975F9B561A4D33E800B9BAB0 /* GSUserInfo.m */; };
+		975F9B5C1A4D578200B9BAB0 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 975F9B5B1A4D578200B9BAB0 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		975F9B5F1A4D5C5700B9BAB0 /* GSSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 975F9B5E1A4D5C5700B9BAB0 /* GSSystem.m */; };
 		97635A161A4C41B90089D0C3 /* GSAreaCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 97635A151A4C41B90089D0C3 /* GSAreaCode.m */; };
 		97635A181A4C46F00089D0C3 /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97635A171A4C46F00089D0C3 /* country.plist */; };
 		9771824F1A4BEC41000FEA70 /* IdentifyingString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771824E1A4BEC41000FEA70 /* IdentifyingString.m */; };
@@ -610,6 +616,17 @@
 		975638F11A46B98E00B0A703 /* GSSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSignUpViewController.m; sourceTree = "<group>"; };
 		975638F31A46CC1500B0A703 /* GSCompleteUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCompleteUserInfoViewController.h; sourceTree = "<group>"; };
 		975638F41A46CC1500B0A703 /* GSCompleteUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCompleteUserInfoViewController.m; sourceTree = "<group>"; };
+		975F9B4B1A4D0F8700B9BAB0 /* GSDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSDBManager.h; sourceTree = "<group>"; };
+		975F9B4C1A4D0F8700B9BAB0 /* GSDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSDBManager.m; sourceTree = "<group>"; };
+		975F9B501A4D101600B9BAB0 /* DataInfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataInfoModel.xcdatamodel; sourceTree = "<group>"; };
+		975F9B521A4D149600B9BAB0 /* UserEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEntity.h; sourceTree = "<group>"; };
+		975F9B531A4D149600B9BAB0 /* UserEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEntity.m; sourceTree = "<group>"; };
+		975F9B551A4D33E800B9BAB0 /* GSUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSUserInfo.h; sourceTree = "<group>"; };
+		975F9B561A4D33E800B9BAB0 /* GSUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSUserInfo.m; sourceTree = "<group>"; };
+		975F9B5A1A4D578200B9BAB0 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		975F9B5B1A4D578200B9BAB0 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		975F9B5D1A4D5C5700B9BAB0 /* GSSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSystem.h; sourceTree = "<group>"; };
+		975F9B5E1A4D5C5700B9BAB0 /* GSSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSystem.m; sourceTree = "<group>"; };
 		97635A141A4C41B90089D0C3 /* GSAreaCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAreaCode.h; sourceTree = "<group>"; };
 		97635A151A4C41B90089D0C3 /* GSAreaCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAreaCode.m; sourceTree = "<group>"; };
 		97635A171A4C46F00089D0C3 /* country.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = country.plist; sourceTree = "<group>"; };
@@ -1100,6 +1117,8 @@
 			children = (
 				9771824D1A4BEC41000FEA70 /* IdentifyingString.h */,
 				9771824E1A4BEC41000FEA70 /* IdentifyingString.m */,
+				975F9B4B1A4D0F8700B9BAB0 /* GSDBManager.h */,
+				975F9B4C1A4D0F8700B9BAB0 /* GSDBManager.m */,
 				97635A141A4C41B90089D0C3 /* GSAreaCode.h */,
 				97635A151A4C41B90089D0C3 /* GSAreaCode.m */,
 				97BD87901A4AB5A1000F2C4F /* UIImage+Resize.h */,
@@ -1281,6 +1300,7 @@
 		06B7055C1A126A9A00082D9C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				975F9B591A4D578200B9BAB0 /* SFHFKeychain */,
 				977182641A4C16F8000FEA70 /* SMSVerify */,
 				977182501A4BF8E4000FEA70 /* KVNProgress */,
 				97BD87891A4A9BD3000F2C4F /* PickView */,
@@ -1432,6 +1452,9 @@
 			isa = PBXGroup;
 			children = (
 				063871B61A28B55D0011285C /* GSCommon.h */,
+				975F9B5D1A4D5C5700B9BAB0 /* GSSystem.h */,
+				975F9B5E1A4D5C5700B9BAB0 /* GSSystem.m */,
+				975F9B4E1A4D0FF200B9BAB0 /* DataModel */,
 				97525FCF1A35E83300A6CA29 /* NetWork */,
 				063871B21A28B2EF0011285C /* Utilities */,
 				06BB3B791A262DE700ABE520 /* DataProvider */,
@@ -1528,6 +1551,8 @@
 			children = (
 				7AD40FD61A2C60F3002BB3CD /* GSMenu.h */,
 				7AD40FD71A2C60F3002BB3CD /* GSMenu.m */,
+				975F9B551A4D33E800B9BAB0 /* GSUserInfo.h */,
+				975F9B561A4D33E800B9BAB0 /* GSUserInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1594,6 +1619,25 @@
 				97525FD11A35E85200A6CA29 /* GSNetWorkManager.m */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		975F9B4E1A4D0FF200B9BAB0 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				975F9B4F1A4D101600B9BAB0 /* DataInfoModel.xcdatamodeld */,
+				975F9B521A4D149600B9BAB0 /* UserEntity.h */,
+				975F9B531A4D149600B9BAB0 /* UserEntity.m */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		975F9B591A4D578200B9BAB0 /* SFHFKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				975F9B5A1A4D578200B9BAB0 /* SFHFKeychainUtils.h */,
+				975F9B5B1A4D578200B9BAB0 /* SFHFKeychainUtils.m */,
+			);
+			path = SFHFKeychain;
 			sourceTree = "<group>";
 		};
 		977182501A4BF8E4000FEA70 /* KVNProgress */ = {
@@ -2363,6 +2407,7 @@
 				97F407D21A2E0C2E0002A07D /* DBCameraLoadingView.m in Sources */,
 				97F4099B1A2E0ECA0002A07D /* GPUImagePixellateFilter.m in Sources */,
 				97F4098F1A2E0ECA0002A07D /* GPUImageMovieComposition.m in Sources */,
+				975F9B571A4D33E800B9BAB0 /* GSUserInfo.m in Sources */,
 				97F409D21A2E0ECA0002A07D /* GPUImageZoomBlurFilter.m in Sources */,
 				97F409961A2E0ECA0002A07D /* GPUImageOutput.m in Sources */,
 				97F409701A2E0ECA0002A07D /* GPUImageHistogramFilter.m in Sources */,
@@ -2415,6 +2460,7 @@
 				97F409C41A2E0ECA0002A07D /* GPUImageToonFilter.m in Sources */,
 				97F409711A2E0ECA0002A07D /* GPUImageHistogramGenerator.m in Sources */,
 				97F409721A2E0ECA0002A07D /* GPUImageHoughTransformLineDetector.m in Sources */,
+				975F9B5C1A4D578200B9BAB0 /* SFHFKeychainUtils.m in Sources */,
 				97F409731A2E0ECA0002A07D /* GPUImageHSBFilter.m in Sources */,
 				97F409BD1A2E0ECA0002A07D /* GPUImageTextureOutput.m in Sources */,
 				97F409A31A2E0ECA0002A07D /* GPUImageRawDataOutput.m in Sources */,
@@ -2424,6 +2470,7 @@
 				06B705B61A126A9A00082D9C /* AFURLResponseSerialization.m in Sources */,
 				97F409AD1A2E0ECA0002A07D /* GPUImageSharpenFilter.m in Sources */,
 				97F409C71A2E0ECA0002A07D /* GPUImageTwoInputFilter.m in Sources */,
+				975F9B541A4D149600B9BAB0 /* UserEntity.m in Sources */,
 				97F4094A1A2E0ECA0002A07D /* GPUImageColorInvertFilter.m in Sources */,
 				97525FD21A35E85200A6CA29 /* GSNetWorkManager.m in Sources */,
 				06B705CE1A126A9A00082D9C /* MagicalRecord+Options.m in Sources */,
@@ -2560,6 +2607,7 @@
 				97F409C01A2E0ECA0002A07D /* GPUImageThresholdedNonMaximumSuppressionFilter.m in Sources */,
 				97345F391A3B2D7C000A14D5 /* ELHeaderView.m in Sources */,
 				97C3B8D01A3C6B0E0077C983 /* InputText.m in Sources */,
+				975F9B511A4D101600B9BAB0 /* DataInfoModel.xcdatamodeld in Sources */,
 				97F407CC1A2E0C2E0002A07D /* DBCollectionViewFlowLayout.m in Sources */,
 				97F409B91A2E0ECA0002A07D /* GPUImageStretchDistortionFilter.m in Sources */,
 				063A082C1A2CC4F1005A4682 /* UIColor+utility.m in Sources */,
@@ -2569,6 +2617,7 @@
 				7A1AF7EB1A382EC100B706A3 /* DXPopover.m in Sources */,
 				97F409B11A2E0ECA0002A07D /* GPUImageSmoothToonFilter.m in Sources */,
 				97F409551A2E0ECA0002A07D /* GPUimageDirectionalSobelEdgeDetectionFilter.m in Sources */,
+				975F9B4D1A4D0F8700B9BAB0 /* GSDBManager.m in Sources */,
 				97F409781A2E0ECA0002A07D /* GPUImageKuwaharaFilter.m in Sources */,
 				063871B91A28CDDB0011285C /* GSHomeVC.m in Sources */,
 				97F407BC1A2E0C2E0002A07D /* DBCameraCollectionViewController.m in Sources */,
@@ -2606,6 +2655,7 @@
 				97F409BA1A2E0ECA0002A07D /* GPUImageSubtractBlendFilter.m in Sources */,
 				97F409D11A2E0ECA0002A07D /* GPUImageXYDerivativeFilter.m in Sources */,
 				97F409981A2E0ECA0002A07D /* GPUImageParallelCoordinateLineTransformFilter.m in Sources */,
+				975F9B5F1A4D5C5700B9BAB0 /* GSSystem.m in Sources */,
 				97F409971A2E0ECA0002A07D /* GPUImageOverlayBlendFilter.m in Sources */,
 				06B705BB1A126A9A00082D9C /* NSNumber+MagicalDataImport.m in Sources */,
 				97F4099C1A2E0ECA0002A07D /* GPUImagePixellatePositionFilter.m in Sources */,
@@ -2889,6 +2939,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		975F9B4F1A4D101600B9BAB0 /* DataInfoModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				975F9B501A4D101600B9BAB0 /* DataInfoModel.xcdatamodel */,
+			);
+			currentVersion = 975F9B501A4D101600B9BAB0 /* DataInfoModel.xcdatamodel */;
+			path = DataInfoModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 06B704A61A1253FF00082D9C /* Project object */;
 }

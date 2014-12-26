@@ -25,6 +25,7 @@ static const NSUInteger kTabBarDefaultHeight = 50.f;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     [SMS_SDK registerApp:@"4e94befa71df" withSecret:@"085a86819aba85e8acc4492441c6ac74"];
+    [MagicalRecord setupCoreDataStack];
 
     GSTabBarController *tabBarController = [[GSTabBarController alloc] initWithTabBarHeight:kTabBarDefaultHeight];
     tabBarController.minimumHeightToDisplayTitle = 40.f;

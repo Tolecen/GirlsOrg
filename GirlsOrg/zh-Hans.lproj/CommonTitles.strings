@@ -57,6 +57,7 @@
 "verifycodeerrormsg"="验证码无效 请重新获取验证码";
 "authing"="验证中...";
 "signingup"="注册中...";
+"loggingin"="登录中...";
 
 "completeUserInfo_title" = "完善信息";
 "completeUserInfo_nickName" = "美美的昵称";
@@ -64,4 +65,7 @@
 "completeUserInfo_region" = "你在哪里呢";
 "completeUserInfo_addavatar" = "点击\n添加头像";
 
+
+"407"="用户名错误";
+"408"="密码错误";
 
