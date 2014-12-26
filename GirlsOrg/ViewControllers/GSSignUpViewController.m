@@ -16,6 +16,7 @@
 #import "SMS_SDK/CountryAndAreaCode.h"
 #import "SectionsViewController.h"
 #import "SFHFKeychainUtils.h"
+#import "TOWebViewController.h"
 #define NeedVerifyCode NO
 
 @interface GSSignUpViewController ()<UITextFieldDelegate,SecondViewControllerDelegate>
@@ -134,6 +135,7 @@
     [_protcolBtn setTitleColor:[UIColor colorWithRed:0 green:0.6 blue:0.933 alpha:1] forState:UIControlStateNormal];
     _protcolBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:_protcolBtn];
+    [_protcolBtn addTarget:self action:@selector(toProtocolPage) forControlEvents:UIControlEventTouchUpInside];
     
     NSDictionary * areaDict = [GSAreaCode setTheLocalAreaCode];
     self.countryCode = areaDict[@"countryCode"];
@@ -272,6 +274,7 @@
 -(void)signUpThisAccount
 {
 //    [self toCompleteUserInfoPage];
+//    return;
  
     if (self.accountText.text.length>0) {
         if (![self checkUniversalPhoneNum]) {
@@ -485,6 +488,15 @@
 {
     GSCompleteUserInfoViewController * completeV = [[GSCompleteUserInfoViewController alloc] init];
     [self.navigationController pushViewController:completeV animated:YES];
+}
+
+-(void)toProtocolPage
+{
+    NSURL * url = [NSURL URLWithString:UserAgreementUrlStr];
+    
+    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+    
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

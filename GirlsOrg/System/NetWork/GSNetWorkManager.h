@@ -16,4 +16,6 @@
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 +(void)requestWithEncryptParamaters:(NSDictionary *)dict success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
++(void)uploadImg:(UIImage *)theImg TheType:(NSString *)imgType progress:(NSProgress * __autoreleasing *)progress
+         success:(void (^)(id responseObject))success failure:(void (^)(NSError * error))failure;
 @end

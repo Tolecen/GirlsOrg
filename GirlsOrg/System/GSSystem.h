@@ -12,6 +12,7 @@
 @property (nonatomic,strong)NSString * username;
 @property (nonatomic,strong)NSString * userid;
 @property (nonatomic,strong)NSString * token;
+@property (nonatomic,strong)NSString * qiniuUploadToken;
 
 + (GSSystem*)sharedSystem;
 @end

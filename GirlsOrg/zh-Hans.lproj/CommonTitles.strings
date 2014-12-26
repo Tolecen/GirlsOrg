@@ -64,7 +64,12 @@
 "completeUserInfo_birthday" = "选一下你的生日吧";
 "completeUserInfo_region" = "你在哪里呢";
 "completeUserInfo_addavatar" = "点击\n添加头像";
-
+"completeUserInfo_complete" = "完成";
+"completeUserInfo_saving" = "保存中...";
+"completeUserInfo_shouldnick" = "昵称是要有的哦";
+"completeUserInfo_nickLengthWrong" = "昵称应该3-16个字哦";
+"completeUserInfo_noBirthday" = "写一下生日吧";
+"completeUserInfo_saveFailed" = "保存失败";
 
 "407"="用户名错误";
 "408"="密码错误";

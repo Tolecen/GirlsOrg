@@ -738,6 +738,16 @@ static KVNProgressConfiguration *configuration;
 	for (UIWindow *window in frontToBackWindows) {
 		if (window.windowLevel == UIWindowLevelNormal) {
 			currentWindow = window;
+            if ([[UIApplication sharedApplication].windows count] > 1 )
+            {
+                UIWindow *win=[[UIApplication sharedApplication].windows objectAtIndex:1];
+                if (win)
+                {
+                    currentWindow = win;
+                }
+                
+            }
+
 			break;
 		}
 	}

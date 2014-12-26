@@ -16,7 +16,15 @@
 @end
 
 @implementation GSBaseViewController
-
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        canScrollBack = YES;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     firstIn = YES;
@@ -47,6 +55,16 @@
         [bt setBackgroundImage:[UIImage imageNamed:@"backButton"] forState:UIControlStateNormal];
         [bt addTarget:self action:@selector(backSuper) forControlEvents:UIControlEventTouchUpInside];
         [self.navigationItem setItemWithCustomView:bt itemType:left];
+    }
+    
+    if (self.navigationController.viewControllers.count > 1 && IOS7 && canScrollBack) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+        
+    }
+    else
+    {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
 }
@@ -117,7 +135,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (self.navigationController.viewControllers.count > 1 && IOS7) {
-        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//        self.navigationController.interactivePopGestureRecognizer.delegate = self;
         GSTabBarController * tabV = (GSTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
         if (!tabV->tabBar.hidden) {
             [tabV hideTabBar:GSShowHideFromRight animated:YES];

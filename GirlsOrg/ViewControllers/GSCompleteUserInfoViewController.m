@@ -11,12 +11,14 @@
 #import "InputText.h"
 #import "ZHPickView.h"
 #import "TTImageHelper.h"
+#import "KVNProgress.h"
 @interface GSCompleteUserInfoViewController ()<UITextFieldDelegate,ZHPickViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 {
     int theType;
 }
 @property (nonatomic,strong) UIView * contentBGV;
 @property (nonatomic,strong) DBImageView * avatarImageV;
+@property (nonatomic,strong) NSString * avatarUrl;
 @property (nonatomic,strong) UILabel * avatarLabel;
 @property (nonatomic, weak)UITextField *nickText;
 @property (nonatomic, weak)UILabel *nickTextName;
@@ -26,13 +28,23 @@
 @property (nonatomic, weak)UILabel *regionTextName;
 @property (nonatomic, strong)UIButton * birthBtn;
 @property (nonatomic, strong)UIButton * regionBtn;
+@property (nonatomic, strong)UIButton * completeBtn;
 @property (nonatomic, assign) BOOL chang;
 @property(nonatomic,strong)ZHPickView *pickview;
 @property(nonatomic,strong)UIImage *avatarImg;
+@property(nonatomic,strong)NSString *birthStr;
 @end
 
 @implementation GSCompleteUserInfoViewController
-
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        canScrollBack = NO;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     theType = 1;
@@ -116,8 +128,72 @@
 //    [self.contentBGV addSubview:self.regionBtn];
 //    [self.regionBtn addTarget:self action:@selector(regionBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
-    
+    self.completeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.completeBtn setFrame:CGRectMake(self.nickText.frame.origin.x, self.birthText.frame.origin.y+45, self.nickText.frame.size.width, 35)];
+    self.completeBtn.backgroundColor = RGBCOLOR(250, 89, 172, 1);
+    [self.completeBtn setTitle:CommonLocalizedStrings(@"completeUserInfo_complete") forState:UIControlStateNormal];
+    [self.completeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.completeBtn addTarget:self action:@selector(completeClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.completeBtn.layer.cornerRadius = 5;
+    self.completeBtn.layer.masksToBounds = YES;
+    [self.contentBGV addSubview:self.completeBtn];
     [self addBackNavi];
+}
+-(void)completeClicked
+{
+    if (self.avatarImg) {
+        [self uploadAvatar];
+    }
+    else
+        [self completeUserInfo];
+}
+-(void)uploadAvatar
+{
+//    [GSNetWorkManager uploadImg:self.avatarImg TheType:@"avatar" progress:nil
+    [KVNProgress showWithStatus:CommonLocalizedStrings(@"completeUserInfo_saving")];
+     [GSNetWorkManager uploadImg:self.avatarImg TheType:@"avatar" progress:nil success:^(id responseObject) {
+         NSLog(@"avatarUrlPath:%@",responseObject);
+         self.avatarUrl = responseObject;
+         [self completeUserInfo];
+     } failure:^(NSError *error) {
+         [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_saveFailed")];
+     }];
+}
+-(void)completeUserInfo
+{
+    if (!self.nickText.text||self.nickText.text.length==0) {
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_shouldnick")];
+        return;
+    }
+    else if (self.nickText.text.length<3||self.nickText.text.length>16){
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_nickLengthWrong")];
+        return;
+    }
+    if (!self.birthStr||self.birthStr.length==0) {
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_noBirthday")];
+        return;
+    }
+    [KVNProgress showWithStatus:CommonLocalizedStrings(@"completeUserInfo_saving")];
+    NSMutableDictionary * dict = [GSNetWorkManager commonDict];
+    [dict setObject:@"member" forKey:@"service"];
+    [dict setObject:@"update" forKey:@"method"];
+    [dict setObject:[GSSystem sharedSystem].token forKey:@"token"];
+    [dict setObject:self.birthStr forKey:@"birthday"];
+    [dict setObject:self.nickText.text forKey:@"nickname"];
+    [dict setObject:self.avatarUrl?self.avatarUrl:@"" forKey:@"avatar"];
+    [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [KVNProgress dismiss];
+        GSUserInfo * uInfo = [[GSUserInfo alloc] initWithUserInfo:responseObject[@"data"]];
+        [GSDBManager saveUserInfoWithUserInfo:uInfo];
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(errorCode)];
+    }];
 }
 -(void)avatarClicked
 {
@@ -237,7 +313,12 @@
         [self restoreTextName:self.birthTextName textField:self.birthText];
     }
     else if (theType==1){
-        self.birthText.text = resultString;
+        self.birthStr = resultString;
+        NSDateFormatter * dateF= [[NSDateFormatter alloc]init];
+        dateF.dateFormat = @"yyyy-MM-dd";
+        NSDate * tDate = [NSDate dateWithTimeIntervalSince1970:[resultString doubleValue]];
+        NSString * sd = [dateF stringFromDate:tDate];
+        self.birthText.text = sd;
         [self diminishTextName:self.birthTextName];
         [self restoreTextName:self.nickTextName textField:self.nickText];
         [self restoreTextName:self.regionTextName textField:self.regionText];
@@ -267,6 +348,7 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if (textField == self.nickText) {
+        [_pickview remove];
         [self diminishTextName:self.nickTextName];
         [self restoreTextName:self.birthTextName textField:self.birthText];
         [self restoreTextName:self.regionTextName textField:self.regionText];
@@ -372,7 +454,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+//    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

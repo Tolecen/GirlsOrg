@@ -20,6 +20,27 @@
 
 
 #endif
+
+NSString * gen_uuid()
+
+{
+    
+    CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
+    
+    CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
+    
+    
+    CFRelease(uuid_ref);
+    
+    NSString *uuid =  [[NSString  alloc]initWithCString:CFStringGetCStringPtr(uuid_string_ref, 0) encoding:NSUTF8StringEncoding];
+    
+    uuid = [uuid stringByReplacingOccurrencesOfString:@"-"withString:@""];
+    
+    CFRelease(uuid_string_ref);
+    
+    return uuid;
+    
+}
 @implementation GSNetWorkManager
 +(NSMutableDictionary *)commonDict
 {
@@ -88,6 +109,45 @@
         NSLog(@"Error: %@", error);
         failure(operation,error);
     }];
+}
+
++(void)uploadImg:(UIImage *)theImg TheType:(NSString *)imgType progress:(NSProgress * __autoreleasing *)progress
+success:(void (^)(id responseObject))success failure:(void (^)(NSError * error))failure
+{
+    NSDateFormatter * dateF= [[NSDateFormatter alloc]init];
+    dateF.dateFormat = @"yyyyMMdd";
+    NSString *pathTime = [dateF stringFromDate:[NSDate date]];
+    NSString * imgFileNameToUpload;
+    if ([imgType isEqualToString:@"avatar"]) {
+        imgFileNameToUpload = [NSString stringWithFormat:@"img/avatar/%@/%@.jpg",pathTime,gen_uuid()];
+    }
+    NSData *imageData  = nil;
+    if (theImg) {
+        imageData = UIImageJPEGRepresentation(theImg, 1);
+    }
+    NSLog(@"imgurl:%@",imgFileNameToUpload);
+    NSDictionary * parameters = [NSDictionary dictionaryWithObjectsAndKeys:[GSSystem sharedSystem].qiniuUploadToken,@"token",imgFileNameToUpload,@"key", nil];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://upload.qiniu.com" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"filename.jpg" mimeType:@"image/jpeg"];
+
+    } error:nil];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSProgress *progressw = nil;
+    NSLog(@"%@",progressw);
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progressw completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        
+        if (error) {
+            NSLog(@"Error: %@", error);
+            failure(error);
+        } else {
+            NSLog(@"%@ =========%@", response, responseObject);
+            success([NSString stringWithFormat:@"%@%@",BaseQiNiuDownloadURL,[responseObject objectForKey:@"key"]]);
+        }
+    }];
+    
+    [uploadTask resume];
 }
 
 @end

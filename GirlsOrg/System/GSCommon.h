@@ -13,6 +13,8 @@
 
 #define Channel @"1001"
 
+#define UserAgreementUrlStr @"http://3g.163.com"
+
 #define CurrentVersion [[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] substringToIndex:([[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] length]-5)]
 #define DeviceModel  [UIDevice currentDevice].model
 #define SystemVersion [UIDevice currentDevice].systemVersion

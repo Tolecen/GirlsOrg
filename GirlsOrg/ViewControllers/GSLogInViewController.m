@@ -12,6 +12,7 @@
 #import "KVNProgress.h"
 #import "GSUserInfo.h"
 #import "SFHFKeychainUtils.h"
+#import "TOWebViewController.h"
 @interface GSLogInViewController ()<UITextFieldDelegate>
 @property (nonatomic, weak)UITextField *emailText;
 @property (nonatomic, weak)UILabel *emailTextName;
@@ -192,8 +193,10 @@
     [_protcolBtn setTitleColor:[UIColor colorWithRed:0 green:0.6 blue:0.933 alpha:1] forState:UIControlStateNormal];
     _protcolBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:_protcolBtn];
+    [_protcolBtn addTarget:self action:@selector(toProtocolPage) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
 }
+
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -344,6 +347,16 @@
         
     }];
 }
+
+-(void)toProtocolPage
+{
+    NSURL * url = [NSURL URLWithString:UserAgreementUrlStr];
+    
+    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+    
+    [self.navigationController pushViewController:webViewController animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

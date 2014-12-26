@@ -14,6 +14,7 @@
 @interface GSBaseViewController : UIViewController
 {
     BOOL firstIn;
+    BOOL canScrollBack;
 }
 - (CGFloat)acceptNavigationHeight;
 - (void)openCamera;

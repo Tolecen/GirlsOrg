@@ -65,7 +65,12 @@
 "completeUserInfo_birthday" = "Select Your Birthday";
 "completeUserInfo_region" = "Select Your Region";
 "completeUserInfo_addavatar" = "Click\nAdd Photo";
-
+"completeUserInfo_complete" = "Complete";
+"completeUserInfo_saving" = "Saving...";
+"completeUserInfo_shouldnick" = "You should have a nickname ^_^";
+"completeUserInfo_nickLengthWrong" = "Nickname should be 3-16 characters";
+"completeUserInfo_noBirthday" = "Your birthday ?";
+"completeUserInfo_saveFailed" = "Save failed";
 
 
 "407"="Wrong account";

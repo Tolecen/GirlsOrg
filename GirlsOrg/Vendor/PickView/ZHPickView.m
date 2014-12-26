@@ -340,9 +340,10 @@
            }
         }
     }else if (_datePicker) {
-        NSDateFormatter * dateF= [[NSDateFormatter alloc]init];
-        dateF.dateFormat = @"yyyy-MM-dd";
-        _resultString=[NSString stringWithFormat:@"%@",[dateF stringFromDate:_datePicker.date]];
+//        NSDateFormatter * dateF= [[NSDateFormatter alloc]init];
+//        dateF.dateFormat = @"yyyy-MM-dd";
+        NSTimeInterval uu = [_datePicker.date timeIntervalSince1970];
+        _resultString=[NSString stringWithFormat:@"%.0f",uu];
     }
     if ([self.delegate respondsToSelector:@selector(toobarDonBtnHaveClick:resultString:)]) {
         [self.delegate toobarDonBtnHaveClick:self resultString:_resultString];
