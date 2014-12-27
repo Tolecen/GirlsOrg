@@ -14,15 +14,21 @@
 #import "GSMenuScroll.h"
 #import "UINavigationItem+CustomItem.h"
 #import "GSInvitePeopleViewController.h"
+#import "GSTopicTableViewCell.h"
+#import "GSHotUserTableViewCell.h"
 
-@interface GSSearchVC ()<FSMenuScrollDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface GSSearchVC ()<FSMenuScrollDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate>
 
 @property (nonatomic, strong) GSMenuScroll * topMenu;
 @property (nonatomic, weak) UIScrollView * backScrollV;
 @property (nonatomic, weak) UITableView * topicTableview;
 @property (nonatomic, weak) UITableView * activeUserTableview;
 @property (nonatomic, weak) UICollectionView *collectionView;
+@property (nonatomic, strong)UIButton * rightBtn;
 @property (nonatomic, assign) BOOL topMenuTouched;
+@property (nonatomic,strong)UIView * searchBgV;
+@property (nonatomic,strong)UIView * searchMaskV;
+@property (nonatomic,strong)UISearchBar * search;
 @end
 
 @implementation GSSearchVC
@@ -69,28 +75,30 @@
     UIView * bgv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame)-70, 44)];
     [bgv setBackgroundColor:[UIColor clearColor]];
     
-    UISearchBar *search = [[UISearchBar alloc] initWithFrame:CGRectMake(5, 0, CGRectGetWidth(self.view.frame)-70-10, 44)];
-    search.searchBarStyle = UISearchBarStyleMinimal;
-    search.placeholder = CommonLocalizedStrings(@"squareSearchBarPlaceHolder");
+    self.search = [[UISearchBar alloc] initWithFrame:CGRectMake(5, 0, CGRectGetWidth(self.view.frame)-70-10, 44)];
+    _search.searchBarStyle = UISearchBarStyleMinimal;
+    _search.delegate = self;
+    _search.placeholder = CommonLocalizedStrings(@"squareSearchBarPlaceHolder");
     
-    search.showsScopeBar = YES;
-    UITextField *searchField = [search valueForKey:@"_searchField"];
+    _search.showsScopeBar = YES;
+    UITextField *searchField = [_search valueForKey:@"_searchField"];
     searchField.textColor = [UIColor whiteColor];
     [searchField setValue:RGBCOLOR(230, 230, 230, 1) forKeyPath:@"_placeholderLabel.textColor"];
-    [bgv addSubview:search];
-    [search setImage:[UIImage imageNamed:@"search_top_icon"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    [bgv addSubview:_search];
+    [_search setImage:[UIImage imageNamed:@"search_top_icon"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     
     [self.navigationItem setItemWithCustomView:bgv itemType:left];
     
     UIView * rightBtnBgv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
     [rightBtnBgv setBackgroundColor:[UIColor clearColor]];
-    UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBtn setFrame:CGRectMake(0, 0, 60, 44)];
-    [rightBtn setTitle:CommonLocalizedStrings(@"square_topRightTitle1") forState:UIControlStateNormal];
-    [rightBtn setTitleColor:RGBCOLOR(255, 255, 255, 1) forState:UIControlStateNormal];
-    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
-    [rightBtnBgv addSubview:rightBtn];
-    [rightBtn addTarget:self action:@selector(toInvitePeoplePage) forControlEvents:UIControlEventTouchUpInside];
+    self.rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_rightBtn setFrame:CGRectMake(0, 0, 60, 44)];
+    [_rightBtn setTitle:CommonLocalizedStrings(@"square_topRightTitle1") forState:UIControlStateNormal];
+    [_rightBtn setTitleColor:RGBCOLOR(255, 255, 255, 1) forState:UIControlStateNormal];
+    [_rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [rightBtnBgv addSubview:_rightBtn];
+    _rightBtn.tag = 1;
+    [_rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     
     [self.navigationItem setItemWithCustomView:rightBtnBgv itemType:right];
     
@@ -135,15 +143,17 @@
     self.topMenu.scrollView.scrollsToTop = NO;
     
     UITableView *topicTableView = [self createTableView];
-    [topicTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:TopicReuseIdentifier];
+//    [topicTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:TopicReuseIdentifier];
     [self.backScrollV addSubview:topicTableView];
     self.topicTableview = topicTableView;
+    self.topicTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.topicTableview.scrollsToTop = YES;
     
     UITableView *activeUserTableview = [self createTableView];
-    [activeUserTableview registerClass:[UITableViewCell class] forCellReuseIdentifier:ActiveReuseIdentifier];
+//    [activeUserTableview registerClass:[UITableViewCell class] forCellReuseIdentifier:ActiveReuseIdentifier];
     [self.backScrollV addSubview:activeUserTableview];
     self.activeUserTableview = activeUserTableview;
+    self.activeUserTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.activeUserTableview.scrollsToTop = NO;
     
     UICollectionView *collectionView = [self createCollectionView];
@@ -205,18 +215,70 @@
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView isEqual:self.topicTableview]) {
+//        return 50;
+        float imW = (CGRectGetWidth([UIScreen mainScreen].bounds)-50)/4;
+        return 60+imW+20;
+    } else {
+        float imW = (CGRectGetWidth([UIScreen mainScreen].bounds)-50)/4;
+        return 60+imW+20;
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:self.topicTableview]) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TopicReuseIdentifier];
-        cell.backgroundColor = [UIColor getRandomColor];
-        cell.textLabel.text = @"tableview1";
+        static NSString *cellIdentifier = @"topicCell";
+        GSTopicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//        cell.backgroundColor = [UIColor getRandomColor];
+//        cell.textLabel.text = @"tableview1";
+        if (cell == nil) {
+            cell = [[GSTopicTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
         return cell;
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ActiveReuseIdentifier];
-        cell.backgroundColor = [UIColor getRandomColor];
-        cell.textLabel.text = @"tableview2";
+        static NSString *cellIdentifier = @"hotUserCell";
+        GSHotUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        //        cell.backgroundColor = [UIColor getRandomColor];
+        //        cell.textLabel.text = @"tableview1";
+        if (cell == nil) {
+            cell = [[GSHotUserTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
         return cell;
     }
+}
+-(void)addSearchView
+{
+    self.searchBgV = [[UIView alloc] initWithFrame:CGRectMake(0, DefaultNaviHeight, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-DefaultNaviHeight)];
+    [self.view addSubview:self.searchBgV];
+    self.searchBgV.backgroundColor = [UIColor clearColor];
+    self.searchMaskV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-DefaultNaviHeight)];
+    self.searchMaskV.backgroundColor = [UIColor blackColor];
+    self.searchMaskV.alpha = 0.8;
+    [self.searchBgV addSubview:self.searchMaskV];
+}
+-(void)removeSearchView
+{
+    [self.searchBgV removeFromSuperview];
+    self.searchBgV = nil;
+}
+-(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    [self addSearchView];
+    [self.rightBtn setTitle:@"取消" forState:UIControlStateNormal];
+    self.rightBtn.tag = 2;
+    return YES;
+}
+-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    [self.rightBtn setTitle:CommonLocalizedStrings(@"square_topRightTitle1") forState:UIControlStateNormal];
+    self.rightBtn.tag = 1;
+    return YES;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
@@ -284,6 +346,28 @@
         self.topicTableview.scrollsToTop = NO;
         self.activeUserTableview.scrollsToTop = NO;
         self.collectionView.scrollsToTop = YES;
+    }
+}
+-(void)rightBtnClicked
+{
+    if (self.rightBtn.tag==1) {
+        [self toInvitePeoplePage];
+    }
+    else
+    {
+        [self cancelSearchPage];
+    }
+}
+-(void)cancelSearchPage
+{
+    [self.search resignFirstResponder];
+    [self removeSearchView];
+}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch * theTouch = [touches anyObject];
+    if ([[theTouch view] isEqual:self.searchMaskV]) {
+        [self cancelSearchPage];
     }
 }
 -(void)toInvitePeoplePage

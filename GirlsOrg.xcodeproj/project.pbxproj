@@ -162,6 +162,8 @@
 		97BD87921A4AB5A1000F2C4F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BD87911A4AB5A1000F2C4F /* UIImage+Resize.m */; };
 		97C3B8D01A3C6B0E0077C983 /* InputText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C3B8CD1A3C6B0E0077C983 /* InputText.m */; };
 		97C3B8D11A3C6B0E0077C983 /* UIView+XD.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C3B8CF1A3C6B0E0077C983 /* UIView+XD.m */; };
+		97CEB6E01A4E56F200E2388E /* GSTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CEB6DF1A4E56F200E2388E /* GSTopicTableViewCell.m */; };
+		97CEB6E31A4E630800E2388E /* GSHotUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CEB6E21A4E630800E2388E /* GSHotUserTableViewCell.m */; };
 		97D175881A2F5C7100355AEE /* 02.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175811A2F5C7100355AEE /* 02.acv */; };
 		97D175891A2F5C7100355AEE /* 06.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175821A2F5C7100355AEE /* 06.acv */; };
 		97D1758A1A2F5C7100355AEE /* 17.acv in Resources */ = {isa = PBXBuildFile; fileRef = 97D175831A2F5C7100355AEE /* 17.acv */; };
@@ -697,6 +699,10 @@
 		97C3B8CD1A3C6B0E0077C983 /* InputText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputText.m; sourceTree = "<group>"; };
 		97C3B8CE1A3C6B0E0077C983 /* UIView+XD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XD.h"; sourceTree = "<group>"; };
 		97C3B8CF1A3C6B0E0077C983 /* UIView+XD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XD.m"; sourceTree = "<group>"; };
+		97CEB6DE1A4E56F200E2388E /* GSTopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTopicTableViewCell.h; sourceTree = "<group>"; };
+		97CEB6DF1A4E56F200E2388E /* GSTopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTopicTableViewCell.m; sourceTree = "<group>"; };
+		97CEB6E11A4E630800E2388E /* GSHotUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSHotUserTableViewCell.h; sourceTree = "<group>"; };
+		97CEB6E21A4E630800E2388E /* GSHotUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSHotUserTableViewCell.m; sourceTree = "<group>"; };
 		97D1757E1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DBCamera.strings"; sourceTree = "<group>"; };
 		97D1757F1A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		97D175801A2F507300355AEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -1594,6 +1600,10 @@
 			children = (
 				972778CE1A4E3F4300206766 /* GSContentTableViewCell.h */,
 				972778CF1A4E3F4300206766 /* GSContentTableViewCell.m */,
+				97CEB6DE1A4E56F200E2388E /* GSTopicTableViewCell.h */,
+				97CEB6DF1A4E56F200E2388E /* GSTopicTableViewCell.m */,
+				97CEB6E11A4E630800E2388E /* GSHotUserTableViewCell.h */,
+				97CEB6E21A4E630800E2388E /* GSHotUserTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2630,6 +2640,7 @@
 				97F409A11A2E0ECA0002A07D /* GPUImagePrewittEdgeDetectionFilter.m in Sources */,
 				97F407B81A2E0C2E0002A07D /* UIImage+Crop.m in Sources */,
 				7AD40FCD1A2C5FEF002BB3CD /* GSMenuScroll.m in Sources */,
+				97CEB6E31A4E630800E2388E /* GSHotUserTableViewCell.m in Sources */,
 				97345F441A3B2E74000A14D5 /* DBImageRequest.m in Sources */,
 				97431C291A346B7500F26B3E /* UIScrollView+MJRefresh.m in Sources */,
 				97F4097A1A2E0ECA0002A07D /* GPUImageLanczosResamplingFilter.m in Sources */,
@@ -2731,6 +2742,7 @@
 				97BC254A1A342C6700302A9A /* UINavigationItem+CustomItem.m in Sources */,
 				97431C281A346B7500F26B3E /* UIScrollView+MJExtension.m in Sources */,
 				97F409841A2E0ECA0002A07D /* GPUImageLuminanceThresholdFilter.m in Sources */,
+				97CEB6E01A4E56F200E2388E /* GSTopicTableViewCell.m in Sources */,
 				97F409431A2E0ECA0002A07D /* GPUImageCGAColorspaceFilter.m in Sources */,
 				97F409891A2E0ECA0002A07D /* GPUImageMissEtikateFilter.m in Sources */,
 				97F407C81A2E0C2E0002A07D /* DBCameraManager.m in Sources */,
