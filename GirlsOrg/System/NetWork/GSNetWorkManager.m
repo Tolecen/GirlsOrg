@@ -15,8 +15,8 @@
 #else
 #define BaseURL @"http://app.zaofenxiang.com/api/base?isEncrypt=0"
 #define BaseURLEncrypt @"http://app.zaofenxiang.com/api/base?isEncrypt=1"
-#define BaseQiNiuDownloadURL @"http://testpetalk.qiniudn.com/"
-#define QINIUDomain @"testpetalk"
+#define BaseQiNiuDownloadURL @"http://onemin.qiniudn.com/"
+#define QINIUDomain @"onemin"
 
 
 #endif
@@ -148,6 +148,19 @@ success:(void (^)(id responseObject))success failure:(void (^)(NSError * error))
     }];
     
     [uploadTask resume];
+}
+
++(void)getUploadToken
+{
+    NSMutableDictionary * dict = [GSNetWorkManager commonDict];
+    [dict setObject:@"qiniu" forKey:@"service"];
+    [dict setObject:@"get_token" forKey:@"method"];
+    [dict setObject:QINIUDomain forKey:@"qiniu_bucket"];
+    [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [GSSystem sharedSystem].qiniuUploadToken = [[responseObject objectForKey:@"data"] objectForKey:@"qiniu_token"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 @end

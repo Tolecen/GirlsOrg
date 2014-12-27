@@ -26,6 +26,8 @@ static const NSUInteger kTabBarDefaultHeight = 50.f;
     
     [SMS_SDK registerApp:@"4e94befa71df" withSecret:@"085a86819aba85e8acc4492441c6ac74"];
     [MagicalRecord setupCoreDataStack];
+    
+    [self getQiuniuUploadToken];
 
     GSTabBarController *tabBarController = [[GSTabBarController alloc] initWithTabBarHeight:kTabBarDefaultHeight];
     tabBarController.minimumHeightToDisplayTitle = 40.f;
@@ -42,7 +44,10 @@ static const NSUInteger kTabBarDefaultHeight = 50.f;
     [self.window makeKeyAndVisible];
     return YES;
 }
-							
+-(void)getQiuniuUploadToken
+{
+    [GSNetWorkManager getUploadToken];
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

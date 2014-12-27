@@ -181,7 +181,7 @@
     [dict setObject:self.birthStr forKey:@"birthday"];
     [dict setObject:self.nickText.text forKey:@"nickname"];
     [dict setObject:self.avatarUrl?self.avatarUrl:@"" forKey:@"avatar"];
-    [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [GSNetWorkManager requestWithParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [KVNProgress dismiss];
         GSUserInfo * uInfo = [[GSUserInfo alloc] initWithUserInfo:responseObject[@"data"]];
         [GSDBManager saveUserInfoWithUserInfo:uInfo];

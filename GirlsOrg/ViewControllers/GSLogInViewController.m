@@ -34,7 +34,7 @@
     self.navigationItem.title = CommonLocalizedStrings(@"login_page_title");
     [self addBackNavi];
     UIButton * bt = [UIButton buttonWithType:UIButtonTypeCustom];
-    [bt setFrame:CGRectMake(0, 0, 89, 44)];
+    [bt setFrame:CGRectMake(0, 0, 50, 44)];
     [bt setBackgroundImage:[UIImage imageNamed:@"login_dismiss"] forState:UIControlStateNormal];
     [bt addTarget:self action:@selector(dismissLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationItem setItemWithCustomView:bt itemType:left];

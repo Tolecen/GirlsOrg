@@ -18,4 +18,5 @@
                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 +(void)uploadImg:(UIImage *)theImg TheType:(NSString *)imgType progress:(NSProgress * __autoreleasing *)progress
          success:(void (^)(id responseObject))success failure:(void (^)(NSError * error))failure;
++(void)getUploadToken;
 @end

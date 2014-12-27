@@ -157,6 +157,8 @@
     }];
     
     [self.countryBtn setTitle:[NSString stringWithFormat:@"▼+%@",self.countryCode] forState:UIControlStateNormal];
+    
+//    [self.accountText becomeFirstResponder];
     // Do any additional setup after loading the view.
 }
 -(void)toSelectCountryPage
@@ -409,6 +411,10 @@
             if (![self checkUniversalPhoneNum]) {
                 [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
             }
+            else
+            {
+                [self checkUsernameIfExsit];
+            }
         }
     }
     else if (textField == self.verifyCodeText) {
@@ -426,6 +432,19 @@
             [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
         }
     }
+}
+-(void)checkUsernameIfExsit
+{
+    NSMutableDictionary * dict = [GSNetWorkManager commonDict];
+    [dict setObject:@"member" forKey:@"service"];
+    [dict setObject:@"check_username" forKey:@"method"];
+    [dict setObject:self.accountText.text forKey:@"username"];
+    [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
+        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(errorCode)];
+    }];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

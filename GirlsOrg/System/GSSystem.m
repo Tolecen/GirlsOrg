@@ -16,7 +16,7 @@ static GSSystem* systemService;
     
     dispatch_once(&onceToken, ^{
         systemService =[[self alloc] init];
-        systemService.qiniuUploadToken = @"Q2fjtrE6q99QwF2h334He_Ne_0oPsmRpOeTx2b6S:z32kuWh9cUWWujjOxEwS4W8h4xA=:eyJzY29wZSI6InRlc3RwZXRhbGsiLCJkZWFkbGluZSI6MTQxOTYwNTE1NH0=";
+        systemService.qiniuUploadToken = @"Q2fjtrE6q99QwF2h334He_Ne_0oPsmRpOeTx2b6S:E685-0uQhK0497IVZIEpnTRNJws=:eyJzY29wZSI6InRlc3RwZXRhbGsiLCJkZWFkbGluZSI6MTQxOTY0Mzg2Nn0=";
     });
     return systemService;
 }

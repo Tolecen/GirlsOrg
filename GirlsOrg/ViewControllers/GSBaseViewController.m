@@ -51,7 +51,7 @@
 //    self.hidesBottomBarWhenPushed = YES;
     if (self.navigationController.viewControllers.count>1) {
         UIButton * bt = [UIButton buttonWithType:UIButtonTypeCustom];
-        [bt setFrame:CGRectMake(0, 0, 89, 44)];
+        [bt setFrame:CGRectMake(0, 0, 50, 44)];
         [bt setBackgroundImage:[UIImage imageNamed:@"backButton"] forState:UIControlStateNormal];
         [bt addTarget:self action:@selector(backSuper) forControlEvents:UIControlEventTouchUpInside];
         [self.navigationItem setItemWithCustomView:bt itemType:left];
