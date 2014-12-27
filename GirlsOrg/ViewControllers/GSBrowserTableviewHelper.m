@@ -8,13 +8,14 @@
 
 #import "GSBrowserTableviewHelper.h"
 #import "GSDetailPageViewController.h"
+#import "GSContentTableViewCell.h"
 @implementation GSBrowserTableviewHelper
 -(id)initWithController:(UIViewController *)thexController Tableview:(UITableView *)theTable
 {
     if (self = [super init]) {
         self.theController = thexController;
         self.tableV = theTable;
-        
+        self.tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableV addHeaderWithTarget:self action:@selector(tableViewHeaderRereshing:)];
         //        [self.tableV headerBeginRefreshing];
         [self.tableV addFooterWithTarget:self action:@selector(tableViewFooterRereshing:)];
@@ -28,17 +29,18 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return CGRectGetWidth([UIScreen mainScreen].bounds)+65;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"goodCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
+    GSContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[GSContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.backgroundColor = [UIColor getRandomColor];
-    cell.textLabel.text = [NSString stringWithFormat:@"TableView%d",self.tableViewType+1];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.backgroundColor = [UIColor getRandomColor];
+//    cell.textLabel.text = [NSString stringWithFormat:@"TableView%d",self.tableViewType+1];
     return cell;
 }
 

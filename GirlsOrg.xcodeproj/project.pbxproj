@@ -97,6 +97,7 @@
 		7AD40FD41A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD31A2C60AE002BB3CD /* UIScrollView+visiableCenterScroll.m */; };
 		7AD40FD81A2C60F3002BB3CD /* GSMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD40FD71A2C60F3002BB3CD /* GSMenu.m */; };
 		7AE0F2831A3ACF5C00ECF4F0 /* GSPublicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0F2821A3ACF5C00ECF4F0 /* GSPublicView.m */; };
+		972778D01A4E3F4300206766 /* GSContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 972778CF1A4E3F4300206766 /* GSContentTableViewCell.m */; };
 		97345F361A3B13AF000A14D5 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97345F351A3B13AF000A14D5 /* FXBlurView.m */; };
 		97345F391A3B2D7C000A14D5 /* ELHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97345F381A3B2D7C000A14D5 /* ELHeaderView.m */; };
 		97345F431A3B2E74000A14D5 /* DBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 97345F3C1A3B2E74000A14D5 /* DBImage.m */; };
@@ -562,6 +563,8 @@
 		7AD40FD71A2C60F3002BB3CD /* GSMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSMenu.m; sourceTree = "<group>"; };
 		7AE0F2811A3ACF5C00ECF4F0 /* GSPublicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPublicView.h; sourceTree = "<group>"; };
 		7AE0F2821A3ACF5C00ECF4F0 /* GSPublicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPublicView.m; sourceTree = "<group>"; };
+		972778CE1A4E3F4300206766 /* GSContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSContentTableViewCell.h; sourceTree = "<group>"; };
+		972778CF1A4E3F4300206766 /* GSContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSContentTableViewCell.m; sourceTree = "<group>"; };
 		97345F341A3B13AF000A14D5 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		97345F351A3B13AF000A14D5 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		97345F371A3B2D7C000A14D5 /* ELHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELHeaderView.h; sourceTree = "<group>"; };
@@ -1279,6 +1282,7 @@
 		06B704B71A12540000082D9C /* GirlsOrg */ = {
 			isa = PBXGroup;
 			children = (
+				972778CD1A4E3EB800206766 /* Cells */,
 				97BD87861A4A9B83000F2C4F /* Files */,
 				7AD40FD51A2C60E7002BB3CD /* Models */,
 				7AD40FC61A2C5F75002BB3CD /* Views */,
@@ -1583,6 +1587,15 @@
 				975F9B561A4D33E800B9BAB0 /* GSUserInfo.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		972778CD1A4E3EB800206766 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				972778CE1A4E3F4300206766 /* GSContentTableViewCell.h */,
+				972778CF1A4E3F4300206766 /* GSContentTableViewCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		97345F3A1A3B2E74000A14D5 /* DBImageView */ = {
@@ -2732,6 +2745,7 @@
 				97F4096B1A2E0ECA0002A07D /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
 				7AE0F2831A3ACF5C00ECF4F0 /* GSPublicView.m in Sources */,
 				97F4095D1A2E0ECA0002A07D /* GPUImageFASTCornerDetectionFilter.m in Sources */,
+				972778D01A4E3F4300206766 /* GSContentTableViewCell.m in Sources */,
 				064530E61A1626630041844B /* MTLModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
