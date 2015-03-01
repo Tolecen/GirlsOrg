@@ -29,6 +29,9 @@
 		064530EE1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 064530DF1A1626630041844B /* NSValueTransformer+MTLPredefinedTransformerAdditions.m */; };
 		069D8C9F1A28561E00509CA1 /* GSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069D8C9E1A28561E00509CA1 /* GSBaseViewController.m */; };
 		069D8CA21A28564F00509CA1 /* GSBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069D8CA11A28564F00509CA1 /* GSBaseTableViewController.m */; };
+		06B1E1B61AA216A1009BEBCD /* GSImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B1E1B51AA216A1009BEBCD /* GSImageEditorViewController.m */; };
+		06B1E1B91AA21AC7009BEBCD /* GSImageEditorHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B1E1B81AA21AC7009BEBCD /* GSImageEditorHeaderView.m */; };
+		06B1E1BC1AA2A5E9009BEBCD /* GSImageEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B1E1BB1AA2A5E9009BEBCD /* GSImageEditorToolbar.m */; };
 		06B704B21A12540000082D9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B704B11A12540000082D9C /* Foundation.framework */; };
 		06B704B41A12540000082D9C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B704B31A12540000082D9C /* CoreGraphics.framework */; };
 		06B704B61A12540000082D9C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B704B51A12540000082D9C /* UIKit.framework */; };
@@ -433,6 +436,12 @@
 		069D8C9E1A28561E00509CA1 /* GSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSBaseViewController.m; sourceTree = "<group>"; };
 		069D8CA01A28564F00509CA1 /* GSBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSBaseTableViewController.h; sourceTree = "<group>"; };
 		069D8CA11A28564F00509CA1 /* GSBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSBaseTableViewController.m; sourceTree = "<group>"; };
+		06B1E1B41AA216A1009BEBCD /* GSImageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSImageEditorViewController.h; sourceTree = "<group>"; };
+		06B1E1B51AA216A1009BEBCD /* GSImageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSImageEditorViewController.m; sourceTree = "<group>"; };
+		06B1E1B71AA21AC7009BEBCD /* GSImageEditorHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSImageEditorHeaderView.h; sourceTree = "<group>"; };
+		06B1E1B81AA21AC7009BEBCD /* GSImageEditorHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSImageEditorHeaderView.m; sourceTree = "<group>"; };
+		06B1E1BA1AA2A5E9009BEBCD /* GSImageEditorToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSImageEditorToolbar.h; sourceTree = "<group>"; };
+		06B1E1BB1AA2A5E9009BEBCD /* GSImageEditorToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSImageEditorToolbar.m; sourceTree = "<group>"; };
 		06B704AE1A12540000082D9C /* GirlsOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GirlsOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B704B11A12540000082D9C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		06B704B31A12540000082D9C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1245,6 +1254,19 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		06B1E1B01AA2157A009BEBCD /* QirlsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				06B1E1B41AA216A1009BEBCD /* GSImageEditorViewController.h */,
+				06B1E1B51AA216A1009BEBCD /* GSImageEditorViewController.m */,
+				06B1E1B71AA21AC7009BEBCD /* GSImageEditorHeaderView.h */,
+				06B1E1B81AA21AC7009BEBCD /* GSImageEditorHeaderView.m */,
+				06B1E1BA1AA2A5E9009BEBCD /* GSImageEditorToolbar.h */,
+				06B1E1BB1AA2A5E9009BEBCD /* GSImageEditorToolbar.m */,
+			);
+			path = QirlsExtension;
+			sourceTree = "<group>";
+		};
 		06B704A51A1253FF00082D9C = {
 			isa = PBXGroup;
 			children = (
@@ -1792,6 +1814,7 @@
 		97F407731A2E0C2E0002A07D /* DBCamera */ = {
 			isa = PBXGroup;
 			children = (
+				06B1E1B01AA2157A009BEBCD /* QirlsExtension */,
 				97F407741A2E0C2E0002A07D /* Categories */,
 				97F4077E1A2E0C2E0002A07D /* Controllers */,
 				97F4078B1A2E0C2E0002A07D /* Filters */,
@@ -2583,6 +2606,7 @@
 				97F409881A2E0ECA0002A07D /* GPUImageMedianFilter.m in Sources */,
 				97F409871A2E0ECA0002A07D /* GPUImageMaskFilter.m in Sources */,
 				97525FBC1A35D9E600A6CA29 /* GSDetailPageViewController.m in Sources */,
+				06B1E1B91AA21AC7009BEBCD /* GSImageEditorHeaderView.m in Sources */,
 				06B705C91A126A9A00082D9C /* NSPersistentStore+MagicalRecord.m in Sources */,
 				97F407B91A2E0C2E0002A07D /* UIImage+TintColor.m in Sources */,
 				97F4093B1A2E0ECA0002A07D /* GPUImageAverageColor.m in Sources */,
@@ -2667,6 +2691,7 @@
 				06B705BD1A126A9A00082D9C /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				97F407D01A2E0C2E0002A07D /* DBCameraFiltersView.m in Sources */,
 				06B705CC1A126A9A00082D9C /* MagicalRecord+ErrorHandling.m in Sources */,
+				06B1E1BC1AA2A5E9009BEBCD /* GSImageEditorToolbar.m in Sources */,
 				97F407C91A2E0C2E0002A07D /* DBLibraryManager.m in Sources */,
 				7A1290951A257DE20091B6E9 /* GSTabBarView.m in Sources */,
 				06B705C11A126A9A00082D9C /* NSManagedObject+MagicalFinders.m in Sources */,
@@ -2687,6 +2712,7 @@
 				975F9B511A4D101600B9BAB0 /* DataInfoModel.xcdatamodeld in Sources */,
 				97F407CC1A2E0C2E0002A07D /* DBCollectionViewFlowLayout.m in Sources */,
 				97F409B91A2E0ECA0002A07D /* GPUImageStretchDistortionFilter.m in Sources */,
+				06B1E1B61AA216A1009BEBCD /* GSImageEditorViewController.m in Sources */,
 				063A082C1A2CC4F1005A4682 /* UIColor+utility.m in Sources */,
 				7A1AF7E81A381F5800B706A3 /* GSCameraLibraryViewController.m in Sources */,
 				97F409371A2E0ECA0002A07D /* GPUImageAdaptiveThresholdFilter.m in Sources */,
@@ -2884,7 +2910,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "709a2680-d08a-4923-9683-dd21a0113b04";
+				PROVISIONING_PROFILE = "60a0466f-abc2-4930-91fb-8f4304a6f054";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2917,7 +2943,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "709a2680-d08a-4923-9683-dd21a0113b04";
+				PROVISIONING_PROFILE = "60a0466f-abc2-4930-91fb-8f4304a6f054";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2938,7 +2964,7 @@
 				INFOPLIST_FILE = "GirlsOrg/GirlsOrg-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "709a2680-d08a-4923-9683-dd21a0113b04";
+				PROVISIONING_PROFILE = "60a0466f-abc2-4930-91fb-8f4304a6f054";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2958,7 +2984,7 @@
 				INFOPLIST_FILE = "GirlsOrg/GirlsOrg-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "709a2680-d08a-4923-9683-dd21a0113b04";
+				PROVISIONING_PROFILE = "60a0466f-abc2-4930-91fb-8f4304a6f054";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

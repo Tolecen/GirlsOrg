@@ -8,6 +8,7 @@
 
 #import "DBCameraContainerViewController.h"
 #import "DBCameraViewController.h"
+#import "GSImageEditorViewController.h"
 #import "DBCameraMacros.h"
 #import "DBCameraView.h"
 
@@ -16,7 +17,10 @@
     BOOL _wasStatusBarHidden;
     BOOL _wasWantsFullScreenLayout;
 }
+
+@property (nonatomic, weak) UIViewController *previousContainerViewController;
 @property (nonatomic, strong) DBCameraViewController *defaultCameraViewController;
+
 @end
 
 @implementation DBCameraContainerViewController
@@ -46,6 +50,7 @@
     [self.view setBackgroundColor:RGBColor(0x000000, 1)];
     [self addChildViewController:self.defaultCameraViewController];
     [self.view addSubview:self.defaultCameraViewController.view];
+    
     if ( _settingsBlock )
         _settingsBlock(self.cameraViewController.cameraView, self);
 }
@@ -70,8 +75,13 @@
 
 - (void) backFromController:(id)fromController
 {
-    [self switchFromController:fromController
-                  toController:self.defaultCameraViewController];
+    if ([fromController isKindOfClass:[GSImageEditorViewController class]]) {
+        [self switchFromController:fromController
+                      toController:self.previousContainerViewController];
+    } else {
+        [self switchFromController:fromController
+                      toController:self.defaultCameraViewController];
+    }
 }
 
 - (void) switchFromController:(id)fromController toController:(id)controller
@@ -79,7 +89,7 @@
     [[(UIViewController *)controller view] setAlpha:1];
     [[(UIViewController *)controller view] setTransform:CGAffineTransformMakeScale(1, 1)];
     [self addChildViewController:controller];
-    
+    self.previousContainerViewController = fromController;
     __block id blockViewController = fromController;
     
     [self transitionFromViewController:blockViewController

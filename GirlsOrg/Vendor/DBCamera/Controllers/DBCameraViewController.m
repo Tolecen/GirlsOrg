@@ -14,6 +14,7 @@
 #import "DBCameraSegueViewController.h"
 #import "DBCameraLibraryViewController.h"
 #import "GSCameraLibraryViewController.h"
+#import "GSImageEditorViewController.h"
 #import "DBLibraryManager.h"
 #import "DBMotionManager.h"
 
@@ -273,22 +274,21 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
     } else {
         CGFloat newW = 256.0;
         CGFloat newH = 340.0;
-
         if ( image.size.width > image.size.height ) {
             newW = 340.0;
             newH = ( newW * image.size.height ) / image.size.width;
         }
-
-        DBCameraSegueViewController *segue = [[DBCameraSegueViewController alloc] initWithImage:image thumb:[UIImage returnImage:image withSize:(CGSize){ newW, newH }]];
-        [segue setTintColor:self.tintColor];
-        [segue setSelectedTintColor:self.selectedTintColor];
-        [segue setForceQuadCrop:_forceQuadCrop];
-        [segue enableGestures:YES];
-        [segue setDelegate:self.delegate];
-        [segue setCapturedImageMetadata:finalMetadata];
-        [segue setCameraSegueConfigureBlock:self.cameraSegueConfigureBlock];
-
-        [self.navigationController pushViewController:segue animated:YES];
+//        [segue setForceQuadCrop:_forceQuadCrop];
+//        [segue enableGestures:YES];
+        
+        [UIView animateWithDuration:.3 animations:^{
+            [self.view setAlpha:0];
+            [self.view setTransform:CGAffineTransformMakeScale(.8, .8)];
+        } completion:^(BOOL finished) {
+            GSImageEditorViewController *imageEditorVC = [[GSImageEditorViewController alloc] initWithImage:image thumb:[UIImage returnImage:image withSize:(CGSize){ newW, newH }] delegate:self.containerDelegate];
+            imageEditorVC.capturedImageMetadata = finalMetadata;
+            [self.containerDelegate switchFromController:self toController:imageEditorVC];
+        }];
     }
 }
 
@@ -317,7 +317,6 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
             [self.view setAlpha:0];
             [self.view setTransform:CGAffineTransformMakeScale(.8, .8)];
         } completion:^(BOOL finished) {
-//            DBCameraLibraryViewController *library = [[DBCameraLibraryViewController alloc] initWithDelegate:self.containerDelegate];
             GSCameraLibraryViewController *library = [[GSCameraLibraryViewController alloc] initWithDelegate:self.containerDelegate];
             [library setTintColor:self.tintColor];
             [library setSelectedTintColor:self.selectedTintColor];

@@ -11,6 +11,7 @@
 #import "DBCollectionViewCell.h"
 #import "DBCollectionViewFlowLayout.h"
 #import "DBCameraSegueViewController.h"
+#import "GSImageEditorViewController.h"
 #import "DBCameraCollectionViewController.h"
 #import "DBCameraMacros.h"
 #import "DBCameraLoadingView.h"

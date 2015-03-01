@@ -13,6 +13,7 @@
 #import "DBCollectionViewFlowLayout.h"
 #import "DBCameraSegueViewController.h"
 #import "DBCameraCollectionViewController.h"
+#import "GSImageEditorViewController.h"
 #import "DBCameraMacros.h"
 
 #import "UIImage+Crop.h"
@@ -347,16 +348,25 @@ NSLocalizedStringFromTable(key, @"DBCamera", nil)
                 if ( [weakSelf.delegate respondsToSelector:@selector(camera:didFinishWithImage:withMetadata:)] )
                     [weakSelf.delegate camera:self didFinishWithImage:image withMetadata:metadata];
             } else {
-                DBCameraSegueViewController *segue = [[DBCameraSegueViewController alloc] initWithImage:image thumb:[UIImage imageWithCGImage:[asset aspectRatioThumbnail]]];
-                [segue setTintColor:self.tintColor];
-                [segue setSelectedTintColor:self.selectedTintColor];
-                [segue setForceQuadCrop:_forceQuadCrop];
-                [segue enableGestures:YES];
-                [segue setCapturedImageMetadata:metadata];
-                [segue setDelegate:weakSelf.delegate];
-                [segue setCameraSegueConfigureBlock:self.cameraSegueConfigureBlock];
+//                DBCameraSegueViewController *segue = [[DBCameraSegueViewController alloc] initWithImage:image thumb:[UIImage imageWithCGImage:[asset aspectRatioThumbnail]]];
+//                [segue setTintColor:self.tintColor];
+//                [segue setSelectedTintColor:self.selectedTintColor];
+//                [segue setForceQuadCrop:_forceQuadCrop];
+//                [segue enableGestures:YES];
+//                [segue setCapturedImageMetadata:metadata];
+//                [segue setDelegate:weakSelf.delegate];
+//                [segue setCameraSegueConfigureBlock:self.cameraSegueConfigureBlock];
+//                
+//                [weakSelf.navigationController pushViewController:segue animated:YES];
                 
-                [weakSelf.navigationController pushViewController:segue animated:YES];
+                [UIView animateWithDuration:.3 animations:^{
+                    [self.view setAlpha:0];
+                    [self.view setTransform:CGAffineTransformMakeScale(.8, .8)];
+                } completion:^(BOOL finished) {
+                    GSImageEditorViewController *imageEditorVC = [[GSImageEditorViewController alloc] initWithImage:image thumb:[UIImage imageWithCGImage:[asset aspectRatioThumbnail]] delegate:self.containerDelegate];
+                    imageEditorVC.capturedImageMetadata = metadata;
+                    [self.containerDelegate switchFromController:self toController:imageEditorVC];
+                }];
             }
             
             [weakSelf.loading removeFromSuperview];
