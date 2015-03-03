@@ -13,7 +13,7 @@
 #import "GSPublishVC.h"
 #import "GSTabBarController.h"
 #import <SMS_SDK/SMS_SDK.h>
-static const NSUInteger kTabBarDefaultHeight = 50.f;
+static const NSUInteger kTabBarDefaultHeight = 45.f;
 
 @implementation GSAppDelegate
 
