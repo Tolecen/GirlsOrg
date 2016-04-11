@@ -156,7 +156,7 @@ success:(void (^)(id responseObject))success failure:(void (^)(NSError * error))
     [dict setObject:@"qiniu" forKey:@"service"];
     [dict setObject:@"get_token" forKey:@"method"];
     [dict setObject:QINIUDomain forKey:@"qiniu_bucket"];
-    [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [GSNetWorkManager requestWithParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [GSSystem sharedSystem].qiniuUploadToken = [[responseObject objectForKey:@"data"] objectForKey:@"qiniu_token"];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
