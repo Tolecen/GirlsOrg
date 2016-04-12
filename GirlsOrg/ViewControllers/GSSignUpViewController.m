@@ -335,7 +335,7 @@
     [dict setObject:@"signup" forKey:@"method"];
     [dict setObject:self.accountText.text forKey:@"username"];
     [dict setObject:self.passwordText.text forKey:@"password"];
-    [GSNetWorkManager requestWithEncryptParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [GSNetWorkManager requestWithParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [KVNProgress dismiss];
         GSUserInfo * uInfo = [[GSUserInfo alloc] initWithUserInfo:responseObject[@"data"]];
         [GSDBManager saveUserInfoWithUserInfo:uInfo];
