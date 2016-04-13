@@ -9,10 +9,11 @@
 #import "GSLogInViewController.h"
 #import "GSSignUpViewController.h"
 #import "InputText.h"
-#import "KVNProgress.h"
+//#import "KVNProgress.h"
 #import "GSUserInfo.h"
 #import "SFHFKeychainUtils.h"
 #import "TOWebViewController.h"
+#import "SVProgressHUD.h"
 @interface GSLogInViewController ()<UITextFieldDelegate>
 @property (nonatomic, weak)UITextField *emailText;
 @property (nonatomic, weak)UILabel *emailTextName;
@@ -228,36 +229,39 @@
 -(void)loginBtnClicked
 {
     if (!self.emailText||self.emailText.text.length==0) {
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
         return;
     }
     if ((self.passwordText.text.length>0&&self.passwordText.text.length<6)||(self.passwordText.text.length>0&&self.passwordText.text.length>16)) {
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
         return;
     }
     else if (!self.passwordText.text||self.passwordText.text.length==0){
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPWD")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_noPWD")];
         return;
     }
     
     [self.emailText resignFirstResponder];
     [self.passwordText resignFirstResponder];
-    [KVNProgress showWithStatus:CommonLocalizedStrings(@"loggingin")];
+    [SVProgressHUD showWithStatus:CommonLocalizedStrings(@"loggingin")];
     NSMutableDictionary * dict = [GSNetWorkManager commonDict];
     [dict setObject:@"member" forKey:@"service"];
     [dict setObject:@"login" forKey:@"method"];
     [dict setObject:self.emailText.text forKey:@"username"];
     [dict setObject:self.passwordText.text forKey:@"password"];
     [GSNetWorkManager requestWithParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [KVNProgress dismiss];
+        
+        [SVProgressHUD dismiss];
+        
         GSUserInfo * uInfo = [[GSUserInfo alloc] initWithUserInfo:responseObject[@"data"]];
         [GSDBManager saveUserInfoWithUserInfo:uInfo];
         [SFHFKeychainUtils storeUsername:SFHAccount andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"username"] forServiceName:SFHServiceName updateExisting:YES error:nil];
         [SFHFKeychainUtils storeUsername:SFHToken andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"token"] forServiceName:SFHServiceName updateExisting:YES error:nil];
         [GSSystem sharedSystem].token = [[responseObject objectForKey:@"data"] objectForKey:@"token"];
+        [self dismissLogin];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(errorCode)];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(errorCode)];
     }];
 
     

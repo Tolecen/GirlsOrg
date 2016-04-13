@@ -84,6 +84,11 @@
 		06BB3B871A262DE700ABE520 /* GSArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BB3B801A262DE700ABE520 /* GSArrayDataSource.m */; };
 		06BB3B881A262DE700ABE520 /* GSCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BB3B821A262DE700ABE520 /* GSCollectionViewDataSource.m */; };
 		06BB3B891A262DE700ABE520 /* GSTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BB3B841A262DE700ABE520 /* GSTableViewDataSource.m */; };
+		624667FC1CBE605800A5D3ED /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 624667F31CBE605800A5D3ED /* SVIndefiniteAnimatedView.m */; };
+		624667FD1CBE605800A5D3ED /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 624667F51CBE605800A5D3ED /* SVProgressAnimatedView.m */; };
+		624667FE1CBE605800A5D3ED /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 624667F71CBE605800A5D3ED /* SVProgressHUD.bundle */; };
+		624667FF1CBE605800A5D3ED /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 624667F91CBE605800A5D3ED /* SVProgressHUD.m */; };
+		624668001CBE605800A5D3ED /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 624667FB1CBE605800A5D3ED /* SVRadialGradientLayer.m */; };
 		7A1290841A257DB40091B6E9 /* GSLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1290831A257DB40091B6E9 /* GSLaunchScreen.xib */; };
 		7A1290921A257DE20091B6E9 /* GSTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290871A257DE20091B6E9 /* GSTab.m */; };
 		7A1290931A257DE20091B6E9 /* GSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290891A257DE20091B6E9 /* GSTabBar.m */; };
@@ -543,6 +548,16 @@
 		06BB3B821A262DE700ABE520 /* GSCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCollectionViewDataSource.m; sourceTree = "<group>"; };
 		06BB3B831A262DE700ABE520 /* GSTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTableViewDataSource.h; sourceTree = "<group>"; };
 		06BB3B841A262DE700ABE520 /* GSTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTableViewDataSource.m; sourceTree = "<group>"; };
+		624667F21CBE605800A5D3ED /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		624667F31CBE605800A5D3ED /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		624667F41CBE605800A5D3ED /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		624667F51CBE605800A5D3ED /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		624667F61CBE605800A5D3ED /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		624667F71CBE605800A5D3ED /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		624667F81CBE605800A5D3ED /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		624667F91CBE605800A5D3ED /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		624667FA1CBE605800A5D3ED /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		624667FB1CBE605800A5D3ED /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		7A1290831A257DB40091B6E9 /* GSLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSLaunchScreen.xib; sourceTree = "<group>"; };
 		7A1290861A257DE20091B6E9 /* GSTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSTab.h; sourceTree = "<group>"; };
 		7A1290871A257DE20091B6E9 /* GSTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSTab.m; sourceTree = "<group>"; };
@@ -1359,6 +1374,7 @@
 		06B7055C1A126A9A00082D9C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				624667F11CBE605800A5D3ED /* SVProgressHUD */,
 				9742A8E91A4DAA6400060017 /* TOWebViewController */,
 				975F9B591A4D578200B9BAB0 /* SFHFKeychain */,
 				977182641A4C16F8000FEA70 /* SMSVerify */,
@@ -1545,6 +1561,23 @@
 				06BB3B841A262DE700ABE520 /* GSTableViewDataSource.m */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		624667F11CBE605800A5D3ED /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				624667F21CBE605800A5D3ED /* SVIndefiniteAnimatedView.h */,
+				624667F31CBE605800A5D3ED /* SVIndefiniteAnimatedView.m */,
+				624667F41CBE605800A5D3ED /* SVProgressAnimatedView.h */,
+				624667F51CBE605800A5D3ED /* SVProgressAnimatedView.m */,
+				624667F61CBE605800A5D3ED /* SVProgressHUD-Prefix.pch */,
+				624667F71CBE605800A5D3ED /* SVProgressHUD.bundle */,
+				624667F81CBE605800A5D3ED /* SVProgressHUD.h */,
+				624667F91CBE605800A5D3ED /* SVProgressHUD.m */,
+				624667FA1CBE605800A5D3ED /* SVRadialGradientLayer.h */,
+				624667FB1CBE605800A5D3ED /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		7A1290851A257DE20091B6E9 /* TabBarController */ = {
@@ -2437,6 +2470,7 @@
 				97D1758C1A2F5C7100355AEE /* crossprocess.acv in Resources */,
 				97D1758A1A2F5C7100355AEE /* 17.acv in Resources */,
 				06B704CA1A12540000082D9C /* Images.xcassets in Resources */,
+				624667FE1CBE605800A5D3ED /* SVProgressHUD.bundle in Resources */,
 				97F409301A2E0ECA0002A07D /* lookup_amatorka.png in Resources */,
 				06B704BC1A12540000082D9C /* InfoPlist.strings in Resources */,
 				97F407C41A2E0C2E0002A07D /* mayfair.acv in Resources */,
@@ -2544,6 +2578,7 @@
 				06B705B01A126A9A00082D9C /* AFHTTPRequestOperationManager.m in Sources */,
 				06B705B21A126A9A00082D9C /* AFNetworkReachabilityManager.m in Sources */,
 				97F4099A1A2E0ECA0002A07D /* GPUImagePinchDistortionFilter.m in Sources */,
+				624668001CBE605800A5D3ED /* SVRadialGradientLayer.m in Sources */,
 				977182631A4C12C9000FEA70 /* SectionsViewController.m in Sources */,
 				97F409651A2E0ECA0002A07D /* GPUImageGaussianBlurPositionFilter.m in Sources */,
 				97F4094C1A2E0ECA0002A07D /* GPUImageColorPackingFilter.m in Sources */,
@@ -2578,6 +2613,7 @@
 				97F4098B1A2E0ECA0002A07D /* GPUImageMosaicFilter.m in Sources */,
 				97BD878F1A4AB554000F2C4F /* TTImageHelper.m in Sources */,
 				06B705CD1A126A9A00082D9C /* MagicalRecord+iCloud.m in Sources */,
+				624667FD1CBE605800A5D3ED /* SVProgressAnimatedView.m in Sources */,
 				97F409B61A2E0ECA0002A07D /* GPUImageSourceOverBlendFilter.m in Sources */,
 				97F409C51A2E0ECA0002A07D /* GPUImageTransformFilter.m in Sources */,
 				97431C241A346B7500F26B3E /* MJRefreshBaseView.m in Sources */,
@@ -2699,6 +2735,7 @@
 				06B705CB1A126A9A00082D9C /* MagicalRecord+Actions.m in Sources */,
 				97345F451A3B2E74000A14D5 /* DBImageView.m in Sources */,
 				06B705C01A126A9A00082D9C /* NSManagedObject+MagicalDataImport.m in Sources */,
+				624667FF1CBE605800A5D3ED /* SVProgressHUD.m in Sources */,
 				9771824F1A4BEC41000FEA70 /* IdentifyingString.m in Sources */,
 				97F409421A2E0ECA0002A07D /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
 				97F4096E1A2E0ECA0002A07D /* GPUImageHighPassFilter.m in Sources */,
@@ -2740,6 +2777,7 @@
 				97F4099E1A2E0ECA0002A07D /* GPUImagePolarPixellateFilter.m in Sources */,
 				064530E31A1626630041844B /* MTLJSONAdapter.m in Sources */,
 				97F409911A2E0ECA0002A07D /* GPUImageNobleCornerDetectionFilter.m in Sources */,
+				624667FC1CBE605800A5D3ED /* SVIndefiniteAnimatedView.m in Sources */,
 				06B704BE1A12540000082D9C /* main.m in Sources */,
 				97F409821A2E0ECA0002A07D /* GPUImageLowPassFilter.m in Sources */,
 				97F409B01A2E0ECA0002A07D /* GPUImageSketchFilter.m in Sources */,

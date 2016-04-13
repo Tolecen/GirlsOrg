@@ -13,6 +13,7 @@
 #import "GSPublicView.h"
 #import "FXBlurView.h"
 #import "GSLogInViewController.h"
+#import "SFHFKeychainUtils.h"
 // Default height of the tab bar
 static const int kDefaultTabBarHeight = 44;
 
@@ -334,16 +335,21 @@ static const float kPushAnimationDuration = 0.25;
 
 -(void)blurMaskDidClickedBtnIndex:(NSInteger)index
 {
+    
+    if (![GSUserInfo isLogin]) {
+        GSLogInViewController * loginV = [[GSLogInViewController alloc] init];
+        UINavigationController * logNavi = [[UINavigationController alloc] initWithRootViewController:loginV];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:logNavi animated:YES completion:nil];
+        return;
+    }
+    
     if (index==1) {
         GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
         [baseV openCamera];
     }
     else if (index==2){
-//        GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
-//        [baseV openCamera];
-        GSLogInViewController * loginV = [[GSLogInViewController alloc] init];
-        UINavigationController * logNavi = [[UINavigationController alloc] initWithRootViewController:loginV];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:logNavi animated:YES completion:nil];
+        GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
+        [baseV openCamera];
         NSLog(@"222222");
     }
 }

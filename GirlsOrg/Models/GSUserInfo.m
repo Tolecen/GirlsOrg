@@ -7,7 +7,7 @@
 //
 
 #import "GSUserInfo.h"
-
+#import "SFHFKeychainUtils.h"
 @implementation GSUserInfo
 - (id)initWithUserInfo:(NSDictionary*)info
 {
@@ -49,4 +49,17 @@
             return obj;
     }
 }
+
++ (BOOL)isLogin {
+    NSError *error = nil;
+    NSString *token = [SFHFKeychainUtils getPasswordForUsername:SFHToken
+                                                 andServiceName:SFHServiceName
+                                                          error:&error];
+    if (!error && token) {
+        //已登录
+        return YES;
+    }
+    return NO;
+}
+
 @end

@@ -30,4 +30,7 @@
 @property (nonatomic, retain) NSString * address;
 
 - (id)initWithUserInfo:(NSDictionary*)info;
+
++ (BOOL)isLogin;
+
 @end
