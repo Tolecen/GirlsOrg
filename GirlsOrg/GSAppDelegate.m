@@ -13,6 +13,7 @@
 #import "GSPublishVC.h"
 #import "GSTabBarController.h"
 #import <SMS_SDK/SMS_SDK.h>
+#import "GSLogInViewController.h"
 static const NSUInteger kTabBarDefaultHeight = 45.f;
 
 @implementation GSAppDelegate
@@ -73,6 +74,26 @@ static const NSUInteger kTabBarDefaultHeight = 45.f;
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
++ (GSAppDelegate *)shareInstance
+{
+    return (GSAppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+- (void)login:(id)obj selector:(SEL)selector{
+    if ([GSUserInfo isLogin] && _doLoginViewController && _loginSel &&
+        [_doLoginViewController respondsToSelector:_loginSel]) {
+        [_doLoginViewController performSelector:_loginSel withObject:nil];
+        return;
+    }
+    _loginSel = selector;
+    _doLoginViewController = obj;
+    
+    GSLogInViewController * loginV = [[GSLogInViewController alloc] init];
+    UINavigationController * logNavi = [[UINavigationController alloc] initWithRootViewController:loginV];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:logNavi animated:YES completion:nil];
+
 }
 
 @end

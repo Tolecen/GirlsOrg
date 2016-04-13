@@ -14,6 +14,7 @@
 #import "SFHFKeychainUtils.h"
 #import "TOWebViewController.h"
 #import "SVProgressHUD.h"
+#import "GSAppDelegate.h"
 @interface GSLogInViewController ()<UITextFieldDelegate>
 @property (nonatomic, weak)UITextField *emailText;
 @property (nonatomic, weak)UILabel *emailTextName;
@@ -259,6 +260,7 @@
         [SFHFKeychainUtils storeUsername:SFHToken andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"token"] forServiceName:SFHServiceName updateExisting:YES error:nil];
         [GSSystem sharedSystem].token = [[responseObject objectForKey:@"data"] objectForKey:@"token"];
         [self dismissLogin];
+         [[GSAppDelegate shareInstance] login:nil selector:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
         [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(errorCode)];

@@ -92,6 +92,8 @@
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
+#pragma mark - DBCameraViewControllerDelegate
+
 - (void) camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata
 {
 //    DetailViewController *detail = [[DetailViewController alloc] init];

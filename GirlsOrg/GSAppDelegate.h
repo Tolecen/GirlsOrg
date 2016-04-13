@@ -12,4 +12,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (assign,nonatomic) SEL loginSel;
+@property (strong,nonatomic) UIViewController *doLoginViewController;
+
++ (GSAppDelegate *)shareInstance;
+- (void)login:(id)obj selector:(SEL)selector;
+
 @end

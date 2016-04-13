@@ -14,6 +14,7 @@
 #import "FXBlurView.h"
 #import "GSLogInViewController.h"
 #import "SFHFKeychainUtils.h"
+#import "GSAppDelegate.h"
 // Default height of the tab bar
 static const int kDefaultTabBarHeight = 44;
 
@@ -335,24 +336,32 @@ static const float kPushAnimationDuration = 0.25;
 
 -(void)blurMaskDidClickedBtnIndex:(NSInteger)index
 {
-    
-    if (![GSUserInfo isLogin]) {
-        GSLogInViewController * loginV = [[GSLogInViewController alloc] init];
-        UINavigationController * logNavi = [[UINavigationController alloc] initWithRootViewController:loginV];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:logNavi animated:YES completion:nil];
-        return;
-    }
-    
     if (index==1) {
-        GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
-        [baseV openCamera];
-    }
-    else if (index==2){
-        GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
-        [baseV openCamera];
-        NSLog(@"222222");
+        [self openPictureAction];
+    } else if (index==2) {
+        [self openMovieAction];
     }
 }
+
+- (void)openPictureAction {
+    
+    if (![GSUserInfo isLogin]) {
+        [[GSAppDelegate shareInstance] login:self selector:@selector(openPictureAction)];
+        return;
+    }
+    GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
+    [baseV openCamera];
+}
+
+- (void)openMovieAction {
+    if (![GSUserInfo isLogin]) {
+        [[GSAppDelegate shareInstance] login:self selector:@selector(openMovieAction)];
+        return;
+    }
+    GSBaseViewController * baseV = (GSBaseViewController *)self.selectedViewController.viewControllers[0];
+    [baseV openCamera];
+}
+
 
 - (void)tabDidRecognizerLongPress:(GSTab *)GSTab {
     GSTab.tabImageWithName = nil;
