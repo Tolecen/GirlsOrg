@@ -16,11 +16,13 @@
         self.backgroundColor = RGBCOLOR(243, 243, 243, 1);
         self.contentView.backgroundColor = RGBCOLOR(243, 243, 243, 1);
         
-        self.avatarImageV = [[DBImageView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
+        self.avatarImageV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
         self.avatarImageV.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
 //        self.avatarImageV.placeHolder = [UIImage imageNamed:@"avatarplaceholder"];
         [self.contentView addSubview:self.avatarImageV];
-        self.avatarImageV.imageWithPath = @"http://onemin.qiniudn.com/FB607B10-0AA9-4D17-A3AA-4F3C98C5ABBD.jpg";
+        [self.avatarImageV sd_setImageWithURL:[NSURL URLWithString:@"http://onemin.qiniudn.com/FB607B10-0AA9-4D17-A3AA-4F3C98C5ABBD.jpg"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            
+        }];
         self.avatarImageV.layer.cornerRadius = 20;
         self.avatarImageV.layer.masksToBounds = YES;
         
@@ -41,9 +43,10 @@
         self.timeLabel.font = [UIFont systemFontOfSize:11];
         [self.contentView addSubview:self.timeLabel];
         
-        self.contentImageV = [[DBImageView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetWidth([UIScreen mainScreen].bounds))];
+        self.contentImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetWidth([UIScreen mainScreen].bounds))];
         self.contentImageV.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
-        self.contentImageV.imageWithPath = @"http://onemin.qiniudn.com/35728-6Nqdc3Q.jpg";
+//        self.contentImageV.imageWithPath = @"http://onemin.qiniudn.com/35728-6Nqdc3Q.jpg";
+        [self.contentImageV sd_setImageWithURL:[NSURL URLWithString:@"http://onemin.qiniudn.com/35728-6Nqdc3Q.jpg"]];
         [self.contentView addSubview:self.contentImageV];
         
         UIView * sepV = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetWidth([UIScreen mainScreen].bounds)+60, CGRectGetWidth([UIScreen mainScreen].bounds), 5)];

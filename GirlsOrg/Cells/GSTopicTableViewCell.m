@@ -7,7 +7,7 @@
 //
 
 #import "GSTopicTableViewCell.h"
-#import "DBImageView.h"
+#import "UIImageView+WebCache.h"
 @implementation GSTopicTableViewCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -35,7 +35,7 @@
         float imW = (CGRectGetWidth([UIScreen mainScreen].bounds)-50)/4;
         
         for (int i = 0; i<4; i++) {
-            DBImageView * imv = [[DBImageView alloc] initWithFrame:CGRectMake(10*(i+1)+imW*i, 60, imW, imW)];
+            UIImageView * imv = [[UIImageView alloc] initWithFrame:CGRectMake(10*(i+1)+imW*i, 60, imW, imW)];
             imv.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
 //            imv.imageWithPath = [NSString stringWithFormat:@"http://onemin.qiniudn.com/sam%d",i+1];
             imv.tag = i+1;
@@ -53,8 +53,8 @@
 {
     [super layoutSubviews];
     for (int i = 0; i<4; i++) {
-        DBImageView * im = (DBImageView *)[self.contentView viewWithTag:i+1];
-        im.imageWithPath = [NSString stringWithFormat:@"http://onemin.qiniudn.com/sam%d",i+1];
+        UIImageView * im = (UIImageView *)[self.contentView viewWithTag:i+1];
+        [im sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://onemin.qiniudn.com/sam%d",i+1]]];
     }
 }
 - (void)awakeFromNib {
