@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DBImageView.h"
+#import "UIImageView+WebCache.h"
 @interface GSHotUserTableViewCell : UITableViewCell
-@property (nonatomic,strong) DBImageView * avatarImageV;
+@property (nonatomic,strong) UIImageView * avatarImageV;
 @property (nonatomic,strong) UILabel * nameLabel;
 @property (nonatomic,strong) UILabel * desLabel;
 @property (nonatomic,strong) UIButton * relationBtn;

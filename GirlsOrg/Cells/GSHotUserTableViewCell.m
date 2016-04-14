@@ -16,11 +16,11 @@
         self.backgroundColor = [UIColor whiteColor];
         self.contentView.backgroundColor = [UIColor whiteColor];
         
-        self.avatarImageV = [[DBImageView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
+        self.avatarImageV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
         self.avatarImageV.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
         //        self.avatarImageV.placeHolder = [UIImage imageNamed:@"avatarplaceholder"];
         [self.contentView addSubview:self.avatarImageV];
-        self.avatarImageV.imageWithPath = @"http://onemin.qiniudn.com/FB607B10-0AA9-4D17-A3AA-4F3C98C5ABBD.jpg";
+        [self.avatarImageV sd_setImageWithURL:[NSURL URLWithString:@"http://onemin.qiniudn.com/FB607B10-0AA9-4D17-A3AA-4F3C98C5ABBD.jpg"]];
         self.avatarImageV.layer.cornerRadius = 20;
         self.avatarImageV.layer.masksToBounds = YES;
         
@@ -48,7 +48,7 @@
         float imW = (CGRectGetWidth([UIScreen mainScreen].bounds)-50)/4;
         
         for (int i = 0; i<4; i++) {
-            DBImageView * imv = [[DBImageView alloc] initWithFrame:CGRectMake(10*(i+1)+imW*i, 60, imW, imW)];
+            UIImageView * imv = [[UIImageView alloc] initWithFrame:CGRectMake(10*(i+1)+imW*i, 60, imW, imW)];
             imv.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
             //            imv.imageWithPath = [NSString stringWithFormat:@"http://onemin.qiniudn.com/sam%d",i+1];
             imv.tag = i+1;
@@ -65,8 +65,8 @@
 {
     [super layoutSubviews];
     for (int i = 0; i<4; i++) {
-        DBImageView * im = (DBImageView *)[self.contentView viewWithTag:i+1];
-        im.imageWithPath = [NSString stringWithFormat:@"http://onemin.qiniudn.com/sam%d",5-(i+1)];
+        UIImageView * im = (UIImageView *)[self.contentView viewWithTag:i+1];
+        [im sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://onemin.qiniudn.com/sam%d",5-(i+1)]]];
     }
 }
 - (void)awakeFromNib {

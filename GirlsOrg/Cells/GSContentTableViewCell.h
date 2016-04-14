@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DBImageView.h"
+#import "UIImageView+WebCache.h"
 @interface GSContentTableViewCell : UITableViewCell
-@property (nonatomic,strong) DBImageView * avatarImageV;
+@property (nonatomic,strong) UIImageView * avatarImageV;
 @property (nonatomic,strong) UILabel * nameLabel;
-@property (nonatomic,strong) DBImageView * contentImageV;
+@property (nonatomic,strong) UIImageView * contentImageV;
 @property (nonatomic,strong) UIImageView * timeIcon;
 @property (nonatomic,strong) UILabel * timeLabel;
 @end

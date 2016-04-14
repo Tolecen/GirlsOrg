@@ -7,7 +7,7 @@
 //
 
 #import "GSCompleteUserInfoViewController.h"
-#import "DBImageView.h"
+#import "UIImageView+WebCache.h"
 #import "InputText.h"
 #import "ZHPickView.h"
 #import "TTImageHelper.h"
@@ -17,7 +17,7 @@
     int theType;
 }
 @property (nonatomic,strong) UIView * contentBGV;
-@property (nonatomic,strong) DBImageView * avatarImageV;
+@property (nonatomic,strong) UIImageView * avatarImageV;
 @property (nonatomic,strong) NSString * avatarUrl;
 @property (nonatomic,strong) UILabel * avatarLabel;
 @property (nonatomic, weak)UITextField *nickText;
@@ -56,7 +56,7 @@
     [self.view addSubview:self.contentBGV];
     self.contentBGV.backgroundColor = [UIColor clearColor];
     
-    self.avatarImageV = [[DBImageView alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.view.frame)-100)/2, DefaultNaviHeight+40, 100, 100)];
+    self.avatarImageV = [[UIImageView alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.view.frame)-100)/2, DefaultNaviHeight+40, 100, 100)];
     self.avatarImageV.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
     self.avatarImageV.layer.cornerRadius = 50;
     self.avatarImageV.layer.masksToBounds = YES;

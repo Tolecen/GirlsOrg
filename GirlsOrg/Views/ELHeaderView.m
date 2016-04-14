@@ -7,13 +7,13 @@
 //
 
 #import "ELHeaderView.h"
-#import "DBImageView.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface ELHeaderView()
-@property (nonatomic, strong) DBImageView *backImageView;
+@property (nonatomic, strong) UIImageView *backImageView;
 @property (nonatomic, strong) UIView *maskView;
-@property (nonatomic, strong) DBImageView *headerImageView;
+@property (nonatomic, strong) UIImageView *headerImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *subTitleLabel;
 @property (nonatomic, assign) CGPoint prePoint;
@@ -29,16 +29,16 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        _backImageView = [[DBImageView alloc] initWithFrame:CGRectMake(0, -0.5*frame.size.height, frame.size.width, frame.size.height*1.5)];
+        _backImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -0.5*frame.size.height, frame.size.width, frame.size.height*1.5)];
         
-        [_backImageView setImageWithPath:backImageURL];
+        [_backImageView sd_setImageWithURL:[NSURL URLWithString:backImageURL]];
         
         /***没想好的maskview，勿删，Tolecen***/
 //        self.maskView = [[UIView alloc] initWithFrame:_backImageView.frame];
 //        self.maskView.alpha = 0;
         
-        _headerImageView = [[DBImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-0.125*frame.size.height, 0.25*frame.size.height, 0.25*frame.size.height, 0.25*frame.size.height)];
-        [_headerImageView setImageWithPath:headerImageURL];
+        _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-0.125*frame.size.height, 0.25*frame.size.height, 0.25*frame.size.height, 0.25*frame.size.height)];
+        [_headerImageView sd_setImageWithURL:[NSURL URLWithString:headerImageURL]];
         _headerImageView.layer.cornerRadius = _headerImageView.frame.size.width/2;
         _headerImageView.layer.masksToBounds = YES;
         
