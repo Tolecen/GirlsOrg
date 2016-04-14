@@ -53,4 +53,11 @@
     return 10;
 }
 
+#pragma mark -- CollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"color:%@",[collectionView cellForItemAtIndexPath:indexPath].backgroundColor);
+    
+}
+
 @end

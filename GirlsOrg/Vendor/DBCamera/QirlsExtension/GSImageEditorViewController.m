@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) GSImageEditorHeaderView *editorHeaderView;
 @property (nonatomic, weak) GSImageEditorToolbar    *editorToolbar;
+@property (nonatomic, weak) UIImageView *preViewImageView;
 
 @property (nonatomic, strong) UIImage *sourceImage;
 
@@ -43,6 +44,16 @@
     GSImageEditorToolbar *editorToolbar = [[GSImageEditorToolbar alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - DefaultCameraToolbarHeight, CGRectGetWidth(self.view.frame), DefaultCameraToolbarHeight)];
     [self.view addSubview:editorToolbar];
     self.editorToolbar = editorToolbar;
+    
+//    UIImageView *preViewImageView = [[UIImageView alloc] initWithFrame:
+//                                     CGRectMake(0,
+//                                                DefaultNaviHeight,
+//                                                Screen_Width,
+//                                                Screen_Height-DefaultNaviHeight-DefaultCameraToolbarHeight)];
+//    [self.view addSubview:preViewImageView];
+//    self.preViewImageView = preViewImageView;
+//    preViewImageView.image = self.sourceImage;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
