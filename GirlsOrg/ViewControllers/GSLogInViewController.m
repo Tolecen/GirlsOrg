@@ -260,7 +260,7 @@
         [SFHFKeychainUtils storeUsername:SFHToken andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"token"] forServiceName:SFHServiceName updateExisting:YES error:nil];
         [GSSystem sharedSystem].token = [[responseObject objectForKey:@"data"] objectForKey:@"token"];
         [self dismissLogin];
-         [[GSAppDelegate shareInstance] login:nil selector:nil];
+//         [[GSAppDelegate shareInstance] login:nil selector:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
         [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(errorCode)];

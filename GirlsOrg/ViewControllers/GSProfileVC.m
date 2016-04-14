@@ -9,9 +9,15 @@
 #import "GSProfileVC.h"
 #import "GSDetailPageViewController.h"
 #import "ELHeaderView.h"
+#import "SettingTableViewCell.h"
+#import "GSSettingViewController.h"
+#import "GSUserInfo.h"
+#import "GSLogInViewController.h"
 @interface GSProfileVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView * profileTableView;
 @property (nonatomic, weak) ELHeaderView *headerView;
+@property (nonatomic,strong)NSArray * titleArray;
+@property (nonatomic,strong)NSArray * iconArray;
 @end
 
 @implementation GSProfileVC
@@ -22,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.titleArray = @[@"我发布的",@"我的评论",@"我喜欢的",@"我的粉丝",@"我的关注",@"消息中心",@"设置"];
 //    self.navigationItem.title = CommonLocalizedStrings(@"personalCenter_title");
 //    [[self navigationController] setNavigationBarHidden:YES];
 //    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
@@ -36,11 +44,12 @@
 //    }
 
 //    self.navigationController.navigationBar.translucent = YES;
-    self.profileTableView = [[UITableView alloc]initWithFrame:self.view.bounds];
+    self.profileTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
 //    _profileTableView.backgroundView = nil;
     _profileTableView.scrollsToTop = YES;
-//    _profileTableView.backgroundColor = [UIColor clearColor];
+    _profileTableView.backgroundColor = RGBCOLOR(250, 250, 250, 1);
     _profileTableView.showsVerticalScrollIndicator = NO;
+    _profileTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:_profileTableView];
     _profileTableView.dataSource = self;
     _profileTableView.delegate = self;
@@ -54,35 +63,124 @@
 //    self.profileTableView.contentOffset = CGPointMake(0, -64);
 //    self.profileTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
 }
+-(BOOL)loggedin
+{
+    if ([GSUserInfo isLogin]) {
+        _profileTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
+    else
+        _profileTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    return [GSUserInfo isLogin];
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    if (![self loggedin]) {
+        return 1;
+    }
+    return 4;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 44;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"goodCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    if (![self loggedin]) {
+        static NSString *cellIdentifier = @"settingcell1";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.contentView.backgroundColor = [UIColor clearColor];
+        for (UIView * view in cell.contentView.subviews) {
+            [view removeFromSuperview];
+        }
+        UIView * bgv = [[UIView alloc] initWithFrame:CGRectMake(Screen_Width/2-60, 4, 120, 36)];
+        bgv.backgroundColor = RGBCOLOR(250, 89, 172, 1);
+        bgv.layer.cornerRadius = 18;
+        bgv.layer.masksToBounds = YES;
+        [cell.contentView addSubview:bgv];
+        UILabel * tL = [[UILabel alloc] initWithFrame:CGRectMake(Screen_Width/2-60, 4, 120, 36)];
+        tL.backgroundColor = [UIColor clearColor];
+        tL.font = [UIFont systemFontOfSize:16];
+        tL.textColor = [UIColor whiteColor];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        tL.text = @"立刻登录";
+        tL.textAlignment = NSTextAlignmentCenter;
+        [cell.contentView addSubview:tL];
+//        cell.textLabel.textColor = RGBCOLOR(250, 89, 172, 1);
+        return cell;
+
     }
-    cell.backgroundColor = [UIColor getRandomColor];
-    cell.textLabel.text = @"profile";
+    static NSString *cellIdentifier = @"settingcell";
+    SettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
+    if (cell == nil) {
+        cell = [[SettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+//    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.section==0) {
+        cell.titleL.text = self.titleArray[indexPath.row];
+    }
+    else if (indexPath.section==1) {
+        cell.titleL.text = self.titleArray[indexPath.row+3];
+    }
+    else if (indexPath.section==2) {
+        cell.titleL.text = self.titleArray[5];
+    }
+    else
+        cell.titleL.text = self.titleArray[6];
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GSDetailPageViewController * detailV = [[GSDetailPageViewController alloc] init];
-    [detailV setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:detailV animated:YES];
+    
+    if (![self loggedin]) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        GSLogInViewController * loginV = [[GSLogInViewController alloc] init];
+        UINavigationController * logNavi = [[UINavigationController alloc] initWithRootViewController:loginV];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:logNavi animated:YES completion:nil];
+        return;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section==3) {
+        GSSettingViewController * detailV = [[GSSettingViewController alloc] init];
+        detailV.title = @"设置";
+        [detailV setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:detailV animated:YES];
+    }
+    else{
+        GSDetailPageViewController * detailV = [[GSDetailPageViewController alloc] init];
+        [detailV setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:detailV animated:YES];
+    }
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    if (![self loggedin]) {
+        return 1;
+    }
+    switch (section) {
+        case 0:
+            return 3;
+            break;
+        case 1:
+            return 2;
+            break;
+        case 2:
+            return 1;
+            break;
+        case 3:
+            return 1;
+            break;
+        default:
+            return 1;
+            break;
+    }
 }
 
 - (void)viewWillLayoutSubviews {
@@ -94,6 +192,22 @@
     self.profileTableView.frame = self.view.bounds;
 
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_profileTableView reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+//    if (![GSUserInfo isLogin]) {
+//        GSLogInViewController * loginV = [[GSLogInViewController alloc] init];
+//        UINavigationController * logNavi = [[UINavigationController alloc] initWithRootViewController:loginV];
+//        [self presentViewController:logNavi animated:YES completion:nil];
+//    }
 }
 //-(void)viewWillDisappear:(BOOL)animated
 //{

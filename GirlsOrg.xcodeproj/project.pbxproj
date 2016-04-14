@@ -388,6 +388,9 @@
 		D8A421651CBF5A88000394BA /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A421531CBF5A88000394BA /* UIImageView+HighlightedWebCache.m */; };
 		D8A421661CBF5A88000394BA /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A421551CBF5A88000394BA /* UIImageView+WebCache.m */; };
 		D8A421671CBF5A88000394BA /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A421571CBF5A88000394BA /* UIView+WebCacheOperation.m */; };
+		D8A4216A1CBF78AA000394BA /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A421691CBF78AA000394BA /* SettingTableViewCell.m */; };
+		D8A4216D1CBF7F0F000394BA /* GSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4216C1CBF7F0F000394BA /* GSSettingViewController.m */; };
+		D8A421701CBF81D0000394BA /* FWAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4216F1CBF81D0000394BA /* FWAlertHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1155,6 +1158,12 @@
 		D8A421551CBF5A88000394BA /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		D8A421561CBF5A88000394BA /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		D8A421571CBF5A88000394BA /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		D8A421681CBF78AA000394BA /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
+		D8A421691CBF78AA000394BA /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
+		D8A4216B1CBF7F0F000394BA /* GSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSettingViewController.h; sourceTree = "<group>"; };
+		D8A4216C1CBF7F0F000394BA /* GSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSettingViewController.m; sourceTree = "<group>"; };
+		D8A4216E1CBF81D0000394BA /* FWAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWAlertHelper.h; sourceTree = "<group>"; };
+		D8A4216F1CBF81D0000394BA /* FWAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWAlertHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1197,6 +1206,8 @@
 		063871B21A28B2EF0011285C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D8A4216E1CBF81D0000394BA /* FWAlertHelper.h */,
+				D8A4216F1CBF81D0000394BA /* FWAlertHelper.m */,
 				9771824D1A4BEC41000FEA70 /* IdentifyingString.h */,
 				9771824E1A4BEC41000FEA70 /* IdentifyingString.m */,
 				975F9B4B1A4D0F8700B9BAB0 /* GSDBManager.h */,
@@ -1266,6 +1277,8 @@
 				069D8C9E1A28561E00509CA1 /* GSBaseViewController.m */,
 				9787D3151A3C24AA00F6F617 /* GSLogInViewController.h */,
 				9787D3161A3C24AA00F6F617 /* GSLogInViewController.m */,
+				D8A4216B1CBF7F0F000394BA /* GSSettingViewController.h */,
+				D8A4216C1CBF7F0F000394BA /* GSSettingViewController.m */,
 				977182611A4C12C9000FEA70 /* SectionsViewController.h */,
 				977182621A4C12C9000FEA70 /* SectionsViewController.m */,
 				975638F01A46B98E00B0A703 /* GSSignUpViewController.h */,
@@ -1681,6 +1694,8 @@
 				97CEB6DF1A4E56F200E2388E /* GSTopicTableViewCell.m */,
 				97CEB6E11A4E630800E2388E /* GSHotUserTableViewCell.h */,
 				97CEB6E21A4E630800E2388E /* GSHotUserTableViewCell.m */,
+				D8A421681CBF78AA000394BA /* SettingTableViewCell.h */,
+				D8A421691CBF78AA000394BA /* SettingTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2729,6 +2744,7 @@
 				97F409C11A2E0ECA0002A07D /* GPUImageThresholdSketchFilter.m in Sources */,
 				97F409AE1A2E0ECA0002A07D /* GPUImageShiTomasiFeatureDetectionFilter.m in Sources */,
 				97F409351A2E0ECA0002A07D /* GPUImage3x3ConvolutionFilter.m in Sources */,
+				D8A421701CBF81D0000394BA /* FWAlertHelper.m in Sources */,
 				97BC25491A342C6700302A9A /* CustomBarItem.m in Sources */,
 				064530E91A1626630041844B /* NSArray+MTLManipulationAdditions.m in Sources */,
 				97635A161A4C41B90089D0C3 /* GSAreaCode.m in Sources */,
@@ -2758,6 +2774,7 @@
 				624667FF1CBE605800A5D3ED /* SVProgressHUD.m in Sources */,
 				9771824F1A4BEC41000FEA70 /* IdentifyingString.m in Sources */,
 				97F409421A2E0ECA0002A07D /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
+				D8A4216A1CBF78AA000394BA /* SettingTableViewCell.m in Sources */,
 				97F4096E1A2E0ECA0002A07D /* GPUImageHighPassFilter.m in Sources */,
 				975638F21A46B98E00B0A703 /* GSSignUpViewController.m in Sources */,
 				97F4099F1A2E0ECA0002A07D /* GPUImagePolkaDotFilter.m in Sources */,
@@ -2789,6 +2806,7 @@
 				97F4094E1A2E0ECA0002A07D /* GPUImageCropFilter.m in Sources */,
 				97F409A61A2E0ECA0002A07D /* GPUImageRGBErosionFilter.m in Sources */,
 				97F409951A2E0ECA0002A07D /* GPUImageOpeningFilter.m in Sources */,
+				D8A4216D1CBF7F0F000394BA /* GSSettingViewController.m in Sources */,
 				97F409AB1A2E0ECA0002A07D /* GPUImageScreenBlendFilter.m in Sources */,
 				97F409581A2E0ECA0002A07D /* GPUImageEmbossFilter.m in Sources */,
 				97F4099D1A2E0ECA0002A07D /* GPUImagePoissonBlendFilter.m in Sources */,

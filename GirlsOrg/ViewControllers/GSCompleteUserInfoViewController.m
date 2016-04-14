@@ -61,6 +61,7 @@
     self.avatarImageV.layer.cornerRadius = 50;
     self.avatarImageV.layer.masksToBounds = YES;
     [self.contentBGV addSubview:self.avatarImageV];
+    self.avatarImageV.userInteractionEnabled = YES;
     
     self.avatarLabel = [[UILabel alloc] initWithFrame:self.avatarImageV.frame];
     self.avatarLabel.backgroundColor = [UIColor clearColor];
@@ -70,6 +71,7 @@
     [self.contentBGV addSubview:self.avatarLabel];
     self.avatarLabel.textColor = [UIColor lightGrayColor];
     self.avatarLabel.text = CommonLocalizedStrings(@"completeUserInfo_addavatar");
+    self.avatarLabel.userInteractionEnabled = YES;
     
     UITapGestureRecognizer * tapww = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClicked)];
     [self.avatarImageV addGestureRecognizer:tapww];
