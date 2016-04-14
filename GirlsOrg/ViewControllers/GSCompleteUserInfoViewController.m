@@ -11,7 +11,7 @@
 #import "InputText.h"
 #import "ZHPickView.h"
 #import "TTImageHelper.h"
-#import "KVNProgress.h"
+#import "SVProgressHUD.h"
 @interface GSCompleteUserInfoViewController ()<UITextFieldDelegate,ZHPickViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 {
     int theType;
@@ -150,30 +150,30 @@
 -(void)uploadAvatar
 {
 //    [GSNetWorkManager uploadImg:self.avatarImg TheType:@"avatar" progress:nil
-    [KVNProgress showWithStatus:CommonLocalizedStrings(@"completeUserInfo_saving")];
+    [SVProgressHUD showWithStatus:CommonLocalizedStrings(@"completeUserInfo_saving")];
      [GSNetWorkManager uploadImg:self.avatarImg TheType:@"avatar" progress:nil success:^(id responseObject) {
          NSLog(@"avatarUrlPath:%@",responseObject);
          self.avatarUrl = responseObject;
          [self completeUserInfo];
      } failure:^(NSError *error) {
-         [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_saveFailed")];
+         [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_saveFailed")];
      }];
 }
 -(void)completeUserInfo
 {
     if (!self.nickText.text||self.nickText.text.length==0) {
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_shouldnick")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_shouldnick")];
         return;
     }
     else if (self.nickText.text.length<3||self.nickText.text.length>16){
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_nickLengthWrong")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_nickLengthWrong")];
         return;
     }
     if (!self.birthStr||self.birthStr.length==0) {
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_noBirthday")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"completeUserInfo_noBirthday")];
         return;
     }
-    [KVNProgress showWithStatus:CommonLocalizedStrings(@"completeUserInfo_saving")];
+    [SVProgressHUD showWithStatus:CommonLocalizedStrings(@"completeUserInfo_saving")];
     NSMutableDictionary * dict = [GSNetWorkManager commonDict];
     [dict setObject:@"member" forKey:@"service"];
     [dict setObject:@"update" forKey:@"method"];
@@ -182,7 +182,7 @@
     [dict setObject:self.nickText.text forKey:@"nickname"];
     [dict setObject:self.avatarUrl?self.avatarUrl:@"" forKey:@"avatar"];
     [GSNetWorkManager requestWithParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [KVNProgress dismiss];
+        [SVProgressHUD dismiss];
         GSUserInfo * uInfo = [[GSUserInfo alloc] initWithUserInfo:responseObject[@"data"]];
         [GSDBManager saveUserInfoWithUserInfo:uInfo];
         
@@ -192,7 +192,7 @@
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(errorCode)];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(errorCode)];
     }];
 }
 -(void)avatarClicked

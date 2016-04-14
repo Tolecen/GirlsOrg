@@ -10,7 +10,7 @@
 #import "GSCompleteUserInfoViewController.h"
 #import "InputText.h"
 #import "IdentifyingString.h"
-#import "KVNProgress.h"
+#import "SVProgressHUD.h"
 #import "GSAreaCode.h"
 #import "SMS_SDK/SMS_SDK.h"
 #import "SMS_SDK/CountryAndAreaCode.h"
@@ -192,13 +192,13 @@
 {
     if (self.accountText.text.length>0) {
         if (![self checkUniversalPhoneNum]) {
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
             return;
         }
     }
     else if(!self.accountText.text||self.accountText.text.length==0)
     {
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
         return;
     }
     [SMS_SDK getVerifyCodeByPhoneNumber:self.accountText.text AndZone:self.countryCode result:^(enum SMS_GetVerifyCodeResponseState state) {
@@ -213,16 +213,16 @@
         else if(0==state)
         {
             NSLog(@"block 获取验证码失败");
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"codesenderrormsg")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"codesenderrormsg")];
             
         }
         else if (SMS_ResponseStateMaxVerifyCode==state)
         {
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"maxcodemsg")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"maxcodemsg")];
         }
         else if(SMS_ResponseStateGetVerifyCodeTooOften==state)
         {
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"codetoooftenmsg")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"codetoooftenmsg")];
         }
     }];
 }
@@ -249,7 +249,7 @@
 -(BOOL)authVeryCode
 {
     __block BOOL resultB = NO;
-    [KVNProgress showWithStatus:CommonLocalizedStrings(@"authing")];
+    [SVProgressHUD showWithStatus:CommonLocalizedStrings(@"authing")];
     [SMS_SDK commitVerifyCode:self.verifyCodeText.text result:^(enum SMS_ResponseState state) {
         if (1==state) {
             NSLog(@"block 验证成功");
@@ -257,13 +257,13 @@
 //            UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"verifycoderighttitle", nil) message:str delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil) otherButtonTitles:nil, nil];
 //            [alert show];
 //            _alert3=alert;
-            [KVNProgress dismiss];
+            [SVProgressHUD dismiss];
             resultB = YES;
         }
         else if(0==state)
         {
             NSLog(@"block 验证失败");
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"verifycodeerrormsg")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"verifycodeerrormsg")];
 //            NSString* str=[NSString stringWithFormat:NSLocalizedString(@"verifycodeerrormsg", nil)];
 //            UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"verifycodeerrortitle", nil) message:str delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil)  otherButtonTitles:nil, nil];
 //            [alert show];
@@ -280,37 +280,37 @@
  
     if (self.accountText.text.length>0) {
         if (![self checkUniversalPhoneNum]) {
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
             return;
         }
     }
     else if(!self.accountText.text||self.accountText.text.length==0)
     {
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_noPhoneNum")];
         return;
     }
     
 
     
     if ((self.passwordText.text.length>0&&self.passwordText.text.length<6)||(self.passwordText.text.length>0&&self.passwordText.text.length>16)) {
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
         return;
     }
     else if (!self.passwordText.text||self.passwordText.text.length==0){
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noPWD")];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_noPWD")];
         return;
     }
     
     if (NeedVerifyCode) {
         if (self.verifyCodeText.text.length>0&&self.verifyCodeText.text.length!=4) {
             //            if (![IdentifyingString validateMobile:textField.text]) {
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_vNumFormatWrong")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_vNumFormatWrong")];
             return;
             //            }
         }
         else if (!self.verifyCodeText.text||self.verifyCodeText.text.length==0)
         {
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_noVNum")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_noVNum")];
             return;
         }
         else if (self.verifyCodeText.text.length==4){
@@ -329,14 +329,14 @@
 
 -(void)regThisAccount
 {
-    [KVNProgress showWithStatus:CommonLocalizedStrings(@"signingup")];
+    [SVProgressHUD showWithStatus:CommonLocalizedStrings(@"signingup")];
     NSMutableDictionary * dict = [GSNetWorkManager commonDict];
     [dict setObject:@"member" forKey:@"service"];
     [dict setObject:@"signup" forKey:@"method"];
     [dict setObject:self.accountText.text forKey:@"username"];
     [dict setObject:self.passwordText.text forKey:@"password"];
     [GSNetWorkManager requestWithParamaters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [KVNProgress dismiss];
+        [SVProgressHUD dismiss];
         GSUserInfo * uInfo = [[GSUserInfo alloc] initWithUserInfo:responseObject[@"data"]];
         [GSDBManager saveUserInfoWithUserInfo:uInfo];
         [SFHFKeychainUtils storeUsername:SFHAccount andPassword:[[responseObject objectForKey:@"data"] objectForKey:@"username"] forServiceName:SFHServiceName updateExisting:YES error:nil];
@@ -347,7 +347,7 @@
         [self toCompleteUserInfoPage];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(errorCode)];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(errorCode)];
     }];
 }
 
@@ -409,7 +409,7 @@
     if (textField == self.accountText) {
         if (textField.text.length>0) {
             if (![self checkUniversalPhoneNum]) {
-                [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
+                [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_wrongPhoneNum")];
             }
             else
             {
@@ -420,7 +420,7 @@
     else if (textField == self.verifyCodeText) {
         if (textField.text.length>0&&textField.text.length!=4) {
 //            if (![IdentifyingString validateMobile:textField.text]) {
-                [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_vNumFormatWrong")];
+                [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_vNumFormatWrong")];
 //            }
         }
         else if (textField.text.length==4){
@@ -429,7 +429,7 @@
     }
     else if (textField == self.passwordText) {
         if ((textField.text.length>0&&textField.text.length<6)||(textField.text.length>0&&textField.text.length>16)) {
-            [KVNProgress showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
+            [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(@"signup_pwdFormatWrong")];
         }
     }
 }
@@ -443,7 +443,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString * errorCode = [NSString stringWithFormat:@"%ld",(long)[error code]];
-        [KVNProgress showErrorWithStatus:CommonLocalizedStrings(errorCode)];
+        [SVProgressHUD showErrorWithStatus:CommonLocalizedStrings(errorCode)];
     }];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

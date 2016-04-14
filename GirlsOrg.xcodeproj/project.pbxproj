@@ -147,11 +147,6 @@
 		97635A161A4C41B90089D0C3 /* GSAreaCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 97635A151A4C41B90089D0C3 /* GSAreaCode.m */; };
 		97635A181A4C46F00089D0C3 /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97635A171A4C46F00089D0C3 /* country.plist */; };
 		9771824F1A4BEC41000FEA70 /* IdentifyingString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771824E1A4BEC41000FEA70 /* IdentifyingString.m */; };
-		9771825B1A4BF8E4000FEA70 /* UIImage+KVNEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182531A4BF8E4000FEA70 /* UIImage+KVNEmpty.m */; };
-		9771825C1A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182551A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m */; };
-		9771825D1A4BF8E4000FEA70 /* KVNProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182581A4BF8E4000FEA70 /* KVNProgress.m */; };
-		9771825E1A4BF8E4000FEA70 /* KVNProgressConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771825A1A4BF8E4000FEA70 /* KVNProgressConfiguration.m */; };
-		977182601A4BFA44000FEA70 /* KVNProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9771825F1A4BFA44000FEA70 /* KVNProgressView.xib */; };
 		977182631A4C12C9000FEA70 /* SectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182621A4C12C9000FEA70 /* SectionsViewController.m */; };
 		977182661A4C16F8000FEA70 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977182651A4C16F8000FEA70 /* SMS_SDK.framework */; };
 		977182691A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 977182681A4C173A000FEA70 /* NSDictionary-DeepMutableCopy.m */; };
@@ -685,15 +680,6 @@
 		97635A171A4C46F00089D0C3 /* country.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = country.plist; sourceTree = "<group>"; };
 		9771824D1A4BEC41000FEA70 /* IdentifyingString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifyingString.h; sourceTree = "<group>"; };
 		9771824E1A4BEC41000FEA70 /* IdentifyingString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentifyingString.m; sourceTree = "<group>"; };
-		977182521A4BF8E4000FEA70 /* UIImage+KVNEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNEmpty.h"; sourceTree = "<group>"; };
-		977182531A4BF8E4000FEA70 /* UIImage+KVNEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNEmpty.m"; sourceTree = "<group>"; };
-		977182541A4BF8E4000FEA70 /* UIImage+KVNImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KVNImageEffects.h"; sourceTree = "<group>"; };
-		977182551A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNImageEffects.m"; sourceTree = "<group>"; };
-		977182571A4BF8E4000FEA70 /* KVNProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNProgress.h; sourceTree = "<group>"; };
-		977182581A4BF8E4000FEA70 /* KVNProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgress.m; sourceTree = "<group>"; };
-		977182591A4BF8E4000FEA70 /* KVNProgressConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNProgressConfiguration.h; sourceTree = "<group>"; };
-		9771825A1A4BF8E4000FEA70 /* KVNProgressConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgressConfiguration.m; sourceTree = "<group>"; };
-		9771825F1A4BFA44000FEA70 /* KVNProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KVNProgressView.xib; sourceTree = "<group>"; };
 		977182611A4C12C9000FEA70 /* SectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionsViewController.h; sourceTree = "<group>"; };
 		977182621A4C12C9000FEA70 /* SectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionsViewController.m; sourceTree = "<group>"; };
 		977182651A4C16F8000FEA70 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
@@ -1378,7 +1364,6 @@
 				9742A8E91A4DAA6400060017 /* TOWebViewController */,
 				975F9B591A4D578200B9BAB0 /* SFHFKeychain */,
 				977182641A4C16F8000FEA70 /* SMSVerify */,
-				977182501A4BF8E4000FEA70 /* KVNProgress */,
 				97BD87891A4A9BD3000F2C4F /* PickView */,
 				97C3B8CB1A3C6ADC0077C983 /* LoginTextField */,
 				97345F3A1A3B2E74000A14D5 /* DBImageView */,
@@ -1760,38 +1745,6 @@
 				975F9B5B1A4D578200B9BAB0 /* SFHFKeychainUtils.m */,
 			);
 			path = SFHFKeychain;
-			sourceTree = "<group>";
-		};
-		977182501A4BF8E4000FEA70 /* KVNProgress */ = {
-			isa = PBXGroup;
-			children = (
-				9771825F1A4BFA44000FEA70 /* KVNProgressView.xib */,
-				977182511A4BF8E4000FEA70 /* Categories */,
-				977182561A4BF8E4000FEA70 /* Classes */,
-			);
-			path = KVNProgress;
-			sourceTree = "<group>";
-		};
-		977182511A4BF8E4000FEA70 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				977182521A4BF8E4000FEA70 /* UIImage+KVNEmpty.h */,
-				977182531A4BF8E4000FEA70 /* UIImage+KVNEmpty.m */,
-				977182541A4BF8E4000FEA70 /* UIImage+KVNImageEffects.h */,
-				977182551A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		977182561A4BF8E4000FEA70 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				977182571A4BF8E4000FEA70 /* KVNProgress.h */,
-				977182581A4BF8E4000FEA70 /* KVNProgress.m */,
-				977182591A4BF8E4000FEA70 /* KVNProgressConfiguration.h */,
-				9771825A1A4BF8E4000FEA70 /* KVNProgressConfiguration.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		977182641A4C16F8000FEA70 /* SMSVerify */ = {
@@ -2474,7 +2427,6 @@
 				97F409301A2E0ECA0002A07D /* lookup_amatorka.png in Resources */,
 				06B704BC1A12540000082D9C /* InfoPlist.strings in Resources */,
 				97F407C41A2E0C2E0002A07D /* mayfair.acv in Resources */,
-				977182601A4BFA44000FEA70 /* KVNProgressView.xib in Resources */,
 				97431C231A346B7500F26B3E /* MJRefresh.bundle in Resources */,
 				97D1758E1A2F5C7100355AEE /* yellow-red.acv in Resources */,
 				97BD87881A4A9B97000F2C4F /* city_china.plist in Resources */,
@@ -2584,7 +2536,6 @@
 				97F4094C1A2E0ECA0002A07D /* GPUImageColorPackingFilter.m in Sources */,
 				97F4098E1A2E0ECA0002A07D /* GPUImageMovie.m in Sources */,
 				97F4093E1A2E0ECA0002A07D /* GPUImageBoxBlurFilter.m in Sources */,
-				9771825C1A4BF8E4000FEA70 /* UIImage+KVNImageEffects.m in Sources */,
 				97F409541A2E0ECA0002A07D /* GPUImageDirectionalNonMaximumSuppressionFilter.m in Sources */,
 				97345F431A3B2E74000A14D5 /* DBImage.m in Sources */,
 				7AD40FD81A2C60F3002BB3CD /* GSMenu.m in Sources */,
@@ -2621,7 +2572,6 @@
 				97F409391A2E0ECA0002A07D /* GPUImageAlphaBlendFilter.m in Sources */,
 				97F409811A2E0ECA0002A07D /* GPUImageLookupFilter.m in Sources */,
 				06B705C41A126A9A00082D9C /* NSManagedObjectContext+MagicalObserving.m in Sources */,
-				9771825B1A4BF8E4000FEA70 /* UIImage+KVNEmpty.m in Sources */,
 				97525FCA1A35E6C600A6CA29 /* RNDecryptor.m in Sources */,
 				97F409361A2E0ECA0002A07D /* GPUImage3x3TextureSamplingFilter.m in Sources */,
 				97F4094B1A2E0ECA0002A07D /* GPUImageColorMatrixFilter.m in Sources */,
@@ -2661,7 +2611,6 @@
 				06B705BA1A126A9A00082D9C /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				97F409441A2E0ECA0002A07D /* GPUImageChromaKeyBlendFilter.m in Sources */,
 				06B705B31A126A9A00082D9C /* AFSecurityPolicy.m in Sources */,
-				9771825E1A4BF8E4000FEA70 /* KVNProgressConfiguration.m in Sources */,
 				97F4096F1A2E0ECA0002A07D /* GPUImageHistogramEqualizationFilter.m in Sources */,
 				97F409621A2E0ECA0002A07D /* GPUImageFramebufferCache.m in Sources */,
 				97F4094F1A2E0ECA0002A07D /* GPUImageCrosshairGenerator.m in Sources */,
@@ -2715,7 +2664,6 @@
 				97635A161A4C41B90089D0C3 /* GSAreaCode.m in Sources */,
 				97F407BF1A2E0C2E0002A07D /* DBCameraSegueViewController.m in Sources */,
 				97F409A51A2E0ECA0002A07D /* GPUImageRGBDilationFilter.m in Sources */,
-				9771825D1A4BF8E4000FEA70 /* KVNProgress.m in Sources */,
 				97F409561A2E0ECA0002A07D /* GPUImageDissolveBlendFilter.m in Sources */,
 				97F409411A2E0ECA0002A07D /* GPUImageBulgeDistortionFilter.m in Sources */,
 				97F4095A1A2E0ECA0002A07D /* GPUImageExclusionBlendFilter.m in Sources */,
