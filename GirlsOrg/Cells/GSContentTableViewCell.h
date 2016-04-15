@@ -14,4 +14,13 @@
 @property (nonatomic,strong) UIImageView * contentImageV;
 @property (nonatomic,strong) UIImageView * timeIcon;
 @property (nonatomic,strong) UILabel * timeLabel;
+
+@property (nonatomic,strong) UIView * hudongV;
+@property (nonatomic,strong) UIButton * commentBtn;
+@property (nonatomic,strong) UILabel * commentL;
+@property (nonatomic,strong) UIButton * forwardBtn;
+@property (nonatomic,strong) UILabel * forwardL;
+@property (nonatomic,strong) UIButton * likeBtn;
+@property (nonatomic,strong) UIImageView * likeImageV;
+@property (nonatomic,strong) UILabel * likeL;
 @end

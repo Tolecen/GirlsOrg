@@ -29,7 +29,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGRectGetWidth([UIScreen mainScreen].bounds)+65;
+    return CGRectGetWidth([UIScreen mainScreen].bounds)+65+50;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
