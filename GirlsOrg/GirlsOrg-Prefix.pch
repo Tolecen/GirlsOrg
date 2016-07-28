@@ -19,6 +19,7 @@
     #import "CoreData+MagicalRecord.h"
     #import "GSDBManager.h"
     #import "GSSystem.h"
+    #import "Masonry.h"
 #endif
 
 #ifndef CommonLocalizedStrings

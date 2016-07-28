@@ -131,7 +131,8 @@ static const CGSize kFilterCellSize = { 75, 90 };
 - (void) createInterface
 {
     CGFloat viewHeight = CGRectGetHeight([[UIScreen mainScreen] bounds]) - 64 - 40;
-    _cropView = [[DBCameraCropView alloc] initWithFrame:(CGRect){ 0, 64, 320, viewHeight }];
+    CGFloat viewWidth = CGRectGetWidth([[UIScreen mainScreen] bounds]);
+    _cropView = [[DBCameraCropView alloc] initWithFrame:(CGRect){ 0, 64, viewWidth, viewHeight }];
     [_cropView setHidden:YES];
     
     [self setFrameView:_cropView];
@@ -212,7 +213,7 @@ static const CGSize kFilterCellSize = { 75, 90 };
 - (UIView *) navigationBar
 {
     if ( !_navigationBar ) {
-        _navigationBar = [[UIView alloc] initWithFrame:(CGRect){ 0, 0, 320, 64 }];
+        _navigationBar = [[UIView alloc] initWithFrame:(CGRect){ 0, 0, Screen_Width, 64 }];
         [_navigationBar setBackgroundColor:[UIColor blackColor]];
         [_navigationBar setUserInteractionEnabled:YES];
         [_navigationBar addSubview:self.useButton];
@@ -227,7 +228,7 @@ static const CGSize kFilterCellSize = { 75, 90 };
 - (UIView *) bottomBar
 {
     if ( !_bottomBar ) {
-        _bottomBar = [[UIView alloc] initWithFrame:(CGRect){ 0, CGRectGetHeight([[UIScreen mainScreen] bounds]) - 40, 320, 40 }];
+        _bottomBar = [[UIView alloc] initWithFrame:(CGRect){ 0, CGRectGetHeight([[UIScreen mainScreen] bounds]) - 40, Screen_Width, 40 }];
         [_bottomBar setBackgroundColor:[UIColor blackColor]];
         [_bottomBar setHidden:YES];
         

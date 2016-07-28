@@ -45,14 +45,14 @@
     [self.view addSubview:editorToolbar];
     self.editorToolbar = editorToolbar;
     
-//    UIImageView *preViewImageView = [[UIImageView alloc] initWithFrame:
-//                                     CGRectMake(0,
-//                                                DefaultNaviHeight,
-//                                                Screen_Width,
-//                                                Screen_Height-DefaultNaviHeight-DefaultCameraToolbarHeight)];
-//    [self.view addSubview:preViewImageView];
-//    self.preViewImageView = preViewImageView;
-//    preViewImageView.image = self.sourceImage;
+    UIImageView *preViewImageView = [[UIImageView alloc] initWithFrame:
+                                     CGRectMake(0,
+                                                DefaultNaviHeight,
+                                                Screen_Width,
+                                                Screen_Height-DefaultNaviHeight-DefaultCameraToolbarHeight)];
+    [self.view addSubview:preViewImageView];
+    self.preViewImageView = preViewImageView;
+    preViewImageView.image = self.sourceImage;
     
 }
 

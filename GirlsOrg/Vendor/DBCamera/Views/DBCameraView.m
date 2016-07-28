@@ -55,7 +55,10 @@
         _previewLayer = [[AVCaptureVideoPreviewLayer alloc] init];
         if ( captureSession ) {
             [_previewLayer setSession:captureSession];
-            [_previewLayer setFrame: IS_RETINA_4 ? previewFrameRetina_4 : previewFrameRetina ];
+//            [_previewLayer setFrame: IS_RETINA_4 ? previewFrameRetina_4 : previewFrameRetina ];
+
+            [_previewLayer setFrame: CGRectMake(0, 0, Screen_Width, Screen_Height) ];
+            
         } else
             [_previewLayer setFrame:self.bounds];
         
@@ -107,7 +110,7 @@
 {
     if ( !_topContainerBar ) {
         _topContainerBar = [[UIView alloc] initWithFrame:(CGRect){ 0, 0, CGRectGetWidth(self.bounds), CGRectGetMinY(IS_RETINA_4 ? previewFrameRetina_4 : previewFrameRetina) }];
-        [_topContainerBar setBackgroundColor:RGBColor(0x000000, 1)];
+        [_topContainerBar setBackgroundColor:RGBColor(0x000000, .5)];
     }
     return _topContainerBar;
 }
@@ -118,7 +121,7 @@
         CGFloat newY = CGRectGetMaxY( IS_RETINA_4 ? previewFrameRetina_4 : previewFrameRetina );
         _bottomContainerBar = [[UIView alloc] initWithFrame:(CGRect){ 0, newY, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - newY }];
         [_bottomContainerBar setUserInteractionEnabled:YES];
-        [_bottomContainerBar setBackgroundColor:RGBColor(0x000000, 1)];
+        [_bottomContainerBar setBackgroundColor:RGBColor(0x000000, .5)];
     }
     return _bottomContainerBar;
 }
